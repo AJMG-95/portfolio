@@ -15,31 +15,31 @@
   <!-- Texto -->
   <div
     class="relative z-10 text-center md:text-left space-y-6 animate-fadeIn w-full md:w-[500px] lg:w-[600px] xl:w-[700px]">
-    <typewriter-text [text]="'👋 ' + ('home.greeting' | transloco)" [start]="true"
+    <typewriter-text [text]="'👋 ' + greeting" [start]="true"
       [class]="'text-3xl sm:text-4xl font-extrabold tracking-tight text-primary dark:text-white'" [tag]="'h1'"
       [onFinish]="onFirstTypingFinish.bind(this)">
     </typewriter-text>
 
-    <typewriter-text [text]="'home.description' | transloco" [start]="typing2Started"
+    <typewriter-text [text]="description" [start]="typing2Started"
       [class]="'text-base sm:text-lg text-textSoft dark:text-darkTextSoft'" [tag]="'p'">
     </typewriter-text>
 
     <p class="text-sm sm:text-base font-medium text-highlight dark:text-darkHighlight">
-      {{ 'home.stack' | transloco }}
+      {{ stack }}
     </p>
 
     <p class="italic text-sm sm:text-base text-textSoft dark:text-darkTextSoft">
-      "{{ 'home.claim' | transloco }}"
+      "{{ claim }}"
     </p>
 
     <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mt-6">
       <a routerLink="/projects"
         class="focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary dark:focus-visible:ring-white">
-        <app-button>{{ 'home.projectsBtn' | transloco }}</app-button>
+        <app-button>{{ projectsBtn }}</app-button>
       </a>
       <a routerLink="/contact"
         class="focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary dark:focus-visible:ring-white">
-        <app-button variant="secondary">{{ 'home.contactBtn' | transloco }}</app-button>
+        <app-button variant="secondary">{{ contactBtn }}</app-button>
       </a>
     </div>
   </div>
