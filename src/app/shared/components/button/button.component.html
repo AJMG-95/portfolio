@@ -1,1 +1,10 @@
-<p>button works!</p>
+<button [type]="type"
+  class="inline-block text-center font-semibold text-sm rounded-lg px-5 py-2 transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary dark:focus-visible:ring-white"
+  [ngClass]="{
+    'bg-primary text-white hover:bg-linkHover dark:bg-accent dark:hover:bg-white dark:hover:text-darkBackground':
+      variant === 'primary',
+    'bg-gray-200 text-gray-800 hover:bg-gray-300 dark:bg-darkBorderLight dark:text-white dark:hover:bg-gray-600':
+      variant === 'secondary'
+  }">
+  <ng-content></ng-content>
+</button>

@@ -1,0 +1,11 @@
+<ng-container [ngSwitch]="tag">
+  <h1 *ngSwitchCase="'h1'" [class]="class">
+    <span>{{ visibleText }}</span><span *ngIf="showCursor" class="animate-blink">|</span>
+  </h1>
+  <h2 *ngSwitchCase="'h2'" [class]="class">
+    <span>{{ visibleText }}</span><span *ngIf="showCursor" class="animate-blink">|</span>
+  </h2>
+  <p *ngSwitchCase="'p'" [class]="class">
+    <span>{{ visibleText }}</span><span *ngIf="showCursor" class="animate-blink">|</span>
+  </p>
+</ng-container>
