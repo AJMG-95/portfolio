@@ -1,0 +1,7 @@
+<label for="lang-select" class="sr-only">Change language</label>
+<select id="lang-select" [value]="activeLang" (change)="onLangChange($event)" aria-label="Select language"
+  class="p-2 border rounded cursor-pointer font-semibold">
+  <option *ngFor="let lang of availableLangs" [value]="lang">
+    {{ lang.toUpperCase() }}
+  </option>
+</select>

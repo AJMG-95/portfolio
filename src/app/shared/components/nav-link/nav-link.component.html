@@ -1,0 +1,10 @@
+<li class="px-3 py-2 rounded-b-lg transition-all duration-300 transform
+         hover:bg-gray-100 dark:hover:bg-gray-800
+         hover:text-primary dark:hover:text-accent
+         hover:scale-105 hover:font-semibold"
+  routerLinkActive="border-b-2 border-primary dark:border-accent scale-105 font-semibold text-primary dark:text-accent"
+  [routerLinkActiveOptions]="{ exact: true }" role="none">
+  <a [routerLink]="link" class="text-sm block" role="menuitem">
+    {{ labelKey | transloco }}
+  </a>
+</li>

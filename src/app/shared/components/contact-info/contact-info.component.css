@@ -1,0 +1,12 @@
+@media print {
+  a[href]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.8rem;
+    color: #555;
+  }
+}
+
+.snackbar-success {
+  background-color: #4caf50;
+  color: white;
+}

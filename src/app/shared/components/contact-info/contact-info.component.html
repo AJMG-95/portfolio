@@ -1,0 +1,18 @@
+<div class="flex items-center gap-2 text-sm sm:text-base text-textMain whitespace-nowrap">
+
+  <i [class]="icon" aria-hidden="true" class="text-primary"></i>
+
+  <ng-container *ngIf="link; else plainText">
+    <a [href]="link" target="_blank" rel="noopener noreferrer"
+      class="text-link hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-focusOutline rounded">
+      {{ text }}
+    </a>
+  </ng-container>
+
+  <ng-template #plainText>
+    <span tabindex="0"
+      class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-focusOutline rounded">
+      {{ text }}
+    </span>
+  </ng-template>
+</div>

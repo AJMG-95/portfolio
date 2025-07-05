@@ -1,0 +1,33 @@
+<nav class="bg-white border-b border-gray-300 text-gray-900 dark:bg-gray-900 dark:border-gray-700 dark:text-white">
+  <div class="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+
+      <!-- Izquierda: Nombre -->
+      <a routerLink="/"
+        class="text-lg font-bold focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:focus:ring-offset-gray-900">
+        Antonio Marchena
+      </a>
+
+      <!-- Centro: Navegación -->
+      <ul class="hidden md:flex space-x-6" role="menubar" aria-label="Main Navigation">
+        <li role="none">
+          <app-nav-link link="/" labelKey="navbar.home"></app-nav-link>
+        </li>
+        <li role="none">
+          <app-nav-link link="/about" labelKey="navbar.about"></app-nav-link>
+        </li>
+        <li role="none">
+          <app-nav-link link="/projects" labelKey="navbar.projects"></app-nav-link>
+        </li>
+        <li role="none">
+          <app-nav-link link="/contact"  labelKey="navbar.contact"></app-nav-link>
+        </li> </ul>
+
+      <!-- Derecha: Selector de idioma y tema -->
+      <div class="flex items-center space-x-3">
+        <language-switcher class="no-print hidden md:block"></language-switcher>
+        <theme-toggle></theme-toggle>
+      </div>
+    </div>
+  </div>
+</nav>
