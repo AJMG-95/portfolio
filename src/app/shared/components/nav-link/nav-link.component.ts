@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CommonModule, NgIf } from '@angular/common';
 import { TranslocoModule } from '@jsverse/transloco';
 
@@ -14,6 +14,12 @@ export class NavLinkComponent {
   @Input() labelKey!: string;
 
   isActive = false;
+
+  constructor(private router: Router) { }
+
+  navigate(): void {
+    this.router.navigate([this.link]);
+  }
 
 
 }
