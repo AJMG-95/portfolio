@@ -1,6 +1,16 @@
 {
+  "theme": {
+    "darkMode": "Dark Mode",
+    "lightMode": "Light Mode"
+  },
   "navbar": {
     "home": "Home",
+    "about": "About Me",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
     "about": "About Me",
     "projects": "Projects",
     "contact": "Contact"

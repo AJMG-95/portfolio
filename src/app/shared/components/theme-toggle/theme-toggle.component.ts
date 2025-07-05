@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common'; // ✅ Importar CommonModule
+import { TranslocoModule } from '@jsverse/transloco';
 
 @Component({
   selector: 'theme-toggle',
   standalone: true,
   templateUrl: './theme-toggle.component.html',
-  imports: [CommonModule], // ✅ Incluir CommonModule aquí
+  imports: [CommonModule, TranslocoModule], // ✅ Incluir CommonModule aquí
 })
 export class ThemeToggle implements OnInit {
   isDark = false;

@@ -1,6 +1,16 @@
 {
+  "theme": {
+    "darkMode": "Modo oscuro",
+    "lightMode": "Modo claro"
+  },
   "navbar": {
     "home": "Inicio",
+    "about": "Sobre mí",
+    "projects": "Proyectos",
+    "contact": "Contacto"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados.",
     "about": "Sobre mí",
     "projects": "Proyectos",
     "contact": "Contacto"
