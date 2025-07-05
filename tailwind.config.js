@@ -59,10 +59,27 @@ module.exports = {
           '0%': { opacity: '1', transform: 'translateX(0)' },
           '100%': { opacity: '0', transform: 'translateX(100%)' },
         },
+        typing: {
+          from: { width: '0' },
+          to: { width: '100%' },
+        },
+        blob: {
+          '0%': { transform: 'translate(0px, 0px) scale(1)' },
+          '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+          '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+          '100%': { transform: 'translate(0px, 0px) scale(1)' },
+        },
+        blink: {
+          '0%, 100%': { borderColor: 'transparent' },
+          '50%': { borderColor: 'currentColor' },
+        },
       },
       animation: {
+        typing: 'typing 3s steps(40, end) 1',
+        blink: 'blink 1s step-end infinite',
         fadeIn: 'fadeIn 0.5s ease-out forwards',
         fadeOut: 'fadeOut 0.5s ease-out forwards',
+        blob: 'blob 8s infinite',
       },
     },
   },

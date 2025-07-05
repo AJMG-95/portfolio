@@ -20,6 +20,14 @@
     "role": "Desarrollador Frontend",
     "cta": "Explora mi trabajo"
   },
+  "home": {
+    "greeting": "¡Hola! Soy Antonio Marchena",
+    "description": "Desarrollador frontend apasionado por construir experiencias modernas y accesibles con Angular.",
+    "stack": "Angular · TypeScript · HTML · CSS · UX · A11y",
+    "claim": "Trabajo para que la web sea más inclusiva y centrada en el usuario.",
+    "projectsBtn": "Ver proyectos",
+    "contactBtn": "Contactar"
+  },
   "about": {
     "title": "Sobre Mí",
     "description": "Desarrollador frontend con experiencia en aplicaciones móviles y web, centrado en crear experiencias de usuario fluidas y visualmente atractivas. Me apasiona escribir código limpio y mantenible, aplicando arquitectura limpia y buenas prácticas de desarrollo. Disfruto trabajando en equipo, compartiendo conocimientos y aprendiendo constantemente para aportar valor real en cada proyecto."

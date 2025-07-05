@@ -1,33 +1,54 @@
 <nav class="bg-white border-b border-gray-300 text-gray-900 dark:bg-gray-900 dark:border-gray-700 dark:text-white">
   <div class="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16">
-
       <!-- Izquierda: Nombre -->
       <a routerLink="/"
         class="text-lg font-bold focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:focus:ring-offset-gray-900">
         Antonio Marchena
       </a>
 
-      <!-- Centro: Navegación -->
-      <ul class="hidden md:flex space-x-6" role="menubar" aria-label="Main Navigation">
-        <li role="none">
-          <app-nav-link link="/" labelKey="navbar.home"></app-nav-link>
-        </li>
-        <li role="none">
-          <app-nav-link link="/about" labelKey="navbar.about"></app-nav-link>
-        </li>
-        <li role="none">
-          <app-nav-link link="/projects" labelKey="navbar.projects"></app-nav-link>
-        </li>
-        <li role="none">
-          <app-nav-link link="/contact"  labelKey="navbar.contact"></app-nav-link>
-        </li> </ul>
+      <!-- Botones móviles -->
+      <div class="flex md:hidden space-x-2">
+        <button (click)="toggleMobileMenu()" class="focus:outline-none" aria-label="Abrir menú">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
 
-      <!-- Derecha: Selector de idioma y tema -->
-      <div class="flex items-center space-x-3">
-        <language-switcher class="no-print hidden md:block"></language-switcher>
+      <!-- Navegación desktop -->
+      <ul class="hidden md:flex space-x-6" role="menubar" aria-label="Main Navigation">
+        <li><app-nav-link link="/" labelKey="navbar.home"></app-nav-link></li>
+        <li><app-nav-link link="/about" labelKey="navbar.about"></app-nav-link></li>
+        <li><app-nav-link link="/projects" labelKey="navbar.projects"></app-nav-link></li>
+        <li><app-nav-link link="/contact" labelKey="navbar.contact"></app-nav-link></li>
+      </ul>
+
+      <!-- Configuración desktop -->
+      <div class="hidden md:flex items-center space-x-3">
+        <language-switcher class="no-print"></language-switcher>
         <theme-toggle></theme-toggle>
       </div>
     </div>
+
+    <!-- Menú desplegable móvil -->
+    <!-- Menú desplegable móvil -->
+    <div *ngIf="showMobileMenu"
+      class="md:hidden mt-2 border-t border-gray-300 dark:border-gray-700 py-2 px-4 flex justify-between">
+      <!-- Navegación móvil -->
+      <div class="flex flex-col space-y-2">
+        <app-nav-link link="/" labelKey="navbar.home" class="block"></app-nav-link>
+        <app-nav-link link="/about" labelKey="navbar.about" class="block"></app-nav-link>
+        <app-nav-link link="/projects" labelKey="navbar.projects" class="block"></app-nav-link>
+        <app-nav-link link="/contact" labelKey="navbar.contact" class="block"></app-nav-link>
+      </div>
+
+      <!-- Configuración móvil (tema arriba, idioma debajo) -->
+      <div class="flex flex-col items-end space-y-2">
+        <theme-toggle></theme-toggle>
+        <language-switcher></language-switcher>
+      </div>
+    </div>
+
   </div>
 </nav>

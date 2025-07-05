@@ -1,9 +1,10 @@
-import { Component, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
 import { ButtonComponent } from '../../shared/components/button/button.component';
 import { ProfilePhoto } from '../../shared/components/profile-photo/profile-photo.component';
 import { Typewriter } from '../../shared/components/typewriter/typewriter.component';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-home-page',
@@ -14,37 +15,67 @@ import { Typewriter } from '../../shared/components/typewriter/typewriter.compon
     TranslocoModule,
     ButtonComponent,
     ProfilePhoto,
-    Typewriter
+    Typewriter,
+    NgIf
   ],
 })
-export class HomePage implements OnInit, AfterViewInit {
-  @ViewChild('heading') heading!: ElementRef<HTMLElement>;
-  typingDone = false;
+export class HomePage {
+  greeting = signal('');
+  description = signal('');
+  stack = signal('');
+  claim = signal('');
+  projectsBtn = signal('');
+  contactBtn = signal('');
+  typewriterKey = signal(0);
+
+
   typing1Done = false;
   typing2Started = false;
 
-  greeting = '';
-  description = '';
-  stack = '';
-  claim = '';
-  projectsBtn = '';
-  contactBtn = '';
+  showTypewriters = signal(true);
 
-  constructor(private transloco: TranslocoService) { }
+  constructor(private transloco: TranslocoService) {
+    this.loadTranslations();
 
-  ngOnInit(): void {
-    this.greeting = this.transloco.translate('home.greeting');
-    this.description = this.transloco.translate('home.description');
-    this.stack = this.transloco.translate('home.stack');
-    this.claim = this.transloco.translate('home.claim');
-    this.projectsBtn = this.transloco.translate('home.projectsBtn');
-    this.contactBtn = this.transloco.translate('home.contactBtn');
+    this.transloco.langChanges$.subscribe(() => {
+      this.typing1Done = false;
+      this.typing2Started = false;
+      this.showTypewriters.set(false); // 🔁 Fuerza que se destruya
+      setTimeout(() => {
+        this.loadTranslations();
+        this.showTypewriters.set(true); // 🔁 Fuerza que se vuelva a crear
+      });
+    });
   }
 
-  ngAfterViewInit(): void {
-    setTimeout(() => {
-      this.typingDone = true;
-    }, 3000);
+  ngOnInit(): void {
+    const updateTexts = () => {
+      this.greeting.set(`👋 ${this.transloco.translate('home.greeting')}`);
+      this.description.set(this.transloco.translate('home.description'));
+      this.stack.set(this.transloco.translate('home.stack'));
+      this.claim.set(this.transloco.translate('home.claim'));
+      this.projectsBtn.set(this.transloco.translate('home.projectsBtn'));
+      this.contactBtn.set(this.transloco.translate('home.contactBtn'));
+      this.typing1Done = false;
+      this.typing2Started = false;
+      this.typewriterKey.set(this.typewriterKey() + 1); // 👈 reinicia typewriter
+    };
+
+    updateTexts();
+
+    this.transloco.langChanges$.subscribe(() => {
+      updateTexts();
+    });
+  }
+
+
+  loadTranslations() {
+    this.transloco.selectTranslate('home.greeting').subscribe(t => this.greeting.set(`👋 ${t}`));
+    this.transloco.selectTranslate('home.description').subscribe(t => this.description.set(t));
+    this.transloco.selectTranslate('home.stack').subscribe(t => this.stack.set(t));
+    this.transloco.selectTranslate('home.claim').subscribe(t => this.claim.set(t));
+    this.transloco.selectTranslate('home.projectsBtn').subscribe(t => this.projectsBtn.set(t));
+    this.transloco.selectTranslate('home.contactBtn').subscribe(t => this.contactBtn.set(t));
   }
 
   onFirstTypingFinish(): void {
