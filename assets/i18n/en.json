@@ -1,0 +1,130 @@
+{
+  "navbar": {
+    "home": "Home",
+    "about": "About Me",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "name": "Antonio Jesús Marchena Guerrero",
+    "role": "Frontend Developer",
+    "cta": "Explore my work"
+  },
+  "about": {
+    "title": "About Me",
+    "description": "Frontend developer with experience in mobile and web applications, focused on creating smooth and visually appealing user experiences. I am passionate about writing clean, maintainable code by applying clean architecture and good development practices. I enjoy teamwork, sharing knowledge, and continuously learning to deliver real value in every project."
+  },
+  "contact": {
+    "title": "Contact Information",
+    "email": "antonioj.marchena.dev@gmail.com",
+    "phone": "+34 634 81 76 19",
+    "linkedin": "https://linkedin.com/in/aj-marchena",
+    "github": "https://github.com/AJMG-95"
+  },
+  "languages": {
+    "title": "Languages",
+    "items": [
+      "Spanish (Native)",
+      "English (B2 Certified)"
+    ]
+  },
+  "education": {
+    "title": "Education",
+    "items": [
+      {
+        "institution": "University of Cádiz",
+        "degree": "Master's Degree in Integrated Water Management",
+        "dates": "2020 - 2022"
+      },
+      {
+        "institution": "IES Doñana",
+        "degree": "Advanced Vocational Training in Web Application Development",
+        "dates": "2021 - 2024"
+      },
+      {
+        "institution": "University of Cádiz",
+        "degree": "Bachelor's Degree in Environmental Sciences",
+        "dates": "2014 - 2019"
+      }
+    ]
+  },
+  "experience": {
+    "title": "Experience",
+    "items": [
+      {
+        "role": "Frontend Developer",
+        "company": "Controlnet S.L.",
+        "dates": "March 2024 - July 2025",
+        "tasks": [
+          "Developed mobile interfaces using Flutter.",
+          "Created reusable components in Angular.",
+          "Integrated REST APIs.",
+          "Used Tailwind CSS and Bootstrap.",
+          "Applied clean architecture and SOLID principles.",
+          "Mentored interns."
+        ]
+      },
+      {
+        "role": "Intern Developer",
+        "company": "Controlnet S.L.",
+        "dates": "October 2023 - January 2024",
+        "tasks": [
+          "Web development with Angular 16.",
+          "Responsive interfaces with Bootstrap.",
+          "API consumption.",
+          "Testing and feature integration.",
+          "Technical collaboration with the team."
+        ]
+      }
+    ]
+  },
+  "skills": {
+    "title": "Skills",
+    "technical": {
+      "frameworks": ["Angular", "React", "Flutter", "Tailwind CSS", "Bootstrap"],
+      "languages": ["TypeScript", "JavaScript", "Dart", "HTML5", "CSS3"],
+      "tools": ["Git", "GitHub"],
+      "management": ["Asana", "Monday"],
+      "principles": ["Clean architecture", "Web accessibility", "Responsive design"]
+    },
+    "soft": [
+      "Agile teamwork (Scrum/Sprint)",
+      "Proactivity and continuous learning",
+      "Technical problem-solving",
+      "Attention to detail",
+      "Autonomy and responsibility"
+    ]
+  },
+  "training": {
+    "title": "Additional Training",
+    "items": [
+      "Udemy - Flutter - From Zero to Expert | Fernando Herrera | In progress",
+      "Udemy - Angular - From Zero to Expert 2025 | Fernando Herrera | In progress"
+    ]
+  },
+  "references": {
+    "title": "References",
+    "items": [
+      {
+        "name": "Francisco Romero-Haupold",
+        "role": "COO at Controlnet S.L.",
+        "linkedin": "https://linkedin.com/in/francisco-romero-haupold-b63740278/",
+        "contact": "Available upon request"
+      },
+      {
+        "name": "Ricardo Pina",
+        "role": "Financial Director at Controlnet S.L.",
+        "linkedin": "https://www.linkedin.com/in/rpinac/",
+        "contact": "Available upon request"
+      }
+    ],
+    "letter": {
+      "text": "Recommendation letter (PDF):",
+      "link": "https://drive.google.com/file/d/1gZKFeNZZyPN-d-fDjA8DGZZuv0tqF76P/view"
+    }
+  },
+  "buttons": {
+    "download": "Download CV",
+    "contact": "Contact Me"
+  }
+}
