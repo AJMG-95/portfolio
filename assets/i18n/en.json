@@ -20,6 +20,14 @@
     "role": "Frontend Developer",
     "cta": "Explore my work"
   },
+  "home": {
+    "greeting": "Hi! I'm Antonio Marchena",
+    "description": "Frontend developer passionate about building modern and accessible experiences with Angular.",
+    "stack": "Angular · TypeScript · HTML · CSS · UX · A11y",
+    "claim": "I strive to make the web more inclusive and user-centered.",
+    "projectsBtn": "View Projects",
+    "contactBtn": "Contact Me"
+  },
   "about": {
     "title": "About Me",
     "description": "Frontend developer with experience in mobile and web applications, focused on creating smooth and visually appealing user experiences. I am passionate about writing clean, maintainable code by applying clean architecture and good development practices. I enjoy teamwork, sharing knowledge, and continuously learning to deliver real value in every project."
