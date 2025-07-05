@@ -1,0 +1,1 @@
+import{$ as a,Sa as o,Ta as n,cb as s,gb as i}from"./chunk-N2CMDIQR.js";var p=class t{static \u0275fac=function(e){return new(e||t)};static \u0275cmp=a({type:t,selectors:[["app-about"]],standalone:!0,features:[i],decls:2,vars:0,template:function(e,u){e&1&&(o(0,"p"),s(1,"about works!"),n())}})};export{p as AboutPage};

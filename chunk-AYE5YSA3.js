@@ -1,0 +1,1 @@
+import{$ as o,Sa as s,Ta as a,cb as n,gb as r}from"./chunk-N2CMDIQR.js";var c=class t{static \u0275fac=function(e){return new(e||t)};static \u0275cmp=o({type:t,selectors:[["app-projects"]],standalone:!0,features:[r],decls:2,vars:0,template:function(e,i){e&1&&(s(0,"p"),n(1,"projects works!"),a())}})};export{c as ProjectsPage};
