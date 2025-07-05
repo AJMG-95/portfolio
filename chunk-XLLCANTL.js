@@ -1,1 +1,0 @@
-import{$ as o,Na as a,Oa as n,Ua as m,Wa as s}from"./chunk-OOADT6TQ.js";var i=class t{static \u0275fac=function(e){return new(e||t)};static \u0275cmp=o({type:t,selectors:[["app-home"]],standalone:!0,features:[s],decls:2,vars:0,template:function(e,r){e&1&&(a(0,"p"),m(1,"home works!"),n())}})};export{i as HomePage};
