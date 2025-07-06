@@ -1,3 +1,36 @@
 <page-wrapper>
-  <p>En construcción / This section is currently being built.</p>
+  <section class="max-w-3xl mx-auto px-4 py-12 text-textMain dark:text-darkTextMain transition-colors"
+    aria-labelledby="contact-title">
+    <h1 id="contact-title" class="text-3xl font-bold mb-4 text-primary dark:text-darkHighlight">
+      {{ 'contact.title' | transloco }}
+    </h1>
+
+    <p class="text-textSoft dark:text-darkTextSoft mb-8">
+      {{ 'home.claim' | transloco }}
+    </p>
+
+    <ul class="space-y-4 text-sm sm:text-base" aria-label="Información de contacto">
+      <li>
+        <app-contact-info type="email" [value]="'contact.email' | transloco" [label]="'Email'" iconPath="email">
+        </app-contact-info>
+      </li>
+
+      <li>
+        <app-contact-info type="phone" [value]="'contact.phone' | transloco" [label]="'Teléfono'" iconPath="phone">
+        </app-contact-info>
+      </li>
+
+      <li>
+        <app-contact-info type="link" [value]="'contact.linkedin' | transloco" [label]="'LinkedIn'" iconPath="linkedin"
+          [external]="true">
+        </app-contact-info>
+      </li>
+
+      <li>
+        <app-contact-info type="link" [value]="'contact.github' | transloco" [label]="'GitHub'" iconPath="github"
+          [external]="true">
+        </app-contact-info>
+      </li>
+    </ul>
+  </section>
 </page-wrapper>
