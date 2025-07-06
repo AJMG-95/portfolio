@@ -17,9 +17,6 @@ export class NavLinkComponent {
 
   constructor(private router: Router) { }
 
-  navigate(): void {
-    this.router.navigate([this.link]);
-  }
 
 
 }

@@ -7,17 +7,17 @@
         Antonio Marchena
       </a>
 
-      <!-- Botones móviles -->
-      <div class="flex md:hidden space-x-2">
-        <button (click)="toggleMobileMenu()" class="focus:outline-none" aria-label="Abrir menú">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
-      </div>
+      <!-- Botón menú móvil -->
+      <button (click)="toggleMobileMenu()" class="md:hidden focus:outline-none" aria-label="Toggle menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path *ngIf="!isMobileMenuOpen" d="M4 6h16M4 12h16M4 18h16" />
+          <path *ngIf="isMobileMenuOpen" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
 
       <!-- Navegación desktop -->
-      <ul class="hidden md:flex space-x-6" role="menubar" aria-label="Main Navigation">
+      <ul class="hidden md:flex space-x-6 w-fit" role="menubar" aria-label="Main Navigation">
         <li><app-nav-link link="/" labelKey="navbar.home"></app-nav-link></li>
         <li><app-nav-link link="/about" labelKey="navbar.about"></app-nav-link></li>
         <li><app-nav-link link="/projects" labelKey="navbar.projects"></app-nav-link></li>
@@ -31,24 +31,26 @@
       </div>
     </div>
 
-    <!-- Menú desplegable móvil -->
-    <!-- Menú desplegable móvil -->
-    <div *ngIf="showMobileMenu"
-      class="md:hidden mt-2 border-t border-gray-300 dark:border-gray-700 py-2 px-4 flex justify-between">
-      <!-- Navegación móvil -->
-      <div class="flex flex-col space-y-2">
-        <app-nav-link link="/" labelKey="navbar.home" class="block"></app-nav-link>
-        <app-nav-link link="/about" labelKey="navbar.about" class="block"></app-nav-link>
-        <app-nav-link link="/projects" labelKey="navbar.projects" class="block"></app-nav-link>
-        <app-nav-link link="/contact" labelKey="navbar.contact" class="block"></app-nav-link>
-      </div>
+    <!-- Menú móvil -->
+<!-- Menú móvil -->
+<div *ngIf="isMobileMenuOpen" class="relative z-10 md:hidden mt-2 px-3 transition-all duration-300 ease-in-out">
+  <div class="grid grid-cols-[auto_1fr] gap-4 items-start">
+    <!-- Columna izquierda: enlaces (auto ancho) -->
+    <ul class="flex flex-col gap-1 w-fit" role="menu" aria-label="Mobile Navigation">
+      <li><app-nav-link link="/" labelKey="navbar.home"></app-nav-link></li>
+      <li><app-nav-link link="/about" labelKey="navbar.about"></app-nav-link></li>
+      <li><app-nav-link link="/projects" labelKey="navbar.projects"></app-nav-link></li>
+      <li><app-nav-link link="/contact" labelKey="navbar.contact"></app-nav-link></li>
+    </ul>
 
-      <!-- Configuración móvil (tema arriba, idioma debajo) -->
-      <div class="flex flex-col items-end space-y-2">
-        <theme-toggle></theme-toggle>
-        <language-switcher></language-switcher>
-      </div>
+    <!-- Columna derecha: configuración -->
+    <div class="flex flex-col items-end gap-2 pr-2">
+      <theme-toggle></theme-toggle>
+      <language-switcher class="no-print"></language-switcher>
     </div>
+  </div>
+</div>
+
 
   </div>
 </nav>

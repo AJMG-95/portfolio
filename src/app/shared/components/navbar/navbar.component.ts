@@ -19,9 +19,11 @@ import { NavLinkComponent } from '../nav-link/nav-link.component';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  showMobileMenu = false;
 
-  toggleMobileMenu() {
-    this.showMobileMenu = !this.showMobileMenu;
+  isMobileMenuOpen = false;
+
+
+  toggleMobileMenu(): void {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
   }
 }

@@ -1,0 +1,5 @@
+/* navbar.component.css */
+
+:host ::ng-deep ul[role="menu"] {
+  transition: all 0.3s ease-in-out;
+}
