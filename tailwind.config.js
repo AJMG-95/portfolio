@@ -59,6 +59,10 @@ module.exports = {
           '0%': { opacity: '1', transform: 'translateX(0)' },
           '100%': { opacity: '0', transform: 'translateX(100%)' },
         },
+        fadeInOpacity: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
         typing: {
           from: { width: '0' },
           to: { width: '100%' },
@@ -73,13 +77,21 @@ module.exports = {
           '0%, 100%': { borderColor: 'transparent' },
           '50%': { borderColor: 'currentColor' },
         },
+        bounceScale: {
+          '0%': { transform: 'scale(1)' },
+          '30%': { transform: 'scale(1.15)' },
+          '60%': { transform: 'scale(0.97)' },
+          '100%': { transform: 'scale(1.05)' },
+        }
       },
       animation: {
         typing: 'typing 3s steps(40, end) 1',
         blink: 'blink 1s step-end infinite',
-        fadeIn: 'fadeIn 0.5s ease-out forwards',
+        fadeIn: 'fadeIn 1s ease-out forwards',
         fadeOut: 'fadeOut 0.5s ease-out forwards',
         blob: 'blob 8s infinite',
+        fadeInOpacity: 'fadeInOpacity 1s ease-out forwards',
+        bounceScale: 'bounceScale 300ms ease-in-out'
       },
     },
   },

@@ -5,6 +5,7 @@ import { ButtonComponent } from '../../shared/components/button/button.component
 import { ProfilePhoto } from '../../shared/components/profile-photo/profile-photo.component';
 import { Typewriter } from '../../shared/components/typewriter/typewriter.component';
 import { NgIf } from '@angular/common';
+import { PageWrapper } from '../../shared/components/page-wrapper/page-wrapper.component';
 
 @Component({
   selector: 'app-home-page',
@@ -16,7 +17,8 @@ import { NgIf } from '@angular/common';
     ButtonComponent,
     ProfilePhoto,
     Typewriter,
-    NgIf
+    NgIf,
+    PageWrapper
   ],
 })
 export class HomePage {
@@ -28,7 +30,9 @@ export class HomePage {
   contactBtn = signal('');
   typewriterKey = signal(0);
 
+  showPhoto = false;
 
+  typing1Started = false;
   typing1Done = false;
   typing2Started = false;
 
@@ -40,10 +44,10 @@ export class HomePage {
     this.transloco.langChanges$.subscribe(() => {
       this.typing1Done = false;
       this.typing2Started = false;
-      this.showTypewriters.set(false); // 🔁 Fuerza que se destruya
+      this.showTypewriters.set(false);
       setTimeout(() => {
         this.loadTranslations();
-        this.showTypewriters.set(true); // 🔁 Fuerza que se vuelva a crear
+        this.showTypewriters.set(true);
       });
     });
   }
@@ -58,7 +62,13 @@ export class HomePage {
       this.contactBtn.set(this.transloco.translate('home.contactBtn'));
       this.typing1Done = false;
       this.typing2Started = false;
-      this.typewriterKey.set(this.typewriterKey() + 1); // 👈 reinicia typewriter
+      this.typewriterKey.set(this.typewriterKey() + 1);
+
+      // Espera a que acabe animate-fadeIn (1s)
+      setTimeout(() => {
+        this.typing1Started = true;
+        this.showPhoto = true;
+      }, 1010); // ⏱ igual que fadeIn
     };
 
     updateTexts();
@@ -81,5 +91,6 @@ export class HomePage {
   onFirstTypingFinish(): void {
     this.typing1Done = true;
     this.typing2Started = true;
+    this.showPhoto = true;
   }
 }

@@ -1,0 +1,12 @@
+<nav role="tablist" aria-label="Secciones sobre mí"
+  class="flex flex-wrap sm:flex-nowrap justify-center gap-2 sm:gap-4 mb-8 px-2 overflow-x-auto scrollbar-hide">
+  <button *ngFor="let tab of tabs" role="tab" type="button" [attr.aria-selected]="selectedTab === tab"
+    [attr.aria-label]="tab | transloco" [class]="
+      'whitespace-nowrap px-4 py-2 rounded-full transform transition duration-300 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ' +
+      (selectedTab === tab
+        ? 'bg-primary dark:bg-darkHighlight text-white dark:text-black font-bold text-base scale-105 ring-offset-white dark:ring-offset-gray-900 animate-bounceScale'
+        : 'bg-gray-200 text-gray-800 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-100 dark:hover:bg-gray-600 font-medium text-sm scale-100')
+    " (click)="selectTab(tab)">
+    {{ tab | transloco }}
+  </button>
+</nav>
