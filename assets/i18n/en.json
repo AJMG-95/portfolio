@@ -37,7 +37,9 @@
     "email": "antonioj.marchena.dev@gmail.com",
     "phone": "+34 634 81 76 19",
     "linkedin": "https://linkedin.com/in/aj-marchena",
-    "github": "https://github.com/AJMG-95"
+    "github": "https://github.com/AJMG-95",
+    "emailSubject": "Contact from the portfolio",
+    "emailBody": "Hi Antonio Jesús,\n\nI saw your portfolio and I’d like to get in touch with you."
   },
   "languages": {
     "title": "Languages",
