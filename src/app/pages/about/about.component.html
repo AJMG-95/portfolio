@@ -1,6 +1,10 @@
 <page-wrapper [addClasses]="'flex-col items-center gap-12'" aria-label="Sobre mí">
 
-  <p class="text-center mx-auto text-3xl mb-12">This section is currently being built.</p>
+  <h1 id="about-me-title"
+    class="text-4xl sm:text-5xl mb-12 font-extrabold text-center text-primary dark:text-darkHighlight transition-colors">
+    {{ 'about.title' | transloco }}
+  </h1>
+
 
   <about-tabs [tabs]="tabTitles" [selectedTab]="selectedTab()" (selectedTabChange)="selectTab($event)" />
 

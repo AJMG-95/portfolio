@@ -1,28 +1,25 @@
-<li class="flex items-center gap-3">
+<li class="flex items-center gap-5 touch-manipulation">
+  <!-- Solo accesible por lectores de pantalla -->
   <span class="sr-only">{{ type }}</span>
 
-  <svg class="w-5 h-5 text-primary dark:text-darkHighlight" fill="none" stroke="currentColor" stroke-width="2"
-    viewBox="0 0 24 24" aria-hidden="true">
-    <path [attr.d]="iconPath" stroke-linecap="round" stroke-linejoin="round" />
-  </svg>
+  <a [href]="href" [attr.target]="external && type === 'link' ? '_blank' : null"
+    [attr.rel]="external && type === 'link' ? 'noopener noreferrer' : null" class="group flex items-center gap-3 transition-transform duration-200
+           focus:outline-none focus:ring-2 focus:ring-focusOutline dark:focus:ring-offset-gray-900">
 
-  <ng-container [ngSwitch]="type">
-    <!-- Email -->
-    <a *ngSwitchCase="'email'" [href]="'mailto:' + value"
-      class="hover:underline focus:outline-none focus:ring-2 focus:ring-focusOutline dark:focus:ring-offset-gray-900">
-      {{ value }}
-    </a>
+    <!-- Icono -->
+    <span class="transition-transform duration-200
+             group-hover:scale-110
+             group-active:scale-95
+             group-active:rotate-6
+             group-focus-visible:scale-110">
+      <ng-content select="[icon]"></ng-content>
+    </span>
 
-    <!-- Teléfono -->
-    <a *ngSwitchCase="'phone'" [href]="'tel:' + value"
-      class="hover:underline focus:outline-none focus:ring-2 focus:ring-focusOutline dark:focus:ring-offset-gray-900">
-      {{ value }}
-    </a>
-
-    <!-- Enlace externo -->
-    <a *ngSwitchCase="'link'" [href]="value" [target]="external ? '_blank' : null" rel="noopener noreferrer"
-      class="hover:underline focus:outline-none focus:ring-2 focus:ring-focusOutline dark:focus:ring-offset-gray-900">
-      {{ label }}
-    </a>
-  </ng-container>
+    <!-- Texto -->
+    <span class="transition-transform duration-200
+             group-hover:scale-110 group-hover:translate-x-2
+             group-focus-visible:scale-110 group-focus-visible:translate-x-2">
+      {{ displayText }}
+    </span>
+  </a>
 </li>

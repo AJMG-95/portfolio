@@ -33,11 +33,13 @@
     "description": "Desarrollador frontend con experiencia en aplicaciones móviles y web, centrado en crear experiencias de usuario fluidas y visualmente atractivas. Me apasiona escribir código limpio y mantenible, aplicando arquitectura limpia y buenas prácticas de desarrollo. Disfruto trabajando en equipo, compartiendo conocimientos y aprendiendo constantemente para aportar valor real en cada proyecto."
   },
   "contact": {
-  "title": "Información de Contacto",
-  "email": "antonioj.marchena.dev@gmail.com",
-  "phone": "+34 634 81 76 19",
-  "linkedin": "https://linkedin.com/in/aj-marchena",
-  "github": "https://github.com/AJMG-95"
+    "title": "Información de Contacto",
+    "email": "antonioj.marchena.dev@gmail.com",
+    "phone": "+34 634 81 76 19",
+    "linkedin": "https://linkedin.com/in/aj-marchena",
+    "github": "https://github.com/AJMG-95",
+    "emailSubject": "Contacto desde el portfolio",
+    "emailBody": "Hola Antonio Jesús,\n\nHe visto tu portfolio y me gustaría ponerme en contacto contigo."
   },
   "languages": {
     "title": "Idiomas",

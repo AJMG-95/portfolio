@@ -11,5 +11,7 @@ import { ContactInfo } from '../../shared/components/contact-info/contact-info.c
   styleUrl: './contact.component.css'
 })
 export class ContactPage {
+  emailBody = `Hola Antonio Jesús,
 
+  He visto tu portfolio y me gustaría ponerme en contacto contigo.`;
 }
