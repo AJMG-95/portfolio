@@ -1,0 +1,43 @@
+<article
+  class="flex flex-col gap-4 p-4 rounded-lg border border-darkSecondary dark:border-secondary bg-secondary dark:bg-darkSecondary shadow-md transition-colors duration-300"
+  role="group" aria-labelledby="card-title">
+
+  <section class="flex flex-col justify-between flex-1">
+    <!-- Header -->
+    <div class="space-y-1 pb-3">
+      <h3 id="card-title" class="text-xl font-semibold text-textMain dark:text-darkTextMain flex items-center gap-2">
+
+        <ng-container *ngIf="titleLink; else plainTitleBlock">
+          <a [href]="titleLink" target="_blank" rel="noopener noreferrer"
+            [title]="title"
+            class="flex items-center gap-2 transition-colors duration-200 hover:underline hover:text-primary hover:dark:text-darkHighlight">
+
+            <img *ngIf="imageUrl" [src]="imageUrl" [alt]="altText"
+              class="w-10 h-10 object-contain rounded bg-white dark:bg-gray-800 border" />
+
+            {{ title }}
+          </a>
+        </ng-container>
+
+        <ng-template #plainTitleBlock>
+          <ng-container *ngIf="imageUrl">
+            <img [src]="imageUrl" [alt]="altText" class="w-10 h-10 object-contain rounded bg-white dark:bg-gray-800 border" />
+          </ng-container>
+          <span class="text-2xl font-semibold text-textMain dark:text-darkTextMain">
+            {{ title }}
+          </span>
+        </ng-template>
+
+
+      </h3>
+    </div>
+
+    <!-- Body proyectado -->
+    <div class="space-y-2">
+      <ng-content select="[card-body]"></ng-content>
+    </div>
+
+    <!-- Footer proyectado (opcional) -->
+    <ng-content select="[card-footer]"></ng-content>
+  </section>
+</article>

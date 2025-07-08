@@ -1,0 +1,42 @@
+<article class="flex flex-col sm:flex-row gap-4 p-4 rounded-lg border border-darkSecondary dark:border-secondary
+         bg-secondary dark:bg-darkSecondary shadow-md transition-colors duration-300" role="group"
+  aria-labelledby="card-title">
+  <!-- Imagen decorativa -->
+  <figure *ngIf="imageUrl"
+    class="w-full sm:w-24 aspect-square flex-shrink-0 overflow-hidden rounded-md bg-gray-100 dark:bg-gray-700">
+    <img [src]="imageUrl" [alt]="altText" class="w-full h-full object-contain" decoding="async" loading="lazy" />
+  </figure>
+
+  <!-- Contenido principal -->
+  <section class="flex flex-col justify-between flex-1">
+    <!-- Body -->
+    <div class="space-y-1 pb-3">
+      <h3 id="card-title" class="text-xl font-semibold text-textMain dark:text-darkTextMain">
+        {{ title }}
+      </h3>
+
+      <p *ngIf="subtitle" class="text-base text-textSoft dark:text-darkTextSoft">
+        {{ subtitle }}
+      </p>
+
+      <p *ngIf="date" class="text-sm text-gray-500 dark:text-darkTextSoft italic">
+        {{ date }}
+      </p>
+    </div>
+
+    <!-- Footer -->
+    <div *ngIf="footerText" class="pt-3 text-right">
+      <ng-container *ngIf="footerLink; else passiveText">
+        <a [href]="footerLink"
+          class="inline-block text-sm font-medium text-primary dark:text-darkPrimary hover:underline">
+          {{ footerText }}
+        </a>
+      </ng-container>
+      <ng-template #passiveText>
+        <span class="inline-block text-sm font-medium text-primary dark:text-darkPrimary">
+          {{ footerText }}
+        </span>
+      </ng-template>
+    </div>
+  </section>
+</article>

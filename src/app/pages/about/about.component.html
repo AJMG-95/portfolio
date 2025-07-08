@@ -1,81 +1,98 @@
-<page-wrapper [addClasses]="'flex-col items-center gap-12'" aria-label="Sobre mí">
+<page-wrapper [addClasses]="'flex-col items-center gap-12'" aria-label="About-me">
 
   <h1 id="about-me-title"
     class="text-4xl sm:text-5xl mb-12 font-extrabold text-center text-primary dark:text-darkHighlight transition-colors">
     {{ 'about.title' | transloco }}
   </h1>
 
-
   <about-tabs [tabs]="tabTitles" [selectedTab]="selectedTab()" (selectedTabChange)="selectTab($event)" />
 
   <!-- Educación -->
-
-    <app-subsection *ngIf="selectedTab() === 'education.title'" [titleKey]="'education.title'">
-      <ul>
-        <li *ngFor="let item of education.items" class="mb-4">
-          <p class="font-bold">{{ item.institution }}</p>
-          <p>{{ item.degree }}</p>
-          <p class="text-sm text-gray-500">{{ item.dates }}</p>
-        </li>
-      </ul>
-    </app-subsection>
-
-
-
-  <!-- Experiencia -->
-  <app-subsection *ngIf="selectedTab() === 'experience.title'" [titleKey]="'experience.title'">
-    <ul>
-      <li *ngFor="let item of experience.items" class="mb-6">
-        <p class="font-bold">{{ item.role }} - {{ item.company }}</p>
-        <p class="text-sm text-gray-500">{{ item.dates }}</p>
-        <ul class="list-disc ml-6 mt-2">
-          <li *ngFor="let task of item.tasks">{{ task }}</li>
-        </ul>
+  <app-subsection *ngIf="selectedTab() === 'education.title'" [titleKey]="'education.title'">
+    <ul class="space-y-4">
+      <li *ngFor="let item of education().items">
+        <i-card [title]="item.institution" [subtitle]="item.degree" [date]="item.dates" [imageUrl]="item.image"
+          [altText]="item.institution" />
       </li>
     </ul>
   </app-subsection>
 
+
+  <!-- Experiencia -->
+  <app-subsection *ngIf="selectedTab() === 'experience.title'" [titleKey]="'experience.title'">
+    <ul class="space-y-4">
+      <li *ngFor="let item of experience().items">
+        <custom-i-card [title]="item.company" [titleLink]="item.companyUrl" [imageUrl]="item.companyLogo" [altText]="item.company">
+          <!-- Body proyectado -->
+          <div card-body class="space-y-2">
+            <!-- Encabezado: logo + nombre empresa -->
+
+              <h4 class="text-lg font-semibold text-textMain dark:text-darkTextMain">{{ item.role }}</h4>
+
+
+            <!-- Fechas con estilo más tenue -->
+            <p class="text-sm text-gray-400 dark:text-gray-500 mt-1">{{ item.dates }}</p>
+
+            <!-- Tareas -->
+            <ul class="list-disc ml-5 space-y-1 text-sm text-textSoft dark:text-darkTextSoft">
+              <li *ngFor="let task of item.tasks">{{ task }}</li>
+            </ul>
+          </div>
+
+          <!-- Footer proyectado opcional -->
+          <div *ngIf="item.link" card-footer class="pt-3 text-right">
+            <a [href]="item.link" target="_blank"
+              class="text-sm font-medium text-primary dark:text-darkPrimary hover:underline">
+              Ver más
+            </a>
+          </div>
+        </custom-i-card>
+      </li>
+    </ul>
+  </app-subsection>
+
+
+
   <!-- Formación -->
   <app-subsection *ngIf="selectedTab() === 'training.title'" [titleKey]="'training.title'">
     <ul class="list-disc ml-4">
-      <li *ngFor="let item of training.items">{{ item }}</li>
+      <li *ngFor="let item of training().items">{{ item }}</li>
     </ul>
   </app-subsection>
 
   <!-- Habilidades -->
   <app-subsection *ngIf="selectedTab() === 'skills.title'" [titleKey]="'skills.title'">
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-      <div>
-        <h3 class="font-semibold mb-2">{{ 'skills.technical' | transloco }}</h3>
-        <ul class="list-disc ml-4">
+      <div
+        class="p-4 bg-secondary dark:bg-darkSecondary rounded-md shadow-sm border border-borderLight dark:border-darkBorderLight">
+        <h3 class="font-semibold mb-2 text-textMain dark:text-darkTextMain">{{ 'skills.technical' | transloco }}</h3>
+        <ul class="list-disc ml-4 space-y-1 text-textSoft dark:text-darkTextSoft">
           <li *ngFor="let area of ['frameworks', 'languages', 'tools', 'management', 'principles']">
             <strong>{{ ('skills.technical.' + area) | transloco }}:</strong>
-            <span>
-              {{ skills.technical[area].join(', ') }}
-            </span>
+            {{ skills().technical[area].join(', ') }}
           </li>
         </ul>
       </div>
 
-      <div>
-        <h3 class="font-semibold mb-2">{{ 'skills.soft' | transloco }}</h3>
-        <ul class="list-disc ml-4">
-          <li *ngFor="let soft of skills.soft">{{ soft }}</li>
+      <div
+        class="p-4 bg-secondary dark:bg-darkSecondary rounded-md shadow-sm border border-borderLight dark:border-darkBorderLight">
+        <h3 class="font-semibold mb-2 text-textMain dark:text-darkTextMain">{{ 'skills.soft' | transloco }}</h3>
+        <ul class="list-disc ml-4 space-y-1 text-textSoft dark:text-darkTextSoft">
+          <li *ngFor="let soft of skills().soft">{{ soft }}</li>
         </ul>
       </div>
     </div>
   </app-subsection>
 
-
   <!-- Referencias -->
   <app-subsection *ngIf="selectedTab() === 'references.title'" [titleKey]="'references.title'">
     <ul>
-      <li *ngFor="let ref of references.items" class="mb-4">
+      <li *ngFor="let ref of references().items" class="mb-4">
         <p class="font-semibold">{{ ref.name }}</p>
         <p>{{ ref.role }}</p>
         <p>
           <a [href]="ref.linkedin" target="_blank" rel="noopener noreferrer"
-            class="text-blue-600 underline hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">
+            class="text-accent underline hover:text-linkHover dark:text-accent dark:hover:text-linkHover transition-colors duration-200">
             LinkedIn
           </a>
         </p>
@@ -83,9 +100,9 @@
       </li>
     </ul>
 
-    <p *ngIf="references.letter">
-      {{ references.letter.text }}
-      <a [href]="references.letter.link" target="_blank" rel="noopener noreferrer"
+    <p *ngIf="references().letter">
+      {{ references().letter.text }}
+      <a [href]="references().letter.link" target="_blank" rel="noopener noreferrer"
         class="text-blue-600 underline hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">
         PDF
       </a>

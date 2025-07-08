@@ -16,14 +16,13 @@ export class Typewriter implements OnChanges {
   @Input() tag: 'h1' | 'h2' | 'p' = 'h1';
   @Input() onFinish?: () => void;
   @Input() key: string | number = '';
-
+  @Input() typingFast: boolean = false;
 
   visibleText = '';
   showCursor = true;
 
   private alreadyTyped = false;
-
-  private typingInterval: any; // guarda la referencia del setInterval
+  private typingInterval: any;
 
   ngOnChanges(changes: SimpleChanges): void {
     const shouldRestart = changes['key'] || changes['text'] || changes['start'];
@@ -36,7 +35,7 @@ export class Typewriter implements OnChanges {
 
   private resetTyping() {
     if (this.typingInterval) {
-      clearInterval(this.typingInterval); // 💥 corta el anterior
+      clearInterval(this.typingInterval);
     }
 
     this.visibleText = '';
@@ -49,15 +48,17 @@ export class Typewriter implements OnChanges {
     let index = 0;
     const length = this.text.length;
 
+    const interval = this.typingFast ? 30 : 60;
+
     this.typingInterval = setInterval(() => {
       this.visibleText += this.text[index];
       index++;
 
       if (index >= length) {
-        clearInterval(this.typingInterval); // 💥 corta al terminar
+        clearInterval(this.typingInterval);
         this.showCursor = false;
         this.onFinish?.();
       }
-    }, 60);
+    }, interval);
   }
 }

@@ -41,6 +41,17 @@
     "emailSubject": "Contact from the portfolio",
     "emailBody": "Hi Antonio Jesús,\n\nI saw your portfolio and I’d like to get in touch with you."
   },
+  "myProjects": {
+    "title": "My Projects",
+    "projects": [
+      {
+        "name": "",
+        "languaje": "",
+        "framework": "",
+        "decription":""
+      }
+    ]
+  },
   "languages": {
     "title": "Languages",
     "items": [
@@ -54,17 +65,20 @@
       {
         "institution": "University of Cádiz",
         "degree": "Master's Degree in Integrated Water Management",
-        "dates": "2020 - 2022"
+        "dates": "2020 - 2022",
+        "image": "assets/images/logo_uca_facutad_ccma.png"
       },
       {
         "institution": "IES Doñana",
         "degree": "Advanced Vocational Training in Web Application Development",
-        "dates": "2021 - 2024"
+        "dates": "2021 - 2024",
+        "image": "assets/images/logo_IESDonana_2.png"
       },
       {
         "institution": "University of Cádiz",
         "degree": "Bachelor's Degree in Environmental Sciences",
-        "dates": "2014 - 2019"
+        "dates": "2014 - 2019",
+        "image": "assets/images/logo_uca_facutad_ccma.png"
       }
     ]
   },
@@ -74,6 +88,8 @@
       {
         "role": "Frontend Developer",
         "company": "Controlnet S.L.",
+        "companyLogo": "assets/images/controlnetspain_logo.webp",
+        "companyUrl": "https://controlnet.es/",
         "dates": "March 2024 - July 2025",
         "tasks": [
           "Developed mobile interfaces using Flutter.",
@@ -87,6 +103,8 @@
       {
         "role": "Intern Developer",
         "company": "Controlnet S.L.",
+        "companyLogo": "assets/images/controlnetspain_logo.webp",
+        "companyUrl": "https://controlnet.es/",
         "dates": "October 2023 - January 2024",
         "tasks": [
           "Web development with Angular 16.",

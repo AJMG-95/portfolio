@@ -13,6 +13,7 @@ module.exports = {
       },
       colors: {
         primary: '#303082',
+        secondary: '#E0E7FF',
         accent: '#4E6EFF',
         background: '#F9FAFB',
         textMain: '#111827',
@@ -24,6 +25,7 @@ module.exports = {
         linkHover: '#3B54D6',
 
         // 🌑 Modo oscuro
+        darkSecondary: '#2D365D',
         darkBackground: '#1F2937', // gray-800
         darkTextMain: '#F9FAFB', // texto claro sobre fondo oscuro
         darkTextSoft: '#D1D5DB', // gris claro
@@ -63,6 +65,22 @@ module.exports = {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' },
         },
+        rFadeIn: {
+          '0%': { opacity: '0', transform: 'translateX(100%)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
+        rFadeOut: {
+          '0%': { opacity: '1', transform: 'translateX(0)' },
+          '100%': { opacity: '0', transform: 'translateX(100%)' },
+        },
+        lFadeIn: {
+          '0%': { opacity: '0', transform: 'translateX(-100%)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
+        lFadeOut: {
+          '0%': { opacity: '1', transform: 'translateX(0)' },
+          '100%': { opacity: '0', transform: 'translateX(-100%)' },
+        },
         typing: {
           from: { width: '0' },
           to: { width: '100%' },
@@ -85,13 +103,18 @@ module.exports = {
         }
       },
       animation: {
-        typing: 'typing 3s steps(40, end) 1',
         blink: 'blink 1s step-end infinite',
-        fadeIn: 'fadeIn 1s ease-out forwards',
-        fadeOut: 'fadeOut 0.5s ease-out forwards',
         blob: 'blob 8s infinite',
+        bounceScale: 'bounceScale 300ms ease-in-out',
+        fadeIn: 'fadeIn 1s ease-out forwards',
         fadeInOpacity: 'fadeInOpacity 1s ease-out forwards',
-        bounceScale: 'bounceScale 300ms ease-in-out'
+        fadeOut: 'fadeOut 0.5s ease-out forwards',
+        lFadeIn: 'lFadeIn 1s ease-out forwards',
+        lFadeOut: 'lFadeOut 1s ease-out forwards',
+        rFadeIn: 'rFadeIn 1s ease-out forwards',
+        rFadeOut: 'rFadeOut 1s ease-out forwards',
+        typing: 'typing 3s steps(40, end) 1',
+        typingFast: 'typing 1.5s steps(40, end) 1',
       },
     },
   },
