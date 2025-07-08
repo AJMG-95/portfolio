@@ -41,6 +41,17 @@
     "emailSubject": "Contacto desde el portfolio",
     "emailBody": "Hola Antonio Jesús,\n\nHe visto tu portfolio y me gustaría ponerme en contacto contigo."
   },
+  "myProjects": {
+    "title": "Mis Proyectos",
+    "projects": [
+      {
+        "name": "",
+        "languaje": "",
+        "framework": "",
+        "decription":""
+      }
+    ]
+  },
   "languages": {
     "title": "Idiomas",
     "items": [
@@ -55,17 +66,20 @@
       {
         "institution": "Universidad de Cádiz",
         "degree": "Máster en Gestión Integral del Agua",
-        "dates": "2020 - 2022"
+        "dates": "2020 - 2022",
+        "image": "assets/images/logo_uca_facutad_ccma.png"
       },
       {
         "institution": "IES Doñana",
         "degree": "CFGS Desarrollo de Aplicaciones Web",
-        "dates": "2021 - 2024"
+        "dates": "2021 - 2024",
+        "image": "assets/images/logo_IESDonana_2.png"
       },
       {
         "institution": "Universidad de Cádiz",
         "degree": "Grado en Ciencias Ambientales",
-        "dates": "2014 - 2019"
+        "dates": "2014 - 2019",
+        "image": "assets/images/logo_uca_facutad_ccma.png"
       }
     ]
   },
@@ -75,6 +89,8 @@
       {
         "role": "Desarrollador Frontend",
         "company": "Controlnet S.L.",
+        "companyLogo": "assets/images/controlnetspain_logo.webp",
+        "companyUrl": "https://controlnet.es/",
         "dates": "Marzo 2024 - Julio 2025",
         "tasks": [
           "Desarrollo de interfaces móviles con Flutter.",
@@ -88,6 +104,8 @@
       {
         "role": "Estudiante en Prácticas",
         "company": "Controlnet S.L.",
+        "companyLogo": "assets/images/controlnetspain_logo.webp",
+        "companyUrl": "https://controlnet.es/",
         "dates": "Octubre 2023 - Enero 2024",
         "tasks": [
           "Desarrollo web con Angular 16.",
