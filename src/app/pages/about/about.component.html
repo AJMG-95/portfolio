@@ -18,6 +18,24 @@
   </app-subsection>
 
 
+<!-- Certificaciones -->
+<app-subsection *ngIf="selectedTab() === 'certifications.title'" [titleKey]="'certifications.title'">
+  <ul class="flex flex-wrap justify-center tablet-lg:justify-between gap-6">
+    <li *ngFor="let cert of certifications().items; let i = index"
+      class="flex justify-center w-full mobile-sm:w-[90%] sm:w-[48%] laptop-sm:w-[45%] laptop:w-[32%] max-w-[320px] min-h-[540px]">
+      <certification-card [cardId]="i" [activeCardId]="activeCardId" (activate)="setActiveCard($event)"
+        (deactivate)="clearActiveCard()" [imageUrl]="cert.image" [title]="cert.title" [issuer]="cert.issuer"
+        [type]="cert.type" [language]="cert.language" [date]="cert.date" [durationHours]="cert.durationHours"
+        [certificateId]="cert.certificateId" [collaborators]="cert.collaborators" [url]="cert.url" />
+
+    </li>
+  </ul>
+
+</app-subsection>
+
+
+
+
   <!-- Experiencia -->
   <app-subsection *ngIf="selectedTab() === 'experience.title'" [titleKey]="'experience.title'">
     <ul class="space-y-4">
@@ -31,10 +49,10 @@
 
 
             <!-- Fechas con estilo más tenue -->
-            <p class="text-sm text-gray-400 dark:text-gray-500 mt-1">{{ item.dates }}</p>
+            <p class="text-sm text-gray-500 dark:text-gray-100 mt-1">{{ item.dates }}</p>
 
             <!-- Tareas -->
-            <ul class="list-disc ml-5 space-y-1 text-sm text-textSoft dark:text-darkTextSoft">
+            <ul class="list-disc ml-5 space-y-1 text-textMain dark:text-darkTextMain">
               <li *ngFor="let task of item.tasks">{{ task }}</li>
             </ul>
           </div>

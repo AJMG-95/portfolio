@@ -66,21 +66,137 @@
         "institution": "University of Cádiz",
         "degree": "Master's Degree in Integrated Water Management",
         "dates": "2020 - 2022",
-        "image": "assets/images/logo_uca_facutad_ccma.png"
+        "image": "assets/images/companies-logo/logo_uca_facutad_ccma.png"
       },
       {
         "institution": "IES Doñana",
         "degree": "Advanced Vocational Training in Web Application Development",
         "dates": "2021 - 2024",
-        "image": "assets/images/logo_IESDonana_2.png"
+        "image": "assets/images/companies-logo/logo_IESDonana_2.png"
       },
       {
         "institution": "University of Cádiz",
         "degree": "Bachelor's Degree in Environmental Sciences",
         "dates": "2014 - 2019",
-        "image": "assets/images/logo_uca_facutad_ccma.png"
+        "image": "assets/images/companies-logo/logo_uca_facutad_ccma.png"
       }
     ]
+  },
+  "certifications": {
+    "title": "Certifications",
+    "items": [
+      {
+        "title": "Flutter - Mobile: From Zero to Expert",
+        "issuer": "Udemy",
+        "language": "Spanish",
+        "type": "Technical course",
+        "date": "July 2025",
+        "durationHours": 50.5,
+        "certificateId": "UC-d31dec52-7b2b-47d9-87f0-ff14b391dd39",
+        "url": "https://ude.my/UC-d31dec52-7b2b-47d9-87f0-ff14b391dd39",
+        "image": "assets/images/certifications/Flutter-Movi-lDeCeroAExperto_FernandoHerrera.png"
+      },
+      {
+        "title": "CRUD Lab in Laravel 9 with Test-Driven Development (TDD)",
+        "issuer": "OpenWebinars",
+        "language": "Spanish",
+        "type": "Technical course",
+        "durationHours": 6,
+        "date": "January 2023",
+        "url": "https://openwebinars.net/cert/yAnB",
+        "image": "assets/images/certifications/certificado_laboratorio_crud_en_laravel_9_con_test-driven_development_(tdd).png"
+      },
+      {
+        "title": "PHP Course: Expanding Concepts",
+        "issuer": "OpenWebinars",
+        "language": "Spanish",
+        "type": "Technical course",
+        "durationHours": 8,
+        "date": "December 2022",
+        "image": "assets/images/certifications/certificado_curso_de_php__ampliando_conceptos.png"
+      },
+      {
+        "title": "Test-Driven Development in Laravel",
+        "issuer": "OpenWebinars",
+        "language": "Spanish",
+        "type": "Technical course",
+        "durationHours": 1,
+        "date": "December 2022",
+        "url": "https://openwebinars.net/cert/r3aKQ",
+        "image": "assets/images/certifications/certificado_test-driven_development_en_laravel.png"
+      },
+      {
+        "title": "Fundamentals of Test-Driven Development",
+        "issuer": "OpenWebinars",
+        "language": "Spanish",
+        "type": "Technical course",
+        "durationHours": 1,
+        "date": "December 2022",
+        "image": "assets/images/certifications/certificado_fundamentos_de_test-driven_development.png"
+      },
+      {
+        "title": "PHP Course for Beginners",
+        "issuer": "OpenWebinars",
+        "language": "Spanish",
+        "type": "Technical course",
+        "durationHours": 9,
+        "date": "November 2022",
+        "image": "assets/images/certifications/certificado_curso_de_php_para_principiantes.png"
+      },
+      {
+        "title": "SQL Course from Scratch",
+        "issuer": "OpenWebinars",
+        "language": "Spanish",
+        "type": "Technical course",
+        "durationHours": 7,
+        "date": "October 2022",
+        "image": "assets/images/certifications/certificado_curso_de_sql_desde_cero.png"
+      },
+      {
+        "title": "Cambridge English: First (FCE) - B2",
+        "issuer": "Cambridge Assessment English",
+        "language": "English",
+        "type": "Official exam",
+        "date": "June 2022",
+        "certificateId": "211ES0015302",
+        "url": "https://www.cambridgeenglish.org/",
+        "image": "assets/images/certifications/english-B2-cambridget.jpeg"
+      },
+      {
+        "title": "Entrepreneurship Training Program",
+        "issuer": "University of Cádiz",
+        "collaborators": [
+          "Innova Atlas",
+          "ERA Cultura",
+          "Ayuda T Pymes",
+          "Surcontrol",
+          "FUECA"
+        ],
+        "language": "Spanish",
+        "type": "Training course",
+        "durationHours": 24,
+        "date": "May 2018",
+        "image": "assets/images/certifications/curso-emprendimiento.jpeg"
+      },
+      {
+        "title": "Cambridge English: Preliminary (PET) - B1",
+        "issuer": "Cambridge Assessment English",
+        "language": "English",
+        "type": "Official exam",
+        "date": "March 2014",
+        "certificateId": "211ES0013059",
+        "url": "https://www.cambridgeenglish.org/",
+        "image": "assets/images/certifications/english-B1-cambridget.jpeg"
+      }
+    ],
+    "issuedBy": "Issued by",
+    "type": "Type",
+    "language": "Language",
+    "date": "Date",
+    "duration": "Duration",
+    "hours": "hours",
+    "certificateId": "Certificate ID",
+    "collaborators": "Collaborators"
   },
   "experience": {
     "title": "Experience",
@@ -88,7 +204,7 @@
       {
         "role": "Frontend Developer",
         "company": "Controlnet S.L.",
-        "companyLogo": "assets/images/controlnetspain_logo.webp",
+        "companyLogo": "assets/images/companies-logo/controlnetspain_logo.webp",
         "companyUrl": "https://controlnet.es/",
         "dates": "March 2024 - July 2025",
         "tasks": [
@@ -103,7 +219,7 @@
       {
         "role": "Intern Developer",
         "company": "Controlnet S.L.",
-        "companyLogo": "assets/images/controlnetspain_logo.webp",
+        "companyLogo": "assets/images/companies-logo/controlnetspain_logo.webp",
         "companyUrl": "https://controlnet.es/",
         "dates": "October 2023 - January 2024",
         "tasks": [

@@ -1,0 +1,54 @@
+<article
+  class="flex flex-col h-full w-[256px]  mobile-sm:w-[311px] mobile:w-[361px] tablet:w-[320px] rounded-md overflow-hidden border border-borderLight dark:border-darkBorderLight shadow-sm bg-secondary dark:bg-gray-900 transition-colors"
+  role="group" aria-labelledby="cert-title" >
+
+  <!-- Header con imagen fija -->
+  <header class="relative w-full h-48 bg-gray-200 dark:bg-gray-800">
+    <img [src]="imageUrl" [alt]="'Imagen del certificado ' + title" class="w-full h-full object-cover" loading="lazy"
+      decoding="async" />
+
+    <figcaption id="cert-title"
+      class="absolute bottom-0 left-0 w-full px-4 pb-2 pt-2 text-white text-xl font-semibold truncate before:absolute before:inset-0 bg-gradient-to-t from-black/80 to-transparent before:z-[-1]">
+      {{ title }}
+    </figcaption>
+    </header>
+
+  <!-- Body -->
+  <section class="flex-1 p-4 flex flex-col justify-between gap-3" aria-label="Detalles del certificado">
+    <div class="space-y-1 text-sm">
+      <p *ngIf="issuer"><strong>{{ 'certifications.issuedBy' | transloco }}:</strong> {{ issuer }}</p>
+      <p *ngIf="type"><strong>{{ 'certifications.type' | transloco }}:</strong> {{ type }}</p>
+      <p *ngIf="language"><strong>{{ 'certifications.language' | transloco }}:</strong> {{ language }}</p>
+      <p *ngIf="date"><strong>{{ 'certifications.date' | transloco }}:</strong> {{ date }}</p>
+      <p *ngIf="durationHours">
+        <strong>{{ 'certifications.duration' | transloco }}:</strong> {{ durationHours }} {{ 'certifications.hours' |
+        transloco }}
+      </p>
+      <p *ngIf="certificateId">
+        <strong>{{ 'certifications.certificateId' | transloco }}:</strong> {{ certificateId }}
+      </p>
+
+      <div *ngIf="collaborators?.length">
+        <strong>{{ 'certifications.collaborators' | transloco }}:</strong>
+        <ul class="list-disc ml-6">
+          <li *ngFor="let collaborator of collaborators">{{ collaborator }}</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="pt-2 text-end mt-auto">
+      <button type="button" (click)="openModal()"
+        class="whitespace-nowrap px-4 py-2 rounded-full transition duration-300 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 text-sm"
+        [ngClass]="isActive
+              ? 'bg-primary text-white dark:bg-darkHighlight dark:text-black font-bold animate-pulse'
+              : 'bg-primary text-white hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-100 dark:hover:bg-gray-600 font-medium'"
+        aria-label="Ver certificado ampliado">
+        Ver certificado
+      </button>
+    </footer>
+  </section>
+</article>
+
+<certificate-modal *ngIf="modalVisible" [imageUrl]="imageUrl" [title]="title" (close)="closeModal()" />

@@ -1,30 +1,42 @@
-<article class="flex flex-col sm:flex-row gap-4 p-4 rounded-lg border border-darkSecondary dark:border-secondary
-         bg-secondary dark:bg-darkSecondary shadow-md transition-colors duration-300" role="group"
-  aria-labelledby="card-title">
+<article
+  class="flex flex-col sm:flex-row gap-4 rounded-md border border-borderLight dark:border-darkBorderLight shadow-sm bg-secondary dark:bg-gray-900 transition-colors duration-300"
+  role="group" aria-labelledby="card-title">
+
   <!-- Imagen decorativa -->
-  <figure *ngIf="imageUrl"
-    class="w-full sm:w-24 aspect-square flex-shrink-0 overflow-hidden rounded-md bg-gray-100 dark:bg-gray-700">
-    <img [src]="imageUrl" [alt]="altText" class="w-full h-full object-contain" decoding="async" loading="lazy" />
+  <figure *ngIf="imageUrl" class="w-full rouded-t-md sm:w-24 flex-shrink-0 overflow-hidden bg-gray-100 dark:bg-gray-700">
+    <ng-container *ngIf="titleLink; else plainImage">
+      <a [href]="titleLink" target="_blank" rel="noopener noreferrer"
+        class="block transition-colors duration-200 hover:brightness-90">
+        <img [src]="imageUrl" [alt]="altText" class="w-full h-full object-contain rounded-t-md" decoding="async" loading="lazy" />
+      </a>
+    </ng-container>
+    <ng-template #plainImage>
+      <img [src]="imageUrl" [alt]="altText" class="w-full h-full object-contain rounded-t-md" decoding="async" loading="lazy" />
+    </ng-template>
   </figure>
 
   <!-- Contenido principal -->
-  <section class="flex flex-col justify-between flex-1">
-    <!-- Body -->
+  <section class="flex flex-col justify-between flex-1 p-4">
     <div class="space-y-1 pb-3">
       <h3 id="card-title" class="text-xl font-semibold text-textMain dark:text-darkTextMain">
-        {{ title }}
+        <ng-container *ngIf="titleLink; else plainTitle">
+          <a [href]="titleLink" target="_blank" rel="noopener noreferrer"
+            class="transition-colors duration-200 hover:underline hover:text-primary hover:dark:text-darkPrimary">
+            {{ title }}
+          </a>
+        </ng-container>
+        <ng-template #plainTitle>{{ title }}</ng-template>
       </h3>
 
-      <p *ngIf="subtitle" class="text-base text-textSoft dark:text-darkTextSoft">
+      <p *ngIf="subtitle" class="text-base text-textMain dark:text-darkTextMain">
         {{ subtitle }}
       </p>
 
-      <p *ngIf="date" class="text-sm text-gray-500 dark:text-darkTextSoft italic">
+      <p *ngIf="date" class="text-sm text-textSoft dark:text-darkTextSoft italic">
         {{ date }}
       </p>
     </div>
 
-    <!-- Footer -->
     <div *ngIf="footerText" class="pt-3 text-right">
       <ng-container *ngIf="footerLink; else passiveText">
         <a [href]="footerLink"

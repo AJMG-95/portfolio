@@ -17,4 +17,5 @@ export class ICard {
 
   @Input() footerText?: string;
   @Input() footerLink?: string; // si no se pasa, el footerText será un texto plano
+  @Input() titleLink?: string;
 }

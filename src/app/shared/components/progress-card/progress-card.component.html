@@ -1,0 +1,25 @@
+<article
+  class="rounded-lg border border-gray-300 dark:border-gray-600 overflow-hidden shadow-sm bg-white dark:bg-gray-900 max-w-xs">
+  <!-- Imagen del curso -->
+  <figure class="relative aspect-video bg-gray-200 dark:bg-gray-700 overflow-hidden">
+    <img [src]="imageUrl" alt="Imagen del curso" class="w-full h-full object-cover" />
+  </figure>
+
+  <!-- Contenido -->
+  <div class="p-4 space-y-2">
+    <h3 class="text-base font-semibold text-gray-800 dark:text-gray-100 leading-tight">
+      {{ title }}
+    </h3>
+    <p class="text-sm text-gray-600 dark:text-gray-400">{{ author }}</p>
+
+    <!-- Barra de progreso -->
+    <div class="mt-2">
+      <div class="text-sm text-gray-700 dark:text-gray-300 mb-1">
+        {{ completionPercentage }} % completado
+      </div>
+      <div class="w-full h-2 rounded bg-gray-300 dark:bg-gray-700 overflow-hidden">
+        <div class="h-full bg-purple-600" [style.width.%]="completionPercentage"></div>
+      </div>
+    </div>
+  </div>
+</article>
