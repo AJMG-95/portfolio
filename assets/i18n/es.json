@@ -65,23 +65,143 @@
     "items": [
       {
         "institution": "Universidad de Cádiz",
+        "institutionUrl": "https://ccmaryambientales.uca.es/grado-en-ciencias-ambientales/",
         "degree": "Máster en Gestión Integral del Agua",
         "dates": "2020 - 2022",
-        "image": "assets/images/logo_uca_facutad_ccma.png"
+        "image": "assets/images/companies-logo/logo_uca_facutad_ccma.png"
       },
       {
         "institution": "IES Doñana",
+        "institutionUrl":"",
         "degree": "CFGS Desarrollo de Aplicaciones Web",
         "dates": "2021 - 2024",
-        "image": "assets/images/logo_IESDonana_2.png"
+        "image": "assets/images/companies-logo/logo_IESDonana_2.png"
       },
       {
         "institution": "Universidad de Cádiz",
+        "institutionUrl": "https://ccmaryambientales.uca.es/grado-en-ciencias-ambientales/",
         "degree": "Grado en Ciencias Ambientales",
         "dates": "2014 - 2019",
-        "image": "assets/images/logo_uca_facutad_ccma.png"
+        "image": "assets/images/companies-logo/logo_uca_facutad_ccma.png"
       }
     ]
+  },
+  "certifications": {
+    "title": "Certificaciones",
+    "items": [
+      {
+        "title": "Flutter - Móvil: De cero a experto",
+        "issuer": "Udemy",
+        "language": "Español",
+        "type": "Curso técnico",
+        "date": "Julio 2025",
+        "durationHours": 50.5,
+        "certificateId": "UC-d31dec52-7b2b-47d9-87f0-ff14b391dd39",
+        "url": "https://ude.my/UC-d31dec52-7b2b-47d9-87f0-ff14b391dd39",
+        "image": "assets/images/certifications/Flutter-Movi-lDeCeroAExperto_FernandoHerrera.png"
+      },
+      {
+        "title": "Laboratorio CRUD en Laravel 9 con Test-Driven Development (TDD)",
+        "issuer": "OpenWebinars",
+        "language": "Español",
+        "type": "Curso técnico",
+        "durationHours": 6,
+        "date": "Enero 2023",
+        "url": "https://openwebinars.net/cert/yAnB",
+        "image": "assets/images/certifications/certificado_laboratorio_crud_en_laravel_9_con_test-driven_development_(tdd).png"
+      },
+      {
+        "title": "Curso de PHP: Ampliando conceptos",
+        "issuer": "OpenWebinars",
+        "language": "Español",
+        "type": "Curso técnico",
+        "durationHours": 8,
+        "date": "Diciembre 2022",
+        "image": "assets/images/certifications/certificado_curso_de_php__ampliando_conceptos.png"
+      },
+      {
+        "title": "Test-Driven Development en Laravel",
+        "issuer": "OpenWebinars",
+        "language": "Español",
+        "type": "Curso técnico",
+        "durationHours": 1,
+        "date": "Diciembre 2022",
+        "url": "https://openwebinars.net/cert/r3aKQ",
+        "image": "assets/images/certifications/certificado_test-driven_development_en_laravel.png"
+      },
+      {
+        "title": "Fundamentos de Test-Driven Development",
+        "issuer": "OpenWebinars",
+        "language": "Español",
+        "type": "Curso técnico",
+        "durationHours": 1,
+        "date": "Diciembre 2022",
+        "image": "assets/images/certifications/certificado_fundamentos_de_test-driven_development.png"
+      },
+      {
+        "title": "Curso de PHP para principiantes",
+        "issuer": "OpenWebinars",
+        "language": "Español",
+        "type": "Curso técnico",
+        "durationHours": 9,
+        "date": "Noviembre 2022",
+        "image": "assets/images/certifications/certificado_curso_de_php_para_principiantes.png"
+      },
+      {
+        "title": "Curso de SQL desde cero",
+        "issuer": "OpenWebinars",
+        "language": "Español",
+        "type": "Curso técnico",
+        "durationHours": 7,
+        "date": "Octubre 2022",
+        "image": "assets/images/certifications/certificado_curso_de_sql_desde_cero.png"
+      },
+      {
+        "title": "Cambridge English: First (FCE) - B2",
+        "issuer": "Cambridge Assessment English",
+        "language": "Inglés",
+        "type": "Examen oficial",
+        "date": "Junio 2022",
+        "certificateId": "211ES0015302",
+        "url": "https://www.cambridgeenglish.org/",
+        "image": "assets/images/certifications/english-B2-cambridget.jpeg"
+      },
+      {
+        "title": "Programa de Formación para Emprendedores",
+        "issuer": "Universidad de Cádiz",
+        "collaborators": [
+          "Innova Atlas",
+          "ERA Cultura",
+          "Ayuda T Pymes",
+          "Surcontrol",
+          "FUECA"
+        ],
+        "language": "Español",
+        "type": "Curso formativo",
+        "durationHours": 24,
+        "date": "Mayo 2018",
+        "image": "assets/images/certifications/curso-emprendimiento.jpeg"
+      },
+      {
+        "title": "Cambridge English: Preliminary (PET) - B1",
+        "issuer": "Cambridge Assessment English",
+        "language": "Inglés",
+        "type": "Examen oficial",
+        "date": "Marzo 2014",
+        "certificateId": "211ES0013059",
+        "url": "https://www.cambridgeenglish.org/",
+        "image": "assets/images/certifications/english-B1-cambridget.jpeg"
+      }
+    ],
+    "issuedBy": "Emitido por",
+    "type": "Tipo",
+    "language": "Idioma",
+    "date": "Fecha",
+    "duration": "Duración",
+    "hours": "horas",
+    "certificateId": "ID del certificado",
+    "collaborators": "Colaboradores",
+    "show": "Ver Certificaión"
   },
   "experience": {
     "title": "Experiencia",
@@ -89,7 +209,7 @@
       {
         "role": "Desarrollador Frontend",
         "company": "Controlnet S.L.",
-        "companyLogo": "assets/images/controlnetspain_logo.webp",
+        "companyLogo": "assets/images/companies-logo/controlnetspain_logo.webp",
         "companyUrl": "https://controlnet.es/",
         "dates": "Marzo 2024 - Julio 2025",
         "tasks": [
@@ -104,7 +224,7 @@
       {
         "role": "Estudiante en Prácticas",
         "company": "Controlnet S.L.",
-        "companyLogo": "assets/images/controlnetspain_logo.webp",
+        "companyLogo": "assets/images/companies-logo/controlnetspain_logo.webp",
         "companyUrl": "https://controlnet.es/",
         "dates": "Octubre 2023 - Enero 2024",
         "tasks": [
