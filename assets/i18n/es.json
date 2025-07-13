@@ -7,7 +7,8 @@
     "home": "Inicio",
     "about": "Sobre mí",
     "projects": "Proyectos",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "references": "Referecias"
   },
   "footer": {
     "rights": "Todos los derechos reservados.",
@@ -21,6 +22,7 @@
     "cta": "Explora mi trabajo"
   },
   "home": {
+    "title": "Inicio",
     "greeting": "¡Hola! Soy Antonio Marchena",
     "description": "Desarrollador frontend apasionado por construir experiencias modernas y accesibles con Angular.",
     "stack": "TypeScript · JavaScript ·  HTML · CSS · Angular · React · Flutter · Dart ",
@@ -240,9 +242,10 @@
   "skills": {
     "title": "Habilidades",
     "technical": {
-      "frameworks": ["Angular", "React", "Flutter", "Tailwind CSS", "Bootstrap"],
-      "languages": ["TypeScript", "JavaScript", "Dart", "HTML5", "CSS3"],
-      "tools": ["Git", "GitHub"],
+      "frontendLanguages": ["TypeScript", "JavaScript", "HTML5", "CSS3"],
+      "backendLanguages": ["Java", "Python", "PHP"],
+      "frameworks": ["Angular", "React", "Flutter", "Laravel", "Tailwind CSS", "Bootstrap"],
+      "tools": ["Git", "GitHub", "PostgreSQL"],
       "management": ["Asana", "Monday"],
       "principles": ["Arquitectura limpia", "Accesibilidad web", "Diseño responsive"]
     },

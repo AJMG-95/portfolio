@@ -7,7 +7,8 @@
     "home": "Home",
     "about": "About Me",
     "projects": "Projects",
-    "contact": "Contact"
+    "contact": "Contact",
+    "references": "References"
   },
   "footer": {
     "rights": "All rights reserved.",
@@ -235,16 +236,17 @@
   "skills": {
     "title": "Skills",
     "technical": {
-      "frameworks": ["Angular", "React", "Flutter", "Tailwind CSS", "Bootstrap"],
-      "languages": ["TypeScript", "JavaScript", "Dart", "HTML5", "CSS3"],
-      "tools": ["Git", "GitHub"],
+      "frontendLanguages": ["TypeScript", "JavaScript", "HTML5", "CSS3"],
+      "backendLanguages": ["Java", "Python", "PHP"],
+      "frameworks": ["Angular", "React", "Flutter", "Laravel", "Tailwind CSS", "Bootstrap"],
+      "tools": ["Git", "GitHub", "PostgreSQL"],
       "management": ["Asana", "Monday"],
       "principles": ["Clean architecture", "Web accessibility", "Responsive design"]
     },
     "soft": [
       "Agile teamwork (Scrum/Sprint)",
       "Proactivity and continuous learning",
-      "Technical problem-solving",
+      "Technical problem solving",
       "Attention to detail",
       "Autonomy and responsibility"
     ]
