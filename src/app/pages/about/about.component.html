@@ -22,7 +22,7 @@
   <app-subsection *ngIf="selectedTab() === 'certifications.title'" [titleKey]="'certifications.title'">
     <ul class="flex flex-wrap justify-center tablet-lg:justify-between gap-6">
       <li *ngFor="let cert of certifications().items; let i = index"
-        class="flex justify-center w-full mobile-sm:w-[90%] sm:w-[48%] laptop-sm:w-[45%] laptop:w-[32%] max-w-[320px] h-[480px]">
+        class="flex  justify-center w-full mobile-sm:w-[90%] sm:w-[48%] laptop-sm:w-[45%] laptop:w-[32%] max-w-[320px] h-[480px]">
         <certification-card [cardId]="i" [activeCardId]="activeCardId" (activate)="setActiveCard($event)"
           (deactivate)="clearActiveCard()" [imageUrl]="cert.image" [title]="cert.title" [issuer]="cert.issuer"
           [type]="cert.type" [language]="cert.language" [date]="cert.date" [durationHours]="cert.durationHours"

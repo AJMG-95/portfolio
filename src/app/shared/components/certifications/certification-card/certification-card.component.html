@@ -1,9 +1,9 @@
 <article
-  class="flex flex-col h-full w-[256px]  mobile-sm:w-[311px] mobile:w-[361px] tablet:w-[320px] rounded-md overflow-hidden border border-borderLight dark:border-darkBorderLight shadow-sm bg-secondary dark:bg-gray-900 transition-colors"
-  role="group" aria-labelledby="cert-title" >
+  class="flex flex-col h-full w-[16rem] mobile-sm:w-[19.4375rem] mobile:w-[22.5625rem] tablet:w-[20rem] rounded-md overflow-hidden border border-borderLight dark:border-darkBorderLight shadow-sm bg-secondary dark:bg-gray-900 transition-colors"
+  role="group" aria-labelledby="cert-title">
 
   <!-- Header con imagen fija -->
-  <header class="relative w-full h-48 bg-gray-200 dark:bg-gray-800">
+  <header class="relative w-full h-[12rem] bg-gray-200 dark:bg-gray-800">
     <img [src]="imageUrl" [alt]="'Imagen del certificado ' + title" class="w-full h-full object-cover" loading="lazy"
       decoding="async" />
 
@@ -11,7 +11,7 @@
       class="absolute bottom-0 left-0 w-full px-4 pb-2 pt-2 text-white text-xl font-semibold truncate before:absolute before:inset-0 bg-gradient-to-t from-black/80 to-transparent before:z-[-1]">
       {{ title }}
     </figcaption>
-    </header>
+  </header>
 
   <!-- Body -->
   <section class="flex-1 p-4 flex flex-col justify-between gap-3" aria-label="Detalles del certificado">
