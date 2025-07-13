@@ -1,45 +1,174 @@
-
 <page-wrapper [addClasses]="'items-center justify-center'" aria-label="home">
-
-  <div class="flex flex-col-reverse md:flex-row animate-fadeIn  items-center justify-between gap-12 w-full max-w-7xl z-10 px-4">
+  <div
+    class="flex flex-col-reverse md:flex-row items-center justify-between gap-12 w-full max-w-7xl z-10 px-4"
+  >
     <div class="text-center md:text-left space-y-6 w-full md:w-1/2">
-
       <ng-container *ngIf="showTypewriters()">
-        <typewriter-text [text]="greeting()" [start]="typing1Started" [key]="typewriterKey()"
-          [class]="'text-3xl sm:text-4xl font-extrabold tracking-tight text-primary dark:text-white'"
+        <typewriter-text
+          [text]="greeting()"
+          [start]="true"
+          [key]="typewriterKey()"
+          class="text-3xl sm:text-4xl font-extrabold tracking-tight text-primary dark:text-white"
           [tag]="'h1'"
-          [onFinish]="onFirstTypingFinish.bind(this)">
+          [onFinish]="onFirstTypingFinish.bind(this)"
+        >
         </typewriter-text>
 
-        <typewriter-text [text]="description()" [start]="typing2Started" [key]="typewriterKey()"
-          [class]="'text-base sm:text-lg text-textSoft dark:text-darkTextSoft'"
-          [tag]="'p'"  [typingFast]="true">
+        <typewriter-text
+          [text]="description()"
+          [start]="typing2Started"
+          [key]="typewriterKey()"
+          class="text-base sm:text-lg text-textSoft dark:text-darkTextSoft"
+          [tag]="'p'"
+          [typingFast]="true"
+        >
         </typewriter-text>
-
       </ng-container>
 
-      <p class="text-sm sm:text-base font-medium text-textSoft dark:text-darkHighlight">
-        {{ stack() }}
-      </p>
-
-      <p class="italic text-sm sm:text-base text-textSoft dark:text-darkTextSoft">
+      <p
+        class="italic text-sm sm:text-base text-textSoft dark:text-darkTextSoft"
+      >
         "{{ claim() }}"
       </p>
 
-      <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mt-6">
-        <a routerLink="/projects"
-          class="focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary dark:focus-visible:ring-white">
+      <!-- Lenguajes Frontend -->
+      <div
+        class="flex flex-wrap gap-2 animate-fadeIn opacity-0"
+        aria-label="Frontend Languages"
+        [style.animationDelay]="'0ms'"
+        style="animation-fill-mode: forwards"
+      >
+        <my-chip
+          *ngFor="
+            let lang of skills().technical?.frontendLanguages;
+            let i = index
+          "
+          [id]="'frontend-' + i"
+          [label]="lang"
+          [clickable]="true"
+          [addClasses]="
+            'bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-400 dark:text-gray-900 dark:hover:bg-blue-300'
+          "
+          (clicked)="onChipClick($event)"
+        />
+      </div>
+
+      <!-- Lenguajes Backend -->
+      <div
+        class="flex flex-wrap gap-2 animate-fadeIn opacity-0"
+        aria-label="Backend Languages"
+        [style.animationDelay]="'200ms'"
+        style="animation-fill-mode: forwards"
+      >
+        <my-chip
+          *ngFor="
+            let lang of skills().technical?.backendLanguages;
+            let i = index
+          "
+          [id]="'backend-' + i"
+          [label]="lang"
+          [clickable]="true"
+          [addClasses]="
+            'bg-rose-600 text-white hover:bg-rose-700 dark:bg-rose-400 dark:text-gray-900 dark:hover:bg-rose-300'
+          "
+          (clicked)="onChipClick($event)"
+        />
+      </div>
+
+      <!-- Frameworks -->
+      <div
+        class="flex flex-wrap gap-2 animate-fadeIn opacity-0"
+        aria-label="Frameworks"
+        [style.animationDelay]="'400ms'"
+        style="animation-fill-mode: forwards"
+      >
+        <my-chip
+          *ngFor="let fw of skills().technical?.frameworks; let i = index"
+          [id]="'framework-' + i"
+          [label]="fw"
+          [addClasses]="
+            'bg-purple-700 text-white hover:bg-purple-800 dark:bg-purple-300 dark:text-gray-900 dark:hover:bg-purple-200'
+          "
+        />
+      </div>
+
+      <!-- Herramientas -->
+      <div
+        class="flex flex-wrap gap-2 animate-fadeIn opacity-0"
+        aria-label="Tools"
+        [style.animationDelay]="'600ms'"
+        style="animation-fill-mode: forwards"
+      >
+        <my-chip
+          *ngFor="let tool of skills().technical?.tools; let i = index"
+          [id]="'tool-' + i"
+          [label]="tool"
+          [addClasses]="
+            'bg-zinc-700 text-white hover:bg-zinc-800 dark:bg-zinc-300 dark:text-gray-900 dark:hover:bg-zinc-200'
+          "
+        />
+      </div>
+
+      <!-- Gestión -->
+      <div
+        class="flex flex-wrap gap-2 animate-fadeIn opacity-0"
+        aria-label="Management"
+        [style.animationDelay]="'800ms'"
+        style="animation-fill-mode: forwards"
+      >
+        <my-chip
+          *ngFor="let mgmt of skills().technical?.management; let i = index"
+          [id]="'management-' + i"
+          [label]="mgmt"
+          [addClasses]="
+            'bg-teal-600 text-white hover:bg-teal-700 dark:bg-teal-300 dark:text-gray-900 dark:hover:bg-teal-200'
+          "
+        />
+      </div>
+
+      <!-- Principios -->
+      <div
+        class="flex flex-wrap gap-2 animate-fadeIn opacity-0"
+        aria-label="Principles"
+        [style.animationDelay]="'1000ms'"
+        style="animation-fill-mode: forwards"
+      >
+        <my-chip
+          *ngFor="
+            let principle of skills().technical?.principles;
+            let i = index
+          "
+          [id]="'principle-' + i"
+          [label]="principle"
+          [addClasses]="
+            'bg-amber-600 text-white hover:bg-amber-700 dark:bg-amber-300 dark:text-gray-900 dark:hover:bg-amber-200'
+          "
+        />
+      </div>
+
+      <div
+        class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mt-6"
+      >
+        <a
+          routerLink="/projects"
+          class="focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary dark:focus-visible:ring-white"
+        >
           <app-button>{{ projectsBtn() }}</app-button>
         </a>
-        <a routerLink="/contact"
-          class="focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary dark:focus-visible:ring-white">
+        <a
+          routerLink="/contact"
+          class="focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary dark:focus-visible:ring-white"
+        >
           <app-button variant="secondary">{{ contactBtn() }}</app-button>
         </a>
       </div>
     </div>
 
-    <profile-photo *ngIf="showPhoto" src="assets/images/me/mePhoto.jpg"
-      [class]="'w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full animate-fadeInOpacity'"></profile-photo>
+    <profile-photo
+      *ngIf="true"
+      src="assets/images/me/mePhoto.jpg"
+      class="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full animate-fadeInOpacity"
+    >
+    </profile-photo>
   </div>
-
 </page-wrapper>

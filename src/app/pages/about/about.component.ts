@@ -29,17 +29,21 @@ import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
 export class AboutPage {
   private transloco = inject(TranslocoService);
 
-  tabTitles = ['education.title', 'certifications.title', 'experience.title', 'skills.title', 'references.title'];
+  tabTitles = [
+    'education.title',
+    'certifications.title',
+    'experience.title',
+    'skills.title',
+  ];
   selectedTab = signal(this.tabTitles[0]);
   activeCardId: number | null = null;
 
-  // Se seleccionan los objetos de traducción como observables reactivos y se convierten en signals con un valor inicial vacío
   education = toSignal(this.transloco.selectTranslateObject('education'), { initialValue: {} });
   certifications = toSignal(this.transloco.selectTranslateObject('certifications'), { initialValue: {} });
   experience = toSignal(this.transloco.selectTranslateObject('experience'), { initialValue: {} });
   skills = toSignal(this.transloco.selectTranslateObject('skills'), { initialValue: {} });
   training = toSignal(this.transloco.selectTranslateObject('training'), { initialValue: {} });
-  references = toSignal(this.transloco.selectTranslateObject('references'), { initialValue: {} });
+
 
   setActiveCard(id: number) {
     this.activeCardId = id;

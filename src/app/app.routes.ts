@@ -1,29 +1,19 @@
+// src/app/app.routes.ts
+
 import { Routes } from '@angular/router';
+import {
+  loadHomePage,
+  loadAboutPage,
+  loadProjectsPage,
+  loadContactPage,
+  loadReferencesPage,
+} from './pages/pages';
 
 export const routes: Routes = [
-  {
-    path: '',
-    loadComponent: () =>
-      import('./pages/home/home.component').then((m) => m.HomePage),
-  },
-  {
-    path: 'about',
-    loadComponent: () =>
-      import('./pages/about/about.component').then((m) => m.AboutPage),
-  },
-  {
-    path: 'projects',
-    loadComponent: () =>
-      import('./pages/projects/projects.component').then((m) => m.ProjectsPage),
-  },
-  {
-    path: 'contact',
-    loadComponent: () =>
-      import('./pages/contact/contact.component').then((m) => m.ContactPage),
-  },
-  {
-    path: '**',
-    redirectTo: '',
-    pathMatch: 'full',
-  },
+  { path: '', loadComponent: loadHomePage },
+  { path: 'about', loadComponent: loadAboutPage },
+  { path: 'projects', loadComponent: loadProjectsPage },
+  { path: 'contact', loadComponent: loadContactPage },
+  { path: 'references', loadComponent: loadReferencesPage },
+  { path: '**', redirectTo: '', pathMatch: 'full' },
 ];

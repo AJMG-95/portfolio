@@ -1,0 +1,13 @@
+<span role="listitem" [attr.aria-label]="'Tecnología: ' + label" [attr.id]="id" [attr.tabindex]="clickable ? 0 : -1"
+  class="inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-semibold transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ring-offset-background dark:ring-offset-darkBackground"
+  [ngClass]="addClasses" (click)="handleClick()" (mouseenter)="handleMouseEnter()">
+  <ng-container *ngIf="icon && iconPosition === 'left'">
+    <i class="text-sm" [ngClass]="icon"></i>
+  </ng-container>
+
+  {{ label }}
+
+  <ng-container *ngIf="icon && iconPosition === 'right'">
+    <i class="text-sm" [ngClass]="icon"></i>
+  </ng-container>
+</span>

@@ -1,56 +1,132 @@
-<nav class="bg-white border-b border-gray-300 text-gray-900 dark:bg-gray-900 dark:border-gray-700 dark:text-white">
+<nav
+  class="bg-white border-b border-gray-300 text-gray-900 dark:bg-gray-900 dark:border-gray-700 dark:text-white"
+>
   <div class="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16">
       <!-- Izquierda: Nombre -->
-      <a routerLink="/"
-        class="text-lg font-bold focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:focus:ring-offset-gray-900">
+      <a
+        routerLink="/"
+        class="text-lg font-bold focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:focus:ring-offset-gray-900"
+      >
         Antonio Marchena
       </a>
 
       <!-- Botón menú móvil -->
-      <button (click)="toggleMobileMenu()" class="md:hidden focus:outline-none" aria-label="Toggle menu">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
-          stroke-linecap="round" stroke-linejoin="round">
+      <button
+        (click)="toggleMobileMenu()"
+        class="md:hidden focus:outline-none"
+        aria-label="Toggle menu"
+      >
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
           <path *ngIf="!isMobileMenuOpen" d="M4 6h16M4 12h16M4 18h16" />
           <path *ngIf="isMobileMenuOpen" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
 
       <!-- Navegación desktop -->
-      <ul class="hidden md:flex space-x-6 w-fit" role="menubar" aria-label="Main Navigation">
+      <ul
+        class="hidden md:flex space-x-6 w-fit"
+        role="menubar"
+        aria-label="Main Navigation"
+      >
         <li><app-nav-link link="/" labelKey="navbar.home"></app-nav-link></li>
-        <li><app-nav-link link="/about" labelKey="navbar.about"></app-nav-link></li>
-        <li><app-nav-link link="/projects" labelKey="navbar.projects"></app-nav-link></li>
-        <li><app-nav-link link="/contact" labelKey="navbar.contact"></app-nav-link></li>
+        <li>
+          <app-nav-link link="/about" labelKey="navbar.about"></app-nav-link>
+        </li>
+        <li>
+          <app-nav-link
+            link="/projects"
+            labelKey="navbar.projects"
+          ></app-nav-link>
+        </li>
+        <li>
+          <app-nav-link
+            link="/references"
+            labelKey="navbar.references"
+          ></app-nav-link>
+        </li>
+        <li>
+          <app-nav-link
+            link="/contact"
+            labelKey="navbar.contact"
+          ></app-nav-link>
+        </li>
       </ul>
 
-      <!-- Configuración desktop -->
-      <div class="hidden md:flex items-center space-x-3">
+      <!-- Configuración en menú desplegable (visible de 768px a 1439px) -->
+      <div class="hidden md:block laptop:hidden relative">
+        <button
+          (click)="toggleSettingsMenu()"
+          class="p-2 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary dark:focus-visible:ring-offset-gray-900"
+          aria-label="Open settings"
+        >
+          <i class="fa fa-cog" aria-hidden="true"></i>
+        </button>
+
+        <div
+          *ngIf="isSettingsMenuOpen"
+          class="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md shadow-lg py-2 z-50"
+        >
+          <div class="px-4 py-2">
+            <theme-toggle></theme-toggle>
+          </div>
+          <div class="px-4 py-2">
+            <language-switcher class="no-print"></language-switcher>
+          </div>
+        </div>
+      </div>
+
+      <!-- Configuración directa (solo visible en pantallas ≥1440px) -->
+      <div class="hidden laptop:flex items-center space-x-3">
         <language-switcher class="no-print"></language-switcher>
         <theme-toggle></theme-toggle>
       </div>
     </div>
 
     <!-- Menú móvil -->
-<!-- Menú móvil -->
-<div *ngIf="isMobileMenuOpen" class="relative z-10 md:hidden mt-2 px-3 transition-all duration-300 ease-in-out">
-  <div class="grid grid-cols-[auto_1fr] gap-4 items-start">
-    <!-- Columna izquierda: enlaces (auto ancho) -->
-    <ul class="flex flex-col gap-1 w-fit" role="menu" aria-label="Mobile Navigation">
-      <li><app-nav-link link="/" labelKey="navbar.home"></app-nav-link></li>
-      <li><app-nav-link link="/about" labelKey="navbar.about"></app-nav-link></li>
-      <li><app-nav-link link="/projects" labelKey="navbar.projects"></app-nav-link></li>
-      <li><app-nav-link link="/contact" labelKey="navbar.contact"></app-nav-link></li>
-    </ul>
+    <div
+      *ngIf="isMobileMenuOpen"
+      class="relative z-10 md:hidden my-2 px-3 transition-all duration-300 ease-in-out"
+    >
+      <div class="grid grid-cols-[auto_1fr] gap-4 items-start">
+        <!-- Columna izquierda: enlaces (auto ancho) -->
+        <ul
+          class="flex flex-col gap-1 w-fit"
+          role="menu"
+          aria-label="Mobile Navigation"
+        >
+          <li><app-nav-link link="/" labelKey="navbar.home"></app-nav-link></li>
+          <li>
+            <app-nav-link link="/about" labelKey="navbar.about"></app-nav-link>
+          </li>
+          <li>
+            <app-nav-link
+              link="/projects"
+              labelKey="navbar.projects"
+            ></app-nav-link>
+          </li>
+          <li>
+            <app-nav-link
+              link="/contact"
+              labelKey="navbar.contact"
+            ></app-nav-link>
+          </li>
+        </ul>
 
-    <!-- Columna derecha: configuración -->
-    <div class="flex flex-col items-end gap-2 pr-2">
-      <theme-toggle></theme-toggle>
-      <language-switcher class="no-print"></language-switcher>
+        <!-- Columna derecha: configuración -->
+        <div class="flex flex-col items-end gap-2 pr-2">
+          <theme-toggle></theme-toggle>
+          <language-switcher class="no-print"></language-switcher>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-
-
   </div>
 </nav>

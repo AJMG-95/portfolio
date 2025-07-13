@@ -5,6 +5,7 @@ import { LanguageSwitcher } from '../language-switcher/language-switcher.compone
 import { ThemeToggle } from '../theme-toggle/theme-toggle.component';
 import { NavLinkComponent } from '../nav-link/nav-link.component';
 
+
 @Component({
   selector: 'app-navbar',
   standalone: true,
@@ -21,9 +22,15 @@ import { NavLinkComponent } from '../nav-link/nav-link.component';
 export class NavbarComponent {
 
   isMobileMenuOpen = false;
+  isSettingsMenuOpen = false;
 
 
   toggleMobileMenu(): void {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
+
+
+  toggleSettingsMenu(): void {
+    this.isSettingsMenuOpen = !this.isSettingsMenuOpen;
   }
 }

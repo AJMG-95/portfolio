@@ -9,8 +9,8 @@
 
   <!-- Educación -->
   <app-subsection *ngIf="selectedTab() === 'education.title'" [titleKey]="'education.title'">
-    <ul class="space-y-4">
-      <li *ngFor="let item of education().items">
+    <ul class="flex flex-col flex-wrap justify-center mobile:items-center gap-6">
+      <li *ngFor="let item of education().items" class="w-full mobile:w-[359px] tablet:w-full">
         <i-card [title]="item.institution" [subtitle]="item.degree" [date]="item.dates" [imageUrl]="item.image"
           [altText]="item.institution" />
       </li>
@@ -18,34 +18,32 @@
   </app-subsection>
 
 
-<!-- Certificaciones -->
-<app-subsection *ngIf="selectedTab() === 'certifications.title'" [titleKey]="'certifications.title'">
-  <ul class="flex flex-wrap justify-center tablet-lg:justify-between gap-6">
-    <li *ngFor="let cert of certifications().items; let i = index"
-      class="flex justify-center w-full mobile-sm:w-[90%] sm:w-[48%] laptop-sm:w-[45%] laptop:w-[32%] max-w-[320px] min-h-[540px]">
-      <certification-card [cardId]="i" [activeCardId]="activeCardId" (activate)="setActiveCard($event)"
-        (deactivate)="clearActiveCard()" [imageUrl]="cert.image" [title]="cert.title" [issuer]="cert.issuer"
-        [type]="cert.type" [language]="cert.language" [date]="cert.date" [durationHours]="cert.durationHours"
-        [certificateId]="cert.certificateId" [collaborators]="cert.collaborators" [url]="cert.url" />
+  <!-- Certificaciones -->
+  <app-subsection *ngIf="selectedTab() === 'certifications.title'" [titleKey]="'certifications.title'">
+    <ul class="flex flex-wrap justify-center tablet-lg:justify-between gap-6">
+      <li *ngFor="let cert of certifications().items; let i = index"
+        class="flex justify-center w-full mobile-sm:w-[90%] sm:w-[48%] laptop-sm:w-[45%] laptop:w-[32%] max-w-[320px] h-[480px]">
+        <certification-card [cardId]="i" [activeCardId]="activeCardId" (activate)="setActiveCard($event)"
+          (deactivate)="clearActiveCard()" [imageUrl]="cert.image" [title]="cert.title" [issuer]="cert.issuer"
+          [type]="cert.type" [language]="cert.language" [date]="cert.date" [durationHours]="cert.durationHours"
+          [certificateId]="cert.certificateId" [url]="cert.url" />
 
-    </li>
-  </ul>
+      </li>
+    </ul>
 
-</app-subsection>
-
-
-
+  </app-subsection>
 
   <!-- Experiencia -->
   <app-subsection *ngIf="selectedTab() === 'experience.title'" [titleKey]="'experience.title'">
     <ul class="space-y-4">
       <li *ngFor="let item of experience().items">
-        <custom-i-card [title]="item.company" [titleLink]="item.companyUrl" [imageUrl]="item.companyLogo" [altText]="item.company">
+        <custom-i-card [title]="item.company" [titleLink]="item.companyUrl" [imageUrl]="item.companyLogo"
+          [altText]="item.company">
           <!-- Body proyectado -->
           <div card-body class="space-y-2">
             <!-- Encabezado: logo + nombre empresa -->
 
-              <h4 class="text-lg font-semibold text-textMain dark:text-darkTextMain">{{ item.role }}</h4>
+            <h4 class="text-lg font-semibold text-textMain dark:text-darkTextMain">{{ item.role }}</h4>
 
 
             <!-- Fechas con estilo más tenue -->
@@ -70,61 +68,29 @@
   </app-subsection>
 
 
-
-  <!-- Formación -->
-  <app-subsection *ngIf="selectedTab() === 'training.title'" [titleKey]="'training.title'">
-    <ul class="list-disc ml-4">
-      <li *ngFor="let item of training().items">{{ item }}</li>
-    </ul>
-  </app-subsection>
-
-  <!-- Habilidades -->
-  <app-subsection *ngIf="selectedTab() === 'skills.title'" [titleKey]="'skills.title'">
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-      <div
-        class="p-4 bg-secondary dark:bg-darkSecondary rounded-md shadow-sm border border-borderLight dark:border-darkBorderLight">
-        <h3 class="font-semibold mb-2 text-textMain dark:text-darkTextMain">{{ 'skills.technical' | transloco }}</h3>
-        <ul class="list-disc ml-4 space-y-1 text-textSoft dark:text-darkTextSoft">
-          <li *ngFor="let area of ['frameworks', 'languages', 'tools', 'management', 'principles']">
-            <strong>{{ ('skills.technical.' + area) | transloco }}:</strong>
-            {{ skills().technical[area].join(', ') }}
-          </li>
-        </ul>
-      </div>
-
-      <div
-        class="p-4 bg-secondary dark:bg-darkSecondary rounded-md shadow-sm border border-borderLight dark:border-darkBorderLight">
-        <h3 class="font-semibold mb-2 text-textMain dark:text-darkTextMain">{{ 'skills.soft' | transloco }}</h3>
-        <ul class="list-disc ml-4 space-y-1 text-textSoft dark:text-darkTextSoft">
-          <li *ngFor="let soft of skills().soft">{{ soft }}</li>
-        </ul>
-      </div>
+<!-- Habilidades -->
+<app-subsection *ngIf="selectedTab() === 'skills.title'" [titleKey]="'skills.title'">
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <div
+      class="p-4 bg-secondary dark:bg-darkSecondary rounded-md shadow-sm border border-borderLight dark:border-darkBorderLight">
+      <h3 class="font-semibold mb-2 text-textMain dark:text-darkTextMain">{{ 'skills.technical' | transloco }}</h3>
+      <ul class="list-disc ml-4 space-y-1 text-textSoft dark:text-darkTextSoft">
+        <li *ngFor="let area of ['frameworks', 'languages', 'tools', 'management', 'principles']">
+          <strong>{{ ('skills.technical.' + area) | transloco }}:</strong>
+          {{ skills().technical?.[area]?.join(', ') }}
+        </li>
+      </ul>
     </div>
-  </app-subsection>
 
-  <!-- Referencias -->
-  <app-subsection *ngIf="selectedTab() === 'references.title'" [titleKey]="'references.title'">
-    <ul>
-      <li *ngFor="let ref of references().items" class="mb-4">
-        <p class="font-semibold">{{ ref.name }}</p>
-        <p>{{ ref.role }}</p>
-        <p>
-          <a [href]="ref.linkedin" target="_blank" rel="noopener noreferrer"
-            class="text-accent underline hover:text-linkHover dark:text-accent dark:hover:text-linkHover transition-colors duration-200">
-            LinkedIn
-          </a>
-        </p>
-        <p class="text-sm text-gray-500">{{ ref.contact }}</p>
-      </li>
-    </ul>
+    <div
+      class="p-4 bg-secondary dark:bg-darkSecondary rounded-md shadow-sm border border-borderLight dark:border-darkBorderLight">
+      <h3 class="font-semibold mb-2 text-textMain dark:text-darkTextMain">{{ 'skills.soft' | transloco }}</h3>
+      <ul class="list-disc ml-4 space-y-1 text-textSoft dark:text-darkTextSoft">
+        <li *ngFor="let soft of skills().soft">{{ soft }}</li>
+      </ul>
+    </div>
+  </div>
+</app-subsection>
 
-    <p *ngIf="references().letter">
-      {{ references().letter.text }}
-      <a [href]="references().letter.link" target="_blank" rel="noopener noreferrer"
-        class="text-blue-600 underline hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">
-        PDF
-      </a>
-    </p>
-  </app-subsection>
 
 </page-wrapper>
