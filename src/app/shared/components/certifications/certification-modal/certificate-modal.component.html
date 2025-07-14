@@ -1,9 +1,12 @@
-<div class="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4" role="dialog" aria-modal="true">
-  <div class="relative bg-white dark:bg-gray-800 rounded-lg shadow-lg max-w-3xl w-full overflow-hidden">
-
+<div class="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4" role="dialog" aria-modal="true"
+  (click)="onClose()">
+  <div class="relative bg-white dark:bg-gray-800 rounded-lg shadow-lg max-w-3xl w-full overflow-hidden"
+    (click)="$event.stopPropagation()">
     <!-- Header opcional -->
     <header *ngIf="title" class="px-6 pt-6 pb-2">
-      <h2 class="text-xl font-semibold text-center text-gray-900 dark:text-gray-100">{{ title }}</h2>
+      <h2 class="text-xl font-semibold text-center text-gray-900 dark:text-gray-100">
+        {{ title }}
+      </h2>
     </header>
 
     <!-- Imagen -->
@@ -17,6 +20,5 @@
       class="absolute top-2 right-2 text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition">
       ✕
     </button>
-
   </div>
 </div>

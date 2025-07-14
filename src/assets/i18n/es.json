@@ -58,7 +58,8 @@
     "title": "Idiomas",
     "items": [
       "Castellano (Nativo)",
-      "Inglés (Certificado B2)"
+      "Inglés (Certificado B2)",
+      "Lengua de Signos Española (nivel usuario)"
     ]
   }
   ,
@@ -214,6 +215,7 @@
         "companyLogo": "assets/images/companies-logo/controlnetspain_logo.webp",
         "companyUrl": "https://controlnet.es/",
         "dates": "Marzo 2024 - Julio 2025",
+        "technologies": ["Flutter", "Angular", "React", "Tailwind CSS", "Bootstrap"],
         "tasks": [
           "Desarrollo de interfaces móviles con Flutter.",
           "Creación de componentes reutilizables en Angular.",
@@ -229,6 +231,7 @@
         "companyLogo": "assets/images/companies-logo/controlnetspain_logo.webp",
         "companyUrl": "https://controlnet.es/",
         "dates": "Octubre 2023 - Enero 2024",
+        "technologies": ["Angular", "Bootstrap"],
         "tasks": [
           "Desarrollo web con Angular 16.",
           "Interfaces responsivas con Bootstrap.",
@@ -242,6 +245,15 @@
   "skills": {
     "title": "Habilidades",
     "technical": {
+      "title": "Habilidades técnicas",
+
+      "frontendLanguagesTitle": "Lenguajes de Frontend",
+      "backendLanguagesTitle": "Lenguajes de Backend",
+      "frameworksTitle": "Frameworks y Librerías",
+      "toolsTitle": "Herramientas y Bases de Datos",
+      "managementTitle": "Gestión de Proyectos",
+      "principlesTitle": "Principios de Desarrollo",
+
       "frontendLanguages": ["TypeScript", "JavaScript", "HTML5", "CSS3"],
       "backendLanguages": ["Java", "Python", "PHP"],
       "frameworks": ["Angular", "React", "Flutter", "Laravel", "Tailwind CSS", "Bootstrap"],
@@ -249,13 +261,15 @@
       "management": ["Asana", "Monday"],
       "principles": ["Arquitectura limpia", "Accesibilidad web", "Diseño responsive"]
     },
-    "soft": [
+    "soft": {
+      "title": "Habilidades blandas",
+      "items":[
       "Trabajo en equipo ágil (Scrum/Sprint)",
       "Proactividad y aprendizaje continuo",
       "Resolución de problemas técnicos",
       "Atención al detalle",
       "Autonomía y responsabilidad"
-    ]
+    ]}
   },
   "training": {
     "title": "Formación Complementaria",

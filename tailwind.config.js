@@ -81,6 +81,10 @@ module.exports = {
           '0%': { opacity: '1', transform: 'translateX(0)' },
           '100%': { opacity: '0', transform: 'translateX(-100%)' },
         },
+        'fade-in-up': {
+          '0%': { opacity: 0, transform: 'translateY(10px)' },
+          '100%': { opacity: 1, transform: 'translateY(0)' },
+        },
         typing: {
           from: { width: '0' },
           to: { width: '100%' },
@@ -109,6 +113,7 @@ module.exports = {
         fadeIn: 'fadeIn 1s ease-out forwards',
         fadeInOpacity: 'fadeInOpacity 1s ease-out forwards',
         fadeOut: 'fadeOut 0.5s ease-out forwards',
+        'fade-in-up': 'fade-in-up 0.6s ease-out both',
         lFadeIn: 'lFadeIn 1s ease-out forwards',
         lFadeOut: 'lFadeOut 1s ease-out forwards',
         rFadeIn: 'rFadeIn 1s ease-out forwards',

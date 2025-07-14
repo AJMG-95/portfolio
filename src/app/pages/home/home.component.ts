@@ -8,6 +8,8 @@ import { CommonModule, NgIf } from '@angular/common';
 import { PageWrapper } from '../../shared/components/page-wrapper/page-wrapper.component';
 import { ChipComponent } from '../../shared/components/chip/chip.component';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { technologies } from '../../../assets/data/technologies';
+
 
 @Component({
   selector: 'app-home-page',
@@ -28,29 +30,32 @@ import { toSignal } from '@angular/core/rxjs-interop';
 export class HomePage {
   private transloco = inject(TranslocoService);
 
-  greeting = signal('');
-  description = signal('');
-  claim = signal('');
-  projectsBtn = signal('');
-  contactBtn = signal('');
-  typewriterKey = signal(0);
-
   typing1Done = false;
   typing2Started = false;
-  showTypewriters = signal(true);
 
-  // ✅ Acceso a todas las skills como objeto, igual que en AboutPage
+  techFrontend = technologies.frontendLanguages;
+  techBackend = technologies.backendLanguages;
+  techFrameworks = technologies.frameworks;
+  techTools = technologies.tools;
+  techManagement = technologies.management;
+
+
+  greeting = toSignal(this.transloco.selectTranslateObject('home.greeting'), { initialValue: {} });
+  description = toSignal(this.transloco.selectTranslateObject('home.description'), {initialValue: {}});
+  claim = toSignal(this.transloco.selectTranslateObject('home.claim'), {initialValue: {}});
+  projectsBtn = toSignal(this.transloco.selectTranslateObject('home.projectsBtn'), {initialValue: {}});
+  contactBtn = toSignal(this.transloco.selectTranslateObject('home.contactBtn'), {initialValue: {}});
   skills = toSignal(this.transloco.selectTranslateObject('skills'), { initialValue: {} });
 
-  constructor() {
-    this.loadTranslations();
+  typewriterKey = signal(0);
+  showTypewriters = signal(true);
 
+  constructor() {
     this.transloco.langChanges$.subscribe(() => {
       this.typing1Done = false;
       this.typing2Started = false;
       this.showTypewriters.set(false);
       setTimeout(() => {
-        this.loadTranslations();
         this.showTypewriters.set(true);
       });
     });
@@ -58,11 +63,6 @@ export class HomePage {
 
   ngOnInit(): void {
     const updateTexts = () => {
-      this.greeting.set(`👋 ${this.transloco.translate('home.greeting')}`);
-      this.description.set(this.transloco.translate('home.description'));
-      this.claim.set(this.transloco.translate('home.claim'));
-      this.projectsBtn.set(this.transloco.translate('home.projectsBtn'));
-      this.contactBtn.set(this.transloco.translate('home.contactBtn'));
       this.typing1Done = false;
       this.typing2Started = false;
       this.typewriterKey.set(this.typewriterKey() + 1);
@@ -75,13 +75,6 @@ export class HomePage {
     });
   }
 
-  loadTranslations() {
-    this.transloco.selectTranslate('home.greeting').subscribe(t => this.greeting.set(`👋 ${t}`));
-    this.transloco.selectTranslate('home.description').subscribe(t => this.description.set(t));
-    this.transloco.selectTranslate('home.claim').subscribe(t => this.claim.set(t));
-    this.transloco.selectTranslate('home.projectsBtn').subscribe(t => this.projectsBtn.set(t));
-    this.transloco.selectTranslate('home.contactBtn').subscribe(t => this.contactBtn.set(t));
-  }
 
   onFirstTypingFinish(): void {
     this.typing1Done = true;
@@ -90,6 +83,6 @@ export class HomePage {
 
   onChipClick(id: string): void {
     console.log('Chip clicked:', id);
-    // Aquí podrías navegar, filtrar, mostrar info, etc.
+    //
   }
 }

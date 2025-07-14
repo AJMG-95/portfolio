@@ -1,18 +1,18 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslocoModule } from '@jsverse/transloco';
-import { CertificateModal } from '../certification-modal/certificate-modal.component';
 
 @Component({
   selector: 'certification-card',
   standalone: true,
-  imports: [CommonModule, TranslocoModule, CertificateModal],
+  imports: [CommonModule, TranslocoModule],
   templateUrl: './certification-card.component.html',
   styleUrls: ['./certification-card.component.css']
 })
 export class CertificationCard {
   @Output() activate = new EventEmitter<number>();
   @Output() deactivate = new EventEmitter<void>();
+  @Output() requestOpenModal = new EventEmitter<void>(); // Nuevo output para que el padre abra el modal
 
   @Input() cardId!: number;
   @Input() activeCardId!: number | null;
@@ -27,19 +27,12 @@ export class CertificationCard {
   @Input() collaborators?: string[];
   @Input() url?: string;
 
-  modalVisible = false;
-
   get isActive(): boolean {
     return this.cardId === this.activeCardId;
   }
 
   openModal() {
-    this.activate.emit(this.cardId); // <- ahora el hijo notifica al padre
-    this.modalVisible = true;
-  }
-
-  closeModal() {
-    this.modalVisible = false;
-    this.deactivate.emit(); // <- notifica que debe desactivarse
+    this.activate.emit(this.cardId);
+    this.requestOpenModal.emit(); // Informa al padre de que debe abrir el modal
   }
 }

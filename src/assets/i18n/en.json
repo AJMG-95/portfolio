@@ -57,7 +57,8 @@
     "title": "Languages",
     "items": [
       "Spanish (Native)",
-      "English (B2 Certified)"
+      "English (B2 Certified)",
+      "Spanish Sign Language (basic user level)"
     ]
   },
   "education": {
@@ -208,6 +209,7 @@
         "companyLogo": "assets/images/companies-logo/controlnetspain_logo.webp",
         "companyUrl": "https://controlnet.es/",
         "dates": "March 2024 - July 2025",
+        "technologies": ["Flutter", "Angular", "React", "Tailwind CSS", "Bootstrap"],
         "tasks": [
           "Developed mobile interfaces using Flutter.",
           "Created reusable components in Angular.",
@@ -223,6 +225,7 @@
         "companyLogo": "assets/images/companies-logo/controlnetspain_logo.webp",
         "companyUrl": "https://controlnet.es/",
         "dates": "October 2023 - January 2024",
+        "technologies": ["Angular", "Bootstrap"],
         "tasks": [
           "Web development with Angular 16.",
           "Responsive interfaces with Bootstrap.",
@@ -236,20 +239,32 @@
   "skills": {
     "title": "Skills",
     "technical": {
+      "title": "Technical Skills",
+
+      "frontendLanguagesTitle": "Frontend Languages",
+      "backendLanguagesTitle": "Backend Languages",
+      "frameworksTitle": "Frameworks and Libraries",
+      "toolsTitle": "Tools and Databases",
+      "managementTitle": "Project Management",
+      "principlesTitle": "Development Principles",
+
       "frontendLanguages": ["TypeScript", "JavaScript", "HTML5", "CSS3"],
       "backendLanguages": ["Java", "Python", "PHP"],
       "frameworks": ["Angular", "React", "Flutter", "Laravel", "Tailwind CSS", "Bootstrap"],
       "tools": ["Git", "GitHub", "PostgreSQL"],
       "management": ["Asana", "Monday"],
-      "principles": ["Clean architecture", "Web accessibility", "Responsive design"]
+      "principles": ["Clean Architecture", "Web Accessibility", "Responsive Design"]
     },
-    "soft": [
-      "Agile teamwork (Scrum/Sprint)",
-      "Proactivity and continuous learning",
-      "Technical problem solving",
-      "Attention to detail",
-      "Autonomy and responsibility"
-    ]
+    "soft": {
+      "title": "Soft Skills",
+      "items": [
+        "Agile teamwork (Scrum/Sprint)",
+        "Proactivity and continuous learning",
+        "Technical problem solving",
+        "Attention to detail",
+        "Autonomy and responsibility"
+      ]
+    }
   },
   "training": {
     "title": "Additional Training",

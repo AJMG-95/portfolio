@@ -11,6 +11,6 @@ export class CustomICard {
   @Input() title!: string;
   @Input() imageUrl?: string;
   @Input() altText: string = 'Logo';
-  @Input() titleLink?: string; // URL opcional
+  @Input() titleLink?: string;
 
 }

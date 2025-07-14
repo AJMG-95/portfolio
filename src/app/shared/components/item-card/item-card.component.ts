@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './item-card.component.html',
-  styleUrls: ['./item-card.component.css'], // opcional si usas Tailwind directamente
+  styleUrls: ['./item-card.component.css'],
 })
 export class ICard {
   @Input() title!: string;

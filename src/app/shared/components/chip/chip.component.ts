@@ -13,10 +13,6 @@ export class ChipComponent {
   @Input() icon?: string;
   @Input() iconPosition: 'left' | 'right' = 'left';
 
-  /**
-   * Clases adicionales configurables por el usuario, incluyendo hover, bg, text...
-   * Ej: 'bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-400 dark:text-gray-900 dark:hover:bg-blue-300'
-   */
   @Input() addClasses: string = '';
 
   @Input() clickable = false;

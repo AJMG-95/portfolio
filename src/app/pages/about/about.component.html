@@ -1,96 +1,354 @@
-<page-wrapper [addClasses]="'flex-col items-center gap-12'" aria-label="About-me">
-
-  <h1 id="about-me-title"
-    class="text-4xl sm:text-5xl mb-12 font-extrabold text-center text-primary dark:text-darkHighlight transition-colors">
-    {{ 'about.title' | transloco }}
+<page-wrapper
+  [addClasses]="'flex-col items-center gap-12'"
+  aria-label="About-me"
+>
+  <h1
+    id="about-me-title"
+    class="text-4xl sm:text-5xl mb-12 font-extrabold text-center text-primary dark:text-darkHighlight transition-colors"
+  >
+    {{ "about.title" | transloco }}
   </h1>
 
-  <about-tabs [tabs]="tabTitles" [selectedTab]="selectedTab()" (selectedTabChange)="selectTab($event)" />
+  <about-tabs
+    [tabs]="tabTitles"
+    [selectedTab]="selectedTab()"
+    (selectedTabChange)="selectTab($event)"
+  />
 
   <!-- Educación -->
-  <app-subsection *ngIf="selectedTab() === 'education.title'" [titleKey]="'education.title'">
-    <ul class="flex flex-col flex-wrap justify-center mobile:items-center gap-6">
-      <li *ngFor="let item of education().items" class="w-full mobile:w-[359px] tablet:w-full">
-        <i-card [title]="item.institution" [subtitle]="item.degree" [date]="item.dates" [imageUrl]="item.image"
-          [altText]="item.institution" />
+  <app-subsection
+    *ngIf="selectedTab() === 'education.title' && education().items?.length"
+    [titleKey]="'education.title'"
+  >
+    <ul
+      class="flex flex-col flex-wrap justify-center mobile:items-center gap-6"
+    >
+      <li
+        *ngFor="let item of education().items; let i = index"
+        class="w-full mobile:w-[359px] tablet:w-full opacity-0 animate-rFadeIn"
+        [style.animationDelay]="i * 0.15 + 's'"
+        [style.animationFillMode]="'forwards'"
+      >
+        <i-card
+          [title]="item.institution"
+          [subtitle]="item.degree"
+          [date]="item.dates"
+          [imageUrl]="item.image"
+          [altText]="item.institution"
+        />
       </li>
     </ul>
   </app-subsection>
 
-
   <!-- Certificaciones -->
-  <app-subsection *ngIf="selectedTab() === 'certifications.title'" [titleKey]="'certifications.title'">
+  <app-subsection
+    *ngIf="
+      selectedTab() === 'certifications.title' && certifications().items?.length
+    "
+    [titleKey]="'certifications.title'"
+  >
     <ul class="flex flex-wrap justify-center tablet-lg:justify-between gap-6">
-      <li *ngFor="let cert of certifications().items; let i = index"
-        class="flex  justify-center w-full mobile-sm:w-[90%] sm:w-[48%] laptop-sm:w-[45%] laptop:w-[32%] max-w-[320px] h-[480px]">
-        <certification-card [cardId]="i" [activeCardId]="activeCardId" (activate)="setActiveCard($event)"
-          (deactivate)="clearActiveCard()" [imageUrl]="cert.image" [title]="cert.title" [issuer]="cert.issuer"
-          [type]="cert.type" [language]="cert.language" [date]="cert.date" [durationHours]="cert.durationHours"
-          [certificateId]="cert.certificateId" [url]="cert.url" />
-
+      <li
+        *ngFor="let cert of certifications().items; let i = index"
+        class="flex justify-center w-full mobile-sm:w-[90%] sm:w-[48%] laptop-sm:w-[45%] laptop:w-[32%] max-w-[320px] h-[480px] opacity-0 animate-rFadeIn"
+        [style.animationDelay]="i * 0.15 + 's'"
+        [style.animationFillMode]="'forwards'"
+      >
+        <certification-card
+          [cardId]="i"
+          [activeCardId]="activeCardId"
+          (activate)="openModal(cert, i)"
+          (deactivate)="closeModal()"
+          [imageUrl]="cert.image"
+          [title]="cert.title"
+          [issuer]="cert.issuer"
+          [type]="cert.type"
+          [language]="cert.language"
+          [date]="cert.date"
+          [durationHours]="cert.durationHours"
+          [certificateId]="cert.certificateId"
+          [url]="cert.url"
+        />
       </li>
     </ul>
-
   </app-subsection>
 
   <!-- Experiencia -->
-  <app-subsection *ngIf="selectedTab() === 'experience.title'" [titleKey]="'experience.title'">
+  <app-subsection
+    *ngIf="selectedTab() === 'experience.title' && experience().items?.length"
+    [titleKey]="'experience.title'"
+  >
     <ul class="space-y-4">
-      <li *ngFor="let item of experience().items">
-        <custom-i-card [title]="item.company" [titleLink]="item.companyUrl" [imageUrl]="item.companyLogo"
-          [altText]="item.company">
-          <!-- Body proyectado -->
-          <div card-body class="space-y-2">
-            <!-- Encabezado: logo + nombre empresa -->
-
-            <h4 class="text-lg font-semibold text-textMain dark:text-darkTextMain">{{ item.role }}</h4>
-
-
-            <!-- Fechas con estilo más tenue -->
-            <p class="text-sm text-gray-500 dark:text-gray-100 mt-1">{{ item.dates }}</p>
-
-            <!-- Tareas -->
-            <ul class="list-disc ml-5 space-y-1 text-textMain dark:text-darkTextMain">
-              <li *ngFor="let task of item.tasks">{{ task }}</li>
-            </ul>
-          </div>
-
-          <!-- Footer proyectado opcional -->
-          <div *ngIf="item.link" card-footer class="pt-3 text-right">
-            <a [href]="item.link" target="_blank"
-              class="text-sm font-medium text-primary dark:text-darkPrimary hover:underline">
-              Ver más
-            </a>
-          </div>
-        </custom-i-card>
+      <li
+        *ngFor="let item of experience().items; let i = index"
+        class="opacity-0 animate-rFadeIn"
+        [style.animationDelay]="i * 0.15 + 's'"
+        [style.animationFillMode]="'forwards'"
+      >
+        <experience-card
+          [title]="item.company"
+          [titleLink]="item.companyUrl"
+          [imageUrl]="item.companyLogo"
+          [altText]="item.company"
+          [role]="item.role"
+          [dates]="item.dates"
+          [tasks]="item.tasks"
+          [technologies]="item.technologies"
+        />
       </li>
     </ul>
   </app-subsection>
 
+  <!-- Habilidades -->
+  <app-subsection
+    *ngIf="selectedTab() === 'skills.title'"
+    [titleKey]="'skills.title'"
+  >
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+      <!-- HABILIDADES TÉCNICAS -->
+      <section
+        aria-labelledby="technical-skills-title"
+        class="p-4 bg-secondary dark:bg-darkSecondary rounded-md shadow-sm border border-borderLight dark:border-darkBorderLight opacity-0 animate-fade-in-up"
+      >
+        <header>
+          <h3
+            id="technical-skills-title"
+            class="font-semibold mb-4 text-textMain dark:text-darkTextMain"
+          >
+            {{ "skills.technical.title" | transloco }}
+          </h3>
+        </header>
 
-<!-- Habilidades -->
-<app-subsection *ngIf="selectedTab() === 'skills.title'" [titleKey]="'skills.title'">
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-    <div
-      class="p-4 bg-secondary dark:bg-darkSecondary rounded-md shadow-sm border border-borderLight dark:border-darkBorderLight">
-      <h3 class="font-semibold mb-2 text-textMain dark:text-darkTextMain">{{ 'skills.technical' | transloco }}</h3>
-      <ul class="list-disc ml-4 space-y-1 text-textSoft dark:text-darkTextSoft">
-        <li *ngFor="let area of ['frameworks', 'languages', 'tools', 'management', 'principles']">
-          <strong>{{ ('skills.technical.' + area) | transloco }}:</strong>
-          {{ skills().technical?.[area]?.join(', ') }}
-        </li>
-      </ul>
+        <div class="space-y-4">
+          <article *ngIf="skills().technical?.frontendLanguages?.length">
+            <h4
+              class="text-sm font-medium text-textSoft dark:text-darkTextSoft"
+            >
+              {{ "skills.technical.frontendLanguagesTitle" | transloco }}
+            </h4>
+            <ul class="flex flex-wrap gap-2 mt-1" role="list">
+              <li
+                *ngFor="
+                  let tech of skills().technical.frontendLanguages;
+                  let i = index
+                "
+                role="listitem"
+                class="opacity-0 animate-rFadeIn"
+                [style.animationDelay]="i * 0.1 + 's'"
+                style="animation-fill-mode: forwards"
+              >
+                <my-chip
+                  [label]="tech"
+                  [addClasses]="
+                    'bg-pink-600 text-white dark:bg-pink-400 dark:text-darkBackground text-sm'
+                  "
+                />
+              </li>
+            </ul>
+          </article>
+
+          <article *ngIf="skills().technical?.backendLanguages?.length">
+            <h4
+              class="text-sm font-medium text-textSoft dark:text-darkTextSoft"
+            >
+              {{ "skills.technical.backendLanguagesTitle" | transloco }}
+            </h4>
+            <ul class="flex flex-wrap gap-2 mt-1" role="list">
+              <li
+                *ngFor="
+                  let tech of skills().technical.backendLanguages;
+                  let i = index
+                "
+                role="listitem"
+                class="opacity-0 animate-rFadeIn"
+                [style.animationDelay]="i * 0.1 + 's'"
+                style="animation-fill-mode: forwards"
+              >
+                <my-chip
+                  [label]="tech"
+                  [addClasses]="
+                    'bg-purple-600 text-white dark:bg-purple-400 dark:text-darkBackground text-sm'
+                  "
+                />
+              </li>
+            </ul>
+          </article>
+
+          <article *ngIf="skills().technical?.frameworks?.length">
+            <h4
+              class="text-sm font-medium text-textSoft dark:text-darkTextSoft"
+            >
+              {{ "skills.technical.frameworksTitle" | transloco }}
+            </h4>
+            <ul class="flex flex-wrap gap-2 mt-1" role="list">
+              <li
+                *ngFor="
+                  let tech of skills().technical.frameworks;
+                  let i = index
+                "
+                role="listitem"
+                class="opacity-0 animate-rFadeIn"
+                [style.animationDelay]="i * 0.1 + 's'"
+                style="animation-fill-mode: forwards"
+              >
+                <my-chip
+                  [label]="tech"
+                  [addClasses]="
+                    'bg-indigo-600 text-white dark:bg-indigo-400 dark:text-darkBackground text-sm'
+                  "
+                />
+              </li>
+            </ul>
+          </article>
+
+          <article *ngIf="skills().technical?.tools?.length">
+            <h4
+              class="text-sm font-medium text-textSoft dark:text-darkTextSoft"
+            >
+              {{ "skills.technical.toolsTitle" | transloco }}
+            </h4>
+            <ul class="flex flex-wrap gap-2 mt-1" role="list">
+              <li
+                *ngFor="let tech of skills().technical.tools; let i = index"
+                role="listitem"
+                class="opacity-0 animate-rFadeIn"
+                [style.animationDelay]="i * 0.1 + 's'"
+                style="animation-fill-mode: forwards"
+              >
+                <my-chip
+                  [label]="tech"
+                  [addClasses]="
+                    'bg-teal-600 text-white dark:bg-teal-400 dark:text-darkBackground text-sm'
+                  "
+                />
+              </li>
+            </ul>
+          </article>
+
+          <article *ngIf="skills().technical?.management?.length">
+            <h4
+              class="text-sm font-medium text-textSoft dark:text-darkTextSoft"
+            >
+              {{ "skills.technical.managementTitle" | transloco }}
+            </h4>
+            <ul class="flex flex-wrap gap-2 mt-1" role="list">
+              <li
+                *ngFor="
+                  let tech of skills().technical.management;
+                  let i = index
+                "
+                role="listitem"
+                class="opacity-0 animate-rFadeIn"
+                [style.animationDelay]="i * 0.1 + 's'"
+                style="animation-fill-mode: forwards"
+              >
+                <my-chip
+                  [label]="tech"
+                  [addClasses]="
+                    'bg-amber-600 text-white dark:bg-amber-400 dark:text-darkBackground text-sm'
+                  "
+                />
+              </li>
+            </ul>
+          </article>
+
+          <article *ngIf="skills().technical?.principles?.length">
+            <h4
+              class="text-sm font-medium text-textSoft dark:text-darkTextSoft"
+            >
+              {{ "skills.technical.principlesTitle" | transloco }}
+            </h4>
+            <ul class="flex flex-wrap gap-2 mt-1" role="list">
+              <li
+                *ngFor="
+                  let tech of skills().technical.principles;
+                  let i = index
+                "
+                role="listitem"
+                class="opacity-0 animate-rFadeIn"
+                [style.animationDelay]="i * 0.1 + 's'"
+                style="animation-fill-mode: forwards"
+              >
+                <my-chip
+                  [label]="tech"
+                  [addClasses]="
+                    'bg-sky-600 text-white dark:bg-sky-400 dark:text-darkBackground text-sm'
+                  "
+                />
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- HABILIDADES BLANDAS -->
+      <section
+        aria-labelledby="soft-skills-title"
+        class="p-4 bg-secondary dark:bg-darkSecondary rounded-md shadow-sm border border-borderLight dark:border-darkBorderLight opacity-0 animate-fade-in-up"
+      >
+        <header>
+          <h3
+            id="soft-skills-title"
+            class="font-semibold mb-4 text-textMain dark:text-darkTextMain"
+          >
+            {{ "skills.soft.title" | transloco }}
+          </h3>
+        </header>
+        <ul class="flex flex-wrap gap-2" role="list">
+          <li
+            *ngFor="let soft of skills().soft?.items; let i = index"
+            role="listitem"
+            class="opacity-0 animate-rFadeIn"
+            [style.animationDelay]="i * 0.1 + 's'"
+            style="animation-fill-mode: forwards"
+          >
+            <my-chip
+              [label]="soft"
+              [addClasses]="
+                'bg-green-600 text-white dark:bg-green-400 dark:text-darkBackground text-sm'
+              "
+            />
+          </li>
+        </ul>
+      </section>
+
+      <!-- IDIOMAS -->
+      <section
+        aria-labelledby="languages-title"
+        class="p-4 bg-secondary dark:bg-darkSecondary rounded-md shadow-sm border border-borderLight dark:border-darkBorderLight opacity-0 animate-fade-in-up"
+      >
+        <header>
+          <h3
+            id="languages-title"
+            class="font-semibold mb-4 text-textMain dark:text-darkTextMain"
+          >
+            {{ "languages.title" | transloco }}
+          </h3>
+        </header>
+        <ul class="flex flex-wrap gap-2" role="list">
+          <li
+            *ngFor="let lang of languages().items; let i = index"
+            role="listitem"
+            class="opacity-0 animate-rFadeIn"
+            [style.animationDelay]="i * 0.1 + 's'"
+            style="animation-fill-mode: forwards"
+          >
+            <my-chip
+              [label]="lang"
+              [addClasses]="
+                'bg-blue-600 text-white dark:bg-blue-400 dark:text-darkBackground text-sm'
+              "
+            />
+          </li>
+        </ul>
+      </section>
     </div>
+  </app-subsection>
 
-    <div
-      class="p-4 bg-secondary dark:bg-darkSecondary rounded-md shadow-sm border border-borderLight dark:border-darkBorderLight">
-      <h3 class="font-semibold mb-2 text-textMain dark:text-darkTextMain">{{ 'skills.soft' | transloco }}</h3>
-      <ul class="list-disc ml-4 space-y-1 text-textSoft dark:text-darkTextSoft">
-        <li *ngFor="let soft of skills().soft">{{ soft }}</li>
-      </ul>
-    </div>
-  </div>
-</app-subsection>
-
-
+  <certificate-modal
+    *ngIf="modalVisible && selectedCertificate"
+    [imageUrl]="selectedCertificate.image"
+    [title]="selectedCertificate.title"
+    (close)="closeModal()"
+  />
 </page-wrapper>

@@ -39,17 +39,13 @@
         style="animation-fill-mode: forwards"
       >
         <my-chip
-          *ngFor="
-            let lang of skills().technical?.frontendLanguages;
-            let i = index
-          "
+          *ngFor="let tech of techFrontend; let i = index"
           [id]="'frontend-' + i"
-          [label]="lang"
-          [clickable]="true"
+          [label]="tech.name"
+          [icon]="tech.logo"
           [addClasses]="
             'bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-400 dark:text-gray-900 dark:hover:bg-blue-300'
           "
-          (clicked)="onChipClick($event)"
         />
       </div>
 
@@ -61,17 +57,13 @@
         style="animation-fill-mode: forwards"
       >
         <my-chip
-          *ngFor="
-            let lang of skills().technical?.backendLanguages;
-            let i = index
-          "
+          *ngFor="let tech of techBackend; let i = index"
           [id]="'backend-' + i"
-          [label]="lang"
-          [clickable]="true"
+          [label]="tech.name"
+          [icon]="tech.logo"
           [addClasses]="
             'bg-rose-600 text-white hover:bg-rose-700 dark:bg-rose-400 dark:text-gray-900 dark:hover:bg-rose-300'
           "
-          (clicked)="onChipClick($event)"
         />
       </div>
 
@@ -83,9 +75,10 @@
         style="animation-fill-mode: forwards"
       >
         <my-chip
-          *ngFor="let fw of skills().technical?.frameworks; let i = index"
+          *ngFor="let tech of techFrameworks; let i = index"
           [id]="'framework-' + i"
-          [label]="fw"
+          [label]="tech.name"
+          [icon]="tech.logo"
           [addClasses]="
             'bg-purple-700 text-white hover:bg-purple-800 dark:bg-purple-300 dark:text-gray-900 dark:hover:bg-purple-200'
           "
@@ -100,9 +93,10 @@
         style="animation-fill-mode: forwards"
       >
         <my-chip
-          *ngFor="let tool of skills().technical?.tools; let i = index"
+          *ngFor="let tool of techTools; let i = index"
           [id]="'tool-' + i"
-          [label]="tool"
+          [label]="tool.name"
+          [icon]="tool.logo"
           [addClasses]="
             'bg-zinc-700 text-white hover:bg-zinc-800 dark:bg-zinc-300 dark:text-gray-900 dark:hover:bg-zinc-200'
           "
@@ -117,9 +111,10 @@
         style="animation-fill-mode: forwards"
       >
         <my-chip
-          *ngFor="let mgmt of skills().technical?.management; let i = index"
+          *ngFor="let mgmt of techManagement; let i = index"
           [id]="'management-' + i"
-          [label]="mgmt"
+          [label]="mgmt.name"
+          [icon]="mgmt.logo"
           [addClasses]="
             'bg-teal-600 text-white hover:bg-teal-700 dark:bg-teal-300 dark:text-gray-900 dark:hover:bg-teal-200'
           "
