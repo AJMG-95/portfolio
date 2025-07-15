@@ -28,7 +28,12 @@
     "stack": "TypeScript · JavaScript ·  HTML · CSS · Angular · React · Flutter · Dart ",
     "claim": "Trabajo para que la web sea más inclusiva y centrada en el usuario.",
     "projectsBtn": "Ver proyectos",
-    "contactBtn": "Contactar"
+    "contactBtn": "Contactar",
+    "resumeBtn": "Currículum",
+    "resume": {
+      "view": "Ver CV",
+      "download": "Descargar CV"
+    }
   },
   "about": {
     "title": "Sobre Mí",
@@ -295,8 +300,10 @@
       }
     ],
     "letter": {
-      "text": "Carta de recomendación (PDF):",
-      "link": "https://drive.google.com/file/d/1gZKFeNZZyPN-d-fDjA8DGZZuv0tqF76P/view"
+      "title": "Carta de recomendación",
+      "text": "Puedes consultar mi carta de recomendación en el siguiente enlace:",
+      "link": "https://drive.google.com/file/d/1gZKFeNZZyPN-d-fDjA8DGZZuv0tqF76P/view",
+      "linkText": "Ver carta en PDF"
     }
   },
   "buttons": {

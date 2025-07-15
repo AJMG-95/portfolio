@@ -27,7 +27,12 @@
     "stack": "TypeScript · JavaScript ·  HTML · CSS · Angular · React · Flutter · Dart ",
     "claim": "I strive to make the web more inclusive and user-centered.",
     "projectsBtn": "View Projects",
-    "contactBtn": "Contact Me"
+    "contactBtn": "Contact Me",
+    "resumeBtn": "Resume",
+    "resume": {
+      "view": "View Resume",
+      "download": "Download Resume"
+    }
   },
   "about": {
     "title": "About Me",
@@ -290,8 +295,10 @@
       }
     ],
     "letter": {
-      "text": "Recommendation letter (PDF):",
-      "link": "https://drive.google.com/file/d/1gZKFeNZZyPN-d-fDjA8DGZZuv0tqF76P/view"
+      "title": "Recommendation Letter",
+      "text": "You can view my recommendation letter at the following link:",
+      "link": "https://drive.google.com/file/d/1gZKFeNZZyPN-d-fDjA8DGZZuv0tqF76P/view",
+      "linkText": "View PDF letter"
     }
   },
   "buttons": {
