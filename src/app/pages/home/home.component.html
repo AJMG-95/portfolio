@@ -156,6 +156,11 @@
         >
           <app-button variant="secondary">{{ contactBtn() }}</app-button>
         </a>
+        <button-menu
+          [addClasses]="
+            'inline-block text-center font-semibold text-sm rounded-lg px-5 py-2 transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary dark:focus-visible:ring-white bg-secondary dark:bg-darkSecondary text-primary dark:text-white'
+          "
+        />
       </div>
     </div>
 

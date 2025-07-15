@@ -4,6 +4,7 @@ import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { SubsectionComponent } from '../../shared/components/subsection/subsection.component';
 import { CommonModule } from '@angular/common';
+import { ContactInfo } from '../../shared/components/contact-info/contact-info.component';
 
 @Component({
   selector: 'app-references',
@@ -12,6 +13,7 @@ import { CommonModule } from '@angular/common';
     PageWrapper,
     TranslocoModule,
     CommonModule,
+    ContactInfo
   ],
   templateUrl: './references.component.html',
   styleUrl: './references.component.css'

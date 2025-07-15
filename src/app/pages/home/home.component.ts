@@ -9,6 +9,7 @@ import { PageWrapper } from '../../shared/components/page-wrapper/page-wrapper.c
 import { ChipComponent } from '../../shared/components/chip/chip.component';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { technologies } from '../../../assets/data/technologies';
+import { ButtonMenu } from '../../shared/components/button-menu/button-menu.component';
 
 
 @Component({
@@ -24,7 +25,8 @@ import { technologies } from '../../../assets/data/technologies';
     Typewriter,
     NgIf,
     PageWrapper,
-    ChipComponent
+    ChipComponent,
+    ButtonMenu
   ],
 })
 export class HomePage {

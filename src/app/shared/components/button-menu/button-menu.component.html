@@ -1,0 +1,23 @@
+<div class="relative inline-block text-left">
+  <button (click)="toggleMenu()"
+     [ngClass]="addClasses">
+    {{ 'home.resumeBtn' | transloco }}
+  </button>
+
+<ul *ngIf="isOpen()"
+  class="fixed bottom-20 right-4 sm:absolute sm:bottom-auto sm:right-0 mt-2 w-64 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg z-50 transition-all">
+
+    <li>
+      <a [href]="links.view" target="_blank" rel="noopener"
+        class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+        {{ 'home.resume.view' | transloco }}
+      </a>
+    </li>
+    <li>
+      <a [href]="links.download" download
+        class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+        {{ 'home.resume.download' | transloco }}
+      </a>
+    </li>
+  </ul>
+</div>
