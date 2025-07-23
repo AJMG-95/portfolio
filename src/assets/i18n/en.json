@@ -47,14 +47,32 @@
     "emailSubject": "Contact from the portfolio",
     "emailBody": "Hi Antonio Jesús,\n\nI saw your portfolio and I’d like to get in touch with you."
   },
-  "myProjects": {
+   "myProjects": {
     "title": "My Projects",
+    "status": {
+      "notStarted": "Not started",
+      "inProgress": "In progress",
+      "testing": "Testing",
+      "completed": "Completed",
+      "onHold": "On hold"
+    },
     "projects": [
       {
-        "name": "",
-        "languaje": "",
-        "framework": "",
-        "decription":""
+        "name": "TodoApp",
+        "languaje": "TypeScript",
+        "framework": "Angular",
+        "status": "inProgress",
+        "shortDescription": "Modern task manager with subtask support.",
+        "longDescription": "Web application developed with Angular 18 to manage personal or team tasks. Uses local storage, supports subtasks and has a modern UI.",
+        "technologies": ["Angular", "Tailwind", "PrimeNG", "LocalStorage"],
+        "headerImageUrl": "assets/images/proyects/todo_app/main.png",
+        "cornerImageUrl": "https://avatars.githubusercontent.com/u/139426?v=4",
+        "githubUrl": "https://github.com/AJMG-95/todo-app",
+        "liveUrl": "https://ajmg-95.github.io/todo-app/todo",
+        "galleryImages": [
+          "assets/images/proyects/todo_app/main.png",
+          "assets/images/proyects/todo_app/tasks.png"
+        ]
       }
     ]
   },

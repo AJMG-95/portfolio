@@ -50,12 +50,30 @@
   },
   "myProjects": {
     "title": "Mis Proyectos",
+    "status": {
+      "notStarted": "No iniciado",
+      "inProgress": "En progreso",
+      "testing": "En pruebas",
+      "completed": "Terminado",
+      "onHold": "Pausado"
+    },
     "projects": [
       {
-        "name": "",
-        "languaje": "",
-        "framework": "",
-        "decription":""
+        "name": "TodoApp",
+        "languaje": "TypeScript",
+        "framework": "Angular",
+        "status": "inProgress",
+        "shortDescription": "Gestor de tareas moderno con soporte para subtareas.",
+        "longDescription": "Aplicación web desarrollada en Angular 18 que permite gestionar tareas personales o de equipo. Incorpora almacenamiento local, soporte para subtareas y un diseño moderno.",
+        "technologies": ["Angular", "Tailwind", "PrimeNG", "LocalStorage"],
+        "headerImageUrl": "assets/images/proyects/todo_app/main.png",
+        "cornerImageUrl": "https://avatars.githubusercontent.com/u/139426?v=4",
+        "githubUrl": "https://github.com/AJMG-95/todo-app",
+        "liveUrl": "https://ajmg-95.github.io/todo-app/todo",
+        "galleryImages": [
+          "assets/images/proyects/todo_app/main.png",
+          "assets/images/proyects/todo_app/tasks.png"
+        ]
       }
     ]
   },
@@ -66,8 +84,7 @@
       "Inglés (Certificado B2)",
       "Lengua de Signos Española (nivel usuario)"
     ]
-  }
-  ,
+  },
   "education": {
     "title": "Formación",
     "items": [
@@ -80,7 +97,7 @@
       },
       {
         "institution": "IES Doñana",
-        "institutionUrl":"",
+        "institutionUrl": "",
         "degree": "CFGS Desarrollo de Aplicaciones Web",
         "dates": "2021 - 2024",
         "image": "assets/images/companies-logo/logo_IESDonana_2.png"
@@ -220,7 +237,13 @@
         "companyLogo": "assets/images/companies-logo/controlnetspain_logo.webp",
         "companyUrl": "https://controlnet.es/",
         "dates": "Marzo 2024 - Julio 2025",
-        "technologies": ["Flutter", "Angular", "React", "Tailwind CSS", "Bootstrap"],
+        "technologies": [
+          "Flutter",
+          "Angular",
+          "React",
+          "Tailwind CSS",
+          "Bootstrap"
+        ],
         "tasks": [
           "Desarrollo de interfaces móviles con Flutter.",
           "Creación de componentes reutilizables en Angular.",
@@ -261,20 +284,32 @@
 
       "frontendLanguages": ["TypeScript", "JavaScript", "HTML5", "CSS3"],
       "backendLanguages": ["Java", "Python", "PHP"],
-      "frameworks": ["Angular", "React", "Flutter", "Laravel", "Tailwind CSS", "Bootstrap"],
+      "frameworks": [
+        "Angular",
+        "React",
+        "Flutter",
+        "Laravel",
+        "Tailwind CSS",
+        "Bootstrap"
+      ],
       "tools": ["Git", "GitHub", "PostgreSQL"],
       "management": ["Asana", "Monday"],
-      "principles": ["Arquitectura limpia", "Accesibilidad web", "Diseño responsive"]
+      "principles": [
+        "Arquitectura limpia",
+        "Accesibilidad web",
+        "Diseño responsive"
+      ]
     },
     "soft": {
       "title": "Habilidades blandas",
-      "items":[
-      "Trabajo en equipo ágil (Scrum/Sprint)",
-      "Proactividad y aprendizaje continuo",
-      "Resolución de problemas técnicos",
-      "Atención al detalle",
-      "Autonomía y responsabilidad"
-    ]}
+      "items": [
+        "Trabajo en equipo ágil (Scrum/Sprint)",
+        "Proactividad y aprendizaje continuo",
+        "Resolución de problemas técnicos",
+        "Atención al detalle",
+        "Autonomía y responsabilidad"
+      ]
+    }
   },
   "training": {
     "title": "Formación Complementaria",

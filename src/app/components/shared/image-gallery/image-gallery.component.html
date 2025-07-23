@@ -1,0 +1,20 @@
+<section *ngIf="images && images.length > 0" class="w-full flex flex-col items-center gap-4">
+  <!-- Imagen principal -->
+  <figure
+    class="w-full h-64 overflow-hidden rounded-xl border bg-white dark:bg-zinc-900 flex items-center justify-center">
+    <img [src]="images[selectedImageIndex]" alt="Imagen seleccionada" class="max-w-full max-h-full object-contain" />
+  </figure>
+
+  <!-- Miniaturas scrolleables -->
+  <nav class="w-full overflow-x-auto py-1">
+    <ul class="flex gap-2 px-1 w-max">
+      <li *ngFor="let img of images; index as i">
+        <button type="button" class="border rounded overflow-hidden transition-transform" [ngClass]="{
+            'ring-2 ring-primary scale-105': i === selectedImageIndex
+          }" (click)="selectImage(i)">
+          <img [src]="img" [alt]="'Miniatura ' + (i + 1)" class="h-16 w-16 object-cover" />
+        </button>
+      </li>
+    </ul>
+  </nav>
+</section>

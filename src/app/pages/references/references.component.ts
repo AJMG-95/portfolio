@@ -1,10 +1,10 @@
 import { Component, inject } from '@angular/core';
-import { PageWrapper } from '../../shared/components/page-wrapper/page-wrapper.component';
 import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { SubsectionComponent } from '../../shared/components/subsection/subsection.component';
 import { CommonModule } from '@angular/common';
-import { ContactInfo } from '../../shared/components/contact-info/contact-info.component';
+import { ContactInfo } from '../../components/contact/contact-info/contact-info.component';
+import { PageWrapper } from '../../components/shared/page-wrapper/page-wrapper.component';
+
 
 @Component({
   selector: 'app-references',

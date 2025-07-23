@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { PageWrapper } from '../../shared/components/page-wrapper/page-wrapper.component';
 import { TranslocoModule } from '@jsverse/transloco';
-import { ContactInfo } from '../../shared/components/contact-info/contact-info.component';
+import { ContactInfo } from '../../components/contact/contact-info/contact-info.component';
+import { PageWrapper } from '../../components/shared/page-wrapper/page-wrapper.component';
+
 
 @Component({
   selector: 'app-contact',

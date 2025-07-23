@@ -2,15 +2,15 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
+import { AboutTabs } from '../../components/about/about-tabs/about-tabs.component';
+import { ExperienceCard } from '../../components/about/experience-card/experience-card.component';
+import { CertificationCard } from '../../components/certifications/certification-card/certification-card.component';
+import { CertificateModal } from '../../components/certifications/certification-modal/certificate-modal.component';
+import { ChipComponent } from '../../components/shared/chip/chip.component';
+import { ICard } from '../../components/shared/item-card/item-card.component';
+import { PageWrapper } from '../../components/shared/page-wrapper/page-wrapper.component';
+import { SubsectionComponent } from '../../components/shared/subsection/subsection.component';
 
-import { AboutTabs } from '../../shared/components/about-tabs/about-tabs.component';
-import { CertificateModal } from '../../shared/components/certifications/certification-modal/certificate-modal.component';
-import { CertificationCard } from '../../shared/components/certifications/certification-card/certification-card.component';
-import { ChipComponent } from '../../shared/components/chip/chip.component';
-import { ExperienceCard } from '../../shared/components/experience-card/experience-card.component';
-import { ICard } from '../../shared/components/item-card/item-card.component';
-import { PageWrapper } from '../../shared/components/page-wrapper/page-wrapper.component';
-import { SubsectionComponent } from '../../shared/components/subsection/subsection.component';
 
 @Component({
   selector: 'app-about',

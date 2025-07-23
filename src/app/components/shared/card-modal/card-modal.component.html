@@ -1,0 +1,71 @@
+<div class="w-[200px] h-[300px] perspective" (click)="cardClicked()">
+  <div
+    class="relative w-full h-full transition-transform duration-500 transform-style-preserve-3d"
+    [ngClass]="{ 'rotate-y-180': isFlipped }"
+  >
+    <!-- FRONT FACE -->
+    <div
+      class="absolute w-full h-full backface-hidden rounded shadow-md bg-white flex flex-col overflow-hidden"
+    >
+      <!-- Imagen principal -->
+      <div class="relative h-2/5 w-full">
+        <img
+          [src]="headerImageUrl"
+          alt="Header image"
+          class="w-full h-full object-cover rounded-t"
+        />
+        <!-- Imagen en la esquina (opcional) -->
+        <img
+          *ngIf="cornerImageUrl"
+          [src]="cornerImageUrl"
+          alt="Corner image"
+          class="absolute top-2 right-2 w-10 h-10 rounded-full border border-white shadow-md"
+        />
+      </div>
+
+      <!-- Título y subtítulo -->
+      <div class="px-3 pt-2">
+        <h3 class="text-base font-bold text-gray-800 leading-tight">
+          {{ title }}
+        </h3>
+        <p *ngIf="subtitle" class="text-sm text-gray-500">{{ subtitle }}</p>
+      </div>
+
+      <!-- Cuerpo con contenido proyectado -->
+      <div class="px-3 pt-2 text-sm text-gray-700 flex-1 overflow-auto">
+        <ng-content></ng-content>
+      </div>
+    </div>
+
+    <!-- Back face -->
+    <div
+      class="absolute w-full h-full backface-hidden rotate-y-180 rounded shadow-md bg-black/70 flex items-center justify-center"
+    >
+      <img
+        src="https://source.unsplash.com/bX9B9c-YasY/200x300"
+        class="w-full h-full object-cover rounded blur-sm"
+        alt="Card back"
+      />
+    </div>
+  </div>
+</div>
+
+<!-- Modal en el centro de la pantalla -->
+<div
+  *ngIf="showModal"
+  class="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
+>
+  <div
+    id="modal-content"
+    class="bg-white rounded-xl shadow-xl p-6 w-[90%] max-w-lg md:max-w-xl lg:max-w-2xl animate-grow-in relative"
+  >
+    <button
+      class="absolute top-2 right-2 text-gray-600 hover:text-black text-xl font-bold"
+      (click)="closeModal()"
+    >
+      ×
+    </button>
+    <h2 class="text-xl font-semibold mb-4">Detalle de la carta</h2>
+    <p>Contenido del modal aquí.</p>
+  </div>
+</div>

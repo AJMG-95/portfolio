@@ -1,15 +1,16 @@
 import { Component, inject, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
-import { ButtonComponent } from '../../shared/components/button/button.component';
-import { ProfilePhoto } from '../../shared/components/profile-photo/profile-photo.component';
-import { Typewriter } from '../../shared/components/typewriter/typewriter.component';
 import { CommonModule, NgIf } from '@angular/common';
-import { PageWrapper } from '../../shared/components/page-wrapper/page-wrapper.component';
-import { ChipComponent } from '../../shared/components/chip/chip.component';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { technologies } from '../../../assets/data/technologies';
-import { ButtonMenu } from '../../shared/components/button-menu/button-menu.component';
+import { ButtonComponent } from '../../components/shared/button/button.component';
+import { ProfilePhoto } from '../../components/shared/profile-photo/profile-photo.component';
+import { ButtonMenu } from '../../components/shared/button-menu/button-menu.component';
+import { ChipComponent } from '../../components/shared/chip/chip.component';
+import { PageWrapper } from '../../components/shared/page-wrapper/page-wrapper.component';
+import { Typewriter } from '../../components/shared/typewriter/typewriter.component';
+
 
 
 @Component({

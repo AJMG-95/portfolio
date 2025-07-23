@@ -1,0 +1,175 @@
+<article
+  class="w-[16rem] mobile-sm:w-[19.4375rem] mobile:w-[22.5625rem] tablet:w-[20rem] h-[28rem] perspective"
+  (click)="cardClicked()"
+>
+  <div
+    class="relative w-full h-full transition-transform duration-500 transform-style-preserve-3d"
+    [ngClass]="{ 'rotate-y-180': isFlipped }"
+  >
+    <!-- FRONT -->
+    <section
+      class="absolute w-full h-full backface-hidden rounded shadow-md bg-white dark:bg-gray-900 flex flex-col overflow-hidden"
+    >
+      <!-- Header -->
+      <header class="relative h-[12rem] w-full bg-gray-200 dark:bg-gray-800">
+        <img
+          [src]="headerImageUrl"
+          alt="Header image"
+          class="w-full h-full object-cover"
+        />
+        <img
+          *ngIf="cornerImageUrl"
+          [src]="cornerImageUrl"
+          alt="Corner image"
+          class="absolute top-2 right-2 w-10 h-10 rounded-full border border-white shadow-md"
+        />
+        <!-- Chip de estado -->
+        <my-chip
+          *ngIf="status"
+          [label]="statusLabels[status]"
+          class="absolute bottom-2 right-2 text-xs font-medium z-10"
+          [addClasses]="statusChipClass"
+        >
+        </my-chip>
+      </header>
+
+      <!-- Cuerpo -->
+      <section
+        class="flex-1 px-3 pt-2 pb-3 text-sm text-gray-700 dark:text-gray-200 overflow-auto"
+        aria-label="Resumen del proyecto"
+      >
+        <h3
+          class="text-base font-bold text-gray-800 dark:text-white leading-tight"
+        >
+          {{ title }}
+        </h3>
+        <p *ngIf="subtitle" class="text-sm text-gray-500 dark:text-gray-400">
+          {{ subtitle }}
+        </p>
+        <p class="mt-2">{{ shortDescription }}</p>
+      </section>
+
+      <!-- Footer vacío (opcional para accesibilidad o futuros botones) -->
+      <footer class="sr-only">Fin de la tarjeta</footer>
+    </section>
+
+    <!-- BACK -->
+    <section
+      class="absolute w-full h-full backface-hidden rotate-y-180 rounded shadow-md overflow-hidden bg-white/30 dark:bg-zinc-800/30 filter blur-sm"
+    >
+      <div
+        class="absolute top-5 left-1/2 -translate-x-1/2 transform scale-50 origin-top"
+      >
+        <h2 class="text-2xl font-semibold text-white mb-2">{{ title }}</h2>
+
+        <p class="text-gray-600 mb-4">{{ longDescription }}</p>
+
+        <h3 class="font-semibold mt-4 mb-1 text-sm uppercase text-gray-500">
+          Technologies
+        </h3>
+        <div class="px-12 mx-12">
+          <ul class="flex gap-2 mb-4">
+            <li *ngFor="let chip of techChips" class="text-gray-700">
+              <my-chip
+                [label]="chip.label"
+                [icon]="chip.icon!"
+                iconPosition="left"
+                [addClasses]="chip.color!"
+              ></my-chip>
+            </li>
+          </ul>
+        </div>
+
+        <div *ngIf="galleryImages && galleryImages.length > 0" class="my-6">
+          <h3 class="font-semibold mb-2 text-sm uppercase text-gray-500">
+            Galería
+          </h3>
+          <image-gallery [images]="galleryImages" />
+        </div>
+
+        <div class="flex gap-4">
+          <a
+            *ngIf="githubUrl"
+            [href]="githubUrl"
+            target="_blank"
+            class="px-4 py-2 bg-black text-white rounded hover:bg-gray-800 text-sm"
+            >GitHub</a
+          >
+          <a
+            *ngIf="liveUrl"
+            [href]="liveUrl"
+            target="_blank"
+            class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 text-sm"
+            >Live Demo</a
+          >
+        </div>
+
+        <footer
+          class="text-xs text-gray-600 dark:text-gray-300 pt-3 italic opacity-60"
+        >
+          Antonio Jesús Marchena · {{ title }}
+        </footer>
+      </div>
+    </section>
+  </div>
+</article>
+
+<!-- MODAL -->
+<div
+  *ngIf="showModal"
+  class="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
+>
+  <div
+    id="modal-content"
+    class="bg-white rounded-xl shadow-xl p-6 w-[90%] max-w-lg md:max-w-xl lg:max-w-2xl animate-grow-in relative"
+  >
+    <button
+      class="absolute top-2 right-2 text-gray-600 hover:text-black text-xl font-bold"
+      (click)="closeModal()"
+    >
+      ×
+    </button>
+
+    <h2 class="text-2xl font-semibold text-black mb-2">{{ title }}</h2>
+    <p class="text-gray-600 mb-4">{{ longDescription }}</p>
+
+    <h3 class="font-semibold mt-4 mb-1 text-sm uppercase text-gray-500">
+      Technologies
+    </h3>
+    <ul class="flex flex-wrap gap-2 mb-4">
+      <li *ngFor="let chip of techChips" class="text-gray-700">
+        <my-chip
+          [label]="chip.label"
+          [icon]="chip.icon!"
+          iconPosition="left"
+          [addClasses]="chip.color!  "
+        ></my-chip>
+      </li>
+    </ul>
+
+    <!-- Galería de imágenes -->
+    <div *ngIf="galleryImages && galleryImages.length > 0" class="my-6">
+      <h3 class="font-semibold mb-2 text-sm uppercase text-gray-500">
+        Galería
+      </h3>
+      <image-gallery [images]="galleryImages" />
+    </div>
+
+    <div class="flex gap-4">
+      <a
+        *ngIf="githubUrl"
+        [href]="githubUrl"
+        target="_blank"
+        class="px-4 py-2 bg-black text-white rounded hover:bg-gray-800 text-sm"
+        >GitHub</a
+      >
+      <a
+        *ngIf="liveUrl"
+        [href]="liveUrl"
+        target="_blank"
+        class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 text-sm"
+        >Live Demo</a
+      >
+    </div>
+  </div>
+</div>

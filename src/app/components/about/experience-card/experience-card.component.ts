@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ChipComponent } from '../chip/chip.component';
+import { ChipComponent } from '../../shared/chip/chip.component';
+
 
 @Component({
   selector: 'experience-card',

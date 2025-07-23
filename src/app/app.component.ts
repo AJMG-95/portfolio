@@ -1,7 +1,8 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NavbarComponent } from './shared/components/navbar/navbar.component';
-import { FooterComponent } from './shared/components/footer/footer.component';
+import { FooterComponent } from './components/shared/footer/footer.component';
+import { NavbarComponent } from './components/shared/navbar/navbar.component';
+
 
 
 @Component({

@@ -1,7 +1,15 @@
 <page-wrapper [addClasses]="'flex-col items-center gap-12'" aria-label="projects">
   <h1 id="myProjects-title"
-  class="text-4xl sm:text-5xl mb-12 font-extrabold text-center text-primary dark:text-darkHighlight transition-colors">
-  {{ 'myProjects.title' | transloco }}
-</h1>
-<p>En construcción / This section is currently being built.</p>
+    class="text-4xl sm:text-5xl mb-12 font-extrabold text-center text-primary dark:text-darkHighlight transition-colors">
+    {{ 'myProjects.title' | transloco }}
+  </h1>
+
+  <div class="flex flex-wrap justify-start gap-8">
+<project-card *ngFor="let project of projects()" [headerImageUrl]="project.headerImageUrl"
+  [cornerImageUrl]="project.cornerImageUrl" [title]="project.name" [subtitle]="project.framework"
+  [shortDescription]="project.shortDescription" [longDescription]="project.longDescription"
+  [technologies]="project.technologies" [githubUrl]="project.githubUrl" [liveUrl]="project.liveUrl"
+  [galleryImages]="project.galleryImages" [status]="project.status" [statusLabels]="statusLabels()" />
+
+  </div>
 </page-wrapper>
