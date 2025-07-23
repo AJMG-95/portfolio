@@ -1,5 +1,5 @@
 <article
-  class="w-[16rem] mobile-sm:w-[19.4375rem] mobile:w-[22.5625rem] tablet:w-[20rem] h-[28rem] perspective"
+  class="w-[16rem] mobile-sm:w-[19.4375rem] mobile:w-[22.5625rem] tablet:w-[20rem] h-[28rem] perspective cursor-pointer"
   (click)="cardClicked()"
 >
   <div
@@ -49,8 +49,21 @@
         <p class="mt-2">{{ shortDescription }}</p>
       </section>
 
-      <!-- Footer vacío (opcional para accesibilidad o futuros botones) -->
-      <footer class="sr-only">Fin de la tarjeta</footer>
+      <div
+        class="absolute bottom-3 right-6 group cursor-pointer"
+        aria-hidden="true"
+      >
+        <!-- Contenedor del botón -->
+        <div
+          class="w-12 h-12 rounded-full bg-primary/70 dark:bg-darkHighlight/80 p-2 shadow-sm transition-all duration-300 group-hover:scale-110 dark:group-hover:bg-primary/80 group-hover:bg-secondary/80"
+        >
+          <img
+            src="assets/images/shared/click-cursor.svg"
+            alt=""
+            class="w-full h-full object-contain transition-all duration-300 invert dark:invert-0 group-hover:invert-0 dark:group-hover:invert"
+          />
+        </div>
+      </div>
     </section>
 
     <!-- BACK -->
@@ -142,7 +155,7 @@
           [label]="chip.label"
           [icon]="chip.icon!"
           iconPosition="left"
-          [addClasses]="chip.color!  "
+          [addClasses]="chip.color!"
         ></my-chip>
       </li>
     </ul>
