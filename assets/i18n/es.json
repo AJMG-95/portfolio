@@ -64,7 +64,7 @@
         "framework": "Angular",
         "status": "inProgress",
         "shortDescription": "Gestor de tareas moderno con soporte para subtareas.",
-        "longDescription": "Aplicación web desarrollada en Angular 18 que permite gestionar tareas personales o de equipo. Incorpora almacenamiento local, soporte para subtareas y un diseño moderno.",
+        "longDescription": "Aplicación web desarrollada en Angular 18 que permite gestionar tareas personales. Incorpora almacenamiento local, soporte para subtareas y un diseño moderno.",
         "technologies": ["Angular", "Tailwind", "PrimeNG", "LocalStorage"],
         "headerImageUrl": "assets/images/proyects/todo_app/main.png",
         "cornerImageUrl": "https://avatars.githubusercontent.com/u/139426?v=4",

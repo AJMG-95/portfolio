@@ -63,7 +63,7 @@
         "framework": "Angular",
         "status": "inProgress",
         "shortDescription": "Modern task manager with subtask support.",
-        "longDescription": "Web application developed with Angular 18 to manage personal or team tasks. Uses local storage, supports subtasks and has a modern UI.",
+        "longDescription": "Web application developed with Angular 18 to manage personal. Uses local storage, supports subtasks and has a modern UI.",
         "technologies": ["Angular", "Tailwind", "PrimeNG", "LocalStorage"],
         "headerImageUrl": "assets/images/proyects/todo_app/main.png",
         "cornerImageUrl": "https://avatars.githubusercontent.com/u/139426?v=4",
