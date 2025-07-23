@@ -33,7 +33,7 @@
 
       <!-- Lenguajes Frontend -->
       <div
-        class="flex flex-wrap gap-2 animate-fadeIn opacity-0"
+        class="flex flex-wrap gap-2 animate-fadeIn opacity-0 text-gray-700"
         aria-label="Frontend Languages"
         [style.animationDelay]="'0ms'"
         style="animation-fill-mode: forwards"
@@ -41,17 +41,15 @@
         <my-chip
           *ngFor="let tech of techFrontend; let i = index"
           [id]="'frontend-' + i"
-          [label]="tech.name"
-          [icon]="tech.logo"
-          [addClasses]="
-            'bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-400 dark:text-gray-900 dark:hover:bg-blue-300'
-          "
+          [label]="tech.label"
+          [icon]="tech.icon"
+          [addClasses]="tech.color!"
         />
       </div>
 
       <!-- Lenguajes Backend -->
       <div
-        class="flex flex-wrap gap-2 animate-fadeIn opacity-0"
+        class="flex flex-wrap gap-2 animate-fadeIn opacity-0 text-gray-700"
         aria-label="Backend Languages"
         [style.animationDelay]="'200ms'"
         style="animation-fill-mode: forwards"
@@ -59,17 +57,15 @@
         <my-chip
           *ngFor="let tech of techBackend; let i = index"
           [id]="'backend-' + i"
-          [label]="tech.name"
-          [icon]="tech.logo"
-          [addClasses]="
-            'bg-rose-600 text-white hover:bg-rose-700 dark:bg-rose-400 dark:text-gray-900 dark:hover:bg-rose-300'
-          "
+          [label]="tech.label"
+          [icon]="tech.icon"
+          [addClasses]="tech.color!"
         />
       </div>
 
       <!-- Frameworks -->
       <div
-        class="flex flex-wrap gap-2 animate-fadeIn opacity-0"
+        class="flex flex-wrap gap-2 animate-fadeIn opacity-0 text-gray-700"
         aria-label="Frameworks"
         [style.animationDelay]="'400ms'"
         style="animation-fill-mode: forwards"
@@ -77,17 +73,15 @@
         <my-chip
           *ngFor="let tech of techFrameworks; let i = index"
           [id]="'framework-' + i"
-          [label]="tech.name"
-          [icon]="tech.logo"
-          [addClasses]="
-            'bg-purple-700 text-white hover:bg-purple-800 dark:bg-purple-300 dark:text-gray-900 dark:hover:bg-purple-200'
-          "
+          [label]="tech.label"
+          [icon]="tech.icon"
+          [addClasses]="tech.color!"
         />
       </div>
 
       <!-- Herramientas -->
       <div
-        class="flex flex-wrap gap-2 animate-fadeIn opacity-0"
+        class="flex flex-wrap gap-2 animate-fadeIn opacity-0 text-gray-700"
         aria-label="Tools"
         [style.animationDelay]="'600ms'"
         style="animation-fill-mode: forwards"
@@ -95,17 +89,15 @@
         <my-chip
           *ngFor="let tool of techTools; let i = index"
           [id]="'tool-' + i"
-          [label]="tool.name"
-          [icon]="tool.logo"
-          [addClasses]="
-            'bg-zinc-700 text-white hover:bg-zinc-800 dark:bg-zinc-300 dark:text-gray-900 dark:hover:bg-zinc-200'
-          "
+          [label]="tool.label"
+          [icon]="tool.icon"
+          [addClasses]="tool.color!"
         />
       </div>
 
       <!-- Gestión -->
       <div
-        class="flex flex-wrap gap-2 animate-fadeIn opacity-0"
+        class="flex flex-wrap gap-2 animate-fadeIn opacity-0 text-gray-700"
         aria-label="Management"
         [style.animationDelay]="'800ms'"
         style="animation-fill-mode: forwards"
@@ -113,11 +105,9 @@
         <my-chip
           *ngFor="let mgmt of techManagement; let i = index"
           [id]="'management-' + i"
-          [label]="mgmt.name"
-          [icon]="mgmt.logo"
-          [addClasses]="
-            'bg-teal-600 text-white hover:bg-teal-700 dark:bg-teal-300 dark:text-gray-900 dark:hover:bg-teal-200'
-          "
+          [label]="mgmt.label"
+          [icon]="mgmt.icon"
+          [addClasses]="mgmt.color!"
         />
       </div>
 

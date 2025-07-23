@@ -10,6 +10,7 @@ import { ButtonMenu } from '../../components/shared/button-menu/button-menu.comp
 import { ChipComponent } from '../../components/shared/chip/chip.component';
 import { PageWrapper } from '../../components/shared/page-wrapper/page-wrapper.component';
 import { Typewriter } from '../../components/shared/typewriter/typewriter.component';
+import { TechnologyAssetsService } from '../../core/services/technology-assets.service';
 
 
 
@@ -32,15 +33,37 @@ import { Typewriter } from '../../components/shared/typewriter/typewriter.compon
 })
 export class HomePage {
   private transloco = inject(TranslocoService);
+  private techAssets = inject(TechnologyAssetsService);
 
   typing1Done = false;
   typing2Started = false;
 
-  techFrontend = technologies.frontendLanguages;
-  techBackend = technologies.backendLanguages;
-  techFrameworks = technologies.frameworks;
-  techTools = technologies.tools;
-  techManagement = technologies.management;
+  techFrontend = technologies.frontendLanguages.map(t => ({
+    label: t.name,
+    icon: this.techAssets.getLogo(t.name),
+    color: this.techAssets.getLightColor(t.name)
+  }));
+  techBackend = technologies.backendLanguages.map(t => ({
+    label: t.name,
+    icon: this.techAssets.getLogo(t.name),
+    color: this.techAssets.getLightColor(t.name)
+  }));
+  techFrameworks = technologies.frameworks.map(t => ({
+    label: t.name,
+    icon: this.techAssets.getLogo(t.name),
+    color: this.techAssets.getLightColor(t.name)
+  }));
+  techTools = technologies.tools.map(t => ({
+    label: t.name,
+    icon: this.techAssets.getLogo(t.name),
+    color: this.techAssets.getLightColor(t.name)
+  }));
+  techManagement = technologies.management.map(t => ({
+    label: t.name,
+    icon: this.techAssets.getLogo(t.name),
+    color: this.techAssets.getLightColor(t.name)
+  }));
+
 
 
   greeting = toSignal(this.transloco.selectTranslateObject('home.greeting'), { initialValue: {} });
@@ -84,8 +107,4 @@ export class HomePage {
     this.typing2Started = true;
   }
 
-  onChipClick(id: string): void {
-    console.log('Chip clicked:', id);
-    //
-  }
 }
