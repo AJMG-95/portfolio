@@ -1,3 +1,5 @@
+// src\assets\data\technologies.ts
+
 export interface Technology {
   name: string;
   logo: string;
