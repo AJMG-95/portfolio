@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ChipComponent } from '../../shared/chip/chip.component';
+import { TechnologyAssetsService } from '../../../core/services/technology-assets.service';
+
 
 
 @Component({
@@ -19,7 +21,13 @@ export class ExperienceCard {
   @Input() tasks!: string[];
   @Input() technologies?: string[];
 
-  getTechLogo(tech: string): string {
-    return `assets/icons/tech/${tech.toLowerCase().replace(/ /g, '-')}.svg`;
+  constructor(private techAssets: TechnologyAssetsService) { }
+
+  getTechLogo(tech: string): string | undefined {
+    return this.techAssets.getLogo(tech);
+  }
+
+  getTechColor(tech: string): string | undefined {
+    return this.techAssets.getLightColor(tech);
   }
 }

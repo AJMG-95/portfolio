@@ -1,3 +1,5 @@
+<!-- src\app\pages\home\home.component.html -->
+
 <page-wrapper [addClasses]="'items-center justify-center'" aria-label="home">
   <div
     class="flex flex-col-reverse md:flex-row items-center justify-between gap-12 w-full max-w-7xl z-10 px-4"
@@ -113,21 +115,17 @@
 
       <!-- Principios -->
       <div
-        class="flex flex-wrap gap-2 animate-fadeIn opacity-0"
+        class="flex flex-wrap gap-2 animate-fadeIn opacity-0 text-gray-700"
         aria-label="Principles"
         [style.animationDelay]="'1000ms'"
         style="animation-fill-mode: forwards"
       >
         <my-chip
-          *ngFor="
-            let principle of skills().technical?.principles;
-            let i = index
-          "
+          *ngFor="let principle of techPrinciples; let i = index"
           [id]="'principle-' + i"
-          [label]="principle"
-          [addClasses]="
-            'bg-amber-600 text-white hover:bg-amber-700 dark:bg-amber-300 dark:text-gray-900 dark:hover:bg-amber-200'
-          "
+          [label]="principle.label"
+          [icon]="principle.icon"
+          [addClasses]="principle.color!"
         />
       </div>
 

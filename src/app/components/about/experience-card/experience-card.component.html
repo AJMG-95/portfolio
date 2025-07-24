@@ -1,15 +1,28 @@
 <article
   class="flex flex-col gap-4 p-5 rounded-md overflow-hidden border border-borderLight dark:border-darkBorderLight shadow-sm bg-secondary dark:bg-gray-900 transition-colors"
-  role="group" aria-labelledby="experience-card-title">
-
+  role="group"
+  aria-labelledby="experience-card-title"
+>
   <!-- Header: Logo + nombre -->
   <header class="flex items-center gap-3">
-    <img *ngIf="imageUrl" [src]="imageUrl" [alt]="altText"
-      class="w-10 h-10 object-contain rounded bg-white dark:bg-gray-800 border" />
+    <img
+      *ngIf="imageUrl"
+      [src]="imageUrl"
+      [alt]="altText"
+      class="w-10 h-10 object-contain rounded bg-white dark:bg-gray-800 border"
+    />
 
-    <h3 id="experience-card-title" class="text-xl font-semibold text-textMain dark:text-darkTextMain">
-      <a *ngIf="titleLink; else plainTitle" [href]="titleLink" target="_blank" rel="noopener noreferrer"
-        class="hover:underline hover:text-primary dark:hover:text-darkHighlight">
+    <h3
+      id="experience-card-title"
+      class="text-xl font-semibold text-textMain dark:text-darkTextMain"
+    >
+      <a
+        *ngIf="titleLink; else plainTitle"
+        [href]="titleLink"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:underline hover:text-primary dark:hover:text-darkHighlight"
+      >
         {{ title }}
       </a>
       <ng-template #plainTitle>{{ title }}</ng-template>
@@ -18,7 +31,9 @@
 
   <!-- Rol y fechas -->
   <section>
-    <h4 class="text-lg font-semibold text-textMain dark:text-darkTextMain">{{ role }}</h4>
+    <h4 class="text-lg font-semibold text-textMain dark:text-darkTextMain">
+      {{ role }}
+    </h4>
     <p class="text-sm text-gray-500 dark:text-gray-100">{{ dates }}</p>
   </section>
 
@@ -30,14 +45,19 @@
   </section>
 
   <!-- Chips de tecnologías -->
-  <section *ngIf="technologies?.length" class="pt-3">
+  <section *ngIf="technologies && technologies.length" class="pt-3">
     <h5 class="sr-only">Tecnologías usadas</h5>
-    <ul class="flex flex-wrap gap-3 justify-start" aria-label="Tecnologías utilizadas">
+    <ul
+      class="flex flex-wrap gap-3 justify-start text-gray-700"
+      aria-label="Tecnologías utilizadas"
+    >
       <li *ngFor="let tech of technologies">
-        <my-chip [label]="tech" [icon]="getTechLogo(tech)" iconPosition="left" [clickable]="false"
-          [addClasses]="'text-base px-4 py-2 bg-primary/10 dark:bg-darkHighlight/20 text-primary dark:text-darkHighlight ring-1 ring-primary/20 dark:ring-darkHighlight/30'" />
+        <my-chip
+          [label]="tech"
+          [icon]="getTechLogo(tech)"
+          [addClasses]="getTechColor(tech)!"
+        />
       </li>
     </ul>
   </section>
-
 </article>

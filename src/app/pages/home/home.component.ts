@@ -1,3 +1,5 @@
+// src\app\pages\home\home.component.ts
+
 import { Component, inject, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
@@ -66,12 +68,20 @@ export class HomePage {
 
 
 
+
   greeting = toSignal(this.transloco.selectTranslateObject('home.greeting'), { initialValue: {} });
   description = toSignal(this.transloco.selectTranslateObject('home.description'), {initialValue: {}});
   claim = toSignal(this.transloco.selectTranslateObject('home.claim'), {initialValue: {}});
   projectsBtn = toSignal(this.transloco.selectTranslateObject('home.projectsBtn'), {initialValue: {}});
   contactBtn = toSignal(this.transloco.selectTranslateObject('home.contactBtn'), {initialValue: {}});
-  skills = toSignal(this.transloco.selectTranslateObject('skills'), { initialValue: {} });
+  skills = toSignal(this.transloco.selectTranslateObject('skills'), { initialValue: {} })
+    ;
+  techPrinciples = this.skills().technical?.principles.map((p: string) => ({
+    label: p,
+    icon: this.techAssets.getLogo(p),
+    color: this.techAssets.getLightColor(p)
+  }));
+
 
   typewriterKey = signal(0);
   showTypewriters = signal(true);

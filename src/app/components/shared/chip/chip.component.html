@@ -12,7 +12,7 @@
     <img
       [src]="icon"
       alt="Icono"
-      class="w-4 h-4 object-contain"
+      class="w-4 h-4 min-h-[20px] object-contain"
       *ngIf="icon?.includes('/')"
     />
     <i class="text-sm" [ngClass]="icon" *ngIf="!icon?.includes('/')"></i>

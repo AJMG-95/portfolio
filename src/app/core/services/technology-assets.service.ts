@@ -41,12 +41,12 @@ export class TechnologyAssetsService {
       lightColor: 'bg-yellow-200 dark:bg-yellow-100',
     },
     firebase: {
-      logo: 'assets/images/technologies/firebase.svg',
+      logo: 'assets/images/logos/firebase.webp',
       color: 'bg-[#ffca28] dark:bg-[#fff2c1]',
       lightColor: 'bg-[#fff2c1] dark:bg-[#fff8e3]',
     },
     javascript: {
-      logo: 'assets/images/technologies/javascript_logo.webp',
+      logo: 'assets/images/logos/javascript_logo.webp',
       color: 'bg-yellow-400 dark:bg-yellow-200',
       lightColor: 'bg-yellow-100 dark:bg-yellow-50',
     },
@@ -61,7 +61,7 @@ export class TechnologyAssetsService {
       lightColor: 'bg-blue-200 dark:bg-blue-100',
     },
     node: {
-      logo: 'assets/images/technologies/node.svg',
+      logo: 'assets/images/technologies/node_logo.webp',
       color: 'bg-green-600 dark:bg-green-300',
       lightColor: 'bg-green-200 dark:bg-green-100',
     },
@@ -125,6 +125,7 @@ export class TechnologyAssetsService {
       color: 'bg-teal-400 dark:bg-teal-200',
       lightColor: 'bg-teal-200 dark:bg-teal-100',
     },
+    // Principios (versión en español)
     'arquitectura limpia': {
       logo: 'assets/images/icons/architecture.webp',
       color: 'bg-yellow-500 dark:bg-yellow-300',
@@ -140,21 +141,39 @@ export class TechnologyAssetsService {
       color: 'bg-yellow-500 dark:bg-yellow-300',
       lightColor: 'bg-yellow-200 dark:bg-yellow-100',
     },
+
+    // Principios (versión en inglés)
+    'clean architecture': {
+      logo: 'assets/images/icons/architecture.webp',
+      color: 'bg-yellow-500 dark:bg-yellow-300',
+      lightColor: 'bg-yellow-200 dark:bg-yellow-100',
+    },
+    'web accessibility': {
+      logo: 'assets/images/icons/accessibility.webp',
+      color: 'bg-yellow-500 dark:bg-yellow-300',
+      lightColor: 'bg-yellow-200 dark:bg-yellow-100',
+    },
+    'responsive design': {
+      logo: 'assets/images/icons/responsive.webp',
+      color: 'bg-yellow-500 dark:bg-yellow-300',
+      lightColor: 'bg-yellow-200 dark:bg-yellow-100',
+    },
   };
 
   getLogo(tech: string): string | undefined {
-    return this.techMap[tech.toLowerCase()]?.logo;
+    return this.getAsset(tech)?.logo;
   }
-
   getColor(tech: string): string | undefined {
-    return this.techMap[tech.toLowerCase()]?.color;
+    return this.getAsset(tech)?.color;
   }
-
   getLightColor(tech: string): string | undefined {
-    return this.techMap[tech.toLowerCase()]?.lightColor;
+    return this.getAsset(tech)?.lightColor;
+  }
+  getAsset(tech: string): TechnologyAsset | undefined {
+    const key = tech.toLowerCase().replace(/\s+/g, '').replace(/[-_]/g, '');
+    return Object.entries(this.techMap).find(([k]) =>
+      k.replace(/\s+/g, '').replace(/[-_]/g, '') === key
+    )?.[1];
   }
 
-  getAsset(tech: string): TechnologyAsset | undefined {
-    return this.techMap[tech.toLowerCase()];
-  }
 }
