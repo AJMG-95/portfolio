@@ -53,9 +53,9 @@
     >
       <li *ngFor="let tech of technologies">
         <my-chip
-          [label]="tech"
-          [icon]="getTechLogo(tech)"
-          [addClasses]="getTechColor(tech)!"
+          [label]="tech.label"
+          [icon]="tech.icon"
+          [addClasses]="tech.color!"
         />
       </li>
     </ul>

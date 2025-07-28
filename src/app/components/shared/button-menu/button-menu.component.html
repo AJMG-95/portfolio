@@ -1,7 +1,7 @@
 <div class="relative inline-block text-left">
   <button (click)="toggleMenu()"
      [ngClass]="addClasses">
-    {{ 'home.resumeBtn' | transloco }}
+    {{ 'home.buttons.resume' | transloco }}
   </button>
 
 <ul *ngIf="isOpen()"
@@ -10,13 +10,13 @@
     <li>
       <a [href]="links.view" target="_blank" rel="noopener"
         class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition">
-        {{ 'home.resume.view' | transloco }}
+        {{ 'home.buttons.viewCV' | transloco }}
       </a>
     </li>
     <li>
       <a [href]="links.download" download
         class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition">
-        {{ 'home.resume.download' | transloco }}
+        {{ 'home.buttons.downloadCV' | transloco }}
       </a>
     </li>
   </ul>

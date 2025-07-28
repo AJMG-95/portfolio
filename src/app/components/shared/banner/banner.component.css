@@ -1,0 +1,4 @@
+.banner-container {
+  @apply w-full bg-cover bg-center rounded-t-md;
+  background-image: url('/assets/images/shared/techbanner-bg.png');
+}

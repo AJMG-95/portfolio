@@ -17,14 +17,14 @@
 
   <!-- Educación -->
   <app-subsection
-    *ngIf="selectedTab() === 'education.title' && education().items?.length"
+    *ngIf="selectedTab() === 'education.title' && educationData().items?.length"
     [titleKey]="'education.title'"
   >
     <ul
       class="flex flex-col flex-wrap justify-center mobile:items-center gap-6"
     >
       <li
-        *ngFor="let item of education().items; let i = index"
+        *ngFor="let item of educationData().items; let i = index"
         class="w-full mobile:w-[359px] tablet:w-full opacity-0 animate-rFadeIn"
         [style.animationDelay]="i * 0.15 + 's'"
         [style.animationFillMode]="'forwards'"
@@ -34,40 +34,8 @@
           [subtitle]="item.degree"
           [date]="item.dates"
           [imageUrl]="item.image"
-          [altText]="item.institution"
-        />
-      </li>
-    </ul>
-  </app-subsection>
-
-  <!-- Certificaciones -->
-  <app-subsection
-    *ngIf="
-      selectedTab() === 'certifications.title' && certifications().items?.length
-    "
-    [titleKey]="'certifications.title'"
-  >
-    <ul class="flex flex-wrap justify-center tablet-lg:justify-between gap-6">
-      <li
-        *ngFor="let cert of certifications().items; let i = index"
-        class="flex justify-center w-full mobile-sm:w-[90%] sm:w-[48%] laptop-sm:w-[45%] laptop:w-[32%] max-w-[320px] h-[480px] opacity-0 animate-rFadeIn"
-        [style.animationDelay]="i * 0.15 + 's'"
-        [style.animationFillMode]="'forwards'"
-      >
-        <certification-card
-          [cardId]="i"
-          [activeCardId]="activeCardId"
-          (activate)="openModal(cert, i)"
-          (deactivate)="closeModal()"
-          [imageUrl]="cert.image"
-          [title]="cert.title"
-          [issuer]="cert.issuer"
-          [type]="cert.type"
-          [language]="cert.language"
-          [date]="cert.date"
-          [durationHours]="cert.durationHours"
-          [certificateId]="cert.certificateId"
-          [url]="cert.url"
+          [altText]="item.institutionUrl"
+          [titleLink]="item.institutionUrl"
         />
       </li>
     </ul>
@@ -93,7 +61,7 @@
           [role]="item.role"
           [dates]="item.dates"
           [tasks]="item.tasks"
-          [technologies]="item.technologies"
+          [technologyIds]="item.technologyIds"
         />
       </li>
     </ul>
@@ -120,7 +88,7 @@
         </header>
 
         <div class="space-y-4">
-          <article *ngIf="skills().technical?.frontendLanguages?.length">
+          <article *ngIf="skills().frontendLanguages.length">
             <h4
               class="text-sm font-medium text-textSoft dark:text-darkTextSoft"
             >
@@ -128,26 +96,22 @@
             </h4>
             <ul class="flex flex-wrap gap-2 mt-1" role="list">
               <li
-                *ngFor="
-                  let tech of skills().technical.frontendLanguages;
-                  let i = index
-                "
+                *ngFor="let tech of skills().frontendLanguages; let i = index"
                 role="listitem"
                 class="opacity-0 animate-rFadeIn"
                 [style.animationDelay]="i * 0.1 + 's'"
                 style="animation-fill-mode: forwards"
               >
                 <my-chip
-                  [label]="tech"
-                  [addClasses]="
-                    'bg-pink-600 text-white dark:bg-pink-400 dark:text-darkBackground text-sm'
-                  "
+                  [label]="tech.label"
+                  [icon]="tech.icon"
+                  [addClasses]="tech.color + ' text-sm text-gray-700'"
                 />
               </li>
             </ul>
           </article>
 
-          <article *ngIf="skills().technical?.backendLanguages?.length">
+          <article *ngIf="skills().backendLanguages.length">
             <h4
               class="text-sm font-medium text-textSoft dark:text-darkTextSoft"
             >
@@ -155,26 +119,22 @@
             </h4>
             <ul class="flex flex-wrap gap-2 mt-1" role="list">
               <li
-                *ngFor="
-                  let tech of skills().technical.backendLanguages;
-                  let i = index
-                "
+                *ngFor="let tech of skills().backendLanguages; let i = index"
                 role="listitem"
                 class="opacity-0 animate-rFadeIn"
                 [style.animationDelay]="i * 0.1 + 's'"
                 style="animation-fill-mode: forwards"
               >
                 <my-chip
-                  [label]="tech"
-                  [addClasses]="
-                    'bg-purple-600 text-white dark:bg-purple-400 dark:text-darkBackground text-sm'
-                  "
+                  [label]="tech.label"
+                  [icon]="tech.icon"
+                  [addClasses]="tech.color + ' text-sm text-gray-700'"
                 />
               </li>
             </ul>
           </article>
 
-          <article *ngIf="skills().technical?.frameworks?.length">
+          <article *ngIf="skills().frameworks.length">
             <h4
               class="text-sm font-medium text-textSoft dark:text-darkTextSoft"
             >
@@ -182,26 +142,22 @@
             </h4>
             <ul class="flex flex-wrap gap-2 mt-1" role="list">
               <li
-                *ngFor="
-                  let tech of skills().technical.frameworks;
-                  let i = index
-                "
+                *ngFor="let tech of skills().frameworks; let i = index"
                 role="listitem"
                 class="opacity-0 animate-rFadeIn"
                 [style.animationDelay]="i * 0.1 + 's'"
                 style="animation-fill-mode: forwards"
               >
                 <my-chip
-                  [label]="tech"
-                  [addClasses]="
-                    'bg-indigo-600 text-white dark:bg-indigo-400 dark:text-darkBackground text-sm'
-                  "
+                  [label]="tech.label"
+                  [icon]="tech.icon"
+                  [addClasses]="tech.color + ' text-sm text-gray-700'"
                 />
               </li>
             </ul>
           </article>
 
-          <article *ngIf="skills().technical?.tools?.length">
+          <article *ngIf="skills().tools.length">
             <h4
               class="text-sm font-medium text-textSoft dark:text-darkTextSoft"
             >
@@ -209,23 +165,22 @@
             </h4>
             <ul class="flex flex-wrap gap-2 mt-1" role="list">
               <li
-                *ngFor="let tech of skills().technical.tools; let i = index"
+                *ngFor="let tech of skills().tools; let i = index"
                 role="listitem"
                 class="opacity-0 animate-rFadeIn"
                 [style.animationDelay]="i * 0.1 + 's'"
                 style="animation-fill-mode: forwards"
               >
                 <my-chip
-                  [label]="tech"
-                  [addClasses]="
-                    'bg-teal-600 text-white dark:bg-teal-400 dark:text-darkBackground text-sm'
-                  "
+                  [label]="tech.label"
+                  [icon]="tech.icon"
+                  [addClasses]="tech.color + ' text-sm text-gray-700'"
                 />
               </li>
             </ul>
           </article>
 
-          <article *ngIf="skills().technical?.management?.length">
+          <article *ngIf="skills().management.length">
             <h4
               class="text-sm font-medium text-textSoft dark:text-darkTextSoft"
             >
@@ -233,26 +188,22 @@
             </h4>
             <ul class="flex flex-wrap gap-2 mt-1" role="list">
               <li
-                *ngFor="
-                  let tech of skills().technical.management;
-                  let i = index
-                "
+                *ngFor="let tech of skills().management; let i = index"
                 role="listitem"
                 class="opacity-0 animate-rFadeIn"
                 [style.animationDelay]="i * 0.1 + 's'"
                 style="animation-fill-mode: forwards"
               >
                 <my-chip
-                  [label]="tech"
-                  [addClasses]="
-                    'bg-amber-600 text-white dark:bg-amber-400 dark:text-darkBackground text-sm'
-                  "
+                  [label]="tech.label"
+                  [icon]="tech.icon"
+                  [addClasses]="tech.color + ' text-sm text-sm text-gray-700'"
                 />
               </li>
             </ul>
           </article>
 
-          <article *ngIf="skills().technical?.principles?.length">
+          <article *ngIf="skills().principles.length">
             <h4
               class="text-sm font-medium text-textSoft dark:text-darkTextSoft"
             >
@@ -260,20 +211,16 @@
             </h4>
             <ul class="flex flex-wrap gap-2 mt-1" role="list">
               <li
-                *ngFor="
-                  let tech of skills().technical.principles;
-                  let i = index
-                "
+                *ngFor="let tech of skills().principles; let i = index"
                 role="listitem"
                 class="opacity-0 animate-rFadeIn"
                 [style.animationDelay]="i * 0.1 + 's'"
                 style="animation-fill-mode: forwards"
               >
                 <my-chip
-                  [label]="tech"
-                  [addClasses]="
-                    'bg-sky-600 text-white dark:bg-sky-400 dark:text-darkBackground text-sm'
-                  "
+                  [label]="tech.label"
+                  [icon]="tech.icon"
+                  [addClasses]="tech.color + ' text-sm text-sm text-gray-700'"
                 />
               </li>
             </ul>
@@ -296,7 +243,7 @@
         </header>
         <ul class="flex flex-wrap gap-2" role="list">
           <li
-            *ngFor="let soft of skills().soft?.items; let i = index"
+            *ngFor="let soft of softSkills(); let i = index"
             role="listitem"
             class="opacity-0 animate-rFadeIn"
             [style.animationDelay]="i * 0.1 + 's'"
@@ -304,9 +251,7 @@
           >
             <my-chip
               [label]="soft"
-              [addClasses]="
-                'bg-green-600 text-white dark:bg-green-400 dark:text-darkBackground text-sm'
-              "
+              [addClasses]="'bg-white/100 dark:bg-white text-sm text-gray-700'"
             />
           </li>
         </ul>
@@ -336,7 +281,7 @@
             <my-chip
               [label]="lang"
               [addClasses]="
-                'bg-blue-600 text-white dark:bg-blue-400 dark:text-darkBackground text-sm'
+                'bg-green-200/80 dark:bg-green-200 text-sm text-gray-700'
               "
             />
           </li>
@@ -344,11 +289,4 @@
       </section>
     </div>
   </app-subsection>
-
-  <certificate-modal
-    *ngIf="modalVisible && selectedCertificate"
-    [imageUrl]="selectedCertificate.image"
-    [title]="selectedCertificate.title"
-    (close)="closeModal()"
-  />
 </page-wrapper>

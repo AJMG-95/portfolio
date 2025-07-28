@@ -13,21 +13,14 @@
 
   <section role="list" class="w-full grid md:grid-cols-2 gap-6">
     <article
-      *ngFor="let ref of references().items; let i = index"
+      *ngFor="let ref of combinedReferences(); let i = index"
       role="listitem"
       class="flex flex-col sm:flex-row items-center sm:items-start gap-4 rounded-lg border border-borderLight dark:border-darkBorderLight shadow-md p-6 bg-secondary dark:bg-gray-900 transition-colors opacity-0 animate-rFadeIn"
       [style.animationDelay]="i * 0.15 + 's'"
       [style.animationFillMode]="'forwards'"
     >
-      <!-- Avatar -->
-      <img
-        *ngIf="ref.avatar"
-        [src]="ref.avatar"
-        [alt]="'Foto de ' + ref.name"
-        class="w-20 h-20 object-cover rounded-full border shadow-md"
-      />
 
-      <!-- Text info -->
+      <!-- Información -->
       <div class="text-center sm:text-left flex-1">
         <h2 class="text-xl font-bold text-textMain dark:text-darkTextMain">
           {{ ref.name }}
@@ -66,7 +59,7 @@
   </section>
 
   <!-- Carta de recomendación -->
-  <section *ngIf="references().letter" class="mt-10 px-4 w-full">
+  <section *ngIf="letter?.url" class="mt-10 px-4 w-full">
     <header class="text-center mb-6">
       <h2 class="text-2xl font-bold text-primary dark:text-darkHighlight">
         {{ "references.letter.title" | transloco }}
@@ -80,7 +73,7 @@
       class="relative mx-auto max-w-md w-full transition-all duration-300 rounded-lg opacity-0 animate-fade-in-up-lg"
     >
       <a
-        [href]="references().letter.link"
+        [href]="letter.url"
         target="_blank"
         rel="noopener noreferrer"
         class="group focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-darkHighlight block"
@@ -95,12 +88,11 @@
             loading="lazy"
           />
 
-          <!-- Icono cursor clic  -->
+          <!-- Icono cursor clic -->
           <div
             class="absolute bottom-3 right-6 group cursor-pointer"
             aria-hidden="true"
           >
-            <!-- Contenedor del botón -->
             <div
               class="w-12 h-12 rounded-full bg-primary/70 dark:bg-darkHighlight/80 p-2 shadow-sm transition-all duration-300 group-hover:scale-110 dark:group-hover:bg-primary/80 group-hover:bg-secondary/80"
             >
@@ -111,15 +103,14 @@
               />
             </div>
 
-            <!-- Tooltip visible al hacer hover -->
             <div
               class="toolTip absolute bottom-full right-1/2 translate-x-1/2 mb-2 px-3 py-1 rounded-md bg-black text-white dark:bg-white dark:text-black text-xs opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-300"
               role="tooltip"
             >
               {{ "references.letter.linkText" | transloco }}
-              <span class="sr-only">{{
-                "references.letter.linkText" | transloco
-              }}</span>
+              <span class="sr-only">
+                {{ "references.letter.linkText" | transloco }}
+              </span>
             </div>
           </div>
         </div>

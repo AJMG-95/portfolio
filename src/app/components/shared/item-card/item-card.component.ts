@@ -1,3 +1,5 @@
+// src\app\components\shared\item - card\item - card.component.ts
+
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 

@@ -1,12 +1,13 @@
 {
   "theme": {
-    "darkMode": "Dark Mode",
-    "lightMode": "Light Mode"
+    "darkMode": "Dark mode",
+    "lightMode": "Light mode"
   },
   "navbar": {
     "home": "Home",
     "about": "About Me",
     "projects": "Projects",
+    "courses": "Courses",
     "contact": "Contact",
     "references": "References"
   },
@@ -17,62 +18,47 @@
     "contact": "Contact"
   },
   "hero": {
-    "name": "Antonio Jesús Marchena Guerrero",
     "role": "Frontend Developer",
     "cta": "Explore my work"
   },
   "home": {
+    "title": "Home",
     "greeting": "Hi! I'm Antonio Marchena",
     "description": "Frontend developer passionate about building modern and accessible experiences with Angular.",
-    "stack": "TypeScript · JavaScript ·  HTML · CSS · Angular · React · Flutter · Dart ",
-    "claim": "I strive to make the web more inclusive and user-centered.",
-    "projectsBtn": "View Projects",
-    "contactBtn": "Contact Me",
-    "resumeBtn": "Resume",
-    "resume": {
-      "view": "View Resume",
-      "download": "Download Resume"
+    "claim": "I work to make the web more inclusive and user-centered.",
+    "buttons": {
+      "projects": "View Projects",
+      "contact": "Contact",
+      "resume": "Resume",
+      "viewCV": "View CV",
+      "downloadCV": "Download CV"
     }
   },
   "about": {
     "title": "About Me",
-    "description": "Frontend developer with experience in mobile and web applications, focused on creating smooth and visually appealing user experiences. I am passionate about writing clean, maintainable code by applying clean architecture and good development practices. I enjoy teamwork, sharing knowledge, and continuously learning to deliver real value in every project."
+    "description": "Frontend developer with experience in mobile and web applications, focused on creating fluid and visually attractive user experiences. I’m passionate about writing clean and maintainable code, applying clean architecture and development best practices. I enjoy working in teams, sharing knowledge, and constantly learning to deliver real value in every project."
   },
   "contact": {
     "title": "Contact Information",
-    "email": "antonioj.marchena.dev@gmail.com",
-    "phone": "+34 634 81 76 19",
-    "linkedin": "https://linkedin.com/in/aj-marchena",
-    "github": "https://github.com/AJMG-95",
-    "emailSubject": "Contact from the portfolio",
-    "emailBody": "Hi Antonio Jesús,\n\nI saw your portfolio and I’d like to get in touch with you."
+    "emailSubject": "Contact from portfolio",
+    "emailBody": "Hi Antonio Jesús,\n\nI saw your portfolio and I'd like to get in touch with you."
   },
-   "myProjects": {
+  "myProjects": {
     "title": "My Projects",
     "status": {
       "notStarted": "Not started",
       "inProgress": "In progress",
-      "testing": "Testing",
+      "testing": "In testing",
       "completed": "Completed",
       "onHold": "On hold"
     },
     "projects": [
       {
+        "id": 1,
         "name": "TodoApp",
-        "languaje": "TypeScript",
-        "framework": "Angular",
         "status": "inProgress",
         "shortDescription": "Modern task manager with subtask support.",
-        "longDescription": "Web application developed with Angular 18 to manage personal. Uses local storage, supports subtasks and has a modern UI.",
-        "technologies": ["Angular", "Tailwind", "PrimeNG", "LocalStorage"],
-        "headerImageUrl": "assets/images/proyects/todo_app/main.png",
-        "cornerImageUrl": "https://avatars.githubusercontent.com/u/139426?v=4",
-        "githubUrl": "https://github.com/AJMG-95/todo-app",
-        "liveUrl": "https://ajmg-95.github.io/todo-app/todo",
-        "galleryImages": [
-          "assets/images/proyects/todo_app/main.png",
-          "assets/images/proyects/todo_app/tasks.png"
-        ]
+        "longDescription": "Web application built with Angular 18 that allows managing personal tasks. It features local storage, subtask support, and a modern design."
       }
     ]
   },
@@ -80,138 +66,113 @@
     "title": "Languages",
     "items": [
       "Spanish (Native)",
-      "English (B2 Certified)",
-      "Spanish Sign Language (basic user level)"
+      "English (Certified B2)",
+      "Spanish Sign Language (user level)"
     ]
   },
   "education": {
     "title": "Education",
     "items": [
       {
+        "id": 1,
         "institution": "University of Cádiz",
-        "degree": "Master's Degree in Integrated Water Management",
-        "dates": "2020 - 2022",
-        "image": "assets/images/companies-logo/logo_uca_facutad_ccma.png"
+        "degree": "Master’s Degree in Integrated Water Management"
       },
       {
+        "id": 2,
         "institution": "IES Doñana",
-        "degree": "Advanced Vocational Training in Web Application Development",
-        "dates": "2021 - 2024",
-        "image": "assets/images/companies-logo/logo_IESDonana_2.png"
+        "degree": "Higher Technician in Web Application Development"
       },
       {
+        "id": 3,
         "institution": "University of Cádiz",
-        "degree": "Bachelor's Degree in Environmental Sciences",
-        "dates": "2014 - 2019",
-        "image": "assets/images/companies-logo/logo_uca_facutad_ccma.png"
+        "degree": "Bachelor’s Degree in Environmental Sciences"
       }
     ]
   },
   "certifications": {
-    "title": "Certifications",
+    "title": "My Courses and Certifications",
+    "noCourses": "No courses available",
     "items": [
       {
-        "title": "Flutter - Mobile: From Zero to Expert",
+        "id": 1,
+        "title": "Flutter - Mobile: From zero to expert",
         "issuer": "Udemy",
         "language": "Spanish",
         "type": "Technical course",
-        "date": "July 2025",
-        "durationHours": 50.5,
-        "certificateId": "UC-d31dec52-7b2b-47d9-87f0-ff14b391dd39",
-        "url": "https://ude.my/UC-d31dec52-7b2b-47d9-87f0-ff14b391dd39",
-        "image": "assets/images/certifications/Flutter-Movi-lDeCeroAExperto_FernandoHerrera.png"
+        "date": "July 2025"
       },
       {
+        "id": 2,
         "title": "CRUD Lab in Laravel 9 with Test-Driven Development (TDD)",
         "issuer": "OpenWebinars",
         "language": "Spanish",
         "type": "Technical course",
-        "durationHours": 6,
-        "date": "January 2023",
-        "url": "https://openwebinars.net/cert/yAnB",
-        "image": "assets/images/certifications/certificado_laboratorio_crud_en_laravel_9_con_test-driven_development_(tdd).png"
+        "date": "January 2023"
       },
       {
+        "id": 3,
         "title": "PHP Course: Expanding Concepts",
         "issuer": "OpenWebinars",
         "language": "Spanish",
         "type": "Technical course",
-        "durationHours": 8,
-        "date": "December 2022",
-        "image": "assets/images/certifications/certificado_curso_de_php__ampliando_conceptos.png"
+        "date": "December 2022"
       },
       {
+        "id": 4,
         "title": "Test-Driven Development in Laravel",
         "issuer": "OpenWebinars",
         "language": "Spanish",
         "type": "Technical course",
-        "durationHours": 1,
-        "date": "December 2022",
-        "url": "https://openwebinars.net/cert/r3aKQ",
-        "image": "assets/images/certifications/certificado_test-driven_development_en_laravel.png"
+        "date": "December 2022"
       },
       {
-        "title": "Fundamentals of Test-Driven Development",
+        "id": 5,
+        "title": "Foundations of Test-Driven Development",
         "issuer": "OpenWebinars",
         "language": "Spanish",
         "type": "Technical course",
-        "durationHours": 1,
-        "date": "December 2022",
-        "image": "assets/images/certifications/certificado_fundamentos_de_test-driven_development.png"
+        "date": "December 2022"
       },
       {
-        "title": "PHP Course for Beginners",
+        "id": 6,
+        "title": "Beginner PHP Course",
         "issuer": "OpenWebinars",
         "language": "Spanish",
         "type": "Technical course",
-        "durationHours": 9,
-        "date": "November 2022",
-        "image": "assets/images/certifications/certificado_curso_de_php_para_principiantes.png"
+        "date": "November 2022"
       },
       {
+        "id": 7,
         "title": "SQL Course from Scratch",
         "issuer": "OpenWebinars",
         "language": "Spanish",
         "type": "Technical course",
-        "durationHours": 7,
-        "date": "October 2022",
-        "image": "assets/images/certifications/certificado_curso_de_sql_desde_cero.png"
+        "date": "October 2022"
       },
       {
+        "id": 8,
         "title": "Cambridge English: First (FCE) - B2",
         "issuer": "Cambridge Assessment English",
         "language": "English",
         "type": "Official exam",
-        "date": "June 2022",
-        "certificateId": "211ES0015302",
-        "url": "https://www.cambridgeenglish.org/",
-        "image": "assets/images/certifications/english-B2-cambridget.jpeg"
+        "date": "June 2022"
       },
       {
-        "title": "Entrepreneurship Training Program",
+        "id": 9,
+        "title": "Training Program for Entrepreneurs",
         "issuer": "University of Cádiz",
-        "collaborators": [
-          "Innova Atlas",
-          "ERA Cultura",
-          "Ayuda T Pymes",
-          "Surcontrol",
-          "FUECA"
-        ],
         "language": "Spanish",
-        "type": "Training course",
-        "durationHours": 24,
-        "date": "May 2018",
-        "image": "assets/images/certifications/curso-emprendimiento.jpeg"
+        "type": "Formative course",
+        "date": "May 2018"
       },
       {
+        "id": 10,
         "title": "Cambridge English: Preliminary (PET) - B1",
         "issuer": "Cambridge Assessment English",
         "language": "English",
         "type": "Official exam",
-        "date": "March 2014",
-        "certificateId": "211ES0013059",
-        "url": "https://www.cambridgeenglish.org/",
-        "image": "assets/images/certifications/english-B1-cambridget.jpeg"
+        "date": "March 2014"
       }
     ],
     "issuedBy": "Issued by",
@@ -219,41 +180,35 @@
     "language": "Language",
     "date": "Date",
     "duration": "Duration",
+    "completed": "Completed",
     "hours": "hours",
     "certificateId": "Certificate ID",
-    "collaborators": "Collaborators"
+    "collaborators": "Collaborators",
+    "show": "View Certification"
   },
   "experience": {
     "title": "Experience",
     "items": [
       {
+        "id": 1,
         "role": "Frontend Developer",
-        "company": "Controlnet S.L.",
-        "companyLogo": "assets/images/companies-logo/controlnetspain_logo.webp",
-        "companyUrl": "https://controlnet.es/",
-        "dates": "March 2024 - July 2025",
-        "technologies": ["Flutter", "Angular", "React", "Tailwind CSS", "Bootstrap"],
         "tasks": [
-          "Developed mobile interfaces using Flutter.",
-          "Created reusable components in Angular.",
-          "Integrated REST APIs.",
-          "Used Tailwind CSS and Bootstrap.",
-          "Applied clean architecture and SOLID principles.",
-          "Mentored interns."
+          "Development of mobile interfaces with Flutter.",
+          "Creation of reusable components in Angular.",
+          "Integration of REST APIs.",
+          "Use of Tailwind CSS and Bootstrap.",
+          "Application of clean architecture and SOLID principles.",
+          "Mentoring internship students."
         ]
       },
       {
+        "id": 2,
         "role": "Intern Developer",
-        "company": "Controlnet S.L.",
-        "companyLogo": "assets/images/companies-logo/controlnetspain_logo.webp",
-        "companyUrl": "https://controlnet.es/",
-        "dates": "October 2023 - January 2024",
-        "technologies": ["Angular", "Bootstrap"],
         "tasks": [
           "Web development with Angular 16.",
-          "Responsive interfaces with Bootstrap.",
+          "Responsive interfaces using Bootstrap.",
           "API consumption.",
-          "Testing and feature integration.",
+          "Testing and functionality integration.",
           "Technical collaboration with the team."
         ]
       }
@@ -263,7 +218,6 @@
     "title": "Skills",
     "technical": {
       "title": "Technical Skills",
-
       "frontendLanguagesTitle": "Frontend Languages",
       "backendLanguagesTitle": "Backend Languages",
       "frameworksTitle": "Frameworks and Libraries",
@@ -271,56 +225,51 @@
       "managementTitle": "Project Management",
       "principlesTitle": "Development Principles",
 
-      "frontendLanguages": ["TypeScript", "JavaScript", "HTML5", "CSS3"],
-      "backendLanguages": ["Java", "Python", "PHP"],
-      "frameworks": ["Angular", "React", "Flutter", "Laravel", "Tailwind CSS", "Bootstrap"],
-      "tools": ["Git", "GitHub", "PostgreSQL"],
-      "management": ["Asana", "Monday"],
-      "principles": ["Clean Architecture", "Web Accessibility", "Responsive Design"]
+      "frontendLanguages": [2, 7, 8, 9],
+      "backendLanguages": [11, 12, 13],
+      "frameworks": [1, 14, 15, 16, 3, 17],
+      "tools": [18, 19, 20],
+      "management": [21, 22],
+      "principles": {
+        "23": "Clean Architecture",
+        "24": "Web Accessibility",
+        "25": "Responsive Design"
+      }
     },
     "soft": {
       "title": "Soft Skills",
       "items": [
         "Agile teamwork (Scrum/Sprint)",
         "Proactivity and continuous learning",
-        "Technical problem solving",
+        "Technical problem-solving",
         "Attention to detail",
         "Autonomy and responsibility"
       ]
     }
   },
-  "training": {
-    "title": "Additional Training",
-    "items": [
-      "Udemy - Flutter - From Zero to Expert | Fernando Herrera | In progress",
-      "Udemy - Angular - From Zero to Expert 2025 | Fernando Herrera | In progress"
-    ]
-  },
   "references": {
     "title": "References",
     "items": [
       {
-        "name": "Francisco Romero-Haupold",
+        "id": 1,
         "role": "COO at Controlnet S.L.",
-        "linkedin": "https://linkedin.com/in/francisco-romero-haupold-b63740278/",
         "contact": "Available upon request"
       },
       {
-        "name": "Ricardo Pina",
-        "role": "Financial Director at Controlnet S.L.",
-        "linkedin": "https://www.linkedin.com/in/rpinac/",
+        "id": 2,
+        "role": "Finance Director at Controlnet S.L.",
         "contact": "Available upon request"
       }
     ],
     "letter": {
       "title": "Recommendation Letter",
-      "text": "You can view my recommendation letter at the following link:",
-      "link": "https://drive.google.com/file/d/1gZKFeNZZyPN-d-fDjA8DGZZuv0tqF76P/view",
-      "linkText": "View PDF letter"
+      "text": "You can check my recommendation letter at the following link:",
+      "linkText": "View letter in PDF"
     }
   },
-  "buttons": {
-    "download": "Download CV",
-    "contact": "Contact Me"
+  "principles": {
+    "23": "Clean Architecture",
+    "24": "Web Accessibility",
+    "25": "Responsive Design"
   }
 }

@@ -7,6 +7,7 @@
     "home": "Inicio",
     "about": "Sobre mí",
     "projects": "Proyectos",
+    "courses": "Cursos",
     "contact": "Contacto",
     "references": "Referecias"
   },
@@ -17,7 +18,6 @@
     "contact": "Contacto"
   },
   "hero": {
-    "name": "Antonio Jesús Marchena Guerrero",
     "role": "Desarrollador Frontend",
     "cta": "Explora mi trabajo"
   },
@@ -25,14 +25,13 @@
     "title": "Inicio",
     "greeting": "¡Hola! Soy Antonio Marchena",
     "description": "Desarrollador frontend apasionado por construir experiencias modernas y accesibles con Angular.",
-    "stack": "TypeScript · JavaScript ·  HTML · CSS · Angular · React · Flutter · Dart ",
     "claim": "Trabajo para que la web sea más inclusiva y centrada en el usuario.",
-    "projectsBtn": "Ver proyectos",
-    "contactBtn": "Contactar",
-    "resumeBtn": "Currículum",
-    "resume": {
-      "view": "Ver CV",
-      "download": "Descargar CV"
+    "buttons" : {
+      "projects": "Ver proyectos",
+      "contact": "Contactar",
+      "resume": "Currículum",
+      "viewCV": "Ver CV",
+      "downloadCV": "Descargar CV"
     }
   },
   "about": {
@@ -41,10 +40,6 @@
   },
   "contact": {
     "title": "Información de Contacto",
-    "email": "antonioj.marchena.dev@gmail.com",
-    "phone": "+34 634 81 76 19",
-    "linkedin": "https://linkedin.com/in/aj-marchena",
-    "github": "https://github.com/AJMG-95",
     "emailSubject": "Contacto desde el portfolio",
     "emailBody": "Hola Antonio Jesús,\n\nHe visto tu portfolio y me gustaría ponerme en contacto contigo."
   },
@@ -59,21 +54,11 @@
     },
     "projects": [
       {
+        "id": 1,
         "name": "TodoApp",
-        "languaje": "TypeScript",
-        "framework": "Angular",
         "status": "inProgress",
         "shortDescription": "Gestor de tareas moderno con soporte para subtareas.",
-        "longDescription": "Aplicación web desarrollada en Angular 18 que permite gestionar tareas personales. Incorpora almacenamiento local, soporte para subtareas y un diseño moderno.",
-        "technologies": ["Angular", "Tailwind", "PrimeNG", "LocalStorage"],
-        "headerImageUrl": "assets/images/proyects/todo_app/main.png",
-        "cornerImageUrl": "https://avatars.githubusercontent.com/u/139426?v=4",
-        "githubUrl": "https://github.com/AJMG-95/todo-app",
-        "liveUrl": "https://ajmg-95.github.io/todo-app/todo",
-        "galleryImages": [
-          "assets/images/proyects/todo_app/main.png",
-          "assets/images/proyects/todo_app/tasks.png"
-        ]
+        "longDescription": "Aplicación web desarrollada en Angular 18 que permite gestionar tareas personales. Incorpora almacenamiento local, soporte para subtareas y un diseño moderno."
       }
     ]
   },
@@ -86,136 +71,108 @@
     ]
   },
   "education": {
-    "title": "Formación",
+    "title": "Formación Académica",
     "items": [
       {
+        "id": 1,
         "institution": "Universidad de Cádiz",
-        "institutionUrl": "https://ccmaryambientales.uca.es/grado-en-ciencias-ambientales/",
-        "degree": "Máster en Gestión Integral del Agua",
-        "dates": "2020 - 2022",
-        "image": "assets/images/companies-logo/logo_uca_facutad_ccma.png"
+        "degree": "Máster en Gestión Integral del Agua"
       },
       {
+        "id": 2,
         "institution": "IES Doñana",
-        "institutionUrl": "",
-        "degree": "CFGS Desarrollo de Aplicaciones Web",
-        "dates": "2021 - 2024",
-        "image": "assets/images/companies-logo/logo_IESDonana_2.png"
+        "degree": "CFGS Desarrollo de Aplicaciones Web"
       },
       {
+        "id": 3,
         "institution": "Universidad de Cádiz",
-        "institutionUrl": "https://ccmaryambientales.uca.es/grado-en-ciencias-ambientales/",
-        "degree": "Grado en Ciencias Ambientales",
-        "dates": "2014 - 2019",
-        "image": "assets/images/companies-logo/logo_uca_facutad_ccma.png"
+        "degree": "Grado en Ciencias Ambientales"
       }
     ]
   },
   "certifications": {
-    "title": "Certificaciones",
+    "title": "Mis Cursos y Certificaciones",
+    "noCourses": "No hay cursos disponibles",
     "items": [
       {
+        "id": 1,
         "title": "Flutter - Móvil: De cero a experto",
         "issuer": "Udemy",
         "language": "Español",
         "type": "Curso técnico",
-        "date": "Julio 2025",
-        "durationHours": 50.5,
-        "certificateId": "UC-d31dec52-7b2b-47d9-87f0-ff14b391dd39",
-        "url": "https://ude.my/UC-d31dec52-7b2b-47d9-87f0-ff14b391dd39",
-        "image": "assets/images/certifications/Flutter-Movi-lDeCeroAExperto_FernandoHerrera.png"
+        "date": "Julio 2025"
       },
       {
+        "id": 2,
         "title": "Laboratorio CRUD en Laravel 9 con Test-Driven Development (TDD)",
         "issuer": "OpenWebinars",
         "language": "Español",
         "type": "Curso técnico",
-        "durationHours": 6,
-        "date": "Enero 2023",
-        "url": "https://openwebinars.net/cert/yAnB",
-        "image": "assets/images/certifications/certificado_laboratorio_crud_en_laravel_9_con_test-driven_development_(tdd).png"
+        "date": "Enero 2023"
       },
       {
+        "id": 3,
         "title": "Curso de PHP: Ampliando conceptos",
         "issuer": "OpenWebinars",
         "language": "Español",
         "type": "Curso técnico",
-        "durationHours": 8,
-        "date": "Diciembre 2022",
-        "image": "assets/images/certifications/certificado_curso_de_php__ampliando_conceptos.png"
+        "date": "Diciembre 2022"
       },
       {
+        "id": 4,
         "title": "Test-Driven Development en Laravel",
         "issuer": "OpenWebinars",
         "language": "Español",
         "type": "Curso técnico",
-        "durationHours": 1,
-        "date": "Diciembre 2022",
-        "url": "https://openwebinars.net/cert/r3aKQ",
-        "image": "assets/images/certifications/certificado_test-driven_development_en_laravel.png"
+        "date": "Diciembre 2022"
       },
       {
+        "id": 5,
         "title": "Fundamentos de Test-Driven Development",
         "issuer": "OpenWebinars",
         "language": "Español",
         "type": "Curso técnico",
-        "durationHours": 1,
-        "date": "Diciembre 2022",
-        "image": "assets/images/certifications/certificado_fundamentos_de_test-driven_development.png"
+        "date": "Diciembre 2022"
       },
       {
+        "id": 6,
         "title": "Curso de PHP para principiantes",
         "issuer": "OpenWebinars",
         "language": "Español",
         "type": "Curso técnico",
-        "durationHours": 9,
-        "date": "Noviembre 2022",
-        "image": "assets/images/certifications/certificado_curso_de_php_para_principiantes.png"
+        "date": "Noviembre 2022"
       },
       {
+        "id": 7,
         "title": "Curso de SQL desde cero",
         "issuer": "OpenWebinars",
         "language": "Español",
         "type": "Curso técnico",
-        "durationHours": 7,
-        "date": "Octubre 2022",
-        "image": "assets/images/certifications/certificado_curso_de_sql_desde_cero.png"
+        "date": "Octubre 2022"
       },
       {
+        "id": 8,
         "title": "Cambridge English: First (FCE) - B2",
         "issuer": "Cambridge Assessment English",
         "language": "Inglés",
         "type": "Examen oficial",
-        "date": "Junio 2022",
-        "certificateId": "211ES0015302",
-        "url": "https://www.cambridgeenglish.org/",
-        "image": "assets/images/certifications/english-B2-cambridget.jpeg"
+        "date": "Junio 2022"
       },
       {
+        "id": 9,
         "title": "Programa de Formación para Emprendedores",
         "issuer": "Universidad de Cádiz",
-        "collaborators": [
-          "Innova Atlas",
-          "ERA Cultura",
-          "Ayuda T Pymes",
-          "Surcontrol",
-          "FUECA"
-        ],
         "language": "Español",
         "type": "Curso formativo",
-        "durationHours": 24,
-        "date": "Mayo 2018",
-        "image": "assets/images/certifications/curso-emprendimiento.jpeg"
+        "date": "Mayo 2018"
       },
       {
+        "id": 10,
         "title": "Cambridge English: Preliminary (PET) - B1",
         "issuer": "Cambridge Assessment English",
         "language": "Inglés",
         "type": "Examen oficial",
-        "date": "Marzo 2014",
-        "certificateId": "211ES0013059",
-        "url": "https://www.cambridgeenglish.org/",
-        "image": "assets/images/certifications/english-B1-cambridget.jpeg"
+        "date": "Marzo 2014"
       }
     ],
     "issuedBy": "Emitido por",
@@ -223,27 +180,18 @@
     "language": "Idioma",
     "date": "Fecha",
     "duration": "Duración",
+    "completed": "Completado",
     "hours": "horas",
     "certificateId": "ID del certificado",
     "collaborators": "Colaboradores",
-    "show": "Ver Certificaión"
+    "show": "Ver Certificación"
   },
   "experience": {
     "title": "Experiencia",
     "items": [
       {
+        "id": 1,
         "role": "Desarrollador Frontend",
-        "company": "Controlnet S.L.",
-        "companyLogo": "assets/images/companies-logo/controlnetspain_logo.webp",
-        "companyUrl": "https://controlnet.es/",
-        "dates": "Marzo 2024 - Julio 2025",
-        "technologies": [
-          "Flutter",
-          "Angular",
-          "React",
-          "Tailwind CSS",
-          "Bootstrap"
-        ],
         "tasks": [
           "Desarrollo de interfaces móviles con Flutter.",
           "Creación de componentes reutilizables en Angular.",
@@ -254,12 +202,8 @@
         ]
       },
       {
+        "id": 2,
         "role": "Estudiante en Prácticas",
-        "company": "Controlnet S.L.",
-        "companyLogo": "assets/images/companies-logo/controlnetspain_logo.webp",
-        "companyUrl": "https://controlnet.es/",
-        "dates": "Octubre 2023 - Enero 2024",
-        "technologies": ["Angular", "Bootstrap"],
         "tasks": [
           "Desarrollo web con Angular 16.",
           "Interfaces responsivas con Bootstrap.",
@@ -282,23 +226,16 @@
       "managementTitle": "Gestión de Proyectos",
       "principlesTitle": "Principios de Desarrollo",
 
-      "frontendLanguages": ["TypeScript", "JavaScript", "HTML5", "CSS3"],
-      "backendLanguages": ["Java", "Python", "PHP"],
-      "frameworks": [
-        "Angular",
-        "React",
-        "Flutter",
-        "Laravel",
-        "Tailwind CSS",
-        "Bootstrap"
-      ],
-      "tools": ["Git", "GitHub", "PostgreSQL"],
-      "management": ["Asana", "Monday"],
-      "principles": [
-        "Arquitectura limpia",
-        "Accesibilidad web",
-        "Diseño responsive"
-      ]
+      "frontendLanguages": [2, 7, 8, 9],
+      "backendLanguages": [11, 12, 13],
+      "frameworks": [1, 14, 15, 16, 3, 17],
+      "tools": [18, 19, 20],
+      "management": [21, 22],
+      "principles": {
+        "23": "Arquitectura limpia",
+        "24": "Accesibilidad web",
+        "25": "Diseño responsive"
+      }
     },
     "soft": {
       "title": "Habilidades blandas",
@@ -311,38 +248,29 @@
       ]
     }
   },
-  "training": {
-    "title": "Formación Complementaria",
-    "items": [
-      "Udemy - Flutter - De cero a experto | Fernando Herrera | En progreso",
-      "Udemy - Angular - De cero a experto 2025 | Fernando Herrera | En progreso"
-    ]
-  },
   "references": {
     "title": "Referencias",
     "items": [
       {
-        "name": "Francisco Romero-Haupold",
+        "id": 1,
         "role": "COO en Controlnet S.L.",
-        "linkedin": "https://linkedin.com/in/francisco-romero-haupold-b63740278/",
         "contact": "Disponible previa solicitud"
       },
       {
-        "name": "Ricardo Pina",
+        "id": 2,
         "role": "Dirección financiera en Controlnet S.L.",
-        "linkedin": "https://www.linkedin.com/in/rpinac/",
         "contact": "Disponible previa solicitud"
       }
     ],
     "letter": {
       "title": "Carta de recomendación",
       "text": "Puedes consultar mi carta de recomendación en el siguiente enlace:",
-      "link": "https://drive.google.com/file/d/1gZKFeNZZyPN-d-fDjA8DGZZuv0tqF76P/view",
       "linkText": "Ver carta en PDF"
     }
   },
-  "buttons": {
-    "download": "Descargar CV",
-    "contact": "Contáctame"
+  "principles": {
+  "23": "Arquitectura limpia",
+  "24": "Accesibilidad web",
+  "25": "Diseño responsive"
   }
 }

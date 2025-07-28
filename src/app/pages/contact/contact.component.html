@@ -11,7 +11,7 @@
 
   <ul class="flex flex-col gap-6 text-sm sm:text-base" aria-label="Información de contacto">
 
-    <app-contact-info type="email" [value]="'contact.email' | transloco" [subject]="'contact.emailSubject' | transloco"
+    <app-contact-info type="email" [value]="email" [subject]="'contact.emailSubject' | transloco"
       [body]="'contact.emailBody' | transloco">
       <svg icon class="w-5 h-5 text-primary dark:text-darkHighlight" fill="none" stroke="currentColor" stroke-width="2"
         viewBox="0 0 24 24" aria-hidden="true">
@@ -20,7 +20,7 @@
       </svg>
     </app-contact-info>
 
-    <app-contact-info type="phone" [value]="'contact.phone' | transloco">
+    <app-contact-info type="phone" [value]="phone ">
       <svg icon class="w-5 h-5 text-primary dark:text-darkHighlight" fill="none" stroke="currentColor" stroke-width="2"
         viewBox="0 0 24 24" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round"
@@ -28,7 +28,7 @@
       </svg>
     </app-contact-info>
 
-    <app-contact-info type="link" [value]="'contact.linkedin' | transloco" [label]="'LinkedIn'" [external]="true">
+    <app-contact-info type="link" [value]="linkedin" [label]="'LinkedIn'" [external]="true">
       <svg icon class="w-5 h-5 text-primary dark:text-darkHighlight" fill="currentColor" viewBox="0 0 24 24"
         aria-hidden="true">
         <path
@@ -36,7 +36,7 @@
       </svg>
     </app-contact-info>
 
-    <app-contact-info type="link" [value]="'contact.github' | transloco" [label]="'GitHub'" [external]="true">
+    <app-contact-info type="link" [value]="github" [label]="'GitHub'" [external]="true">
       <svg icon class="w-5 h-5 text-primary dark:text-darkHighlight" fill="currentColor" viewBox="0 0 24 24"
         aria-hidden="true">
         <path

@@ -41,9 +41,9 @@
         style="animation-fill-mode: forwards"
       >
         <my-chip
-          *ngFor="let tech of techFrontend; let i = index"
+          *ngFor="let tech of techFrontend(); let i = index"
           [id]="'frontend-' + i"
-          [label]="tech.label"
+          [label]="tech.label!"
           [icon]="tech.icon"
           [addClasses]="tech.color!"
         />
@@ -57,9 +57,9 @@
         style="animation-fill-mode: forwards"
       >
         <my-chip
-          *ngFor="let tech of techBackend; let i = index"
+          *ngFor="let tech of techBackend(); let i = index"
           [id]="'backend-' + i"
-          [label]="tech.label"
+          [label]="tech.label!"
           [icon]="tech.icon"
           [addClasses]="tech.color!"
         />
@@ -73,9 +73,9 @@
         style="animation-fill-mode: forwards"
       >
         <my-chip
-          *ngFor="let tech of techFrameworks; let i = index"
+          *ngFor="let tech of techFrameworks(); let i = index"
           [id]="'framework-' + i"
-          [label]="tech.label"
+          [label]="tech.label!"
           [icon]="tech.icon"
           [addClasses]="tech.color!"
         />
@@ -89,9 +89,9 @@
         style="animation-fill-mode: forwards"
       >
         <my-chip
-          *ngFor="let tool of techTools; let i = index"
+          *ngFor="let tool of techTools(); let i = index"
           [id]="'tool-' + i"
-          [label]="tool.label"
+          [label]="tool.label!"
           [icon]="tool.icon"
           [addClasses]="tool.color!"
         />
@@ -105,9 +105,9 @@
         style="animation-fill-mode: forwards"
       >
         <my-chip
-          *ngFor="let mgmt of techManagement; let i = index"
+          *ngFor="let mgmt of techManagement(); let i = index"
           [id]="'management-' + i"
-          [label]="mgmt.label"
+          [label]="mgmt.label!"
           [icon]="mgmt.icon"
           [addClasses]="mgmt.color!"
         />
@@ -121,7 +121,7 @@
         style="animation-fill-mode: forwards"
       >
         <my-chip
-          *ngFor="let principle of techPrinciples; let i = index"
+          *ngFor="let principle of techPrinciples(); let i = index"
           [id]="'principle-' + i"
           [label]="principle.label"
           [icon]="principle.icon"

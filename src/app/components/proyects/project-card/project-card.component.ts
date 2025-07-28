@@ -1,8 +1,11 @@
+// src/app/components/proyects/project-card/project-card.component.ts
+
 import { Component, HostListener, Input } from '@angular/core';
 import { NgClass, NgIf, NgFor } from '@angular/common';
 import { ImageGalleryComponent } from '../../shared/image-gallery/image-gallery.component';
 import { ChipComponent } from '../../shared/chip/chip.component';
-import { TechnologyAssetsService } from '../../../core/services/technology-assets.service';
+import { VisualAssetsService } from '../../../core/services/visual-assets.service';
+import { ProjectStatus } from '../../../core/services/proyects-data.service';
 
 @Component({
   selector: 'project-card',
@@ -18,24 +21,26 @@ export class ProjectCardComponent {
   @Input() subtitle?: string;
   @Input() shortDescription!: string;
   @Input() longDescription!: string;
-  @Input() technologies: string[] = [];
+
+  /** IDs de tecnologías */
+  @Input() technologyIds: number[] = [];
+
   @Input() githubUrl!: string;
   @Input() liveUrl?: string;
-  @Input() status!: 'not-started' | 'in-progress' | 'testing' | 'completed' | 'on-hold';
+  @Input() status!: ProjectStatus;
   @Input() statusLabels: Record<string, string> = {
-    'not-started': 'Not started',
-    'in-progress': 'In progress',
-    'testing': 'Testing',
-    'completed': 'Completed',
-    'on-hold': 'On hold',
+    notStarted: 'No iniciado',
+    inProgress: 'En progreso',
+    testing: 'En pruebas',
+    completed: 'Terminado',
+    onHold: 'Pausado',
   };
   @Input() galleryImages: string[] = [];
 
   isFlipped = false;
   showModal = false;
 
-
-  constructor(private techAssets: TechnologyAssetsService) { }
+  constructor(private techAssets: VisualAssetsService) { }
 
   cardClicked() {
     this.isFlipped = true;
@@ -61,15 +66,15 @@ export class ProjectCardComponent {
 
   get statusChipClass(): string {
     switch (this.status) {
-      case 'not-started':
+      case ProjectStatus.NotStarted:
         return 'bg-gray-500 text-white';
-      case 'in-progress':
+      case ProjectStatus.InProgress:
         return 'bg-blue-500 text-white';
-      case 'testing':
+      case ProjectStatus.Testing:
         return 'bg-orange-500 text-white';
-      case 'completed':
+      case ProjectStatus.Completed:
         return 'bg-green-500 text-white';
-      case 'on-hold':
+      case ProjectStatus.OnHold:
         return 'bg-yellow-600 text-white';
       default:
         return 'bg-gray-300 text-white';
@@ -77,11 +82,10 @@ export class ProjectCardComponent {
   }
 
   get techChips(): { label: string; icon?: string; color?: string }[] {
-    return this.technologies.map(tech => ({
-      label: tech,
-      icon: this.techAssets.getLogo(tech),
-      color: this.techAssets.getLightColor(tech), // ← usa color más suave
+    return this.technologyIds.map(id => ({
+      label: this.techAssets.getName(id) || `ID ${id}`,
+      icon: this.techAssets.getLogo(id),
+      color: this.techAssets.getLightColor(id),
     }));
   }
-
 }

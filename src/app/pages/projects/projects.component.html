@@ -4,12 +4,11 @@
     {{ 'myProjects.title' | transloco }}
   </h1>
 
-  <div class="flex flex-wrap justify-start gap-8">
-<project-card *ngFor="let project of projects()" [headerImageUrl]="project.headerImageUrl"
-  [cornerImageUrl]="project.cornerImageUrl" [title]="project.name" [subtitle]="project.framework"
-  [shortDescription]="project.shortDescription" [longDescription]="project.longDescription"
-  [technologies]="project.technologies" [githubUrl]="project.githubUrl" [liveUrl]="project.liveUrl"
-  [galleryImages]="project.galleryImages" [status]="project.status" [statusLabels]="statusLabels()" />
-
+  <div class="flex flex-wrap justify-around gap-8">
+    <project-card *ngFor="let project of projects()" [headerImageUrl]="project.headerImageUrl"
+      [cornerImageUrl]="project.cornerImageUrl" [title]="project.name" [shortDescription]="project.shortDescription"
+      [longDescription]="project.longDescription" [technologyIds]="project.technologyIds"
+      [githubUrl]="project.githubUrl" [liveUrl]="project.liveUrl" [galleryImages]="project.galleryImages"
+      [status]="project.status" [statusLabels]="statusLabels()" />
   </div>
 </page-wrapper>

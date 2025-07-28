@@ -3,17 +3,21 @@
   role="group" aria-labelledby="card-title">
 
   <!-- Imagen decorativa -->
-  <figure *ngIf="imageUrl" class="w-full rouded-t-md sm:w-24 flex-shrink-0 overflow-hidden bg-gray-100 dark:bg-gray-700">
-    <ng-container *ngIf="titleLink; else plainImage">
-      <a [href]="titleLink" target="_blank" rel="noopener noreferrer"
-        class="block transition-colors duration-200 hover:brightness-90">
-        <img [src]="imageUrl" [alt]="altText" class="w-full h-full object-contain rounded-t-md" decoding="async" loading="lazy" />
-      </a>
-    </ng-container>
-    <ng-template #plainImage>
-      <img [src]="imageUrl" [alt]="altText" class="w-full h-full object-contain rounded-t-md" decoding="async" loading="lazy" />
-    </ng-template>
-  </figure>
+<figure *ngIf="imageUrl"
+  class="w-full sm:w-24 flex-shrink-0 flex items-center justify-center overflow-hidden bg-gray-100 dark:bg-gray-700 rounded-t-md sm:rounded-none sm:rounded-l-md">
+  <ng-container *ngIf="titleLink; else plainImage">
+    <a [href]="titleLink" target="_blank" rel="noopener noreferrer"
+      class="block transition-colors duration-200 hover:brightness-90">
+      <img [src]="imageUrl" [alt]="altText" class="object-contain max-w-full max-h-full m-auto" decoding="async"
+        loading="lazy" />
+    </a>
+  </ng-container>
+  <ng-template #plainImage>
+    <img [src]="imageUrl" [alt]="altText" class="object-contain max-w-full max-h-full m-auto" decoding="async"
+      loading="lazy" />
+  </ng-template>
+</figure>
+
 
   <!-- Contenido principal -->
   <section class="flex flex-col justify-between flex-1 p-4">

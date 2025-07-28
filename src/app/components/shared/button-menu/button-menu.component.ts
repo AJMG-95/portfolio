@@ -1,3 +1,5 @@
+// src\app\components\shared\button - menu\button - menu.component.ts
+
 import { Component, ElementRef, HostListener, Input, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslocoModule, TranslocoService } from '@jsverse/transloco';

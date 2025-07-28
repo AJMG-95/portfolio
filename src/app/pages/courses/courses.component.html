@@ -1,0 +1,29 @@
+<page-wrapper [addClasses]="'flex flex-col items-center gap-12 mx-auto w-full'" aria-label="courses">
+  <h1 id="courses-title"
+    class="text-4xl sm:text-5xl mb-12 font-extrabold text-center text-primary dark:text-darkHighlight transition-colors">
+    {{ 'certifications.title' | transloco }}
+  </h1>
+
+  <div *ngIf="courses().length > 0" class="flex flex-wrap justify-center gap-8 mx-auto w-full">
+    <course-card
+      *ngFor="let course of courses(); let i = index"
+      [cardId]="i"
+      [headerImageUrl]="course.certificationImage"
+      [certificationUrl] = ""
+      [title]="course.title"
+      [technology]="course.technology"
+      [issuer]="course.issuer"
+      [type]="course.type"
+      [language]="course.language"
+      [date]="course.date"
+      [durationHours]="course.durationHours"
+      [certificateId]="course.certificateId"
+      [collaborators]="course.collaborators"
+      [completionPercentage]="course.completionPercentage"
+    />
+  </div>
+
+    <p *ngIf="courses().length === 0" class="text-center text-gray-500 text-lg">
+      {{ 'certifications.noCourses' | transloco }}
+    </p>
+</page-wrapper>
