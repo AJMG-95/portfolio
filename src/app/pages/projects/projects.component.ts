@@ -25,5 +25,19 @@ export class ProjectsPage {
   statusLabels = computed(() => this.translations()?.status ?? {});
 
   // Proyectos reales del servicio
-  projects = computed(() => this.projectsService.getAll());
+  projects = computed(() => {
+    const translated = this.translations()?.projects ?? [];
+    const technical = this.projectsService.getAll();
+
+    return technical.map((project) => {
+      const match = translated.find((t: any) => t.id === project.id);
+      return {
+        ...project,
+        name: match?.name ?? 'Sin nombre',
+        shortDescription: match?.shortDescription ?? '',
+        longDescription: match?.longDescription ?? '',
+      };
+    });
+  });
+
 }

@@ -14,8 +14,6 @@ export interface ProjectData {
   id: number;
   name: string;
   status: ProjectStatus;
-  shortDescription: string;
-  longDescription: string;
   technologyIds: number[];
   technologyVersions?: Record<number, string>;
   headerImageUrl: string;
@@ -32,9 +30,6 @@ export class ProjectsService {
       id: 1,
       name: 'TodoApp',
       status: ProjectStatus.InProgress,
-      shortDescription: 'Gestor de tareas moderno con soporte para subtareas.',
-      longDescription:
-        'Aplicación web desarrollada en Angular 18 que permite gestionar tareas personales. Incorpora almacenamiento local, soporte para subtareas y un diseño moderno.',
       technologyIds: [1, 3, 4, 5], // Angular, Tailwind, PrimeNG, LocalStorage
       technologyVersions: {
         1: '18.2.13', // Angular

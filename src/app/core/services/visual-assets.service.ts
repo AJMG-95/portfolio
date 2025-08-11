@@ -196,6 +196,21 @@ export class VisualAssetsService {
     },
   };
 
+  private misc: Record<number, TechnologyAsset> = {
+    101: {
+      name: 'Cambridge',
+      logo: 'assets/images/companies-logo/university_of_cambridge_logo.webp',
+      color: 'bg-yellow-500 dark:bg-yellow-300',
+      lightColor: 'bg-yellow-200 dark:bg-yellow-100',
+    },
+    102: {
+      name: 'UCA',
+      logo: 'assets/images/companies-logo/logo_uca_facutad_ccma_3.webp',
+      color: 'bg-yellow-500 dark:bg-yellow-300',
+      lightColor: 'bg-yellow-200 dark:bg-yellow-100',
+    },
+  }
+
   // 🧩 Mapa combinado
   private techMap: Record<number, TechnologyAsset> = Object.assign(
     {},
@@ -205,7 +220,8 @@ export class VisualAssetsService {
     this.devTools,
     this.workflowTools,
     this.versionControl,
-    this.principles
+    this.principles,
+    this.misc
   );
 
   getAsset(id: number): TechnologyAsset | undefined {

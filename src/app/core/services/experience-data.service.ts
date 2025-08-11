@@ -18,7 +18,7 @@ export class ExperienceService {
       id: 1,
       company: 'Controlnet S.L.',
       companyUrl: 'https://controlnet.es/',
-      companyLogo: 'assets/images/companies-logo/controlnetspain_logo.webp',
+      companyLogo: 'assets/images/companies-logo/controlnetspain_logo_3.webp',
       dates: 'Marzo 2024 - Julio 2025',
       technologyIds: [15, 1, 14, 3, 17], // Flutter, Angular, React, Tailwind, Bootstrap
     },
@@ -26,7 +26,7 @@ export class ExperienceService {
       id: 2,
       company: 'Controlnet S.L.',
       companyUrl: 'https://controlnet.es/',
-      companyLogo: 'assets/images/companies-logo/controlnetspain_logo.webp',
+      companyLogo: 'assets/images/companies-logo/controlnetspain_logo_3.webp',
       dates: 'Octubre 2023 - Enero 2024',
       technologyIds: [1, 17], // Angular, Bootstrap
     },

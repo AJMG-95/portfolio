@@ -4,17 +4,18 @@
 
   <!-- Imagen decorativa -->
 <figure *ngIf="imageUrl"
-  class="w-full sm:w-24 flex-shrink-0 flex items-center justify-center overflow-hidden bg-gray-100 dark:bg-gray-700 rounded-t-md sm:rounded-none sm:rounded-l-md">
+  class="h-[16rem] sm:h-[8rem] p-4 w-full sm:w-24 flex-shrink-0 flex items-center justify-center overflow-hidden bg-gray-100 dark:bg-gray-700 rounded-t-md sm:rounded-none sm:rounded-l-md">
+
   <ng-container *ngIf="titleLink; else plainImage">
     <a [href]="titleLink" target="_blank" rel="noopener noreferrer"
-      class="block transition-colors duration-200 hover:brightness-90">
-      <img [src]="imageUrl" [alt]="altText" class="object-contain max-w-full max-h-full m-auto" decoding="async"
+      class="block w-full h-full transition-colors duration-200 hover:brightness-90">
+      <img [src]="imageUrl" [alt]="altText" class="block w-full h-full object-contain" decoding="async"
         loading="lazy" />
     </a>
   </ng-container>
+
   <ng-template #plainImage>
-    <img [src]="imageUrl" [alt]="altText" class="object-contain max-w-full max-h-full m-auto" decoding="async"
-      loading="lazy" />
+    <img [src]="imageUrl" [alt]="altText" class="block w-full h-full object-contain" decoding="async" loading="lazy" />
   </ng-template>
 </figure>
 

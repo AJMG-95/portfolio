@@ -1,7 +1,7 @@
 // src/app/components/proyects/project-card/project-card.component.ts
 
-import { Component, HostListener, Input } from '@angular/core';
-import { NgClass, NgIf, NgFor } from '@angular/common';
+import { Component, HostListener, inject, Input } from '@angular/core';
+import { NgClass, NgIf, NgFor, NgTemplateOutlet } from '@angular/common';
 import { ImageGalleryComponent } from '../../shared/image-gallery/image-gallery.component';
 import { ChipComponent } from '../../shared/chip/chip.component';
 import { VisualAssetsService } from '../../../core/services/visual-assets.service';
@@ -10,11 +10,21 @@ import { ProjectStatus } from '../../../core/services/proyects-data.service';
 @Component({
   selector: 'project-card',
   standalone: true,
-  imports: [NgClass, NgIf, NgFor, ImageGalleryComponent, ChipComponent],
+  imports: [
+    NgClass,
+    NgIf,
+    NgFor,
+    ImageGalleryComponent,
+    ChipComponent,
+    NgTemplateOutlet
+  ],
   templateUrl: './project-card.component.html',
   styleUrls: ['./project-card.component.css'],
 })
 export class ProjectCardComponent {
+
+  private techAssets = inject(VisualAssetsService);
+
   @Input() headerImageUrl!: string;
   @Input() cornerImageUrl?: string;
   @Input() title!: string;
@@ -40,7 +50,7 @@ export class ProjectCardComponent {
   isFlipped = false;
   showModal = false;
 
-  constructor(private techAssets: VisualAssetsService) { }
+  constructor() { }
 
   cardClicked() {
     this.isFlipped = true;

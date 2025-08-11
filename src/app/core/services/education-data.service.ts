@@ -15,19 +15,19 @@ export class EducationService {
     {
       id: 1,
       institutionUrl: 'https://ccmaryambientales.uca.es/grado-en-ciencias-ambientales/',
-      image: 'assets/images/companies-logo/logo_uca_facutad_ccma.png',
+      image: 'assets/images/companies-logo/logo_uca_facutad_ccma_3.webp',
       dates: '2020 - 2022',
     },
     {
       id: 2,
       institutionUrl: 'https://iesdonana.org/oferta-educativa/ciclos-formativos-de-grado-superior/desarrollo-de-aplicaciones-web/',
-      image: 'assets/images/companies-logo/logo_IESDonana_2.png',
+      image: 'assets/images/companies-logo/logo_IESDonana_2.webp',
       dates: '2021 - 2024',
     },
     {
       id: 3,
       institutionUrl: 'https://ccmaryambientales.uca.es/grado-en-ciencias-ambientales/',
-      image: 'assets/images/companies-logo/logo_uca_facutad_ccma.png',
+      image: 'assets/images/companies-logo/logo_uca_facutad_ccma_3.webp',
       dates: '2014 - 2019',
     },
   ];

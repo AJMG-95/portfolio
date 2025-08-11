@@ -8,6 +8,9 @@ import { PageWrapper } from '../../components/shared/page-wrapper/page-wrapper.c
 import { CourseCardComponent } from '../../components/certifications/course-card/course-card.component';
 
 import { NgFor, NgIf } from '@angular/common';
+import { CertificationsService } from '../../core/services/certifications-data.service';
+import { VisualAssetsService } from '../../core/services/visual-assets.service';
+import { CertificationViewModel } from '../../core/models/certification-view.model';
 
 @Component({
   selector: 'app-courses',
@@ -16,10 +19,52 @@ import { NgFor, NgIf } from '@angular/common';
   templateUrl: './courses.component.html',
   styleUrl: './courses.component.css'
 })
+
 export class CoursesPage {
   private transloco = inject(TranslocoService);
+  private certService = inject(CertificationsService);
+  private assetsService = inject(VisualAssetsService);
 
-  translations = toSignal(this.transloco.selectTranslateObject('certifications'), { initialValue: {} });
-  courses = computed(() => this.translations()?.items ?? []);
+  translations = toSignal(this.transloco.selectTranslateObject('certifications'), {
+    initialValue: { items: [] },
+
+  });
+
+  courses = computed((): CertificationViewModel[] => {
+    const translated = this.translations().items as any[];
+    const technical = this.certService.getAll();
+
+    return translated.map((item) => {
+      const match = technical.find((c) => c.id === item.id);
+
+      // PRIORIDAD: logoId -> technologyIds[0]
+      const selectedLogoId = match?.logoId ?? match?.technologyIds?.[0];
+
+      return {
+        // traducible
+        id: item.id,
+        title: item.title,
+        issuer: item.issuer,
+        type: item.type,
+        language: item.language,
+        date: item.date,
+
+        // técnico
+        certificationImage: match?.certificationImage ?? '',
+        certificationUrl: match?.url ?? '',
+        durationHours: match?.durationHours ?? undefined,
+        completionPercentage: match?.completionPercentage ?? undefined,
+        certificateId: match?.certificateId ?? undefined,
+        collaborators: match?.collaborators ?? [],
+
+        // tecnología (1er ID)
+        logo: selectedLogoId ? this.assetsService.getLogo(selectedLogoId) : undefined,
+        techName: selectedLogoId ? this.assetsService.getName(selectedLogoId) : undefined,
+
+        // banner dinámico
+        isTechCourse: !!(match?.technologyIds?.length),
+      };
+    });
+  });
 
 }

@@ -95,6 +95,14 @@
     "noCourses": "No courses available",
     "items": [
       {
+        "id": 11,
+        "title": "Angular: From Zero to Expert - 2025 Edition",
+        "issuer": "Udemy",
+        "language": "Spanish",
+        "type": "Technical course",
+        "date": "August 2025"
+      },
+      {
         "id": 1,
         "title": "Flutter - Mobile: From zero to expert",
         "issuer": "Udemy",
@@ -180,6 +188,7 @@
     "language": "Language",
     "date": "Date",
     "duration": "Duration",
+    "inProgress": "In progress",
     "completed": "Completed",
     "hours": "hours",
     "certificateId": "Certificate ID",
