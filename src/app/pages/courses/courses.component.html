@@ -11,7 +11,7 @@
 
   <div
     *ngIf="courses().length > 0"
-    class="flex flex-wrap justify-center gap-8 mx-auto w-full"
+    class="grid gird-cols-1 tablet-lg:grid-cols-2 laptop:grid-cols-3  justify-center gap-8 mx-auto w-full"
   >
     <course-card
       *ngFor="let course of courses(); let i = index"

@@ -4,7 +4,7 @@
     {{ 'myProjects.title' | transloco }}
   </h1>
 
-  <div class="flex flex-wrap justify-around gap-8">
+  <div class="grid gird-cols-1 tablet-lg:grid-cols-2 laptop:grid-cols-3 justify-around gap-8">
     <project-card *ngFor="let project of projects()" [headerImageUrl]="project.headerImageUrl"
       [cornerImageUrl]="project.cornerImageUrl" [title]="project.name" [shortDescription]="project.shortDescription"
       [longDescription]="project.longDescription" [technologyIds]="project.technologyIds"
