@@ -6,7 +6,7 @@ import { ChipComponent } from '../../shared/chip/chip.component';
 import { TranslocoModule } from '@jsverse/transloco';
 import { BannerComponent } from '../../shared/banner/banner.component';
 import { CertificationViewModel } from '../../../core/models/certification-view.model';
-import { SubscriptionLoggable } from 'rxjs/internal/testing/SubscriptionLoggable';
+import { ProgressPillComponent } from '../progress-pill/progress-pill.component';
 
 @Component({
   selector: 'course-card',
@@ -19,6 +19,8 @@ import { SubscriptionLoggable } from 'rxjs/internal/testing/SubscriptionLoggable
     TranslocoModule,
     BannerComponent,
     NgTemplateOutlet,
+    ProgressPillComponent,
+
   ],
   templateUrl: './course-card.component.html',
   styleUrl: './course-card.component.css'
@@ -46,9 +48,9 @@ export class CourseCardComponent {
   get statusChipClass(): string {
     const percentage = this.course().completionPercentage ?? 0;
     if (percentage === 100) return 'bg-green-700 text-white';
-    if (percentage >= 75) return 'bg-blue-700 text-white';
-    if (percentage >= 50) return 'bg-yellow-700 text-black';
-    if (percentage >= 25) return 'bg-orange-700 text-white';
+    if (percentage >= 75) return 'bg-blue-600 text-white';
+    if (percentage >= 50) return 'bg-yellow-300 text-black';
+    if (percentage >= 25) return 'bg-orange-400 text-white';
     return 'bg-red-500 text-white';
   }
 

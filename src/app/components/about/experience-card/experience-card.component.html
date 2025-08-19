@@ -16,8 +16,8 @@
       id="experience-card-title"
       class="text-xl font-semibold text-textMain dark:text-darkTextMain"
     >
+      @if (titleLink) {
       <a
-        *ngIf="titleLink; else plainTitle"
         [href]="titleLink"
         target="_blank"
         rel="noopener noreferrer"
@@ -25,7 +25,10 @@
       >
         {{ title }}
       </a>
-      <ng-template #plainTitle>{{ title }}</ng-template>
+      } @else {
+      <p>{{ title }}</p>
+
+      }
     </h3>
   </header>
 

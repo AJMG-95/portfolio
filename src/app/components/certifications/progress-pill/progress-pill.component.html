@@ -1,0 +1,44 @@
+<div class="w-full flex items-center justify-between gap-2 select-none" [class.text-xs]="compact()"
+  [class.text-sm]="!compact()">
+  <span class="text-gray-600 dark:text-gray-300">0%</span>
+
+  <div class="relative flex-1">
+    <!-- Contenedor (borde negro tipo rotulador) -->
+    <div class="relative w-full overflow-visible" [ngClass]="compact() ? 'h-6' : 'h-8'">
+      <div class="absolute inset-0 rounded-full border-2 border-black bg-white"></div>
+
+      <!-- Clip del relleno + oleaje -->
+      <div class="absolute left-0 top-0 h-full rounded-full overflow-hidden" [style.width.%]="clamped()">
+        <!-- Color base -->
+        <div class="absolute inset-0" [ngClass]="barClass()"></div>
+        <!-- Oleaje (capa superior) -->
+        <div class="absolute inset-0 pill-wave animate-wave-x"></div>
+        <div class="absolute inset-0 pill-sheen animate-wave-bob"></div>
+      </div>
+
+      <!-- Texto centrado -->
+      <div class="absolute inset-0 grid place-items-center">
+        <span class="font-medium" [ngClass]="(clamped() >= 50) ? 'text-black' : 'text-gray-700'">
+          {{ label() }}
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Icono a la derecha -->
+  <span class="shrink-0" [ngClass]="compact() ? 'w-5 h-5' : 'w-6 h-6'">
+    <!-- Pulgar si 100%, lápiz en otro caso -->
+    <svg *ngIf="clamped() === 100" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" class="w-full h-full">
+      <path d="M14 9l-1 11H6l-1-6 9-5z"></path>
+      <path d="M22 10c0 3-2 5-5 5h-3"></path>
+    </svg>
+    <svg *ngIf="clamped() < 100" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round"
+      stroke-linejoin="round" class="w-full h-full">
+      <path d="M12 20h9"></path>
+      <path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4 12.5-12.5z"></path>
+    </svg>
+  </span>
+
+  <span class="text-gray-600 dark:text-gray-300">100%</span>
+</div>

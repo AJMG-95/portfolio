@@ -1,34 +1,64 @@
 <ng-container *ngIf="course() as c">
   <!-- === TEMPLATE REUTILIZABLE: DETALLES DEL REVERSO/MODAL === -->
   <ng-template #backDetails let-compact="compact">
-    <h2 class="text-start font-semibold text-gray-900 dark:text-white mb-2"
-      [ngClass]="compact ? 'text-lg' : 'text-2xl'">
+    <h2
+      class="text-start font-semibold text-gray-900 dark:text-white mb-2"
+      [ngClass]="compact ? 'text-lg' : 'text-2xl'"
+    >
       {{ c.title }}
     </h2>
 
-    <p *ngIf="c.issuer" class="text-gray-600 dark:text-gray-400" [ngClass]="compact ? 'text-base' : 'text-lg'">
+    <p
+      *ngIf="c.issuer"
+      class="text-gray-600 dark:text-gray-400"
+      [ngClass]="compact ? 'text-base' : 'text-lg'"
+    >
       {{ c.issuer }}
     </p>
 
     <!-- Contenedor de imagen con tamaño definido -->
     @if (c.certificationImage; as img) {
     <figure class="p-4">
-      <div class="w-full overflow-hidden rounded-md bg-gray-100 dark:bg-gray-800 flex items-center justify-center"
-        [ngClass]="compact ? 'h-40 md:h-48' : 'h-72 md:h-96'">
-        <img [src]="img" [alt]="c.title" class="w-full h-full object-contain" loading="lazy" decoding="async" />
+      <div
+        class="w-full overflow-hidden rounded-md bg-gray-100 dark:bg-gray-800 flex items-center justify-center"
+        [ngClass]="compact ? 'h-40 md:h-48' : 'h-72 md:h-96'"
+      >
+        <img
+          [src]="img"
+          [alt]="c.title"
+          class="w-full h-full object-contain"
+          loading="lazy"
+          decoding="async"
+        />
       </div>
       <figcaption class="sr-only">{{ c.title }}</figcaption>
     </figure>
     } @else {
     <figure class="p-4 flex flex-col items-center justify-center text-center">
-      <div class="w-full overflow-hidden rounded-md bg-gray-100 dark:bg-gray-800 flex items-center justify-center"
-        [ngClass]="compact ? 'h-40 md:h-48' : 'h-72 md:h-96'">
-        <img src="assets/images/courses/not_certificated_yet.webp" alt=""
-          class="w-full h-full object-contain opacity-60" loading="lazy" decoding="async" />
+      <div
+        class="w-full overflow-hidden rounded-md bg-gray-100 dark:bg-gray-800 flex items-center justify-center"
+        [ngClass]="compact ? 'h-40 md:h-48' : 'h-72 md:h-96'"
+      >
+        <img
+          src="assets/images/courses/not_certificated_yet.webp"
+          alt=""
+          class="w-full h-full object-contain opacity-60"
+          loading="lazy"
+          decoding="async"
+        />
       </div>
-      <figcaption class="mt-2 text-sm text-gray-600 dark:text-gray-300 italic">
-        {{ 'certifications.inProgress' | transloco }}
-      </figcaption>
+      <div class="mt-3 w-full">
+        <progress-pill
+          [percentage]="c.completionPercentage ?? 0"
+          [compact]="compact"
+          [label]="
+            (c.completionPercentage ?? 0) === 100
+              ? ('certifications.completed' | transloco)
+              : ('certifications.inProgress' | transloco)
+          "
+        >
+        </progress-pill>
+      </div>
     </figure>
     }
 
@@ -37,28 +67,37 @@
       <strong>{{ "certifications.collaborators" | transloco }}:</strong>
 
       <!-- Compacto (cara trasera): una línea, sin desbordar -->
-      <p *ngIf="compact; else fullCollaborators"
-        class="mt-1 text-sm text-gray-700 dark:text-gray-300 whitespace-nowrap overflow-hidden text-ellipsis">
+      @if (compact) {
+      <p
+        class="mt-1 text-sm text-gray-700 dark:text-gray-300 whitespace-nowrap overflow-hidden text-ellipsis"
+      >
         <span aria-hidden="true">·</span>
         <ng-container *ngFor="let collaborator of c.collaborators">
           <span class="inline-block px-1 align-middle">{{ collaborator }}</span>
           <span aria-hidden="true">·</span>
         </ng-container>
       </p>
+      } @else {
+      <p
+        class="mt-1 text-base text-gray-700 dark:text-gray-300 flex flex-wrap items-center text-center"
+      >
+        <span aria-hidden="true" class="mr-1 text-[22px]">·</span>
+        <ng-container
+          *ngFor="let collaborator of c.collaborators; let i = index"
+        >
+          <span class="inline-block px-1 mb-1">{{ collaborator }}</span>
+          <span aria-hidden="true" class="mx-1 text-[22px]">·</span>
+        </ng-container>
+      </p>
+
+      }
 
       <!-- No compacto (modal): puede saltar de línea si hace falta -->
-      <ng-template #fullCollaborators>
-        <p class="mt-1 text-base text-gray-700 dark:text-gray-300 flex flex-wrap items-center text-center">
-          <span aria-hidden="true" class="mr-1 text-[22px]">·</span>
-          <ng-container *ngFor="let collaborator of c.collaborators; let i = index">
-            <span class="inline-block px-1 mb-1">{{ collaborator }}</span>
-            <span aria-hidden="true" class="mx-1 text-[22px]">·</span>
-          </ng-container>
-        </p>
-      </ng-template>
     </div>
 
-    <footer class="text-xs text-gray-600 dark:text-gray-300 pt-3 italic opacity-60">
+    <footer
+      class="text-xs text-gray-600 dark:text-gray-300 pt-3 italic opacity-60"
+    >
       Antonio Jesús Marchena · {{ c.title }}
     </footer>
   </ng-template>
@@ -67,32 +106,48 @@
 
   <article
     class="w-[16rem] mobile-sm:w-[19.4375rem] mobile:w-[22.5625rem] tablet:w-[20rem] h-[28rem] perspective cursor-pointer"
-    (click)="cardClicked()">
-    <div class="relative w-full h-full transition-transform duration-500 transform-style-preserve-3d"
-      [ngClass]="{ 'rotate-y-180': isFlipped }">
+    (click)="cardClicked()"
+  >
+    <div
+      class="relative w-full h-full transition-transform duration-500 transform-style-preserve-3d"
+      [ngClass]="{ 'rotate-y-180': isFlipped }"
+    >
       <!-- FRONT -->
       <section
-        class="absolute w-full h-full backface-hidden rounded shadow-md bg-white dark:bg-gray-900 flex flex-col overflow-hidden">
+        class="absolute w-full h-full backface-hidden rounded shadow-md bg-white dark:bg-gray-900 flex flex-col overflow-hidden"
+      >
         <!-- Header -->
         <header class="relative h-[12rem] w-full overflow-hidden rounded-t-md">
-          <app-banner class="absolute inset-0 z-0 h-full w-full" [iconUrl]="techLogo" [title]="techName || c.title"
-            [isTechCourse]="c.isTechCourse" />
+          <app-banner
+            class="absolute inset-0 z-0 h-full w-full"
+            [iconUrl]="techLogo"
+            [title]="techName || c.title"
+            [isTechCourse]="c.isTechCourse"
+          />
 
-          <my-chip *ngIf="
-              c.completionPercentage != undefined &&
-              c.completionPercentage != null
-            " [label]="
+          @if (c.completionPercentage != undefined && c.completionPercentage !=
+          null) {
+          <my-chip
+            [label]="
               (c.completionPercentage || 0) < 100
                 ? ('certifications.inProgress' | transloco)
                 : ('certifications.completed' | transloco)
-            " class="absolute bottom-2 right-2 text-xs font-medium z-10" [addClasses]="statusChipClass">
-          </my-chip>
+            "
+            class="absolute bottom-2 right-2 text-xs font-medium z-10"
+            [addClasses]="statusChipClass"
+          />
+
+          }
         </header>
 
         <!-- Cuerpo -->
-        <section class="flex-1 px-3 pt-2 pb-3 text-sm text-gray-700 dark:text-gray-200 overflow-auto"
-          aria-label="Resumen del proyecto">
-          <h3 class="text-base font-bold text-gray-800 dark:text-white leading-tight">
+        <section
+          class="flex-1 px-3 pt-2 pb-3 text-sm text-gray-700 dark:text-gray-200 overflow-auto"
+          aria-label="Resumen del proyecto"
+        >
+          <h3
+            class="text-base font-bold text-gray-800 dark:text-white leading-tight"
+          >
             {{ c.title }}
           </h3>
 
@@ -120,30 +175,51 @@
           </article>
         </section>
 
-        <div class="absolute bottom-3 right-6 group cursor-pointer" aria-hidden="true">
+        <div
+          class="absolute bottom-3 right-6 group cursor-pointer"
+          aria-hidden="true"
+        >
           <div
-            class="w-12 h-12 rounded-full bg-primary/70 dark:bg-darkHighlight/80 p-2 shadow-sm transition-all duration-300 group-hover:scale-110 dark:group-hover:bg-primary/80 group-hover:bg-secondary/80">
-            <img src="assets/images/shared/click-cursor.svg" alt=""
-              class="w-full h-full object-contain transition-all duration-300 invert dark:invert-0 group-hover:invert-0 dark:group-hover:invert" />
+            class="w-12 h-12 rounded-full bg-primary/70 dark:bg-darkHighlight/80 p-2 shadow-sm transition-all duration-300 group-hover:scale-110 dark:group-hover:bg-primary/80 group-hover:bg-secondary/80"
+          >
+            <img
+              src="assets/images/shared/click-cursor.svg"
+              alt=""
+              class="w-full h-full object-contain transition-all duration-300 invert dark:invert-0 group-hover:invert-0 dark:group-hover:invert"
+            />
           </div>
         </div>
       </section>
 
       <!-- BACK -->
       <section
-        class="absolute w-full h-full backface-hidden rotate-y-180 rounded shadow-md overflow-hidden bg-white/30 dark:bg-zinc-800/30 filter blur-sm">
-        <div class="absolute left-1/2 top-4 -translate-x-1/2 w-[92%] sm:w-[90%] md:w-[86%] h-fit">
-          <ng-container [ngTemplateOutlet]="backDetails" [ngTemplateOutletContext]="{ compact: true }"></ng-container>
+        class="absolute w-full h-full backface-hidden rotate-y-180 rounded shadow-md overflow-hidden bg-white/30 dark:bg-zinc-800/30 filter blur-sm"
+      >
+        <div
+          class="absolute left-1/2 top-4 -translate-x-1/2 w-[92%] sm:w-[90%] md:w-[86%] h-fit"
+        >
+          <ng-container
+            [ngTemplateOutlet]="backDetails"
+            [ngTemplateOutletContext]="{ compact: true }"
+          ></ng-container>
         </div>
       </section>
     </div>
   </article>
 
   <!-- MODAL -->
-  <div *ngIf="showModal" class="fixed inset-0 bg-white/30 dark:bg-zinc-800/30 flex items-center justify-center z-50">
-    <div id="modal-content"
-      class="bg-white dark:bg-zinc-800 rounded-xl shadow-xl p-6 w-[90%] max-w-lg md:max-w-xl lg:max-w-2xl animate-grow-in relative">
-      <button class="absolute top-2 right-2 text-gray-600 hover:text-black text-xl font-bold" (click)="closeModal()">
+  <div
+    *ngIf="showModal"
+    class="fixed inset-0 bg-white/30 dark:bg-zinc-800/30 flex items-center justify-center z-50"
+  >
+    <div
+      id="modal-content"
+      class="bg-white dark:bg-zinc-800 rounded-xl shadow-xl p-6 w-[90%] max-w-lg md:max-w-xl lg:max-w-2xl animate-grow-in relative"
+    >
+      <button
+        class="absolute top-2 right-2 text-gray-600 hover:text-black text-xl font-bold"
+        (click)="closeModal()"
+      >
         ×
       </button>
 
