@@ -118,7 +118,7 @@ export class CertificationsService {
       technologyIds: [1],
       logoId: 1,
       durationHours: 33.32,
-      completionPercentage: 30,
+      completionPercentage: 30.42,
       url: 'https://www.udemy.com/course/angular-fernando-herrera/?couponCode=KEEPLEARNING',
     },
   ];
