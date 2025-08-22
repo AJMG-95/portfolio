@@ -1,10 +1,10 @@
-import { NgClass } from '@angular/common';
+import { NgClass, NgIf } from '@angular/common';
 import { Component, computed, input } from '@angular/core';
 
 @Component({
   selector: 'progress-pill',
   standalone: true,
-  imports: [NgClass],
+  imports: [NgClass, NgIf],
   templateUrl: './progress-pill.component.html',
   styleUrl: './progress-pill.component.css'
 })
