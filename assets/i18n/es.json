@@ -95,6 +95,14 @@
     "noCourses": "No hay cursos disponibles",
     "items": [
       {
+        "id": 12,
+        "title": "NodeJS: De cero a experto",
+        "issuer": "Udemy",
+        "language": "Español",
+        "type": "Curso técnico",
+        "date": "Agosto 2025"
+      },
+      {
         "id": 11,
         "title": "Angular: De cero a experto - Edición 2025",
         "issuer": "Udemy",
@@ -278,8 +286,16 @@
     }
   },
   "principles": {
-  "23": "Arquitectura limpia",
-  "24": "Accesibilidad web",
-  "25": "Diseño responsive"
+    "23": "Arquitectura limpia",
+    "24": "Accesibilidad web",
+    "25": "Diseño responsive",
+    "26": "DDD",
+    "27": "WebHooks",
+    "28": "WebSockets",
+    "29": "Tareas automáticas",
+    "30": "Despliegues",
+    "31": "Pruebas"
   }
+
+
 }

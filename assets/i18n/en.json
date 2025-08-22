@@ -95,6 +95,14 @@
     "noCourses": "No courses available",
     "items": [
       {
+        "id": 12,
+        "title": "NodeJS: From Zero to Expert",
+        "issuer": "Udemy",
+        "language": "Spanish",
+        "type": "Technical course",
+        "date": "August 2025"
+      },
+      {
         "id": 11,
         "title": "Angular: From Zero to Expert - 2025 Edition",
         "issuer": "Udemy",
@@ -242,7 +250,8 @@
       "principles": {
         "23": "Clean Architecture",
         "24": "Web Accessibility",
-        "25": "Responsive Design"
+        "25": "Responsive Design",
+        "26": "DDD"
       }
     },
     "soft": {
@@ -279,6 +288,14 @@
   "principles": {
     "23": "Clean Architecture",
     "24": "Web Accessibility",
-    "25": "Responsive Design"
+    "25": "Responsive Design",
+    "26": "DDD",
+    "27": "WebHooks",
+    "28": "WebSockets",
+    "29": "Automated Tasks",
+    "30": "Deployments",
+    "31": "Testing"
   }
+
+
 }
