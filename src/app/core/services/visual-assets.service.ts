@@ -79,7 +79,7 @@ export class VisualAssetsService {
   private backend: Record<number, TechnologyAsset> = {
     10: {
       name: 'Node.js',
-      logo: 'assets/images/technologies/node_logo.webp',
+      logo: 'assets/images/logos/nodejs_logo.webp',
       color: 'bg-green-600 dark:bg-green-300',
       lightColor: 'bg-green-200 dark:bg-green-100',
     },
@@ -194,7 +194,53 @@ export class VisualAssetsService {
       color: 'bg-yellow-500 dark:bg-yellow-300',
       lightColor: 'bg-yellow-200 dark:bg-yellow-100',
     },
+    27: {
+      name: 'DDD',
+      logo: 'assets/images/icons/architecture.webp',
+      color: 'bg-yellow-500 dark:bg-yellow-300',
+      lightColor: 'bg-yellow-200 dark:bg-yellow-100',
+    },
+    28: {
+      name: 'Testing',
+      logo: 'assets/images/icons/testing.webp',
+      color: 'bg-emerald-600 dark:bg-emerald-300',
+      lightColor: 'bg-emerald-200 dark:bg-emerald-100',
+    },
   };
+
+  // 🔗 Integraciones / Tiempo real
+  private integrations: Record<number, TechnologyAsset> = {
+    29: {
+      name: 'WebHooks',
+      logo: 'assets/images/icons/webhooks.webp',
+      color: 'bg-rose-600 dark:bg-rose-300',
+      lightColor: 'bg-rose-200 dark:bg-rose-100',
+    },
+    30: {
+      name: 'WebSockets',
+      logo: 'assets/images/icons/websockets.webp',
+      color: 'bg-cyan-600 dark:bg-cyan-300',
+      lightColor: 'bg-cyan-200 dark:bg-cyan-100',
+    },
+  };
+
+  // 🛠️ Operaciones / Automatización / Deploy
+  private ops: Record<number, TechnologyAsset> = {
+    31: {
+      name: 'Tareas automáticas',
+      logo: 'assets/images/icons/scheduled-tasks.webp',
+      color: 'bg-amber-600 dark:bg-amber-300',
+      lightColor: 'bg-amber-200 dark:bg-amber-100',
+    },
+    32: {
+      name: 'Despliegues',
+      logo: 'assets/images/icons/deployments.webp',
+      color: 'bg-slate-700 dark:bg-slate-300',
+      lightColor: 'bg-slate-200 dark:bg-slate-100',
+    },
+  };
+
+
 
   private misc: Record<number, TechnologyAsset> = {
     101: {
@@ -221,7 +267,9 @@ export class VisualAssetsService {
     this.workflowTools,
     this.versionControl,
     this.principles,
-    this.misc
+    this.misc,
+    this.integrations,
+    this.ops,
   );
 
   getAsset(id: number): TechnologyAsset | undefined {
