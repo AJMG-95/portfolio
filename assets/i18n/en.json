@@ -196,12 +196,14 @@
     "language": "Language",
     "date": "Date",
     "duration": "Duration",
+    "notStarted": "Cominhg soon",
     "inProgress": "In progress",
     "completed": "Completed",
     "hours": "hours",
     "certificateId": "Certificate ID",
     "collaborators": "Collaborators",
-    "show": "View Certification"
+    "show": "View Certification",
+    "showCourse": "View Course"
   },
   "experience": {
     "title": "Experience",
