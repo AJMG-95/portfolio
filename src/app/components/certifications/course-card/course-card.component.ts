@@ -1,12 +1,13 @@
 // src\app\components\certifications\course-card\course-card.component.ts
 
-import { CommonModule, NgClass, NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
-import { Component, input, Input } from '@angular/core';
-import { ChipComponent } from '../../shared/chip/chip.component';
+import { NgClass, NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
+import { Component, input } from '@angular/core';
 import { TranslocoModule } from '@jsverse/transloco';
-import { BannerComponent } from '../../shared/banner/banner.component';
 import { CertificationViewModel } from '../../../core/models/certification-view.model';
+import { BannerComponent } from '../../shared/banner/banner.component';
+import { ChipComponent } from '../../shared/chip/chip.component';
 import { ProgressPillComponent } from '../progress-pill/progress-pill.component';
+import { CompletionLabelPipe } from '../../../core/pipes/CompletionLabelPipe.pipe';
 
 @Component({
   selector: 'course-card',
@@ -20,6 +21,7 @@ import { ProgressPillComponent } from '../progress-pill/progress-pill.component'
     BannerComponent,
     NgTemplateOutlet,
     ProgressPillComponent,
+    CompletionLabelPipe
 
   ],
   templateUrl: './course-card.component.html',
@@ -30,19 +32,18 @@ export class CourseCardComponent {
 
   isFlipped = false;
   showModal = false;
+  hasInteracted = false;
+
 
   cardClicked() {
+    this.hasInteracted = true;     // ← activa animaciones a partir de ahora
     this.isFlipped = true;
-    setTimeout(() => {
-      this.showModal = true;
-    }, 500);
+    setTimeout(() => this.showModal = true, 500);
   }
 
   closeModal() {
     this.showModal = false;
-    setTimeout(() => {
-      this.isFlipped = false;
-    }, 300);
+    setTimeout(() => this.isFlipped = false, 300);
   }
 
   get statusChipClass(): string {

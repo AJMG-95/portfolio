@@ -118,15 +118,15 @@ export class CertificationsService {
       technologyIds: [1, 2, 18, 19],
       logoId: 1,
       durationHours: 33.32,
-      completionPercentage: 37,
+      completionPercentage: 39,
       url: 'https://www.udemy.com/course/angular-fernando-herrera/?couponCode=MT180825G1',
     },
     {
       id: 12,
       technologyIds: [10, 23],
       logoId: 10,
-      durationHours: 37.29,
-      completionPercentage: 1,
+      durationHours: 39,
+      completionPercentage: 0,
       url: 'https://www.udemy.com/course/nodejs-de-cero-a-experto/?couponCode=MT180825G1',
     },
   ];

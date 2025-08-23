@@ -8,6 +8,7 @@ export interface CertificationViewModel {
   date?: string;
 
   certificationImage?: string;
+  url?: string;
   certificationUrl?: string;
 
   durationHours?: number;

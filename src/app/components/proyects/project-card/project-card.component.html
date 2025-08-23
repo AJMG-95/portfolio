@@ -1,10 +1,16 @@
 <article
-  class="w-[16rem] mobile-sm:w-[19.4375rem] mobile:w-[22.5625rem] tablet:w-[20rem] h-[28rem] perspective cursor-pointer"
+  class="w-[16rem] mobile-sm:w-[19.4375rem] mobile:w-[22.5625rem] tablet:w-[20rem] h-[22rem] perspective cursor-pointer rounded-lg overflow-hidden"
   (click)="cardClicked()"
 >
   <div
-    class="relative w-full h-full transition-transform duration-500 transform-style-preserve-3d"
-    [ngClass]="{ 'rotate-y-180': isFlipped }"
+    class="relative w-full h-full preserve-3d will-change-tf"
+    [ngClass]="
+      hasInteracted
+        ? isFlipped
+          ? 'animate-flip-scale-in'
+          : 'animate-flip-scale-out'
+        : ''
+    "
   >
     <!-- FRONT -->
     <section

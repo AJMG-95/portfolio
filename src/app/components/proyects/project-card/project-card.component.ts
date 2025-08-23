@@ -49,21 +49,18 @@ export class ProjectCardComponent {
 
   isFlipped = false;
   showModal = false;
+  hasInteracted = false;
 
-  constructor() { }
 
   cardClicked() {
+    this.hasInteracted = true;     // ← activa animaciones a partir de ahora
     this.isFlipped = true;
-    setTimeout(() => {
-      this.showModal = true;
-    }, 500);
+    setTimeout(() => this.showModal = true, 500);
   }
 
   closeModal() {
     this.showModal = false;
-    setTimeout(() => {
-      this.isFlipped = false;
-    }, 300);
+    setTimeout(() => this.isFlipped = false, 300);
   }
 
   @HostListener('document:click', ['$event'])

@@ -7,14 +7,44 @@
     >
       {{ c.title }}
     </h2>
-
-    <p
-      *ngIf="c.issuer"
-      class="text-gray-600 dark:text-gray-400"
-      [ngClass]="compact ? 'text-base' : 'text-lg'"
-    >
-      {{ c.issuer }}
+    <p class="mt-4 text-xl text-primary dark:text-darkHighlight">
+      @if (c.url) {
+      <a
+        [href]="c.url"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 rounded hover:underline hover:animate-growIn"
+      >
+        {{ c.issuer }}
+      </a>
+      } @else {
+      <span
+        class="inline-flex items-center gap-2 text-gray-700 dark:text-gray-300"
+      >
+        {{ c.issuer }}
+      </span>
+      }
     </p>
+
+    <section
+      class="flex-1 text-sm text-gray-700 dark:text-gray-200 overflow-auto"
+      aria-label="Resumen del proyecto"
+    >
+      <article class="mt-3">
+        <p *ngIf="c.language">
+          <strong>{{ "certifications.language" | transloco }}:</strong>
+          {{ c.language }}
+        </p>
+        <p *ngIf="c.durationHours">
+          <strong>{{ "certifications.duration" | transloco }}:</strong>
+          {{ c.durationHours }} {{ "certifications.hours" | transloco }}
+        </p>
+        <p *ngIf="c.certificateId">
+          <strong>{{ "certifications.certificateId" | transloco }}:</strong>
+          {{ c.certificateId }}
+        </p>
+      </article>
+    </section>
 
     <!-- Contenedor de imagen con tamaño definido -->
     @if (c.certificationImage; as img) {
@@ -51,11 +81,7 @@
         <progress-pill
           [percentage]="c.completionPercentage ?? 0"
           [compact]="compact"
-          [label]="
-            (c.completionPercentage ?? 0) === 100
-              ? ('certifications.completed' | transloco)
-              : ('certifications.inProgress' | transloco)
-          "
+          [label]="c.completionPercentage | completionLabel | transloco"
         >
         </progress-pill>
       </div>
@@ -105,12 +131,18 @@
   <!-- === /TEMPLATE === -->
 
   <article
-    class="w-[16rem] mobile-sm:w-[19.4375rem] mobile:w-[22.5625rem] tablet:w-[20rem] h-[28rem] perspective cursor-pointer"
+    class="w-[16rem] mobile-sm:w-[19.4375rem] mobile:w-[22.5625rem] tablet:w-[20rem] h-[22rem] perspective cursor-pointer rounded-lg overflow-hidden"
     (click)="cardClicked()"
   >
     <div
-      class="relative w-full h-full transition-transform duration-500 transform-style-preserve-3d"
-      [ngClass]="{ 'rotate-y-180': isFlipped }"
+      class="relative w-full h-full preserve-3d will-change-tf"
+      [ngClass]="
+        hasInteracted
+          ? isFlipped
+            ? 'animate-flip-scale-in'
+            : 'animate-flip-scale-out'
+          : ''
+      "
     >
       <!-- FRONT -->
       <section
@@ -128,11 +160,7 @@
           @if (c.completionPercentage != undefined && c.completionPercentage !=
           null) {
           <my-chip
-            [label]="
-              (c.completionPercentage || 0) < 100
-                ? ('certifications.inProgress' | transloco)
-                : ('certifications.completed' | transloco)
-            "
+            [label]="c.completionPercentage | completionLabel | transloco"
             class="absolute bottom-2 right-2 text-xs font-medium z-10"
             [addClasses]="statusChipClass"
           />
@@ -154,25 +182,6 @@
           <p *ngIf="c.issuer" class="text-sm text-gray-500 dark:text-gray-400">
             {{ c.issuer }}
           </p>
-
-          <article class="mt-3">
-            <p *ngIf="c.type">
-              <strong>{{ "certifications.type" | transloco }}:</strong>
-              {{ c.type }}
-            </p>
-            <p *ngIf="c.language">
-              <strong>{{ "certifications.language" | transloco }}:</strong>
-              {{ c.language }}
-            </p>
-            <p *ngIf="c.durationHours">
-              <strong>{{ "certifications.duration" | transloco }}:</strong>
-              {{ c.durationHours }} {{ "certifications.hours" | transloco }}
-            </p>
-            <p *ngIf="c.certificateId">
-              <strong>{{ "certifications.certificateId" | transloco }}:</strong>
-              {{ c.certificateId }}
-            </p>
-          </article>
         </section>
 
         <div

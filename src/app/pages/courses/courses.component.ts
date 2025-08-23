@@ -56,6 +56,7 @@ export class CoursesPage {
         completionPercentage: match?.completionPercentage ?? undefined,
         certificateId: match?.certificateId ?? undefined,
         collaborators: match?.collaborators ?? [],
+        url: match?.url,
 
         // tecnología (1er ID)
         logo: selectedLogoId ? this.assetsService.getLogo(selectedLogoId) : undefined,
@@ -63,6 +64,7 @@ export class CoursesPage {
 
         // banner dinámico
         isTechCourse: !!(match?.technologyIds?.length),
+
       };
     });
   });
