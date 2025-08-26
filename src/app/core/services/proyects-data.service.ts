@@ -29,7 +29,7 @@ export class ProjectsService {
     {
       id: 1,
       name: 'TodoApp',
-      status: ProjectStatus.InProgress,
+      status: ProjectStatus.Testing,
       technologyIds: [1, 3, 4, 5], // Angular, Tailwind, PrimeNG, LocalStorage
       technologyVersions: {
         1: '18.2.13', // Angular
