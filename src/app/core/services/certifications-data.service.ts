@@ -118,7 +118,7 @@ export class CertificationsService {
       technologyIds: [1, 2, 18, 19],
       logoId: 1,
       durationHours: 33.32,
-      completionPercentage: 39,
+      completionPercentage: 50,
       url: 'https://www.udemy.com/course/angular-fernando-herrera/?couponCode=MT180825G1',
     },
     {
