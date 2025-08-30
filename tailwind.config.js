@@ -33,6 +33,10 @@ module.exports = {
       boxShadow: {
         customShadow: "0 4px 6px rgba(0,0,0,0.1)",
         focusShadow: "0 0 0 3px rgba(78,110,255,0.5)",
+        'md-lg': '0 5px 8px -2px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1)',
+      },
+      spacing: {
+        '2.5': '0.625rem', // 10px
       },
       screens: {
         tiny: "320px",

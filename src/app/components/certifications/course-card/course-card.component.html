@@ -131,11 +131,11 @@
   <!-- === /TEMPLATE === -->
 
   <article
-    class="w-[16rem] mobile-sm:w-[19.4375rem] mobile:w-[22.5625rem] tablet:w-[20rem] h-[22rem] perspective cursor-pointer rounded-lg overflow-hidden"
+    class="w-[16rem] mobile-sm:w-[19.4375rem] mobile:w-[22.5625rem] tablet:w-[20rem] h-[22rem] perspective cursor-pointer rounded-lg overflow-hidden p-3"
     (click)="cardClicked()"
   >
     <div
-      class="relative w-full h-full preserve-3d will-change-tf"
+      class="relative w-full h-full preserve-3d will-change-tf shadow-md-lg shadow-black/20 dark:shadow-white/10"
       [ngClass]="
         hasInteracted
           ? isFlipped
@@ -146,7 +146,7 @@
     >
       <!-- FRONT -->
       <section
-        class="absolute w-full h-full backface-hidden rounded shadow-md bg-white dark:bg-gray-900 flex flex-col overflow-hidden"
+        class="absolute w-full h-full backface-hidden rounded shadow-md-lg shadow-black/20 dark:shadow-white/10 bg-white dark:bg-gray-900 flex flex-col overflow-hidden"
       >
         <!-- Header -->
         <header class="relative h-[12rem] w-full overflow-hidden rounded-t-md">
@@ -189,7 +189,7 @@
           aria-hidden="true"
         >
           <div
-            class="w-12 h-12 rounded-full bg-primary/70 dark:bg-darkHighlight/80 p-2 shadow-sm transition-all duration-300 group-hover:scale-110 dark:group-hover:bg-primary/80 group-hover:bg-secondary/80"
+            class="w-12 h-12 rounded-full bg-primary/70 dark:bg-darkHighlight/80 p-2 shadow-md-lg shadow-black/20 dark:shadow-white/10 transition-all duration-300 group-hover:scale-110 dark:group-hover:bg-primary/80 group-hover:bg-secondary/80"
           >
             <img
               src="assets/images/shared/click-cursor.svg"
@@ -202,7 +202,7 @@
 
       <!-- BACK -->
       <section
-        class="absolute w-full h-full backface-hidden rotate-y-180 rounded shadow-md overflow-hidden bg-white/30 dark:bg-zinc-800/30 filter blur-sm"
+        class="absolute w-full h-full backface-hidden rotate-y-180 rounded shadow-md-lg shadow-black/20 dark:shadow-white/10 overflow-hidden bg-white/30 dark:bg-zinc-800/30 filter blur-sm"
       >
         <div
           class="absolute left-1/2 top-4 -translate-x-1/2 w-[92%] sm:w-[90%] md:w-[86%] h-fit"
@@ -223,7 +223,7 @@
   >
     <div
       id="modal-content"
-      class="bg-white dark:bg-zinc-800 rounded-xl shadow-xl p-6 w-[90%] max-w-lg md:max-w-xl lg:max-w-2xl animate-grow-in relative"
+      class="bg-white dark:bg-zinc-800 rounded-xl shadow-lg shadow-black/20 dark:shadow-white/10 p-6 w-[90%] max-w-lg md:max-w-xl lg:max-w-2xl animate-grow-in relative"
     >
       <button
         class="absolute top-2 right-2 text-gray-600 hover:text-black text-xl font-bold"

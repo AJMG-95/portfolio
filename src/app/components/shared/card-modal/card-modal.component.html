@@ -5,7 +5,7 @@
   >
     <!-- FRONT FACE -->
     <div
-      class="absolute w-full h-full backface-hidden rounded shadow-md bg-white flex flex-col overflow-hidden"
+      class="absolute w-full h-full backface-hidden rounded shadow-md-lg shadow-black/20 dark:shadow-white/10 bg-white flex flex-col overflow-hidden"
     >
       <!-- Imagen principal -->
       <div class="relative h-2/5 w-full">
@@ -19,7 +19,7 @@
           *ngIf="cornerImageUrl"
           [src]="cornerImageUrl"
           alt="Corner image"
-          class="absolute top-2 right-2 w-10 h-10 rounded-full border border-white shadow-md"
+          class="absolute top-2 right-2 w-10 h-10 rounded-full border border-white shadow-md-lg shadow-black/20 dark:shadow-white/10"
         />
       </div>
 
@@ -39,7 +39,7 @@
 
     <!-- Back face -->
     <div
-      class="absolute w-full h-full backface-hidden rotate-y-180 rounded shadow-md bg-black/70 flex items-center justify-center"
+      class="absolute w-full h-full backface-hidden rotate-y-180 rounded shadow-md-lg shadow-black/20 dark:shadow-white/10 bg-black/70 flex items-center justify-center"
     >
       <img
         src="https://source.unsplash.com/bX9B9c-YasY/200x300"
@@ -57,7 +57,7 @@
 >
   <div
     id="modal-content"
-    class="bg-white rounded-xl shadow-xl p-6 w-[90%] max-w-lg md:max-w-xl lg:max-w-2xl animate-grow-in relative"
+    class="bg-white rounded-xl shadow-lg shadow-black/20 dark:shadow-white/10 p-6 w-[90%] max-w-lg md:max-w-xl lg:max-w-2xl animate-grow-in relative"
   >
     <button
       class="absolute top-2 right-2 text-gray-600 hover:text-black text-xl font-bold"

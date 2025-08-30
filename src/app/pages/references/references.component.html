@@ -15,7 +15,7 @@
     <article
       *ngFor="let ref of combinedReferences(); let i = index"
       role="listitem"
-      class="flex flex-col sm:flex-row items-center sm:items-start gap-4 rounded-lg border border-borderLight dark:border-darkBorderLight shadow-md p-6 bg-secondary dark:bg-gray-900 transition-colors opacity-0 animate-rFadeIn"
+      class="flex flex-col sm:flex-row items-center sm:items-start gap-4 rounded-lg border border-borderLight dark:border-darkBorderLight shadow-md-lg shadow-black/20 dark:shadow-white/10 p-6 bg-secondary dark:bg-gray-900 transition-colors opacity-0 animate-rFadeIn"
       [style.animationDelay]="i * 0.15 + 's'"
       [style.animationFillMode]="'forwards'"
     >
@@ -94,7 +94,7 @@
             aria-hidden="true"
           >
             <div
-              class="w-12 h-12 rounded-full bg-primary/70 dark:bg-darkHighlight/80 p-2 shadow-sm transition-all duration-300 group-hover:scale-110 dark:group-hover:bg-primary/80 group-hover:bg-secondary/80"
+              class="w-12 h-12 rounded-full bg-primary/70 dark:bg-darkHighlight/80 p-2 shadow-md-lg shadow-black/20 dark:shadow-white/10 transition-all duration-300 group-hover:scale-110 dark:group-hover:bg-primary/80 group-hover:bg-secondary/80"
             >
               <img
                 src="assets/images/shared/click-cursor.svg"
