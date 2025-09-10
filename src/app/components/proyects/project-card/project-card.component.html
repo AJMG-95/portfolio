@@ -1,5 +1,5 @@
 <article
-  class="w-[16rem] mobile-sm:w-[19.4375rem] mobile:w-[22.5625rem] tablet:w-[20rem] h-[22rem] perspective cursor-pointer rounded-lg overflow-hidden p-3"
+  class="group/card w-[16rem] mobile-sm:w-[19.4375rem] mobile:w-[22.5625rem] tablet:w-[20rem] h-[22rem] perspective cursor-pointer rounded-lg overflow-hidden p-3"
   (click)="cardClicked()"
 >
   <div
@@ -61,12 +61,12 @@
       >
         <!-- Contenedor del botón -->
         <div
-          class="w-12 h-12 rounded-full bg-primary/70 dark:bg-darkHighlight/80 p-2 transition-all duration-300 group-hover:scale-110 dark:group-hover:bg-primary/80 group-hover:bg-secondary/80 shadow-md-lg shadow-black/20 dark:shadow-white/10"
+          class="w-12 h-12 rounded-full bg-primary/70 dark:dark:bg-blue-50 p-2 transition-all duration-300 group-hover/card:scale-110 dark:group-hover/card:bg-primary/80 group-hover/card:bg-secondary/80 shadow-md-lg shadow-black/20 dark:shadow-white/10"
         >
           <img
             src="assets/images/shared/click-cursor.svg"
             alt=""
-            class="w-full h-full object-contain transition-all duration-300 invert dark:invert-0 group-hover:invert-0 dark:group-hover:invert"
+            class="w-full h-full object-contain transition-all duration-300 invert dark:invert-0 group-hover/card:invert-0 dark:group-hover/card:invert"
           />
         </div>
       </div>
@@ -140,7 +140,7 @@
 >
   <div
     id="modal-content"
-    class="bg-white rounded-xl shadow-lg shadow-black/20 dark:shadow-white/10 p-6 w-[90%] max-w-lg md:max-w-xl lg:max-w-2xl animate-grow-in relative"
+    class="bg-white dark:bg-zinc-800 rounded-xl shadow-lg shadow-black/20 dark:shadow-white/10 p-6 w-[90%] max-w-lg md:max-w-xl lg:max-w-2xl animate-grow-in relative"
   >
     <button
       class="absolute top-2 right-2 text-gray-600 hover:text-black text-xl font-bold"
@@ -149,10 +149,12 @@
       ×
     </button>
 
-    <h2 class="text-2xl font-semibold text-black mb-2">{{ title }}</h2>
-    <p class="text-gray-600 mb-4">{{ longDescription }}</p>
+    <h2 class="text-2xl text-start font-semibold text-gray-900 dark:text-white mb-2">
+      {{ title }}
+    </h2>
+    <p class=" text-md text-gray-700 dark:text-gray-200 mb-4">{{ longDescription }}</p>
 
-    <h3 class="font-semibold mt-4 mb-1 text-sm uppercase text-gray-500">
+    <h3 class="font-semibold mt-4 mb-1 text-lg  uppercase text-gray-900 dark:text-white">
       Technologies
     </h3>
     <ul class="flex flex-wrap gap-2 mb-4">
@@ -168,7 +170,7 @@
 
     <!-- Galería de imágenes -->
     <div *ngIf="galleryImages && galleryImages.length > 0" class="my-6">
-      <h3 class="font-semibold mb-2 text-sm uppercase text-gray-500">
+      <h3 class="font-semibold mb-2 text-lg uppercase text-gray-900 dark:text-white">
         Galería
       </h3>
       <image-gallery [images]="galleryImages" />

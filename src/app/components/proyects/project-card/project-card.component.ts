@@ -1,11 +1,11 @@
 // src/app/components/proyects/project-card/project-card.component.ts
 
+import { NgClass, NgFor, NgIf } from '@angular/common';
 import { Component, HostListener, inject, Input } from '@angular/core';
-import { NgClass, NgIf, NgFor, NgTemplateOutlet } from '@angular/common';
-import { ImageGalleryComponent } from '../../shared/image-gallery/image-gallery.component';
-import { ChipComponent } from '../../shared/chip/chip.component';
-import { VisualAssetsService } from '../../../core/services/visual-assets.service';
 import { ProjectStatus } from '../../../core/services/proyects-data.service';
+import { VisualAssetsService } from '../../../core/services/visual-assets.service';
+import { ChipComponent } from '../../shared/chip/chip.component';
+import { ImageGalleryComponent } from '../../shared/image-gallery/image-gallery.component';
 
 @Component({
   selector: 'project-card',
@@ -16,7 +16,7 @@ import { ProjectStatus } from '../../../core/services/proyects-data.service';
     NgFor,
     ImageGalleryComponent,
     ChipComponent,
-    NgTemplateOutlet
+
   ],
   templateUrl: './project-card.component.html',
   styleUrls: ['./project-card.component.css'],

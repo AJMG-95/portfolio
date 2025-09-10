@@ -1,7 +1,7 @@
 // src\app\components\certifications\course-card\course-card.component.ts
 
 import { NgClass, NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
-import { Component, input } from '@angular/core';
+import { Component, HostListener, input } from '@angular/core';
 import { TranslocoModule } from '@jsverse/transloco';
 import { CertificationViewModel } from '../../../core/models/certification-view.model';
 import { BannerComponent } from '../../shared/banner/banner.component';
@@ -21,11 +21,10 @@ import { CompletionLabelPipe } from '../../../core/pipes/CompletionLabelPipe.pip
     BannerComponent,
     NgTemplateOutlet,
     ProgressPillComponent,
-    CompletionLabelPipe
-
+    CompletionLabelPipe,
   ],
   templateUrl: './course-card.component.html',
-  styleUrl: './course-card.component.css'
+  styleUrl: './course-card.component.css',
 })
 export class CourseCardComponent {
   course = input.required<CertificationViewModel>();
@@ -34,16 +33,15 @@ export class CourseCardComponent {
   showModal = false;
   hasInteracted = false;
 
-
   cardClicked() {
-    this.hasInteracted = true;     // ← activa animaciones a partir de ahora
+    this.hasInteracted = true; // ← activa animaciones a partir de ahora
     this.isFlipped = true;
-    setTimeout(() => this.showModal = true, 500);
+    setTimeout(() => (this.showModal = true), 500);
   }
 
   closeModal() {
     this.showModal = false;
-    setTimeout(() => this.isFlipped = false, 300);
+    setTimeout(() => (this.isFlipped = false), 300);
   }
 
   get statusChipClass(): string {
@@ -61,5 +59,13 @@ export class CourseCardComponent {
 
   get techName(): string {
     return this.course().techName ?? '';
+  }
+
+  @HostListener('document:click', ['$event'])
+  onOutsideClick(event: MouseEvent) {
+    const modal = document.getElementById('modal-content');
+    if (this.showModal && modal && !modal.contains(event.target as Node)) {
+      this.closeModal();
+    }
   }
 }

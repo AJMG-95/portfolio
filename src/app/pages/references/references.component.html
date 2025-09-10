@@ -5,7 +5,7 @@
   <header class="text-center">
     <h1
       id="references-title"
-      class="text-4xl sm:text-5xl font-extrabold text-primary dark:text-darkHighlight mb-12"
+      class="text-4xl sm:text-5xl font-extrabold text-primary dark:text-darkTextMain mb-12"
     >
       {{ "references.title" | transloco }}
     </h1>
@@ -29,7 +29,7 @@
           {{ ref.role }}
         </p>
 
-        <address class="not-italic space-y-1 text-sm">
+        <address class="not-italic space-y-6 text-sm">
           <p
             class="text-gray-500 dark:text-gray-400 flex items-center justify-center sm:justify-start gap-2"
           >
@@ -41,7 +41,7 @@
             >
               <svg
                 icon
-                class="w-5 h-5 text-primary dark:text-darkHighlight"
+                class="w-5 h-5  text-primary dark:text-blue-50"
                 fill="currentColor"
                 viewBox="0 0 24 24"
                 aria-hidden="true"
@@ -59,9 +59,9 @@
   </section>
 
   <!-- Carta de recomendación -->
-  <section *ngIf="letter?.url" class="mt-10 px-4 w-full">
-    <header class="text-center mb-6">
-      <h2 class="text-2xl font-bold text-primary dark:text-darkHighlight">
+  <section *ngIf="letter?.url" class="mt-24 px-4 w-full">
+    <header class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-primary dark:text-blue-50 mb-5">
         {{ "references.letter.title" | transloco }}
       </h2>
       <p class="text-textMain dark:text-darkTextMain mt-2">
@@ -94,7 +94,7 @@
             aria-hidden="true"
           >
             <div
-              class="w-12 h-12 rounded-full bg-primary/70 dark:bg-darkHighlight/80 p-2 shadow-md-lg shadow-black/20 dark:shadow-white/10 transition-all duration-300 group-hover:scale-110 dark:group-hover:bg-primary/80 group-hover:bg-secondary/80"
+              class="w-12 h-12 rounded-full bg-primary/70 dark:bg-blue-50 p-2 shadow-md-lg shadow-black/20 dark:shadow-white/10 transition-all duration-300 group-hover:scale-110 dark:group-hover:bg-primary/80 group-hover:bg-secondary/80"
             >
               <img
                 src="assets/images/shared/click-cursor.svg"

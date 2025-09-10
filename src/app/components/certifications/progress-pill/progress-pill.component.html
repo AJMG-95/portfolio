@@ -19,7 +19,7 @@
       <!-- Texto centrado -->
       <div class="absolute inset-0 grid place-items-center">
         <span class="font-medium" [ngClass]="(clamped() >= 50) ? 'text-black' : 'text-gray-700'">
-          {{ label() }}
+          {{ label() }} {{ percentage() > 0 ? (' - ' + percentage() + '%') : '' }}
         </span>
       </div>
     </div>

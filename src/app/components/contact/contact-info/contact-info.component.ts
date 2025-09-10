@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -16,13 +16,16 @@ export class ContactInfo {
   @Input() subject: string = '';
   @Input() body: string = '';
 
+  @Output() hovered = new EventEmitter<string>();
+
   get href(): string {
     switch (this.type) {
-      case 'email':
+      case 'email': {
         const encodedSubject = encodeURIComponent(this.subject);
         const formattedBody = this.body.replace(/\n/g, '\r\n');
         const encodedBody = encodeURIComponent(formattedBody);
         return `mailto:${this.value}?subject=${encodedSubject}&body=${encodedBody}`;
+      }
       case 'phone':
         return `tel:${this.value}`;
       case 'link':
@@ -33,6 +36,14 @@ export class ContactInfo {
   }
 
   get displayText(): string {
+    return  this.value;
+  }
+/*   get displayText(): string {
     return this.type === 'link' ? this.label : this.value;
+  } */
+
+  /** Para accesibilidad del botón icon-only */
+  get ariaLabel(): string {
+    return this.label || this.displayText || this.type;
   }
 }

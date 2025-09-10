@@ -131,7 +131,7 @@
   <!-- === /TEMPLATE === -->
 
   <article
-    class="w-[16rem] mobile-sm:w-[19.4375rem] mobile:w-[22.5625rem] tablet:w-[20rem] h-[22rem] perspective cursor-pointer rounded-lg overflow-hidden p-3"
+    class="group/card w-[16rem] mobile-sm:w-[19.4375rem] mobile:w-[22.5625rem] tablet:w-[20rem] h-[22rem] perspective cursor-pointer rounded-lg overflow-hidden p-3"
     (click)="cardClicked()"
   >
     <div
@@ -188,13 +188,12 @@
           class="absolute bottom-3 right-6 group cursor-pointer"
           aria-hidden="true"
         >
-          <div
-            class="w-12 h-12 rounded-full bg-primary/70 dark:bg-darkHighlight/80 p-2 shadow-md-lg shadow-black/20 dark:shadow-white/10 transition-all duration-300 group-hover:scale-110 dark:group-hover:bg-primary/80 group-hover:bg-secondary/80"
-          >
+    <div
+      class="w-12 h-12 rounded-full bg-primary/70 dark:dark:bg-blue-50 p-2 transition-all duration-300 group-hover/card:scale-110 dark:group-hover/card:bg-primary/80 group-hover/card:bg-secondary/80 shadow-md-lg shadow-black/20 dark:shadow-white/10">
             <img
               src="assets/images/shared/click-cursor.svg"
               alt=""
-              class="w-full h-full object-contain transition-all duration-300 invert dark:invert-0 group-hover:invert-0 dark:group-hover:invert"
+              class="w-full h-full object-contain transition-all duration-300 invert dark:invert-0 group-hover/card:invert-0 dark:group-hover/card:invert"
             />
           </div>
         </div>
