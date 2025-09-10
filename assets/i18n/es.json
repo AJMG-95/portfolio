@@ -40,8 +40,17 @@
   },
   "contact": {
     "title": "Información de Contacto",
+    "claim": "Hagamos que tus ideas cobren vida en la web",
     "emailSubject": "Contacto desde el portfolio",
-    "emailBody": "Hola Antonio Jesús,\n\nHe visto tu portfolio y me gustaría ponerme en contacto contigo."
+    "emailBody": "Hola Antonio Jesús,\n\nHe visto tu portfolio y me gustaría ponerme en contacto contigo.",
+    "hover": {
+      "hello": "Hola",
+      "letsTalk": "Hablamos?",
+      "emailLabel": "Mi email:",
+      "phoneLabel": "Mi teléfono:",
+      "linkedinLabel": "Mi LinkedIn:",
+      "githubLabel": "Mi GitHub:"
+    }
   },
   "myProjects": {
     "title": "Mis Proyectos",
