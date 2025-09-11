@@ -126,7 +126,7 @@ export class CertificationsService {
       technologyIds: [10, 23],
       logoId: 10,
       durationHours: 37.5,
-      completionPercentage: 5,
+      completionPercentage: 8.22,
       url: 'https://www.udemy.com/course/nodejs-de-cero-a-experto/?couponCode=MT180825G1',
     },
   ];
