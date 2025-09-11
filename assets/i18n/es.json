@@ -253,11 +253,10 @@
       "toolsTitle": "Herramientas y Bases de Datos",
       "managementTitle": "Gestión de Proyectos",
       "principlesTitle": "Principios de Desarrollo",
-
       "frontendLanguages": [2, 7, 8, 9],
-      "backendLanguages": [11, 12, 13],
-      "frameworks": [1, 14, 15, 16, 3, 17],
-      "tools": [18, 19, 20],
+      "backendLanguages": [10],
+      "frameworks": [1, 14, 15, 3, 17],
+      "tools": [18, 19],
       "management": [21, 22],
       "principles": {
         "23": "Arquitectura limpia",
