@@ -1,7 +1,16 @@
-<label for="lang-select" class="sr-only">Change language</label>
-<select id="lang-select" [value]="activeLang" (change)="onLangChange($event)" aria-label="Select language"
-  class="p-2 border rounded cursor-pointer font-semibold">
-  <option *ngFor="let lang of availableLangs" [value]="lang">
-    {{ lang.toUpperCase() }}
-  </option>
-</select>
+<!-- Radiogroup accesible con dos opciones: ES / EN -->
+<div role="radiogroup" aria-label="Select language" class="inline-flex overflow-hidden rounded-xl border shadow-sm">
+  <!-- Español -->
+  <button type="button" role="radio" [attr.aria-checked]="activeLang === 'es'" (click)="setLang('es')"
+    class="flex items-center gap-2 px-3 py-2 transition focus:outline-none focus-visible:ring"
+    [class.bg-gray-100]="activeLang === 'es'">
+    <img src="assets/images/flags/esFlag.webp" alt="" class="h-5 w-5 rounded shadow-sm" aria-hidden="true" />
+  </button>
+
+  <!-- English -->
+  <button type="button" role="radio" [attr.aria-checked]="activeLang === 'en'" (click)="setLang('en')"
+    class="flex items-center gap-2 px-3 py-2 transition focus:outline-none focus-visible:ring border-l"
+    [class.bg-gray-100]="activeLang === 'en'">
+    <img src="assets/images/flags/gbFlag.webp" alt="" class="h-5 w-5 rounded shadow-sm" aria-hidden="true" />
+  </button>
+</div>

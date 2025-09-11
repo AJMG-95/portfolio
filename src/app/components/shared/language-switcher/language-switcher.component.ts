@@ -7,20 +7,19 @@ import { TranslocoService } from '@jsverse/transloco';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './language-switcher.component.html',
-  styleUrls: ['./language-switcher.component.css']
+  styleUrls: ['./language-switcher.component.css'],
 })
 export class LanguageSwitcher {
-  availableLangs = ['es', 'en'];
-  activeLang: string;
+  activeLang: 'es' | 'en';
 
   constructor(private translocoService: TranslocoService) {
-    this.activeLang = this.translocoService.getActiveLang();
+    this.activeLang = (this.translocoService.getActiveLang() as 'es' | 'en') ?? 'es';
   }
 
-  onLangChange(event: Event) {
-    const selectElement = event.target as HTMLSelectElement;
-    const lang = selectElement.value;
-    this.translocoService.setActiveLang(lang);
-    this.activeLang = lang;
+  setLang(lang: 'es' | 'en') {
+    if (lang !== this.activeLang) {
+      this.translocoService.setActiveLang(lang);
+      this.activeLang = lang;
+    }
   }
 }
