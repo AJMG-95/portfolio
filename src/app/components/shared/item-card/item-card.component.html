@@ -1,59 +1,93 @@
 <article
   class="flex flex-col sm:flex-row gap-4 rounded-md border border-borderLight dark:border-darkBorderLight shadow-md-lg shadow-black/20 dark:shadow-white/10 bg-secondary dark:bg-gray-900 transition-colors duration-300"
-  role="group" aria-labelledby="card-title">
-
+  role="group"
+  aria-labelledby="card-title"
+>
   <!-- Imagen decorativa -->
-<figure *ngIf="imageUrl"
-  class="h-[16rem] sm:h-[8rem] p-4 w-full sm:w-24 flex-shrink-0 flex items-center justify-center overflow-hidden bg-gray-100 dark:bg-gray-700 rounded-t-md sm:rounded-none sm:rounded-l-md">
+  @if (imageUrl) {
 
-  <ng-container *ngIf="titleLink; else plainImage">
-    <a [href]="titleLink" target="_blank" rel="noopener noreferrer"
-      class="block w-full h-full transition-colors duration-200 hover:brightness-90">
-      <img [src]="imageUrl" [alt]="altText" class="block w-full h-full object-contain" decoding="async"
-        loading="lazy" />
+  <figure
+    class="h-[16rem] sm:h-[8rem] p-4 w-full sm:w-24 flex-shrink-0 flex items-center justify-center overflow-hidden bg-gray-100 dark:bg-gray-700 rounded-t-md sm:rounded-none sm:rounded-l-md"
+  >
+    @if (titleLink) {
+
+    <a
+      [href]="titleLink"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="block w-full h-full transition-colors duration-200 hover:brightness-90"
+    >
+      <img
+        [src]="imageUrl"
+        [alt]="altText"
+        class="block w-full h-full object-contain"
+        decoding="async"
+        loading="lazy"
+      />
     </a>
-  </ng-container>
 
-  <ng-template #plainImage>
-    <img [src]="imageUrl" [alt]="altText" class="block w-full h-full object-contain" decoding="async" loading="lazy" />
-  </ng-template>
-</figure>
-
+    }@else {
+    <img
+      [src]="imageUrl"
+      [alt]="altText"
+      class="block w-full h-full object-contain"
+      decoding="async"
+      loading="lazy"
+    />
+    }
+  </figure>
+  }
 
   <!-- Contenido principal -->
   <section class="flex flex-col justify-between flex-1 p-4">
     <div class="space-y-1 pb-3">
-      <h3 id="card-title" class="text-xl font-semibold text-textMain dark:text-darkTextMain">
-        <ng-container *ngIf="titleLink; else plainTitle">
-          <a [href]="titleLink" target="_blank" rel="noopener noreferrer"
-            class="transition-colors duration-200 hover:underline hover:text-primary hover:dark:text-darkPrimary">
-            {{ title }}
-          </a>
-        </ng-container>
-        <ng-template #plainTitle>{{ title }}</ng-template>
+      <h3
+        id="card-title"
+        class="text-xl font-semibold text-textMain dark:text-darkTextMain"
+      >
+        @if (titleLink) {ç
+        <a
+          [href]="titleLink"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="transition-colors duration-200 hover:underline hover:text-primary hover:dark:text-darkPrimary"
+        >
+          {{ title }}
+        </a>
+        } @else {
+        <p>{{ title }}</p>
+        }
       </h3>
-
-      <p *ngIf="subtitle" class="text-base text-textMain dark:text-darkTextMain">
+      @if (subtitle) {
+      <p class="text-base text-textMain dark:text-darkTextMain">
         {{ subtitle }}
       </p>
-
-      <p *ngIf="date" class="text-sm text-textSoft dark:text-darkTextSoft italic">
+      } @if (date) {
+      <p class="text-sm text-textSoft dark:text-darkTextSoft italic">
         {{ date }}
       </p>
+      }
     </div>
 
-    <div *ngIf="footerText" class="pt-3 text-right">
-      <ng-container *ngIf="footerLink; else passiveText">
-        <a [href]="footerLink"
-          class="inline-block text-sm font-medium text-primary dark:text-darkPrimary hover:underline">
-          {{ footerText }}
-        </a>
-      </ng-container>
-      <ng-template #passiveText>
-        <span class="inline-block text-sm font-medium text-primary dark:text-darkPrimary">
-          {{ footerText }}
-        </span>
-      </ng-template>
+    @if (footerText) {
+    <div class="pt-3 text-right">
+      @if (footerLink) {
+      <a
+        [href]="footerLink"
+        class="inline-block text-sm font-medium text-primary dark:text-darkPrimary hover:underline"
+      >
+        {{ footerText }}
+      </a>
+      } @else {
+
+      <span
+        class="inline-block text-sm font-medium text-primary dark:text-darkPrimary"
+      >
+        {{ footerText }}
+      </span>
+      }
     </div>
+
+    }
   </section>
 </article>

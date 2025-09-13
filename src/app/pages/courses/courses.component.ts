@@ -3,14 +3,15 @@
 import { Component, computed, inject } from '@angular/core';
 import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
 import { toSignal } from '@angular/core/rxjs-interop';
-
-import { PageWrapper } from '../../components/shared/page-wrapper/page-wrapper.component';
-import { CourseCardComponent } from '../../components/certifications/course-card/course-card.component';
-
 import { NgFor, NgIf } from '@angular/common';
-import { CertificationsService } from '../../core/services/certifications-data.service';
-import { VisualAssetsService } from '../../core/services/visual-assets.service';
-import { CertificationViewModel } from '../../core/models/certification-view.model';
+import { PageWrapper } from '@shared/page-wrapper/page-wrapper.component';
+import { CourseCardComponent } from '@certifications/course-card/course-card.component';
+import { CertificationsService } from '@core/services/certifications-data.service';
+import { VisualAssetsService } from '@core/services/visual-assets.service';
+import { CertificationViewModel } from '@core/models/certification-view.model';
+
+
+
 
 @Component({
   selector: 'app-courses',

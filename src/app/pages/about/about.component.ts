@@ -1,18 +1,18 @@
+import { AboutTabs } from '@about/about-tabs/about-tabs.component';
+import { ExperienceCard } from '@about/experience-card/experience-card.component';
 import { CommonModule } from '@angular/common';
 import { Component, computed, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { EducationService } from '@core/services/education-data.service';
+import { ExperienceService } from '@core/services/experience-data.service';
+import { VisualAssetsService } from '@core/services/visual-assets.service';
 import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
+import { ChipComponent } from '@shared/chip/chip.component';
+import { ICard } from '@shared/item-card/item-card.component';
+import { PageWrapper } from '@shared/page-wrapper/page-wrapper.component';
+import { SubsectionComponent } from '@shared/subsection/subsection.component';
 
-import { AboutTabs } from '../../components/about/about-tabs/about-tabs.component';
-import { ExperienceCard } from '../../components/about/experience-card/experience-card.component';
-import { ChipComponent } from '../../components/shared/chip/chip.component';
-import { ICard } from '../../components/shared/item-card/item-card.component';
-import { PageWrapper } from '../../components/shared/page-wrapper/page-wrapper.component';
-import { SubsectionComponent } from '../../components/shared/subsection/subsection.component';
 
-import { ExperienceService } from '../../core/services/experience-data.service';
-import { EducationService } from '../../core/services/education-data.service';
-import { VisualAssetsService } from '../../core/services/visual-assets.service';
 
 @Component({
   selector: 'app-about',

@@ -2,10 +2,11 @@
 
 import { NgClass, NgFor, NgIf } from '@angular/common';
 import { Component, HostListener, inject, Input } from '@angular/core';
-import { ProjectStatus } from '../../../core/services/proyects-data.service';
-import { VisualAssetsService } from '../../../core/services/visual-assets.service';
-import { ChipComponent } from '../../shared/chip/chip.component';
-import { ImageGalleryComponent } from '../../shared/image-gallery/image-gallery.component';
+import { ProjectStatus } from '@core/services/proyects-data.service';
+import { VisualAssetsService } from '@core/services/visual-assets.service';
+import { ChipComponent } from '@shared/chip/chip.component';
+import { ImageGalleryComponent } from '@shared/image-gallery/image-gallery.component';
+
 
 @Component({
   selector: 'project-card',

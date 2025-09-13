@@ -1,8 +1,9 @@
 import { Component, OnDestroy, signal } from '@angular/core';
+import { ContactInfo } from '@contact/contact-info/contact-info.component';
+import { PersonalDataService } from '@core/services/personal-data.service';
 import { TranslocoModule } from '@jsverse/transloco';
-import { PageWrapper } from '../../components/shared/page-wrapper/page-wrapper.component';
-import { ContactInfo } from '../../components/contact/contact-info/contact-info.component';
-import { PersonalDataService } from '../../core/services/personal-data.service';
+import { PageWrapper } from '@shared/page-wrapper/page-wrapper.component';
+
 
 type ContactType = 'email' | 'phone' | 'linkedin' | 'github' | '';
 

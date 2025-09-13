@@ -1,10 +1,10 @@
+import { NgClass } from '@angular/common';
 import { Component, HostListener, Input } from '@angular/core';
-import { NgClass, NgIf } from '@angular/common';
 
 @Component({
   selector: 'card-modal',
   standalone: true,
-  imports: [NgClass, NgIf],
+  imports: [NgClass],
   templateUrl: './card-modal.component.html',
   styleUrls: ['./card-modal.component.css'],
 })

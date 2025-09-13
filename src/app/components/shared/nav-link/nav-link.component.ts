@@ -1,6 +1,6 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { CommonModule, NgIf } from '@angular/common';
 import { TranslocoModule } from '@jsverse/transloco';
 
 @Component({

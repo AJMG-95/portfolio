@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, computed } from '@angular/core';
-import { LanguageService } from '../../../core/services/language.service';
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
+import { LanguageService } from '@core/services/language.service';
+
 
 @Component({
   selector: 'toggle-lang',
@@ -9,7 +10,7 @@ import { LanguageService } from '../../../core/services/language.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ToggleLangComponent {
-  constructor(private lang: LanguageService) { }
+  private lang = inject(LanguageService);
   isEnglish = computed(() => this.lang.lang() === 'en');
   onToggle() { this.lang.toggle(); }
 }

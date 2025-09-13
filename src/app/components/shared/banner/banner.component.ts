@@ -1,12 +1,10 @@
 // src\app\components\shared\banner\banner.component.ts
-
-import { NgClass, NgIf } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-banner',
   standalone: true,
-  imports: [NgIf, NgClass],
+  imports: [],
   templateUrl: './banner.component.html',
   styleUrls: ['./banner.component.css']
 })

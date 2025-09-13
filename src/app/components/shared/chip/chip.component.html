@@ -8,25 +8,26 @@
   (click)="handleClick()"
   (mouseenter)="handleMouseEnter()"
 >
-  <ng-container *ngIf="icon && iconPosition === 'left'">
-    <img
-      [src]="icon"
-      alt="Icono"
-      class="w-4 h-4 min-h-[20px] object-contain"
-      *ngIf="icon?.includes('/')"
-    />
-    <i class="text-sm" [ngClass]="icon" *ngIf="!icon?.includes('/')"></i>
-  </ng-container>
+  @if (icon && iconPosition === 'left') {
+
+  <img
+    [src]="icon"
+    alt="Icono"
+    class="w-4 h-4 min-h-[20px] object-contain"
+    *ngIf="icon?.includes('/')"
+  />
+  <i class="text-sm" [ngClass]="icon" *ngIf="!icon?.includes('/')"></i>
+
+  }
 
   {{ label }}
-
-  <ng-container *ngIf="icon && iconPosition === 'right'">
-    <img
-      [src]="icon"
-      alt="Icono"
-      class="w-4 h-4 object-contain"
-      *ngIf="icon?.includes('/')"
-    />
-    <i class="text-sm" [ngClass]="icon" *ngIf="!icon?.includes('/')"></i>
-  </ng-container>
+  @if (icon && iconPosition === 'right') {
+  <img
+    [src]="icon"
+    alt="Icono"
+    class="w-4 h-4 object-contain"
+    *ngIf="icon?.includes('/')"
+  />
+  <i class="text-sm" [ngClass]="icon" *ngIf="!icon?.includes('/')"></i>
+  }
 </span>

@@ -2,8 +2,9 @@
 
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ChipComponent } from '../../shared/chip/chip.component';
-import { VisualAssetsService } from '../../../core/services/visual-assets.service';
+import { ChipComponent } from '@shared/chip/chip.component';
+import { VisualAssetsService } from '@core/services/visual-assets.service';
+
 
 interface TechDisplay {
   label: string;

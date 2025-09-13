@@ -5,10 +5,17 @@
   </h1>
 
   <div class="grid gird-cols-1 tablet-lg:grid-cols-2 laptop:grid-cols-3 justify-around gap-8">
-    <project-card *ngFor="let project of projects()" [headerImageUrl]="project.headerImageUrl"
-      [cornerImageUrl]="project.cornerImageUrl" [title]="project.name" [shortDescription]="project.shortDescription"
-      [longDescription]="project.longDescription" [technologyIds]="project.technologyIds"
-      [githubUrl]="project.githubUrl" [liveUrl]="project.liveUrl" [galleryImages]="project.galleryImages"
-      [status]="project.status" [statusLabels]="statusLabels()" />
-  </div>
+
+    @for (project of projects(); track $index) {
+      <project-card  [headerImageUrl]="project.headerImageUrl"
+        [cornerImageUrl]="project.cornerImageUrl" [title]="project.name" [shortDescription]="project.shortDescription"
+        [longDescription]="project.longDescription" [technologyIds]="project.technologyIds"
+        [githubUrl]="project.githubUrl" [liveUrl]="project.liveUrl" [galleryImages]="project.galleryImages"
+        [status]="project.status" [statusLabels]="statusLabels()" />
+    } @empty {
+      <p class="text-center text-xl text-semibold">
+        Aún no hay proyectos
+      </p>
+    }
+    </div>
 </page-wrapper>

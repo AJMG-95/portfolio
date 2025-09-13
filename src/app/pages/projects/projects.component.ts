@@ -3,16 +3,16 @@
 import { Component, computed, inject } from '@angular/core';
 import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { ProjectsService } from '@core/services/proyects-data.service';
+import { PageWrapper } from '@shared/page-wrapper/page-wrapper.component';
+import { ProjectCardComponent } from '@project/project-card/project-card.component';
 
-import { PageWrapper } from '../../components/shared/page-wrapper/page-wrapper.component';
-import { NgFor } from '@angular/common';
-import { ProjectCardComponent } from '../../components/proyects/project-card/project-card.component';
-import { ProjectsService } from '../../core/services/proyects-data.service';
+
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [PageWrapper, TranslocoModule, ProjectCardComponent, NgFor],
+  imports: [PageWrapper, TranslocoModule, ProjectCardComponent, ],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.css',
 })

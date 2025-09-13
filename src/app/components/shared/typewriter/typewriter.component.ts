@@ -1,10 +1,10 @@
+import { NgIf } from '@angular/common';
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { NgIf, NgSwitch, NgSwitchCase } from '@angular/common';
 
 @Component({
   selector: 'typewriter-text',
   standalone: true,
-  imports: [NgIf, NgSwitch, NgSwitchCase],
+  imports: [NgIf],
   templateUrl: './typewriter.component.html',
   styleUrls: ['./typewriter.component.css'],
 })

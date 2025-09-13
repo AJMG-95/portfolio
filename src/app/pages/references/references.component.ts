@@ -4,11 +4,11 @@ import { Component, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { PageWrapper } from '@shared/page-wrapper/page-wrapper.component';
+import { ContactInfo } from '@contact/contact-info/contact-info.component';
+import { ReferencesService } from '@core/services/references-data.service';
 
-import { PageWrapper } from '../../components/shared/page-wrapper/page-wrapper.component';
-import { ContactInfo } from '../../components/contact/contact-info/contact-info.component';
 
-import { ReferencesService } from '../../core/services/references-data.service';
 
 @Component({
   selector: 'app-references',

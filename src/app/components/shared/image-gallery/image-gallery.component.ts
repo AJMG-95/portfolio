@@ -1,10 +1,10 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { CommonModule, NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'image-gallery',
   standalone: true,
-  imports: [NgFor, NgIf, CommonModule],
+  imports: [CommonModule],
   templateUrl: './image-gallery.component.html',
   styleUrls: ['./image-gallery.component.css']
 })

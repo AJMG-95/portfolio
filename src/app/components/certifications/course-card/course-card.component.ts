@@ -3,11 +3,12 @@
 import { NgClass, NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
 import { Component, HostListener, input } from '@angular/core';
 import { TranslocoModule } from '@jsverse/transloco';
-import { CertificationViewModel } from '../../../core/models/certification-view.model';
-import { BannerComponent } from '../../shared/banner/banner.component';
-import { ChipComponent } from '../../shared/chip/chip.component';
 import { ProgressPillComponent } from '../progress-pill/progress-pill.component';
-import { CompletionLabelPipe } from '../../../core/pipes/CompletionLabelPipe.pipe';
+import { CompletionLabelPipe } from '@core/pipes/CompletionLabelPipe.pipe';
+import { CertificationViewModel } from '@core/models/certification-view.model';
+import { ChipComponent } from '@shared/chip/chip.component';
+import { BannerComponent } from '@shared/banner/banner.component';
+
 
 @Component({
   selector: 'course-card',

@@ -5,16 +5,15 @@ import { RouterModule } from '@angular/router';
 import { CommonModule, NgIf } from '@angular/common';
 import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { ButtonComponent } from '@shared/button/button.component';
+import { ProfilePhoto } from '@shared/profile-photo/profile-photo.component';
+import { Typewriter } from '@shared/typewriter/typewriter.component';
+import { PageWrapper } from '@shared/page-wrapper/page-wrapper.component';
+import { ChipComponent } from '@shared/chip/chip.component';
+import { ButtonMenu } from '@shared/button-menu/button-menu.component';
+import { VisualAssetsService } from '@core/services/visual-assets.service';
 
-import { ButtonComponent } from '../../components/shared/button/button.component';
-import { ProfilePhoto } from '../../components/shared/profile-photo/profile-photo.component';
-import { ButtonMenu } from '../../components/shared/button-menu/button-menu.component';
-import { ChipComponent } from '../../components/shared/chip/chip.component';
-import { PageWrapper } from '../../components/shared/page-wrapper/page-wrapper.component';
-import { Typewriter } from '../../components/shared/typewriter/typewriter.component';
 
-import { VisualAssetsService } from '../../core/services/visual-assets.service';
-import { PersonalDataService } from '../../core/services/personal-data.service';
 
 @Component({
   selector: 'app-home-page',

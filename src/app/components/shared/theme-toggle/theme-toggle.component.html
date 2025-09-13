@@ -1,6 +1,11 @@
-<button (click)="toggleTheme()"
+<button
+  (click)="toggleTheme()"
   class="w-[135px] p-2 rounded focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-white"
-  [attr.aria-label]="'theme.' + (isDark ? 'darkMode' : 'lightMode') | transloco">
-  <span *ngIf="isDark">🌙 {{ 'theme.darkMode' | transloco }}</span>
-  <span *ngIf="!isDark">☀️ {{ 'theme.lightMode' | transloco }}</span>
+  [attr.aria-label]="'theme.' + (isDark ? 'darkMode' : 'lightMode') | transloco"
+>
+  @if (isDark) {
+  <span>🌙 {{ "theme.darkMode" | transloco }}</span>
+  } @else {
+  <span>☀️ {{ "theme.lightMode" | transloco }}</span>
+  }
 </button>

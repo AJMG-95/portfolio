@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { LanguageSwitcher } from '../language-switcher/language-switcher.component';
-import { ThemeToggle } from '../theme-toggle/theme-toggle.component';
-import { NavLinkComponent } from '../nav-link/nav-link.component';
+import { LanguageSwitcher } from '@shared/language-switcher/language-switcher.component';
+import { ThemeToggle } from '@shared/theme-toggle/theme-toggle.component';
+import { NavLinkComponent } from '@shared/nav-link/nav-link.component';
+
 
 
 @Component({
