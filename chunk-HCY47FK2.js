@@ -1,4 +1,0 @@
-import{$a as i,Qa as s,Sa as t,Ta as r,Ua as o,W as n,ab as l,jb as p}from"./chunk-ZL3RLUJY.js";var f=["*"],d=class a{addClasses="";static \u0275fac=function(e){return new(e||a)};static \u0275cmp=n({type:a,selectors:[["page-wrapper"]],inputs:{addClasses:"addClasses"},standalone:!0,features:[p],ngContentSelectors:f,decls:4,vars:3,consts:[["aria-label","Secci\xF3n decorada"],["aria-hidden","true",1,"pointer-events-none","select-none","absolute","inset-0","z-0"],[1,"relative","z-10","w-full","max-w-7xl"]],template:function(e,m){e&1&&(i(),t(0,"section",0),o(1,"div",1),t(2,"div",2),l(3),r()()),e&2&&s(`relative overflow-hidden min-h-screen flex py-12 px-4 sm:px-6 lg:px-16
-             bg-gradient-to-br from-slate-100 via-white to-slate-100
-             dark:from-slate-900 dark:via-slate-950 dark:to-black
-             text-slate-800 dark:text-slate-200 `,m.addClasses,"")}})};export{d as a};
