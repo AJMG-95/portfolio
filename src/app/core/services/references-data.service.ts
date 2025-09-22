@@ -14,7 +14,7 @@ export interface RecommendationLetter {
 
 @Injectable({ providedIn: 'root' })
 export class ReferencesService {
-  private references: ReferenceItem[] = [
+  #references: ReferenceItem[] = [
     {
       id: 1,
       name: 'Francisco Romero-Haupold',
@@ -27,15 +27,15 @@ export class ReferencesService {
     },
   ];
 
-  private recommendationLetter: RecommendationLetter = {
+  #recommendationLetter: RecommendationLetter = {
     url: 'https://drive.google.com/file/d/1gZKFeNZZyPN-d-fDjA8DGZZuv0tqF76P/view',
   };
 
   getReferences(): ReferenceItem[] {
-    return this.references;
+    return this.#references;
   }
 
   getLetter(): RecommendationLetter {
-    return this.recommendationLetter;
+    return this.#recommendationLetter;
   }
 }

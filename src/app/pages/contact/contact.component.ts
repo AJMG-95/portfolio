@@ -27,8 +27,8 @@ export class ContactPage implements OnDestroy {
   hoveredLabelKey = signal<string>('contact.hover.hello');
   hoveredValue = signal<string>('contact.hover.letsTalk');
 
-  private resetTimer?: ReturnType<typeof setTimeout>;
-  private isHovering = false;
+  #resetTimer?: ReturnType<typeof setTimeout>;
+  #isHovering = false;
 
   constructor(private personal: PersonalDataService) {
     this.fullName = personal.fullName;
@@ -42,10 +42,10 @@ export class ContactPage implements OnDestroy {
 
   /** Se llama AL ENTRAR en hover (o focus). Mantiene el contenido mostrado. */
   onContactHover(value: string) {
-    this.isHovering = true;
-    if (this.resetTimer) clearTimeout(this.resetTimer); // si estabas fuera, cancela el reset
+    this.#isHovering = true;
+    if (this.#resetTimer) clearTimeout(this.#resetTimer); // si estabas fuera, cancela el reset
 
-    const type = this.inferType(value);
+    const type = this.#inferType(value);
     switch (type) {
       case 'email':
         this.hoveredLabelKey.set('contact.hover.emailLabel');
@@ -73,12 +73,12 @@ export class ContactPage implements OnDestroy {
 
   /** Llamar AL SALIR del hover (o blur). Inicia el temporizador de 5 s. */
   onContactLeave() {
-    this.isHovering = false;
-    if (this.resetTimer) clearTimeout(this.resetTimer);
+    this.#isHovering = false;
+    if (this.#resetTimer) clearTimeout(this.#resetTimer);
 
-    this.resetTimer = setTimeout(() => {
+    this.#resetTimer = setTimeout(() => {
       // Solo resetea si sigues fuera (puedes haber vuelto a entrar)
-      if (!this.isHovering) {
+      if (!this.#isHovering) {
         this.hoveredLabelKey.set('contact.hover.hello');
         this.hoveredValue.set('contact.hover.letsTalk');
       }
@@ -86,7 +86,7 @@ export class ContactPage implements OnDestroy {
   }
 
   /** Deducción básica del tipo a partir del texto/URL/valor */
-  private inferType(value: string): ContactType {
+  #inferType(value: string): ContactType {
     const v = (value ?? '').toLowerCase();
     if (v.includes('@') || v.endsWith('.com')) return 'email';
     if (v.includes('+34') || /\+?\d{7,}/.test(v)) return 'phone';
@@ -100,6 +100,6 @@ export class ContactPage implements OnDestroy {
   onContactBlur() { this.onContactLeave(); }
 
   ngOnDestroy() {
-    if (this.resetTimer) clearTimeout(this.resetTimer);
+    if (this.#resetTimer) clearTimeout(this.#resetTimer);
   }
 }

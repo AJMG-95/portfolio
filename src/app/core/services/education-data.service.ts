@@ -11,7 +11,7 @@ export interface EducationData {
 
 @Injectable({ providedIn: 'root' })
 export class EducationService {
-  private educationData: EducationData[] = [
+  #educationData: EducationData[] = [
     {
       id: 1,
       institutionUrl: 'https://ccmaryambientales.uca.es/grado-en-ciencias-ambientales/',
@@ -33,10 +33,10 @@ export class EducationService {
   ];
 
   getAll(): EducationData[] {
-    return this.educationData;
+    return this.#educationData;
   }
 
   getById(id: number): EducationData | undefined {
-    return this.educationData.find(e => e.id === id);
+    return this.#educationData.find(e => e.id === id);
   }
 }

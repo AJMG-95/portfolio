@@ -33,33 +33,33 @@ import { VisualAssetsService } from '@core/services/visual-assets.service';
   ],
 })
 export class HomePage {
-  private transloco = inject(TranslocoService);
-  private techAssets = inject(VisualAssetsService);
+  #transloco = inject(TranslocoService);
+  #techAssets = inject(VisualAssetsService);
 
   typing1Done = false;
   typing2Started = false;
 
   // Traducciones dinámicas
-  greeting = toSignal(this.transloco.selectTranslateObject('home.greeting'), { initialValue: '' });
-  description = toSignal(this.transloco.selectTranslateObject('home.description'), { initialValue: '' });
-  claim = toSignal(this.transloco.selectTranslateObject('home.claim'), { initialValue: '' });
-  projectsBtn = toSignal(this.transloco.selectTranslate('home.buttons.projects'), { initialValue: '' });
-  contactBtn = toSignal(this.transloco.selectTranslate('home.buttons.contact'), { initialValue: '' });
-  resumeBtn = toSignal(this.transloco.selectTranslate('home.buttons.resume'), { initialValue: '' });
+  greeting = toSignal(this.#transloco.selectTranslateObject('home.greeting'), { initialValue: '' });
+  description = toSignal(this.#transloco.selectTranslateObject('home.description'), { initialValue: '' });
+  claim = toSignal(this.#transloco.selectTranslateObject('home.claim'), { initialValue: '' });
+  projectsBtn = toSignal(this.#transloco.selectTranslate('home.buttons.projects'), { initialValue: '' });
+  contactBtn = toSignal(this.#transloco.selectTranslate('home.buttons.contact'), { initialValue: '' });
+  resumeBtn = toSignal(this.#transloco.selectTranslate('home.buttons.resume'), { initialValue: '' });
 
   // Skills traducibles (incluye principles con ID)
-  skills = toSignal(this.transloco.selectTranslateObject('skills'), { initialValue: {} });
+  skills = toSignal(this.#transloco.selectTranslateObject('skills'), { initialValue: {} });
 
   // Chips tecnológicos
-  techFrontend = signal(this.mapIdsToAssets(this.skills().technical?.frontendLanguages || []));
-  techBackend = signal(this.mapIdsToAssets(this.skills().technical?.backendLanguages || []));
-  techFrameworks = signal(this.mapIdsToAssets(this.skills().technical?.frameworks || []));
-  techTools = signal(this.mapIdsToAssets(this.skills().technical?.tools || []));
-  techManagement = signal(this.mapIdsToAssets(this.skills().technical?.management || []));
+  techFrontend = signal(this.#mapIdsToAssets(this.skills().technical?.frontendLanguages || []));
+  techBackend = signal(this.#mapIdsToAssets(this.skills().technical?.backendLanguages || []));
+  techFrameworks = signal(this.#mapIdsToAssets(this.skills().technical?.frameworks || []));
+  techTools = signal(this.#mapIdsToAssets(this.skills().technical?.tools || []));
+  techManagement = signal(this.#mapIdsToAssets(this.skills().technical?.management || []));
 
   // Principios con ID
   techPrinciples = signal(
-    this.mapPrinciples(this.skills().technical?.principles || {})
+    this.#mapPrinciples(this.skills().technical?.principles || {})
   );
 
   // Control de animación de máquina de escribir
@@ -67,53 +67,53 @@ export class HomePage {
   showTypewriters = signal(true);
 
   constructor() {
-    this.transloco.langChanges$.subscribe(() => {
+    this.#transloco.langChanges$.subscribe(() => {
       this.typing1Done = false;
       this.typing2Started = false;
       this.showTypewriters.set(false);
       setTimeout(() => {
         this.showTypewriters.set(true);
       });
-      this.refreshTechLists();
+      this.#refreshTechLists();
     });
   }
 
   ngOnInit(): void {
-    this.refreshTechLists();
+    this.#refreshTechLists();
   }
 
-  private refreshTechLists() {
+  #refreshTechLists() {
     const tech = this.skills().technical || {};
 
-    this.techFrontend.set(this.mapIdsToAssets(tech.frontendLanguages || []));
-    this.techBackend.set(this.mapIdsToAssets(tech.backendLanguages || []));
-    this.techFrameworks.set(this.mapIdsToAssets(tech.frameworks || []));
-    this.techTools.set(this.mapIdsToAssets(tech.tools || []));
-    this.techManagement.set(this.mapIdsToAssets(tech.management || []));
-    this.techPrinciples.set(this.mapPrinciples(tech.principles || {}));
+    this.techFrontend.set(this.#mapIdsToAssets(tech.frontendLanguages || []));
+    this.techBackend.set(this.#mapIdsToAssets(tech.backendLanguages || []));
+    this.techFrameworks.set(this.#mapIdsToAssets(tech.frameworks || []));
+    this.techTools.set(this.#mapIdsToAssets(tech.tools || []));
+    this.techManagement.set(this.#mapIdsToAssets(tech.management || []));
+    this.techPrinciples.set(this.#mapPrinciples(tech.principles || {}));
   }
 
-  private mapIdsToAssets(ids: number[]) {
+  #mapIdsToAssets(ids: number[]) {
     return ids
       .map(id => {
-        const label = this.techAssets.getName(id);
+        const label = this.#techAssets.getName(id);
         if (!label) return null;
 
         return {
           label,
-          icon: this.techAssets.getLogo(id),
-          color: this.techAssets.getLightColor(id),
+          icon: this.#techAssets.getLogo(id),
+          color: this.#techAssets.getLightColor(id),
         };
       })
       .filter((item): item is { label: string; icon: string | undefined; color: string | undefined } => !!item);
   }
 
 
-  private mapPrinciples(principles: Record<string, unknown>) {
+  #mapPrinciples(principles: Record<string, unknown>) {
     return Object.entries(principles).map(([id, label]) => ({
       label: label as string,
-      icon: this.techAssets.getLogo(+id),
-      color: this.techAssets.getLightColor(+id),
+      icon: this.#techAssets.getLogo(+id),
+      color: this.#techAssets.getLightColor(+id),
     }));
   }
 

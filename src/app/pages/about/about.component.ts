@@ -31,25 +31,25 @@ import { SubsectionComponent } from '@shared/subsection/subsection.component';
   styleUrl: './about.component.css',
 })
 export class AboutPage {
-  private transloco = inject(TranslocoService);
-  private expService = inject(ExperienceService);
-  private educationService = inject(EducationService);
-  private techAssets = inject(VisualAssetsService);
+  #transloco = inject(TranslocoService);
+  #expService = inject(ExperienceService);
+  #educationService = inject(EducationService);
+  #techAssets = inject(VisualAssetsService);
 
   tabTitles = ['education.title', 'experience.title', 'skills.title'];
   selectedTab = signal(this.tabTitles[0]);
   activeCardId: number | null = null;
 
-  education = toSignal(this.transloco.selectTranslateObject('education'), { initialValue: { items: [] } });
-  skillsT = toSignal(this.transloco.selectTranslateObject('skills'), { initialValue: {} });
-  languages = toSignal(this.transloco.selectTranslateObject('languages'), { initialValue: { items: [] } });
-  experienceT = toSignal(this.transloco.selectTranslateObject('experience'), { initialValue: { items: [] } });
+  education = toSignal(this.#transloco.selectTranslateObject('education'), { initialValue: { items: [] } });
+  skillsT = toSignal(this.#transloco.selectTranslateObject('skills'), { initialValue: {} });
+  languages = toSignal(this.#transloco.selectTranslateObject('languages'), { initialValue: { items: [] } });
+  experienceT = toSignal(this.#transloco.selectTranslateObject('experience'), { initialValue: { items: [] } });
 
   educationData = computed(() => {
     const items = this.education().items;
     return {
       items: items.map((item: any) => {
-        const data = this.educationService.getById(item.id);
+        const data = this.#educationService.getById(item.id);
         return {
           ...item,
           dates: data?.dates ?? '',
@@ -62,7 +62,7 @@ export class AboutPage {
 
   experience = computed(() => {
     const translated = this.experienceT().items;
-    const technical = this.expService.getAll();
+    const technical = this.#expService.getAll();
 
     return {
       items: technical.map((item) => {
@@ -87,8 +87,8 @@ export class AboutPage {
       principles: raw?.principles
         ? Object.entries(raw.principles).map(([id, label]) => ({
           label: label as string,
-          icon: this.techAssets.getLogo(+id),
-          color: this.techAssets.getLightColor(+id),
+          icon: this.#techAssets.getLogo(+id),
+          color: this.#techAssets.getLightColor(+id),
         }))
         : [],
     };
@@ -97,7 +97,7 @@ export class AboutPage {
   softSkills = computed(() => this.skillsT().soft?.items || []);
 
   toAsset(id: number) {
-    const asset = this.techAssets.getAsset(id);
+    const asset = this.#techAssets.getAsset(id);
     return asset
       ? {
         label: asset.name,

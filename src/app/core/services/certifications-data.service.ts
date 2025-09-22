@@ -14,7 +14,7 @@ export interface CertificationData {
 
 @Injectable({ providedIn: 'root' })
 export class CertificationsService {
-  private certifications: CertificationData[] = [
+  #certifications: CertificationData[] = [
     {
       id: 1,
       technologyIds: [15],
@@ -24,7 +24,7 @@ export class CertificationsService {
       certificateId: 'UC-d31dec52-7b2b-47d9-87f0-ff14b391dd39',
       url: 'https://ude.my/UC-d31dec52-7b2b-47d9-87f0-ff14b391dd39',
       certificationImage:
-        'assets/images/courses/certifications/Flutter-Movi-lDeCeroAExperto_FernandoHerrera.png',
+        'assets/images/courses/#/Flutter-Movi-lDeCeroAExperto_FernandoHerrera.png',
     },
     {
       id: 2,
@@ -118,11 +118,20 @@ export class CertificationsService {
       technologyIds: [1, 2, 18, 19],
       logoId: 1,
       durationHours: 33.32,
-      completionPercentage: 78.55,
+      completionPercentage: 100,
+      certificationImage: 'assets/images/courses/certifications/certificado_Angular_De_cero_a experto_Edición_2025.jpg',
       url: 'https://www.udemy.com/course/angular-fernando-herrera/?couponCode=MT180825G1',
     },
     {
       id: 12,
+      technologyIds: [1, 2, 18, 19],
+      logoId: 1,
+      durationHours: 16.15,
+      completionPercentage: 100,
+      url: 'https://www.udemy.com/course/angular-pro-siguiente-nivel',
+    },
+    {
+      id: 13,
       technologyIds: [10, 23],
       logoId: 10,
       durationHours: 37.5,
@@ -131,21 +140,21 @@ export class CertificationsService {
     },
   ];
   getAll(): CertificationData[] {
-    return this.certifications;
+    return this.#certifications;
   }
 
   getById(id: number): CertificationData | undefined {
-    return this.certifications.find((cert) => cert.id === id);
+    return this.#certifications.find((cert) => cert.id === id);
   }
 
   getCompleted(): CertificationData[] {
-    return this.certifications.filter(
+    return this.#certifications.filter(
       (cert) => cert.completionPercentage === 100
     );
   }
 
   getIncomplete(): CertificationData[] {
-    return this.certifications.filter(
+    return this.#certifications.filter(
       (cert) =>
         cert.completionPercentage !== undefined &&
         cert.completionPercentage < 100
@@ -157,7 +166,7 @@ export class CertificationsService {
    * @param techIds IDs de tecnologías a buscar
    */
   filterByTechnologies(techIds: number[]): CertificationData[] {
-    return this.certifications.filter((cert) =>
+    return this.#certifications.filter((cert) =>
       cert.technologyIds?.some((id) => techIds.includes(id))
     );
   }
@@ -167,7 +176,7 @@ export class CertificationsService {
    * (útil para filtros más estrictos)
    */
   filterByAllTechnologies(techIds: number[]): CertificationData[] {
-    return this.certifications.filter((cert) =>
+    return this.#certifications.filter((cert) =>
       techIds.every((id) => cert.technologyIds?.includes(id))
     );
   }

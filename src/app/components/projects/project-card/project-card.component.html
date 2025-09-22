@@ -74,19 +74,20 @@
 
     <!-- BACK -->
     <section
-      class="absolute w-full h-full backface-hidden rotate-y-180 rounded shadow-md-lg overflow-hidden bg-white/30 dark:bg-zinc-800/30 filter blur-sm"
+      class="  w-full h-full backface-hidden rotate-y-180 rounded shadow-md-lg overflow-hidden bg-white/30 dark:bg-zinc-800/30 filter blur-sm "
     >
       <div
-        class="absolute top-5 left-1/2 -translate-x-1/2 transform scale-50 origin-top"
+        class="w-full absolute top-2 left-1/2 -translate-x-1/2 transform scale-50 origin-top"
       >
         <h2 class="text-2xl font-semibold text-white mb-2">{{ title }}</h2>
 
         <p class="text-gray-600 mb-4">{{ longDescription }}</p>
 
-        <h3 class="font-semibold mt-4 mb-1 text-sm uppercase text-gray-500">
-          Technologies
-        </h3>
-        <div class="px-12 mx-12">
+        <div *ngIf="galleryImages && galleryImages.length > 0" class="my-4 ">
+          <image-gallery [images]="galleryImages" />
+        </div>
+
+
           <ul class="flex gap-2 mb-4">
             <li *ngFor="let chip of techChips" class="text-gray-700">
               <my-chip
@@ -97,16 +98,9 @@
               ></my-chip>
             </li>
           </ul>
-        </div>
 
-        <div *ngIf="galleryImages && galleryImages.length > 0" class="my-6">
-          <h3 class="font-semibold mb-2 text-sm uppercase text-gray-500">
-            Galería
-          </h3>
-          <image-gallery [images]="galleryImages" />
-        </div>
 
-        <div class="flex gap-4">
+        <div class="flex justify-end gap-4">
           <a
             *ngIf="githubUrl"
             [href]="githubUrl"
@@ -149,15 +143,21 @@
       ×
     </button>
 
-    <h2 class="text-2xl text-start font-semibold text-gray-900 dark:text-white mb-2">
+    <h2
+      class="text-2xl text-start font-semibold text-gray-900 dark:text-white mb-2"
+    >
       {{ title }}
     </h2>
-    <p class=" text-md text-gray-700 dark:text-gray-200 mb-4">{{ longDescription }}</p>
+    <p class="text-md text-gray-700 dark:text-gray-200 mb-4">
+      {{ longDescription }}
+    </p>
 
-    <h3 class="font-semibold mt-4 mb-1 text-lg  uppercase text-gray-900 dark:text-white">
-      Technologies
-    </h3>
-    <ul class="flex flex-wrap gap-2 mb-4">
+    <!-- Galería de imágenes -->
+    <div *ngIf="galleryImages && galleryImages.length > 0" class="my-6">
+      <image-gallery [images]="galleryImages" />
+    </div>
+
+    <ul class="flex flex-wrap gap-2 mb-8">
       <li *ngFor="let chip of techChips" class="text-gray-700">
         <my-chip
           [label]="chip.label"
@@ -167,14 +167,6 @@
         ></my-chip>
       </li>
     </ul>
-
-    <!-- Galería de imágenes -->
-    <div *ngIf="galleryImages && galleryImages.length > 0" class="my-6">
-      <h3 class="font-semibold mb-2 text-lg uppercase text-gray-900 dark:text-white">
-        Galería
-      </h3>
-      <image-gallery [images]="galleryImages" />
-    </div>
 
     <div class="flex gap-4">
       <a

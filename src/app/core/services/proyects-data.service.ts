@@ -25,7 +25,7 @@ export interface ProjectData {
 
 @Injectable({ providedIn: 'root' })
 export class ProjectsService {
-  private projects: ProjectData[] = [
+  #projects: ProjectData[] = [
     {
       id: 1,
       name: 'TodoApp',
@@ -50,23 +50,23 @@ export class ProjectsService {
   ];
 
   getAll(): ProjectData[] {
-    return this.projects;
+    return this.#projects;
   }
 
   getById(id: number): ProjectData | undefined {
-    return this.projects.find((p) => p.id === id);
+    return this.#projects.find((p) => p.id === id);
   }
 
   getByStatus(status: ProjectStatus): ProjectData[] {
-    return this.projects.filter((p) => p.status === status);
+    return this.#projects.filter((p) => p.status === status);
   }
 
   getByTechnology(techId: number): ProjectData[] {
-    return this.projects.filter((p) => p.technologyIds.includes(techId));
+    return this.#projects.filter((p) => p.technologyIds.includes(techId));
   }
 
   getByTechnologies(techIds: number[]): ProjectData[] {
-    return this.projects.filter((p) =>
+    return this.#projects.filter((p) =>
       techIds.some((id) => p.technologyIds.includes(id))
     );
   }

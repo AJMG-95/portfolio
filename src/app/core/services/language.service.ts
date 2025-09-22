@@ -10,14 +10,14 @@ const RTL_LANGS: ReadonlyArray<string> = []; // ['ar','he',...]
 
 @Injectable({ providedIn: 'root' })
 export class LanguageService {
-  private readonly platformId = inject<object>(PLATFORM_ID);
-  private readonly transloco = inject(TranslocoService);
+  readonly #platformId = inject<object>(PLATFORM_ID);
+  readonly #transloco = inject(TranslocoService);
 
   /** Idiomas soportados (tuple readonly) */
   readonly availableLangs = ['es', 'en'] as const;
 
   /** Estado principal */
-  readonly lang = signal<Lang>(this.getInitial());
+  readonly lang = signal<Lang>(this.#getInitial());
 
   /** Derivados */
   readonly isEnglish = computed(() => this.lang() === 'en');
@@ -28,9 +28,9 @@ export class LanguageService {
       const l = this.lang();
 
       // 1) Transloco
-      this.transloco.setActiveLang(l);
+      this.#transloco.setActiveLang(l);
 
-      if (this.isBrowser()) {
+      if (this.#isBrowser()) {
         // 2) Atributos del documento
         document.documentElement.setAttribute('lang', l);
         document.documentElement.setAttribute('dir', RTL_LANGS.includes(l) ? 'rtl' : 'ltr');
@@ -43,7 +43,7 @@ export class LanguageService {
     });
 
     // 🔁 Sincroniza cambios de idioma entre pestañas
-    if (this.isBrowser()) {
+    if (this.#isBrowser()) {
       window.addEventListener('storage', (e) => {
         if (e.key === STORAGE_KEY && (e.newValue === 'es' || e.newValue === 'en')) {
           if (this.lang() !== e.newValue) this.lang.set(e.newValue as Lang);
@@ -63,8 +63,8 @@ export class LanguageService {
   }
 
   /** Helpers */
-  private getInitial(): Lang {
-    if (!this.isBrowser()) return 'es';
+  #getInitial(): Lang {
+    if (!this.#isBrowser()) return 'es';
     try {
       const saved = localStorage.getItem(STORAGE_KEY) as Lang | null;
       if (saved === 'es' || saved === 'en') return saved;
@@ -74,7 +74,7 @@ export class LanguageService {
     return nav.startsWith('es') ? 'es' : 'en';
   }
 
-  private isBrowser() {
-    return isPlatformBrowser(this.platformId);
+  #isBrowser() {
+    return isPlatformBrowser(this.#platformId);
   }
 }

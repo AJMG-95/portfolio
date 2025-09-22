@@ -12,7 +12,7 @@ export interface TechnologyAsset {
 @Injectable({ providedIn: 'root' })
 export class VisualAssetsService {
   // 🌐 Tecnologías frontend
-  private frontend: Record<number, TechnologyAsset> = {
+  #frontend: Record<number, TechnologyAsset> = {
     1: {
       name: 'Angular',
       logo: 'assets/images/logos/angular_logo.webp',
@@ -76,7 +76,7 @@ export class VisualAssetsService {
   };
 
   // 🖥️ Tecnologías backend
-  private backend: Record<number, TechnologyAsset> = {
+  #backend: Record<number, TechnologyAsset> = {
     10: {
       name: 'Node.js',
       logo: 'assets/images/logos/nodejs_logo.webp',
@@ -110,7 +110,7 @@ export class VisualAssetsService {
   };
 
   // 📊 Gestores de bases de datos
-  private databases: Record<number, TechnologyAsset> = {
+  #databases: Record<number, TechnologyAsset> = {
     20: {
       name: 'PostgreSQL',
       logo: 'assets/images/logos/postgresql_logo.webp',
@@ -126,7 +126,7 @@ export class VisualAssetsService {
   };
 
   // 🔃 Herramientas de desarrollo
-  private devTools: Record<number, TechnologyAsset> = {
+  #devTools: Record<number, TechnologyAsset> = {
     5: {
       name: 'LocalStorage',
       logo: 'assets/images/logos/storage_logo.webp',
@@ -143,7 +143,7 @@ export class VisualAssetsService {
 
 
   // 📋 Herramientas de gestión de trabajo
-  private workflowTools: Record<number, TechnologyAsset> = {
+  #workflowTools: Record<number, TechnologyAsset> = {
     21: {
       name: 'Asana',
       logo: 'assets/images/logos/asana_logo.webp',
@@ -159,7 +159,7 @@ export class VisualAssetsService {
   };
 
   // 🔃 Control de versiones
-  private versionControl: Record<number, TechnologyAsset> = {
+  #versionControl: Record<number, TechnologyAsset> = {
     18: {
       name: 'Git',
       logo: 'assets/images/logos/git_logo.webp',
@@ -175,7 +175,7 @@ export class VisualAssetsService {
   };
 
   // ✅ Buenas prácticas
-  private principles: Record<number, TechnologyAsset> = {
+  #principles: Record<number, TechnologyAsset> = {
     23: {
       name: 'Clean Architecture',
       logo: 'assets/images/icons/architecture.webp',
@@ -209,7 +209,7 @@ export class VisualAssetsService {
   };
 
   // 🔗 Integraciones / Tiempo real
-  private integrations: Record<number, TechnologyAsset> = {
+  #integrations: Record<number, TechnologyAsset> = {
     29: {
       name: 'WebHooks',
       logo: 'assets/images/icons/webhooks.webp',
@@ -225,7 +225,7 @@ export class VisualAssetsService {
   };
 
   // 🛠️ Operaciones / Automatización / Deploy
-  private ops: Record<number, TechnologyAsset> = {
+  #ops: Record<number, TechnologyAsset> = {
     31: {
       name: 'Tareas automáticas',
       logo: 'assets/images/icons/scheduled-tasks.webp',
@@ -242,7 +242,7 @@ export class VisualAssetsService {
 
 
 
-  private misc: Record<number, TechnologyAsset> = {
+  #misc: Record<number, TechnologyAsset> = {
     101: {
       name: 'Cambridge',
       logo: 'assets/images/companies-logo/university_of_cambridge_logo.webp',
@@ -258,37 +258,37 @@ export class VisualAssetsService {
   }
 
   // 🧩 Mapa combinado
-  private techMap: Record<number, TechnologyAsset> = Object.assign(
+  #techMap: Record<number, TechnologyAsset> = Object.assign(
     {},
-    this.frontend,
-    this.backend,
-    this.databases,
-    this.devTools,
-    this.workflowTools,
-    this.versionControl,
-    this.principles,
-    this.misc,
-    this.integrations,
-    this.ops,
+    this.#frontend,
+    this.#backend,
+    this.#databases,
+    this.#devTools,
+    this.#workflowTools,
+    this.#versionControl,
+    this.#principles,
+    this.#misc,
+    this.#integrations,
+    this.#ops,
   );
 
   getAsset(id: number): TechnologyAsset | undefined {
-    return this.techMap[id];
+    return this.#techMap[id];
   }
 
   getLogo(id: number): string | undefined {
-    return this.techMap[id]?.logo;
+    return this.#techMap[id]?.logo;
   }
 
   getColor(id: number): string | undefined {
-    return this.techMap[id]?.color;
+    return this.#techMap[id]?.color;
   }
 
   getLightColor(id: number): string | undefined {
-    return this.techMap[id]?.lightColor;
+    return this.#techMap[id]?.lightColor;
   }
 
   getName(id: number): string | undefined {
-    return this.techMap[id]?.name;
+    return this.#techMap[id]?.name;
   }
 }

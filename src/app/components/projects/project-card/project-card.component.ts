@@ -24,7 +24,7 @@ import { ImageGalleryComponent } from '@shared/image-gallery/image-gallery.compo
 })
 export class ProjectCardComponent {
 
-  private techAssets = inject(VisualAssetsService);
+   #techAssets = inject(VisualAssetsService);
 
   @Input() headerImageUrl!: string;
   @Input() cornerImageUrl?: string;
@@ -91,9 +91,9 @@ export class ProjectCardComponent {
 
   get techChips(): { label: string; icon?: string; color?: string }[] {
     return this.technologyIds.map(id => ({
-      label: this.techAssets.getName(id) || `ID ${id}`,
-      icon: this.techAssets.getLogo(id),
-      color: this.techAssets.getLightColor(id),
+      label: this.#techAssets.getName(id) || `ID ${id}`,
+      icon: this.#techAssets.getLogo(id),
+      color: this.#techAssets.getLightColor(id),
     }));
   }
 }

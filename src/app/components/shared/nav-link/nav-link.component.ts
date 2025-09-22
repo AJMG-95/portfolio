@@ -15,7 +15,7 @@ export class NavLinkComponent {
 
   isActive = false;
 
-  constructor(private router: Router) { }
+  constructor() { }
 
 
 

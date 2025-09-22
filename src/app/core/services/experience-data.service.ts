@@ -13,7 +13,7 @@ export interface ExperienceData {
 
 @Injectable({ providedIn: 'root' })
 export class ExperienceService {
-  private experiences: ExperienceData[] = [
+  #experiences: ExperienceData[] = [
     {
       id: 1,
       company: 'Controlnet S.L.',
@@ -33,10 +33,10 @@ export class ExperienceService {
   ];
 
   getAll(): ExperienceData[] {
-    return this.experiences;
+    return this.#experiences;
   }
 
   getById(id: number): ExperienceData | undefined {
-    return this.experiences.find((exp) => exp.id === id);
+    return this.#experiences.find((exp) => exp.id === id);
   }
 }

@@ -21,41 +21,41 @@ export class Typewriter implements OnChanges {
   visibleText = '';
   showCursor = true;
 
-  private alreadyTyped = false;
-  private typingInterval: any;
+  #alreadyTyped = false;
+  #typingInterval: any;
 
   ngOnChanges(changes: SimpleChanges): void {
     const shouldRestart = changes['key'] || changes['text'] || changes['start'];
 
     if (this.start && shouldRestart) {
-      this.resetTyping();
-      setTimeout(() => this.typeText(), this.delay);
+      this.#resetTyping();
+      setTimeout(() => this.#typeText(), this.delay);
     }
   }
 
-  private resetTyping() {
-    if (this.typingInterval) {
-      clearInterval(this.typingInterval);
+  #resetTyping() {
+    if (this.#typingInterval) {
+      clearInterval(this.#typingInterval);
     }
 
     this.visibleText = '';
     this.showCursor = true;
-    this.alreadyTyped = false;
+    this.#alreadyTyped = false;
   }
 
-  private typeText(): void {
-    this.alreadyTyped = true;
+  #typeText(): void {
+    this.#alreadyTyped = true;
     let index = 0;
     const length = this.text.length;
 
     const interval = this.typingFast ? 30 : 60;
 
-    this.typingInterval = setInterval(() => {
+    this.#typingInterval = setInterval(() => {
       this.visibleText += this.text[index];
       index++;
 
       if (index >= length) {
-        clearInterval(this.typingInterval);
+        clearInterval(this.#typingInterval);
         this.showCursor = false;
         this.onFinish?.();
       }

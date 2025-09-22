@@ -17,17 +17,17 @@ import { ProjectCardComponent } from '@project/project-card/project-card.compone
   styleUrl: './projects.component.css',
 })
 export class ProjectsPage {
-  private transloco = inject(TranslocoService);
-  private projectsService = inject(ProjectsService);
+  #transloco = inject(TranslocoService);
+  #projectsService = inject(ProjectsService);
 
   // Traducciones de estado
-  translations = toSignal(this.transloco.selectTranslateObject('myProjects'), { initialValue: {} });
+  translations = toSignal(this.#transloco.selectTranslateObject('myProjects'), { initialValue: {} });
   statusLabels = computed(() => this.translations()?.status ?? {});
 
   // Proyectos reales del servicio
   projects = computed(() => {
     const translated = this.translations()?.projects ?? [];
-    const technical = this.projectsService.getAll();
+    const technical = this.#projectsService.getAll();
 
     return technical.map((project) => {
       const match = translated.find((t: any) => t.id === project.id);

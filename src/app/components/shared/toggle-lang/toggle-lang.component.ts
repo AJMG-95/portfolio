@@ -10,7 +10,7 @@ import { LanguageService } from '@core/services/language.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ToggleLangComponent {
-  private lang = inject(LanguageService);
-  isEnglish = computed(() => this.lang.lang() === 'en');
-  onToggle() { this.lang.toggle(); }
+  #lang = inject(LanguageService);
+  isEnglish = computed(() => this.#lang.lang() === 'en');
+  onToggle() { this.#lang.toggle(); }
 }

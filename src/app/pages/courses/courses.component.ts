@@ -22,18 +22,18 @@ import { CertificationViewModel } from '@core/models/certification-view.model';
 })
 
 export class CoursesPage {
-  private transloco = inject(TranslocoService);
-  private certService = inject(CertificationsService);
-  private assetsService = inject(VisualAssetsService);
+  #transloco = inject(TranslocoService);
+  #certService = inject(CertificationsService);
+  #assetsService = inject(VisualAssetsService);
 
-  translations = toSignal(this.transloco.selectTranslateObject('certifications'), {
+  translations = toSignal(this.#transloco.selectTranslateObject('certifications'), {
     initialValue: { items: [] },
 
   });
 
   courses = computed((): CertificationViewModel[] => {
     const translated = this.translations().items as any[];
-    const technical = this.certService.getAll();
+    const technical = this.#certService.getAll();
 
     return translated.map((item) => {
       const match = technical.find((c) => c.id === item.id);
@@ -60,8 +60,8 @@ export class CoursesPage {
         url: match?.url,
 
         // tecnología (1er ID)
-        logo: selectedLogoId ? this.assetsService.getLogo(selectedLogoId) : undefined,
-        techName: selectedLogoId ? this.assetsService.getName(selectedLogoId) : undefined,
+        logo: selectedLogoId ? this.#assetsService.getLogo(selectedLogoId) : undefined,
+        techName: selectedLogoId ? this.#assetsService.getName(selectedLogoId) : undefined,
 
         // banner dinámico
         isTechCourse: !!(match?.technologyIds?.length),

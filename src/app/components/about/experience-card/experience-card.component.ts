@@ -1,6 +1,6 @@
 // src\app\components\about\experience-card\experience-card.component.ts
 
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, inject, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ChipComponent } from '@shared/chip/chip.component';
 import { VisualAssetsService } from '@core/services/visual-assets.service';
@@ -19,6 +19,8 @@ interface TechDisplay {
   templateUrl: './experience-card.component.html',
 })
 export class ExperienceCard implements OnChanges {
+
+  #techAssets = inject(VisualAssetsService)
   @Input() title!: string;
   @Input() titleLink?: string;
   @Input() imageUrl?: string;
@@ -30,14 +32,13 @@ export class ExperienceCard implements OnChanges {
 
   technologies: TechDisplay[] = [];
 
-  constructor(private techAssets: VisualAssetsService) { }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['technologyIds']) {
       this.technologies = (this.technologyIds || []).map(id => ({
-        label: this.techAssets.getName(id) || 'Desconocido',
-        icon: this.techAssets.getLogo(id),
-        color: this.techAssets.getLightColor(id),
+        label: this.#techAssets.getName(id) || 'Desconocido',
+        icon: this.#techAssets.getLogo(id),
+        color: this.#techAssets.getLightColor(id),
       }));
     }
   }

@@ -104,12 +104,20 @@
     "noCourses": "No hay cursos disponibles",
     "items": [
       {
-        "id": 12,
+        "id": 13,
         "title": "NodeJS: De cero a experto",
         "issuer": "Udemy",
         "language": "Español",
         "type": "Curso técnico",
-        "date": "Agosto 2025"
+        "date": "septiembre 2025"
+      },
+      {
+        "id": 12,
+        "title": "Angular Pro: Lleva tus bases al siguiente nivel",
+        "issuer": "Udemy",
+        "language": "Español",
+        "type": "Curso técnico",
+        "date": "septiembre 2025"
       },
       {
         "id": 11,
