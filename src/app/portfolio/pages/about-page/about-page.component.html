@@ -1,0 +1,117 @@
+<section class="flex flex-col justify-center py-10  z-0">
+  <about-tabs [tabs]="tabs" (activeIndexChange)="onTabChange($event)" />
+
+  <!-- Habilidades técnicas, metodologías y soft skills -->
+  @if (selectedTab() == 0) {
+  <section class="w-full mt-8 space-y-8">
+    <!-- tech Skills -->
+    <div class="space-y-3">
+      <h2
+        class="text-base md:text-lg font-semibold tracking-tight bg-white/60 dark:bg-white/5 backdrop-blur border border-black/10 dark:border-white/10 rounded-xl px-4 md:px-5 py-2 shadow-xs"
+      >
+        {{ 'about.tech_skills' | transloco }}
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-12 auto-rows-fr">
+        <!-- Frontend -->
+        <section
+          class="flex flex-col gap-4 rounded-xl p-2 border-t-1 border-l-1 border-primary/50 shadow-lg shadow-primary/10"
+        >
+          <h2 class="text-lg font-semibold tracking-tight underline">
+            {{ 'filters.frontend' | transloco }}
+          </h2>
+          <tech-chips [titleKey]="'Frameworks'" [items]="(frontFrameworks$ | async) ?? []" />
+          <tech-chips
+            [titleKey]="'about.languages' | transloco"
+            [items]="(frontLanguages$ | async) ?? []"
+          />
+          <tech-chips [titleKey]="'UI'" [items]="(ui() | async) ?? []" />
+        </section>
+
+        <!-- Backend -->
+        <!--         <section class="flex flex-col gap-4">
+            <h2 class="text-lg font-semibold tracking-tight underline">
+              {{ 'filters.backend' | transloco }}
+            </h2>
+            <tech-chips [titleKey]="'Frameworks'" [items]="(backFrameworks$ | async) ?? []" />
+            <tech-chips [titleKey]="'about.languages'" [items]="(backLanguages$ | async) ?? []" />
+          </section> -->
+
+        <!-- Mobile -->
+        <section
+          class="flex flex-col gap-4 rounded-xl p-2 border-t-1 border-l-1 border-info/50 shadow-lg shadow-info/10"
+        >
+          <h2 class="text-lg font-semibold tracking-tight underline">
+            {{ 'filters.mobile' | transloco }}
+          </h2>
+          <tech-chips [titleKey]="'Frameworks'" [items]="(mobileFrameworks$ | async) ?? []" />
+          <tech-chips
+            [titleKey]="'about.languages' | transloco"
+            [items]="(mobileLanguages$ | async) ?? []"
+          />
+        </section>
+        <!-- Herramientas -->
+        <section
+          class="flex flex-col gap-4 rounded-xl p-2 border-t-1 border-l-1 border-accent/50 shadow-lg shadow-accent/10"
+        >
+          <h2 class="text-lg font-semibold tracking-tight underline mt-2">
+            {{ 'filters.tools' | transloco }}
+          </h2>
+          <tech-chips
+            [titleKey]="'about.version_control'"
+            [items]="(versionContol$ | async) ?? []"
+          />
+          <tech-chips [titleKey]="'about.project_management'" [items]="(tools$ | async) ?? []" />
+        </section>
+        <!-- Bases de datos -->
+        <!--        <section class="flex flex-col gap-4">
+            <h2 class="text-lg font-semibold tracking-tight underline mt-2">
+              {{ 'filters.databases' | transloco : { defaultValue: 'Bases de datos' } }}
+            </h2>
+            <tech-chips [titleKey]="'SQL'" [items]="(sqlDBs$ | async) ?? []" />
+            @let nosql = (nosqlDBs$ | async) ?? [];
+            @if (nosql.length > 0) {
+              <tech-chips [titleKey]="'NoSQL'" [items]="nosql" />
+            }
+          </section> -->
+      </div>
+    </div>
+    <div class="divider"></div>
+    <!-- Metodologías -->
+    <div class="space-y-3">
+      <h2
+        class="text-base md:text-lg font-semibold tracking-tight bg-white/60 dark:bg-white/5 backdrop-blur border border-black/10 dark:border-white/10 rounded-xl px-4 md:px-5 py-2 shadow-xs"
+      >
+        {{ 'methodologies.agile' | transloco }}
+      </h2>
+      <methodology-chips [items]="(methods$ | async) ?? []" />
+    </div>
+    <div class="divider"></div>
+    <!-- Soft skills -->
+    <div class="space-y-3">
+      <h2
+        class="text-base md:text-lg font-semibold tracking-tight bg-white/60 dark:bg-white/5 backdrop-blur border border-black/10 dark:border-white/10 rounded-xl px-4 md:px-5 py-2 shadow-xs"
+      >
+        {{ 'about.soft_skills' | transloco }}
+      </h2>
+      <soft-skills-grid [items]="(softSkills$ | async) ?? []" />
+    </div>
+  </section>
+  }
+
+  <!-- Experiencia -->
+  @if (selectedTab() == 1) {
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-fr mt-8">
+    @for (experience of experiences() ; track experience) {
+    <exp-modal-card [experience]="experience" />
+    }
+  </div>
+  }
+
+  <!-- Formación academica -->
+  @if (selectedTab() == 2) {
+  <div class="grid gap-4 auto-rows-fr mt-8">
+    <academics-card [academics]="studies()" />
+  </div>
+  }
+</section>

@@ -1,0 +1,13 @@
+<div role="tablist" class="tabs tabs-bottom w-full max-w-6xl flex flex-row justify-center gap-4 md:gap-12">
+  @for (label of tabs(); track label; let i = $index) {
+  <button type="button" role="tab" (click)="select(i)" [attr.aria-selected]="activeIndex() === i" [class]="
+        'rounded-xl px-3 py-2 transition duration-300 hover:bg-primary hover:text-white  active:animate-bounce-scale active:scale-85 ' +
+
+        (activeIndex() === i
+          ? ' bg-primary/15 border-y-2  border-x-1 font-semibold scale-105'
+          : '')
+      ">
+    {{ label | transloco }}
+  </button>
+  }
+</div>

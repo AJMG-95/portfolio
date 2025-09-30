@@ -1,0 +1,140 @@
+<section class="mx-auto w-full max-w-6xl px-4 py-8 space-y-8">
+  <!-- Personas de referencia -->
+  <div class="space-y-8">
+    <div class="space-y-3">
+      <h2
+        class="text-base md:text-xl font-semibold tracking-tight bg-white/60 dark:bg-white/5 backdrop-blur border border-black/10 dark:border-white/10 rounded-xl px-4 md:px-5 py-2 shadow-xs"
+      >
+        {{ 'titles.references' | transloco }}
+      </h2>
+
+      @if (references().length === 0) {
+      <p class="opacity-70 text-sm mt-3">{{ 'ui.empty' | transloco }}</p>
+      } @else {
+      <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-4">
+        @for (r of references(); track trackByRef($index, r)) {
+        <li>
+          <article
+            class="card bg-base-100 border-0 rounded-2xl overflow-hidden shadow-sm shadow-neutral/50 dark:shadow-white/50"
+          >
+            <div class="card-body p-4">
+              <header class="flex items-start gap-3">
+                @if (r.avatarUrl) {
+                <img
+                  [src]="r.avatarUrl!"
+                  [alt]="r.name"
+                  class="h-12 w-12 rounded-full object-cover border"
+                  loading="lazy"
+                  decoding="async"
+                />
+                } @else {
+                <div
+                  class="h-12 w-12 rounded-full border bg-base-200 grid place-items-center text-sm font-semibold"
+                >
+                  {{ r.name.charAt(0) }}
+                </div>
+                }
+
+                <div class="min-w-0">
+                  <h3 class="text-base font-semibold leading-tight truncate">
+                    {{ r.name }}
+                  </h3>
+
+                  <p class="text-xs opacity-70">
+                    @if (r.titleKey) {
+                    <span>{{ r.titleKey | transloco }}</span>
+                    } @if (r.companyKey) {
+                    <span> · {{ r.companyKey | transloco }}</span>
+                    } @else if (r.company) {
+                    <span> · {{ r.company }}</span>
+                    }
+                  </p>
+
+                  @if (r.contactKey) {
+                  <p class="text-[11px] opacity-60 mt-1">
+                    {{ r.contactKey | transloco }}
+                  </p>
+                  }
+                </div>
+              </header>
+
+              <div class="card-actions mt-3">
+                @if (r.linkedin) {
+                <a
+                  class="btn btn-sm btn-outline"
+                  [href]="r.linkedin!"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="LinkedIn"
+                >
+                  LinkedIn
+                </a>
+                }
+              </div>
+            </div>
+          </article>
+        </li>
+        }
+      </ul>
+      }
+    </div>
+    <div class="divider"></div>
+  </div>
+
+  <!-- Cartas de recomendación -->
+  <div class="space-y-8">
+    <div class="space-y-3">
+      <h2
+        class="text-base md:text-xl font-semibold tracking-tight bg-white/60 dark:bg-white/5 backdrop-blur border border-black/10 dark:border-white/10 rounded-xl px-4 md:px-5 py-2 shadow-xs"
+      >
+        {{ 'references.letter.general' | transloco }}
+      </h2>
+
+      @if (letters().length === 0) {
+      <p class="opacity-70 text-sm mt-3">{{ 'ui.empty' | transloco }}</p>
+      } @else {
+      <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-4">
+        @for (l of letters(); track trackByLetter($index, l)) {
+        <li>
+          <article
+            class="card bg-base-100 border-0 rounded-2xl overflow-hidden shadow-sm shadow-neutral/50 dark:shadow-white/50"
+          >
+            <div class="card-body p-4">
+              <header class="flex flex-wrap items-center gap-2 justify-between">
+                <h3 class="text-base font-semibold leading-tight">
+                  {{ l.titleKey || 'references.letter.general' | transloco }}
+                </h3>
+
+                <div class="flex gap-2">
+                  @if (l.date) {
+                  <span class="badge badge-ghost badge-sm">{{ l.date }}</span>
+                  }
+                  <span class="badge badge-sm" [class]="letterLangBadge(l.language)">{{
+                    l.language?.toUpperCase() || '—'
+                  }}</span>
+                  <span class="badge badge-sm" [class]="letterTypeBadge(l.fileType)">{{
+                    l.fileType || 'link'
+                  }}</span>
+                </div>
+              </header>
+
+              <p class="text-xs opacity-70 mt-1">
+                @if (l.companyKey) {
+                <span>{{ l.companyKey | transloco }}</span>
+                }
+              </p>
+
+              <div class="card-actions mt-3">
+                <a class="btn btn-sm btn-primary" [href]="l.url" target="_blank" rel="noopener">
+                  {{ 'buttons.have_a_look' | transloco : { defaultValue: 'Ver' } }}
+                </a>
+              </div>
+            </div>
+          </article>
+        </li>
+        }
+      </ul>
+      }
+    </div>
+  </div>
+</section>

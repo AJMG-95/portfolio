@@ -1,0 +1,190 @@
+<!-- Tarjeta principal -->
+<article class="card border-0 overflow-hidden w-[20rem] sm:w-[22rem] shadow-sm shadow-neutral/50 dark:shadow-white/50
+         rounded-2xl bg-white dark:bg-white/5">
+  <!-- Header image (certificado o placeholder) -->
+  <figure class="h-40 overflow-hidden bg-primary/10">
+    <img
+      [src]="headerImage()"
+      [alt]="cert().titleKey || 'certs.untitled' | transloco"
+      class="h-full w-full object-cover"
+      loading="lazy"
+      decoding="async"
+    />
+  </figure>
+
+  <div class="card-body p-4">
+    <div class="flex items-start gap-3">
+      <!-- Logo principal de la certificación/tech (si existe) -->
+      @if (cert().logoUrl) {
+      <img
+        [src]="cert().logoUrl!"
+        [alt]="cert().titleKey || 'certs.untitled' | transloco"
+        class="h-11 w-11 rounded-md object-contain border p-1"
+        loading="lazy"
+        decoding="async"
+      />
+      }
+      <div class="min-w-0">
+        <h3 class="text-base font-semibold leading-tight truncate mb-1">
+          {{ cert().titleKey || 'certs.untitled' | transloco }}
+        </h3>
+
+        <!-- estado + institución + certificateId -->
+        <div class="flex flex-col gap-1">
+          <p class="text-xs opacity-70 flex flex-wrap items-center gap-2 h-7">
+            @if (cert().type == 'lng') {
+            <span class="badge badge-sm" [class]="levelBadgeClass()">
+              {{ cert().levelKey | transloco }}
+            </span>
+            } @else {
+            <span class="badge badge-sm" [class]="statusBadgeClass()">
+              {{ 'status.' + status() | transloco : { defaultValue: status() } }}
+            </span>
+            } @if (institutionKey()) {
+            <span class="opacity-70">
+              {{ institutionKey()! | transloco }}
+            </span>
+            }
+          </p>
+          <p class="text-xs opacity-70 flex flex-wrap items-center gap-2 h-7">
+            @if (cert().certificateId) {
+            <span class="opacity-70"> · ID: {{ cert().certificateId }}</span>
+            }
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- enlaces/acciones -->
+    <div class="card-actions mt-3 justify-between">
+      <div class="w-full flex flex-row justify-between items-center">
+        <div class="flex gap-2">
+          @if (cert().courseUrl) {
+          <a
+            class="btn btn-sm btn-primary"
+            [href]="cert().courseUrl!"
+            target="_blank"
+            rel="noopener"
+          >
+            {{ 'buttons.open_course' | transloco : { defaultValue: 'Ir al curso' } }}
+          </a>
+          }
+          <!--    @if (cert().certUrl) {
+          <a class="btn btn-sm btn-outline" [href]="cert().certUrl!" target="_blank" rel="noopener">
+            {{ 'buttons.view_certificate' | transloco : { defaultValue: 'Ver certificado' } }}
+          </a>
+          } -->
+        </div>
+
+        <button type="button" class="btn btn-sm btn-outline btn-info" (click)="openModal()">
+          {{ 'buttons.see_more' | transloco : { defaultValue: 'Ver más' } }}
+        </button>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- MODAL: más detalles -->
+<dialog
+  #dlg
+  class="modal modal-bottom sm:modal-middle"
+  (click)="onBackdropClick($event)"
+  (close)="onNativeClose()"
+>
+  <div class="modal-box rounded-2xl border bg-base-100 animate-fade-in space-y-4">
+    <!-- header modal -->
+    <header class="flex items-start gap-3">
+      @if (cert().logoUrl) {
+      <img
+        [src]="cert().logoUrl!"
+        [alt]="cert().titleKey || 'certs.untitled' | transloco"
+        class="h-12 w-12 rounded-md object-contain border p-1"
+        loading="lazy"
+        decoding="async"
+      />
+      }
+      <div class="min-w-0">
+        <h3 class="text-lg font-bold leading-tight">
+          {{ cert().titleKey || 'certs.untitled' | transloco }}
+        </h3>
+        <p class="text-xs opacity-70 flex flex-wrap items-center gap-2">
+          <span class="badge badge-xs" [class]="statusBadgeClass()">
+            {{ 'status.' + status() | transloco : { defaultValue: status() } }}
+          </span>
+
+          @if (institutionKey()) {
+          <span> · {{ institutionKey()! | transloco }}</span>
+          }
+          @if (cert().durationHours) {
+          <span>
+            · {{ 'labels.duration' | transloco : { defaultValue: 'Duración' } }}:
+            {{ cert().durationHours!  | appHourPipe }}
+          </span>
+          }
+          @if (cert().certificateId) {
+          <span> · ID: {{ cert().certificateId }}</span>
+          }
+        </p>
+      </div>
+    </header>
+
+    <!-- imagen de certificado (o placeholder) -->
+    <figure class="rounded-lg overflow-hidden border bg-base-200">
+      <img
+        [src]="headerImage()"
+        [alt]="cert().titleKey || 'certs.untitled' | transloco"
+        class="w-full object-contain"
+        loading="lazy"
+        decoding="async"
+      />
+    </figure>
+
+    <!-- tecnologías (chips) -->
+    @let t = techs(); @if (t) {
+    <section class="flex flex-col gap-6">
+      @if (t.frontFrameworks.length || t.frontLanguages.length) {
+      <tech-chips
+        [titleKey]="'filters.frontend'"
+        [items]="t.frontFrameworks.concat(t.frontLanguages)"
+      />
+      } @if (t.backFrameworks.length || t.backLanguages.length) {
+      <tech-chips
+        [titleKey]="'filters.backend'"
+        [items]="t.backFrameworks.concat(t.backLanguages)"
+      />
+      } @if (t.uiLibraries.length) {
+      <tech-chips [titleKey]="'labels.ui_libraries'" [items]="t.uiLibraries" />
+      } @if (t.clientStorage.length) {
+      <tech-chips [titleKey]="'about.client_storage'" [items]="t.clientStorage" />
+      } @if (t.databases.length) {
+      <tech-chips [titleKey]="'labels.databases'" [items]="t.databases" />
+      } @if (t.versionControl.length) {
+      <tech-chips [titleKey]="'about.version_control'" [items]="t.versionControl" />
+      } @if (t.baasPlatforms.length) {
+      <tech-chips [titleKey]="'labels.baas_platforms'" [items]="t.baasPlatforms" />
+      } @if (t.cloudPlatforms.length) {
+      <tech-chips [titleKey]="'labels.cloud_platforms'" [items]="t.cloudPlatforms" />
+      }
+    </section>
+    }
+
+    <div class="modal-action">
+      @if (cert().courseUrl) {
+      <a class="btn btn-primary" [href]="cert().courseUrl!" target="_blank" rel="noopener">
+        {{ 'buttons.open_course' | transloco : { defaultValue: 'Ir al curso' } }}
+      </a>
+      } @if (cert().certUrl) {
+      <a class="btn btn-outline" [href]="cert().certUrl!" target="_blank" rel="noopener">
+        {{ 'buttons.view_certificate' | transloco : { defaultValue: 'Ver certificado' } }}
+      </a>
+      }
+      <button class="btn" (click)="closeModal()">
+        {{ 'buttons.close' | transloco : { defaultValue: 'Cerrar' } }}
+      </button>
+    </div>
+  </div>
+
+  <form method="dialog" class="modal-backdrop">
+    <button aria-label="Close modal">close</button>
+  </form>
+</dialog>

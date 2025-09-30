@@ -1,1 +1,280 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss';
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark;
+}
+
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+
+@custom-variant dark (&:where(.dark *, [data-theme="dark"] *));
+
+/* === Custom animations === */
+@theme {
+  /* Keyframes */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+  }
+  @keyframes fadeInOpacity {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes rFadeIn {
+    0% {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  @keyframes rFadeOut {
+    0% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+  }
+  @keyframes lFadeIn {
+    0% {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  @keyframes lFadeOut {
+    0% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+  }
+  @keyframes fade-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fade-in-up-lg {
+    0% {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes growIn {
+    0% {
+      transform: scale(1);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1.5) translate(11px, -2px);
+      opacity: 1;
+    }
+  }
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  @keyframes blob {
+    0% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    33% {
+      transform: translate(30px, -50px) scale(1.1);
+    }
+    66% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+    100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+  }
+  @keyframes blink {
+    0%,
+    100% {
+      border-color: transparent;
+    }
+    50% {
+      border-color: currentColor;
+    }
+  }
+  @keyframes bounceScale {
+    0% {
+      transform: scale(1);
+    }
+    30% {
+      transform: scale(1.15);
+    }
+    60% {
+      transform: scale(0.97);
+    }
+    100% {
+      transform: scale(1.05);
+    }
+  }
+  @keyframes shrinkInOut {
+    0% {
+      transform: scale(1);
+    }
+    40% {
+      transform: scale(0.7);
+    }
+    70% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  @keyframes flip-scale-in {
+    0% {
+      transform: rotateY(0deg) scale(1);
+    }
+    50% {
+      transform: rotateY(90deg) scale(0.75);
+    }
+    100% {
+      transform: rotateY(180deg) scale(1);
+    }
+  }
+  @keyframes flip-scale-out {
+    0% {
+      transform: rotateY(180deg) scale(1);
+    }
+    50% {
+      transform: rotateY(90deg) scale(0.75);
+    }
+    100% {
+      transform: rotateY(0deg) scale(1);
+    }
+  }
+  @keyframes flip-in {
+    0% {
+      transform: rotateY(0deg);
+    }
+    100% {
+      transform: rotateY(180deg);
+    }
+  }
+  @keyframes flip-out {
+    0% {
+      transform: rotateY(180deg);
+    }
+    100% {
+      transform: rotateY(0deg);
+    }
+  }
+
+  /* Animation utilities (crean clases .animate-<name>) */
+  --animate-blink: blink 1s step-end infinite;
+  --animate-blob: blob 8s infinite;
+  --animate-bounce-scale: bounceScale 300ms ease-in-out;
+  --animate-fade-in: fadeIn 1s ease-out forwards;
+  --animate-fade-in-opacity: fadeInOpacity 1s ease-out forwards;
+  --animate-fade-out: fadeOut 0.5s ease-out forwards;
+  --animate-fade-in-up: fade-in-up 0.6s ease-out both;
+  --animate-fade-in-up-lg: fade-in-up-lg 0.6s ease-out both;
+  --animate-flip-scale-in: flip-scale-in 500ms ease-in-out forwards;
+  --animate-flip-scale-out: flip-scale-out 500ms ease-in-out forwards;
+  --animate-flip-in: flip-in 500ms ease-in-out forwards;
+  --animate-flip-out: flip-out 500ms ease-in-out forwards;
+  --animate-grow-in: growIn 300ms ease-out forwards;
+  --animate-l-fade-in: lFadeIn 1s ease-out forwards;
+  --animate-l-fade-out: lFadeOut 1s ease-out forwards;
+  --animate-r-fade-in: rFadeIn 1s ease-out forwards;
+  --animate-r-fade-out: rFadeOut 1s ease-out forwards;
+  --animate-shrink-in-out: shrinkInOut 400ms ease-in-out forwards;
+  --animate-typing: typing 3s steps(40, end) 1;
+  --animate-typing-fast: typing 1.5s steps(40, end) 1;
+}
+/* === Scrollbar: base/ocultar/track === */
+@utility scrollbar-thin {
+  scrollbar-width: thin;                 /* Firefox */
+  &::-webkit-scrollbar { width: 8px; height: 8px; } /* WebKit */
+}
+
+@utility scrollbar-none {
+  scrollbar-width: none;                 /* Firefox */
+  &::-webkit-scrollbar { display: none; }/* WebKit */
+}
+
+@utility scrollbar-track-transparent {
+  --sb-track: transparent;
+  &::-webkit-scrollbar-track { background-color: var(--sb-track); }
+}
+
+/* === Thumb base (usa variables) === */
+@utility scrollbar-thumb {
+  /* valores por defecto si no se define color */
+  --sb-thumb: rgb(148 163 184 / 0.6); /* slate-400/60 */
+  /* WebKit */
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--sb-thumb);
+    border-radius: 9999px;
+  }
+  /* Firefox */
+  scrollbar-color: var(--sb-thumb) var(--sb-track, transparent);
+}
+
+/* === Setters de color para el thumb (aplícalos con/o sin "dark:") === */
+@utility scrollbar-thumb-slate-400 { --sb-thumb: rgb(148 163 184 / 0.60); } /* claro */
+@utility scrollbar-thumb-slate-500 { --sb-thumb: rgb(100 116 139 / 0.70); } /* oscuro */
+@utility scrollbar-thumb-neutral-300 { --sb-thumb: rgb(212 212 212 / 0.70); }
+@utility scrollbar-thumb-neutral-500 { --sb-thumb: rgb(115 115 115 / 0.70); }
+
+/* Opcional: color de track si quieres algo suave en vez de transparente */
+@utility scrollbar-track-muted { --sb-track: rgb(241 245 249 / 0.5); }     /* slate-100/50 */
+@utility scrollbar-track-dark  { --sb-track: rgb(30 41 59 / 0.35); }       /* slate-800/35 */
+
+/* === Acento en hover (sin @variant dentro, usa "hover:" al aplicar) === */
+@utility scrollbar-thumb-strong { --sb-thumb: rgb(100 116 139 / 0.85); }
+
+@layer utilities {
+
+  .menu :where(li > *:not(ul)):active {
+    background-color: transparent !important;
+  }
+}

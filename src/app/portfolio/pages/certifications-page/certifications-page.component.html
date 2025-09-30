@@ -1,0 +1,97 @@
+<section class="mx-auto w-full max-w-6xl px-4 py-8 space-y-4">
+  <!-- IT · Frontend -->
+  @if (itFrontend() && itFrontend().length>0) {
+  <div class="space-y-6">
+    <div class="space-y-3">
+      <h2
+        class="text-base md:text-xl font-semibold tracking-tight bg-white/60 dark:bg-white/5 backdrop-blur border border-black/10 dark:border-white/10 rounded-xl px-4 md:px-5 py-2 shadow-xs"
+      >
+        {{ 'titles.certifications' | transloco }} · {{ 'filters.frontend' | transloco }} (IT)
+      </h2>
+      <cards-carousel ariaLabel="IT Frontend certifications">
+        @for (c of (itFrontend()); track c.id) {
+        <cert-card carouselItem [cert]="c"></cert-card>
+        }
+      </cards-carousel>
+    </div>
+    <div class="divider"></div>
+  </div>
+
+  }
+  @if (itMovile() && itMovile().length>0) {
+  <div class="space-y-6">
+    <div class="space-y-3">
+      <h2
+        class="text-base md:text-xl font-semibold tracking-tight bg-white/60 dark:bg-white/5 backdrop-blur border border-black/10 dark:border-white/10 rounded-xl px-4 md:px-5 py-2 shadow-xs"
+      >
+        {{ 'titles.certifications' | transloco }} · {{ 'filters.mobile' | transloco }} (IT)
+      </h2>
+      <cards-carousel ariaLabel="IT Frontend certifications">
+        @for (c of (itMovile()); track c.id) {
+        <cert-card carouselItem [cert]="c"></cert-card>
+        }
+      </cards-carousel>
+    </div>
+    <div class="divider"></div>
+  </div>
+
+  }
+
+  <!-- IT · Backend -->
+  @if (itBackend() && itBackend().length>0 ) {
+  <div class="space-y-6">
+    <div class="space-y-3">
+      <h2
+        class="text-base md:text-xl font-semibold tracking-tight bg-white/60 dark:bg-white/5 backdrop-blur border border-black/10 dark:border-white/10 rounded-xl px-4 md:px-5 py-2 shadow-xs"
+      >
+        {{ 'titles.certifications' | transloco }} · {{ 'filters.backend' | transloco }} (IT)
+      </h2>
+      <cards-carousel ariaLabel="IT Backend certifications">
+        @for (c of (itBackend()); track c.id) {
+        <cert-card carouselItem [cert]="c"></cert-card>
+        }
+      </cards-carousel>
+    </div>
+    <div class="divider"></div>
+  </div>
+
+  }
+
+  <!-- Idiomas -->
+  @if (languages() && languages().length>0) {
+  <div class="space-y-6">
+    <div class="space-y-3">
+      <h2
+        class="text-base md:text-xl font-semibold tracking-tight bg-white/60 dark:bg-white/5 backdrop-blur border border-black/10 dark:border-white/10 rounded-xl px-4 md:px-5 py-2 shadow-xs"
+      >
+        {{ 'titles.certifications' | transloco }} · {{ 'about.languages' | transloco }}
+      </h2>
+      <cards-carousel ariaLabel="Language certifications">
+        @for (c of (languages()); track c.id) {
+        <cert-card carouselItem [cert]="c"></cert-card>
+        }
+      </cards-carousel>
+    </div>
+    <div class="divider"></div>
+  </div>
+
+  }
+
+  <!-- Otros -->
+  @if (others() && others().length>0) {
+  <div class="space-y-6">
+    <div class="space-y-3">
+      <h2
+        class="text-base md:text-xl font-semibold tracking-tight bg-white/60 dark:bg-white/5 backdrop-blur border border-black/10 dark:border-white/10 rounded-xl px-4 md:px-5 py-2 shadow-xs"
+      >
+        {{ 'titles.certifications' | transloco }} · Otros
+      </h2>
+      <cards-carousel ariaLabel="Other certifications">
+        @for (c of (others()!); track c.id) {
+        <cert-card carouselItem [cert]="c"></cert-card>
+        }
+      </cards-carousel>
+    </div>
+  </div>
+  }
+</section>

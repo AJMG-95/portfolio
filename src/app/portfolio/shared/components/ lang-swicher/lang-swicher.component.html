@@ -1,0 +1,46 @@
+<div
+  role="radiogroup"
+  aria-label="Select language"
+  class="inline-flex overflow-hidden rounded-xl border shadow-sm"
+  (keydown)="onKeydown($event)"
+>
+  <!-- Español -->
+  <button
+    type="button"
+    role="radio"
+    [attr.aria-checked]="activeLang() === 'es'"
+    (click)="setLang('es')"
+    [class]="
+      'flex items-center gap-2 px-3 py-2 transition focus:outline-none focus-visible:ring border-l ' +
+      (activeLang() === 'es' ? 'bg-primary/50' : '')
+    "
+    [attr.tabindex]="activeLang() === 'es' ? 0 : -1"
+  >
+    <img
+      src="assets/images/flags/esFlag.webp"
+      alt="ES"
+      class="h-5 w-5 rounded shadow-sm"
+      aria-hidden="true"
+    />
+  </button>
+
+  <!-- English -->
+  <button
+    type="button"
+    role="radio"
+    [attr.aria-checked]="activeLang() === 'en'"
+    (click)="setLang('en')"
+    [class]="
+      'flex items-center gap-2 px-3 py-2 transition focus:outline-none focus-visible:ring border-l ' +
+      (activeLang() === 'en' ? 'bg-primary/50' : '')
+    "
+    [attr.tabindex]="activeLang() === 'en' ? 0 : -1"
+  >
+    <img
+      src="assets/images/flags/gbFlag.webp"
+      alt="ENG"
+      class="h-5 w-5 rounded shadow-sm"
+      aria-hidden="true"
+    />
+  </button>
+</div>

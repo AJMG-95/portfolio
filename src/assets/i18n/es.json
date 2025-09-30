@@ -1,0 +1,321 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "projects": "Proyectos",
+    "courses": "Cursos",
+    "references": "Referencias",
+    "contact": "Contacto",
+    "aria": {
+      "open_menu": "Abrir menú de navegación",
+      "close_menu": "Cerrar menú de navegación",
+      "go_home": "Ir al inicio"
+    }
+  },
+  "institutions": {
+    "cambridge": "Universidad de Cambridge",
+    "udemy": "Udemy",
+    "openwebinars": "OpenWebinars",
+    "uca": "Universidad de Cádiz",
+    "iesDonana": "IES Doñana"
+  },
+  "hero": {
+    "title": "Frontend Developer",
+    "tagline": "Construyo interfaces limpias, accesibles y robustas con Angular, Tailwind y buenas prácticas.",
+    "location": "Cádiz, España",
+    "status": {
+      "open_to_work": "Abierto a nuevas oportunidades"
+    },
+    "cta": {
+      "contact_me": "Contáctame",
+      "download_cv": "Descargar CV"
+    },
+    "social": {
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "email": "Email",
+      "phone": "Teléfono"
+    },
+    "highlights": {
+      "0": "Experiencia con Angular, Tailwind y PrimeNG",
+      "1": "Buenas prácticas: Clean Architecture, SOLID y Testing",
+      "2": "Scrum y trabajo en equipo"
+    },
+    "stats": {
+      "experience": "Experiencia",
+      "experience_value": "1+ años",
+      "projects": "Proyectos",
+      "projects_value": "Varios en producción y personales"
+    },
+    "aria": {
+      "email_me": "Enviar un correo a Antonio",
+      "call_me": "Llamar a Antonio por teléfono"
+    }
+  },
+  "education": {
+    "labels": {
+      "study_with_field": "{{title}} · {{field}}"
+    },
+    "institutions": {
+      "uca": "Universidad de Cádiz",
+      "iesDonana": "IES Doñana (FP)"
+    },
+    "studies": {
+      "programs": {
+        "hnd_web_app_development": "CFGS Desarrollo de Aplicaciones Web (DAW)",
+        "msc_integrated_water_management": "Máster en Gestión Integrada del Agua",
+        "bsc_environmental_sciences": "Grado en Ciencias Ambientales"
+      }
+    },
+    "fields": {
+      "software_development": "Desarrollo de Software",
+      "water_management": "Gestión del Agua",
+      "environmental_sciences": "Ciencias Ambientales"
+    }
+  },
+  "certs": {
+    "language": {
+      "english": {
+        "title": "Certificado de Inglés (Cambridge)"
+      },
+      "level": {
+        "b1": "Nivel B1",
+        "b2": "Nivel B2"
+      }
+    },
+    "tech": {
+      "flutter": {
+        "from_zero_to_expert": "Flutter: De Cero a Experto"
+      },
+      "angular": {
+        "from_zero_to_expert": "Angular: De Cero a Experto",
+        "pro_next_level": "Angular Pro: Siguiente Nivel"
+      },
+      "laravel": {
+        "crud_lab_tdd": "Laboratorio CRUD en Laravel 9 con TDD",
+        "tdd": "Test-Driven Development en Laravel"
+      },
+      "php": {
+        "extending_concepts": "PHP: Ampliando Conceptos",
+        "tdd_fundamentals": "Fundamentos de Test-Driven Development",
+        "beginners": "PHP para Principiantes"
+      },
+      "sql": {
+        "from_zero": "SQL desde Cero"
+      },
+      "node": {
+        "from_zero_to_expert": "Node.js: De Cero a Experto"
+      }
+    },
+    "entrepreneurship_program": "Programa de Emprendimiento"
+  },
+  "companies": {
+    "controlnet": "Controlnet S.L."
+  },
+  "work": {
+    "titles": {
+      "frontend_developer": "Desarrollo Frontend",
+      "intern_frontend_developer": "Desarrollo Frontend (prácticas)"
+    },
+    "dates": {
+      "controlnet": {
+        "frontend_developer": {
+          "1": "Marzo 2024 - Julio 2025"
+        },
+        "intern_frontend_developer": {
+          "1": "Octubre 2023 - Enero 2024"
+        }
+      }
+    },
+    "resp": {
+      "controlnet": {
+        "frontend_developer": {
+          "1": "Desarrollo de interfaces móviles con Flutter y web con Angular (v16–18), reduciendo duplicidades y mejorando la mantenibilidad.",
+          "2": "Apoyo en proyectos con React: creación de componentes reutilizables, desarrollo de hooks e integración de mapas.",
+          "3": "Integración de APIs REST y maquetación con Tailwind CSS y Bootstrap.",
+          "4": "Aplicación de principios SOLID y arquitectura limpia para favorecer la escalabilidad.",
+          "5": "Tutoría y acompañamiento técnico a estudiantes en prácticas."
+        },
+        "intern_frontend_developer": {
+          "1": "Desarrollo de una aplicación web para un cliente externo con Angular 16, TypeScript y Bootstrap.",
+          "2": "Implementación de interfaces responsivas basadas en diseños de Figma, proponiendo mejoras de usabilidad y consistencia cuando era viable.",
+          "3": "Integración de APIs REST en la aplicación.",
+          "4": "Colaboración en pruebas de integración y aseguramiento de la calidad de las funcionalidades entregadas."
+        }
+      }
+    }
+  },
+  "projects": {
+    "todoapp": {
+      "name": "TodoApp",
+      "short": "Gestor de tareas con Angular, Tailwind y PrimeNG.",
+      "long": "Aplicación de tareas con filtros, persistencia local (LocalStorage), componentes PrimeNG y buenas prácticas. Incluye vistas, búsqueda en tiempo real y diseño responsive.",
+      "points": {
+        "offline_storage": "Persistencia offline con LocalStorage",
+        "filters": "Filtros y búsqueda en tiempo real"
+      }
+    },
+    "cineverse": {
+      "name": "Cineverse",
+      "short": "Explore information about movies and TV shows using The Movie Database (TMDB) API.",
+      "long": "Work-in-progress app to browse movies and TV shows with TMDB: lists for Popular, Now Playing, and Upcoming. Includes local lists (LocalStorage) for Favorites, Watched, and My List for both movies and series. Built with Angular 20, Tailwind 4.1, and daisyUI 5.1.",
+      "points": {
+        "tmdb_api": "Integration with The Movie Database (TMDB) API",
+        "sections_movies": "Movie sections: Popular, Upcoming, Now Playing",
+        "sections_series": "TV sections: Popular, On Air, Upcoming",
+        "local_lists": "Local lists: Favorites, Watched, and My List (LocalStorage)",
+        "responsive_a11y": "Responsive design and good accessibility (a11y) practices"
+      }
+    },
+    "zoneless_calculator": {
+      "name": "ZonelessCalculator",
+      "short": "Calculadora construida con Angular 20 en modo zoneless y Tailwind 4.1.",
+      "long": "Calculadora finalizada desarrollada con Angular 20 en modo zoneless (sin Zone.js) y estilos con Tailwind CSS 4.1. Incluye pruebas unitarias configuradas con Karma/Jasmine. El repositorio está disponible en GitHub.",
+      "points": {
+        "zoneless": "Angular 20 en modo zoneless (sin Zone.js)",
+        "testing": "Pruebas con Karma/Jasmine",
+        "tailwind": "Estilos con Tailwind CSS 4.1"
+      }
+    }
+  },
+  "references": {
+    "titles": {
+      "coo": "COO",
+      "finance_director": "Dirección financiera"
+    },
+    "contact": {
+      "on_request": "Disponible previa solicitud"
+    },
+    "letter": {
+      "general": "Carta de recomendación"
+    }
+  },
+  "soft_skills": {
+    "communication": "Comunicación",
+    "teamwork": "Trabajo en equipo",
+    "problem_solving": "Resolución de problemas",
+    "adaptability": "Adaptabilidad",
+    "time_management": "Gestión del tiempo",
+    "proactivity": "Proactividad",
+    "critical_thinking": "Pensamiento crítico",
+    "empathy": "Empatía",
+    "learning_mindset": "Mentalidad de aprendizaje continuo",
+    "accountability": "Responsabilidad",
+    "stress_management": "Gestión del estrés",
+    "presentation": "Presentación / Comunicación en público"
+  },
+  "methodologies": {
+    "scrum": "Scrum",
+    "agile": "Metodología Ágil",
+    "kanban": "Kanban"
+  },
+  "titles": {
+    "portfolio": "Portfolio",
+    "experience": "Experiencia",
+    "education": "Educación",
+    "skills": "Habilidades",
+    "projects": "Proyectos",
+    "contact": "Contacto",
+    "references": "Referencias",
+    "certifications": "Certificaciones"
+  },
+  "buttons": {
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "close": "Cerrar",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "download": "Descargar",
+    "see_more": "Ver más",
+    "see_less": "Ver menos",
+    "view_project": "Ver proyecto",
+    "view_code": "Ver código",
+    "contact_me": "Contáctame",
+    "copy": "Copiar",
+    "copied": "¡Copiado!",
+    "go_to_web": "Ver web",
+    "open_course": "Ir al curso",
+    "have_a_look": "Échale un vistazo"
+  },
+  "ui": {
+    "loading": "Cargando…",
+    "empty": "No hay datos para mostrar.",
+    "updated": "Actualizado",
+    "search": "Buscar",
+    "language": "Idioma",
+    "theme": "Tema",
+    "dark_mode": "Modo oscuro",
+    "light_mode": "Modo claro"
+  },
+  "actions": {
+    "apply": "Aplicar",
+    "reset": "Reiniciar",
+    "confirm": "Confirmar",
+    "back": "Volver",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "submit": "Enviar"
+  },
+  "messages": {
+    "confirm_delete": "¿Seguro que deseas eliminar este elemento?",
+    "success_generic": "Operación realizada con éxito.",
+    "error_generic": "Se ha producido un error. Inténtalo de nuevo.",
+    "no_pictures": "Aún no hay imagenes"
+  },
+  "forms": {
+    "name": "Nombre",
+    "email": "Correo electrónico",
+    "subject": "Asunto",
+    "message": "Mensaje",
+    "send": "Enviar",
+    "required": "Este campo es obligatorio",
+    "invalid_email": "Correo electrónico no válido"
+  },
+  "pagination": {
+    "items_per_page": "Elementos por página",
+    "of": "de",
+    "page": "Página"
+  },
+  "filters": {
+    "all": "Todos",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "mobile": "Móvil",
+    "tools": "Herramientas",
+    "databases": "Bases de datos"
+  },
+  "cta": {
+    "hire_me": "Contrátame",
+    "download_cv": "Descargar CV",
+    "get_in_touch": "Ponte en contacto"
+  },
+  "tabs": {
+    "experience": "Experiencia",
+    "education": "Formación",
+    "skills": "Habilidades"
+  },
+  "about": {
+    "tech_skills": "Habilidades técnicas",
+    "soft_skills": "Habilidades blandas",
+    "methodologies": "Metodologías",
+    "languages": "Lenguajes",
+    "version_control": "Control de versiones",
+    "project_management": "Gestión de proyectos",
+    "ui_libraries": "Librerías de UI",
+    "client_storage": "LocalStorages"
+  },
+  "status": {
+    "draft": "Borrador",
+    "in_progress": "En progreso",
+    "testing": "Probando",
+    "finished": "Terminado",
+    "released": "Publicado",
+    "archived": "Archivado",
+    "fixing_bugs": "Arreglando errores",
+    "completed": "Completado",
+    "pending": "Pendiente"
+  },
+  "labels": {
+    "duration": "Duración"
+  }
+}

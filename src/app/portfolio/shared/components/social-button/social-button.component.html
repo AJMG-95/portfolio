@@ -1,0 +1,19 @@
+<div class="tooltip" [attr.data-tip]="tooltip()">
+  <button type="button" class="btn btn-dash rounded-xl btn-sm gap-2" (click)="onClick($event)"
+    [attr.aria-label]="labelKey() ? (labelKey() | transloco) : null" [title]="labelKey() ? (labelKey() | transloco) : null">
+    @if (iconUrl()) {
+    <img [src]="iconUrl()!" alt="" class="h-6 w-6 rounded-lg bg-white p-1" aria-hidden="true" loading="lazy"
+      decoding="async" />
+    }
+    <span>{{ labelKey() | transloco }}</span>
+  </button>
+</div>
+
+<!-- Toast de copiado -->
+@if (copied()) {
+<div class="toast toast-end z-50">
+  <div class="text-lg text-white alert bg-primary/80 border-primary border-1 mb-12 me-12 w-44 shadow-md shadow-neutral dark:shadow-white">
+    <span>{{ 'buttons.copied' | transloco : { defaultValue: '¡Copiado!' } }}</span>
+  </div>
+</div>
+}

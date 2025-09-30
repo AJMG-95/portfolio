@@ -1,0 +1,32 @@
+<section class="relative">
+  <!-- Prev -->
+  <button
+    type="button"
+    class="btn btn-circle btn-sm absolute left-2 top-2/5 -translate-y-1/12 z-10 hidden sm:inline-flex items-center justify-center border-primary shadow-lg shadow-primary/50 text-xl leading-none"
+    aria-label="Previous"
+    (click)="prev()"
+  >
+    <span class="mb-1"> ‹ </span>
+  </button>
+
+  <!-- Viewport -->
+  <div
+    #viewport
+    class="flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-2 focus:outline-none scrollbar-thin scrollbar-thumb scrollbar-track-transparent dark:scrollbar-thumb-neutral-300 scrollbar-thumb-slate-500 px-2"
+    tabindex="0"
+    role="region"
+    [attr.aria-label]="ariaLabel"
+  >
+    <ng-content></ng-content>
+  </div>
+
+  <!-- Next -->
+  <button
+    type="button"
+    class="btn btn-circle btn-sm absolute right-2 top-2/5 -translate-y-1/12 z-10 hidden sm:inline-flex items-center justify-center border-primary shadow-lg shadow-primary/50 text-xl leading-none"
+    aria-label="Next"
+    (click)="next()"
+  >
+    <span class="mb-1"> › </span>
+  </button>
+</section>

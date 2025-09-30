@@ -1,0 +1,22 @@
+<!-- <h3 class="text-sm font-semibold opacity-80 mb-2">{{ 'soft_skills.presentation' | transloco }}</h3> -->
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+  @for (s of items(); track s.id) {
+  <article class=" p-3 flex items-center gap-3 shadow-sm shadow-neutral/50 dark:shadow-white/50
+         border-0 rounded-2xl bg-white dark:bg-white/5">
+<!--     @if (s.icon) {
+    <img [src]="s.icon!" [alt]="s.key" class="h-7 w-7 rounded object-contain" loading="lazy" />
+    } -->
+    <div class="min-w-0 flex-1">
+      <h4 class="text-sm font-medium truncate">{{ s.key | transloco }}</h4>
+      @if (s.level) {
+      <div class="mt-1 flex items-center gap-1" aria-label="level">
+        @for (i of [1,2,3,4,5]; track i) {
+        <div class="h-1.5 w-6 rounded" [class]="i <= s.level! ? (s.color || 'bg-primary') : 'bg-base-300'"></div>
+        }
+      </div>
+      }
+    </div>
+  </article>
+  }
+</div>

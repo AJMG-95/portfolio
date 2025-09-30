@@ -1,0 +1,98 @@
+<!-- Card compacta: clic abre modal -->
+<article class="card cursor-pointer transition will-change-transform hover:scale-[1.01] shadow-sm shadow-neutral/50 dark:shadow-white/50 hover:shadow-md
+         border-0 rounded-2xl bg-white dark:bg-white/5  w-full h-full" (click)="open()" [class.animate-bounce-scale]="hasInteracted()">
+
+  <div class="card-body p-4 sm:p-5">
+    <div class="flex items-start gap-3">
+      <!-- Logo -->
+      @if (experience().companyLogo) {
+      <img [src]="experience().companyLogo!" [alt]="experience().company"
+        class="h-12 w-12 rounded-md object-contain border p-1" loading="lazy"
+         />
+      }
+
+      <div class="min-w-0">
+        <!-- Empresa (traduce si hay companyKey) -->
+        <h3 class="text-base font-semibold leading-tight truncate">
+          @if (experience().companyKey) {
+          {{ experience().companyKey! | transloco }}
+          } @else {
+          {{ experience().company |transloco}}
+          }
+        </h3>
+
+        <!-- Rol -->
+        <p class="text-sm opacity-80">
+          {{ experience().titleKey | transloco }}
+        </p>
+
+        <!-- Fechas (label ya compuesta en i18n) -->
+        <p class="text-xs opacity-60">
+          {{ experience().dateLabelKey | transloco }}
+        </p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- Modal DaisyUI + <dialog> nativo -->
+<dialog #dlg class="modal modal-bottom sm:modal-middle" (click)="onDialogClick($event)" (close)="onNativeClose()">
+
+  <div id="modal-content" class="modal-box rounded-2xl border bg-base-100 animate-fade-in">
+    <!-- Header -->
+    <div class="flex items-start gap-3">
+      @if (experience().companyLogo) {
+      <img [src]="experience().companyLogo!" [alt]="experience().company"
+        class="h-12 w-12 rounded-md object-contain border p-1" loading="lazy" />
+      }
+      <div class="min-w-0">
+        <h3 class="text-lg font-bold leading-tight">
+          @if (experience().companyKey) {
+          {{ experience().companyKey! | transloco }}
+          } @else {
+          {{ experience().company }}
+          }
+        </h3>
+        <p class="text-sm opacity-80">
+          {{ experience().titleKey | transloco }}
+        </p>
+        <p class="text-xs opacity-60">
+          {{ experience().dateLabelKey | transloco }}
+        </p>
+      </div>
+    </div>
+
+    <div class="divider my-4"></div>
+
+    <!-- Responsabilidades -->
+    <section class="space-y-2">
+      <h4 class="text-sm font-semibold opacity-80">
+        {{ 'titles.experience' | transloco }}
+      </h4>
+      <ul class="list-disc ms-5 space-y-1">
+        @for (key of experience().responsibilityKeys; track key) {
+        <li class="text-sm">
+          {{ key | transloco }}
+        </li>
+        }
+      </ul>
+    </section>
+
+    <!-- Acciones -->
+    <div class="modal-action">
+      @if (experience().companyUrl) {
+      <a class="btn btn-outline" [href]="experience().companyUrl!" target="_blank" rel="noopener noreferrer">
+        {{ 'buttons.go_to_web' | transloco }}
+      </a>
+      }
+      <button class="btn btn-primary" (click)="close()">
+        {{ 'buttons.close' | transloco }}
+      </button>
+    </div>
+  </div>
+
+  <!-- Backdrop (cierre nativo del <dialog>) -->
+  <form method="dialog" class="modal-backdrop">
+    <button aria-label="Close modal">close</button>
+  </form>
+</dialog>

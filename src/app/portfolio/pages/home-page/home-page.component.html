@@ -1,0 +1,73 @@
+<section class="flex flex-col justify-center py-10 z-0">
+  <div class="grid grid-cols-1 gap-8 md:grid-cols-[1fr_auto] md:items-center">
+    <!-- Texto principal -->
+    <div>
+      <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">
+        {{ (hero$ | async)?.name }}
+      </h1>
+
+      <p class="mt-2 text-lg md:text-xl text-base-content/80">
+        {{ (hero$ | async)?.titleKey | transloco }}
+      </p>
+
+      <p class="mt-3 text-base text-base-content/70">
+        {{ (hero$ | async)?.taglineKey | transloco }}
+      </p>
+
+      <!-- Ubicación / estado -->
+      <div class="mt-3 flex flex-wrap items-center gap-3 text-sm text-base-content/60">
+        <span class="badge badge-outline">
+          {{ (hero$ | async)?.locationKey | transloco }}
+        </span>
+        <span class="badge badge-accent badge-outline">
+          {{ (hero$ | async)?.statusKey | transloco }}
+        </span>
+      </div>
+
+      <!-- CTAs -->
+      <div class="mt-5 flex flex-wrap gap-3">
+        @for (cta of (ctas$ | async); track cta.key) {
+        <a
+          class="btn btn-primary"
+          [href]="cta.key === 'hero.cta.download_cv' ? cvUrl() : cta.href"
+          [attr.download]="cta.key === 'hero.cta.download_cv' ? '' : cta.download ? '' : null"
+        >
+          {{ cta.key | transloco }}
+        </a>
+        }
+      </div>
+
+      <!-- Social -->
+      <div class="mt-6 flex flex-wrap items-center gap-3">
+        @for (s of (social$ | async); track s.url) {
+        <social-button [labelKey]="s.labelKey ?? ''" [value]="s.url" [iconUrl]="s.icon" />
+        }
+      </div>
+    </div>
+
+    <!-- Foto -->
+    <div class="justify-self-center md:justify-self-end">
+      @if ((hero$ | async)?.photo; as photo) {
+      <img
+        [src]="photo"
+        alt="Profile photo"
+        class="mask mask-squircle w-36 h-36 md:w-44 md:h-44 lg:w-56 lg:h-56 xl:w-72 xl:h-72 object-cover shadow-lg"
+      />
+      }
+    </div>
+  </div>
+
+  <!-- Métricas rápidas -->
+  <div class="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3">
+    <div class="stats shadow-xs shadow-neutral dark:shadow-white bg-white dark:bg-white/5">
+      @for (stat of (stats$ | async); track stat.valueKey) {
+      <div class="stat">
+        <div class="stat-title">{{ stat.labelKey | transloco }}</div>
+        <div class="stat-value text-primary">
+          {{ stat.value ?? (stat.valueKey | transloco) }}
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</section>
