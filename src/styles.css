@@ -7,6 +7,9 @@
 @import 'swiper/css/navigation';
 @import 'swiper/css/pagination';
 
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+
+
 @custom-variant dark (&:where(.dark *, [data-theme="dark"] *));
 
 /* === Custom animations === */

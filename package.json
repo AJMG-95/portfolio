@@ -28,6 +28,7 @@
     "@angular/forms": "^20.1.0",
     "@angular/platform-browser": "^20.1.0",
     "@angular/router": "^20.1.0",
+    "@fortawesome/fontawesome-free": "^7.1.0",
     "@jsverse/transloco": "^8.0.0",
     "@tailwindcss/postcss": "^4.1.13",
     "daisyui": "^5.1.14",
