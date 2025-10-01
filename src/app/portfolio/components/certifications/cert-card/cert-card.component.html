@@ -1,6 +1,7 @@
 <!-- Tarjeta principal -->
-<article class="card border-0 overflow-hidden w-[20rem] sm:w-[22rem] shadow-sm shadow-neutral/50 dark:shadow-white/50
-         rounded-2xl bg-white dark:bg-white/5">
+<article
+  class="card border-0 overflow-hidden w-[20rem] sm:w-[22rem] shadow-sm shadow-neutral/50 dark:shadow-white/50 rounded-2xl bg-white dark:bg-white/5"
+>
   <!-- Header image (certificado o placeholder) -->
   <figure class="h-40 overflow-hidden bg-primary/10">
     <img
@@ -85,63 +86,65 @@
 </article>
 
 <!-- MODAL: más detalles -->
-<dialog
-  #dlg
-  class="modal modal-bottom sm:modal-middle"
-  (click)="onBackdropClick($event)"
-  (close)="onNativeClose()"
->
-  <div class="modal-box rounded-2xl border bg-base-100 animate-fade-in space-y-4">
+
+<dialog #dlg class="modal modal-middle" (click)="onBackdropClick($event)" (close)="onNativeClose()">
+  <div
+    class="modal-box rounded-2xl border bg-base-100 animate-fade-in space-y-4 w-[92vw] max-w-[26rem] sm:max-w-2xl lg:max-w-3xl max-h-[90svh] overflow-auto"
+  >
     <!-- header modal -->
     <header class="flex items-start gap-3">
       @if (cert().logoUrl) {
-      <img
-        [src]="cert().logoUrl!"
-        [alt]="cert().titleKey || 'certs.untitled' | transloco"
-        class="h-12 w-12 rounded-md object-contain border p-1"
-        loading="lazy"
-        decoding="async"
-      />
-      }
-      <div class="min-w-0">
+      <div class="flex flex-row gap-2 flex-wrap sm:flex-nowrap">
+        <img
+          [src]="cert().logoUrl!"
+          [alt]="cert().titleKey || 'certs.untitled' | transloco"
+          class="h-12 w-12 rounded-md object-contain border p-1"
+          loading="lazy"
+          decoding="async"
+        />
         <h3 class="text-lg font-bold leading-tight">
           {{ cert().titleKey || 'certs.untitled' | transloco }}
         </h3>
+      </div>
+      }
+      <div class="min-w-0 my-auto">
         <p class="text-xs opacity-70 flex flex-wrap items-center gap-2">
           <span class="badge badge-xs" [class]="statusBadgeClass()">
             {{ 'status.' + status() | transloco : { defaultValue: status() } }}
           </span>
-
           @if (institutionKey()) {
           <span> · {{ institutionKey()! | transloco }}</span>
-          }
-          @if (cert().durationHours) {
+          } @if (cert().durationHours) {
           <span>
             · {{ 'labels.duration' | transloco : { defaultValue: 'Duración' } }}:
-            {{ cert().durationHours!  | appHourPipe }}
+            {{ cert().durationHours! | appHourPipe }}
           </span>
-          }
-          @if (cert().certificateId) {
+          } @if (cert().certificateId) {
           <span> · ID: {{ cert().certificateId }}</span>
           }
         </p>
       </div>
     </header>
 
-    <!-- imagen de certificado (o placeholder) -->
-    <figure class="rounded-lg overflow-hidden border bg-base-200">
+    <!-- imagen de certificado (más grande, altura fija responsiva) -->
+    <figure
+      class="rounded-lg overflow-hidden border bg-base-200 grid place-items-center sm:h-[44vh] lg:h-[50vh]"
+    >
       <img
         [src]="headerImage()"
         [alt]="cert().titleKey || 'certs.untitled' | transloco"
-        class="w-full object-contain"
+        class="max-w-full max-h-full w-auto h-auto object-contain bg-base-100"
         loading="lazy"
         decoding="async"
       />
     </figure>
 
     <!-- tecnologías (chips) -->
+    <!-- tecnologías (chips) -->
     @let t = techs(); @if (t) {
-    <section class="flex flex-col gap-6">
+    <section
+      class="grid gap-6 grid-cols-[repeat(auto-fit,minmax(18rem,1fr))] items-start content-start"
+    >
       @if (t.frontFrameworks.length || t.frontLanguages.length) {
       <tech-chips
         [titleKey]="'filters.frontend'"
@@ -153,7 +156,7 @@
         [items]="t.backFrameworks.concat(t.backLanguages)"
       />
       } @if (t.uiLibraries.length) {
-      <tech-chips [titleKey]="'labels.ui_libraries'" [items]="t.uiLibraries" />
+      <tech-chips [titleKey]="'UI'" [items]="t.uiLibraries" />
       } @if (t.clientStorage.length) {
       <tech-chips [titleKey]="'about.client_storage'" [items]="t.clientStorage" />
       } @if (t.databases.length) {
@@ -164,6 +167,11 @@
       <tech-chips [titleKey]="'labels.baas_platforms'" [items]="t.baasPlatforms" />
       } @if (t.cloudPlatforms.length) {
       <tech-chips [titleKey]="'labels.cloud_platforms'" [items]="t.cloudPlatforms" />
+      }
+
+      <!-- Principios de programación -->
+      @if (principleChips().length) {
+      <tech-chips [titleKey]="'labels.programming_principles'" [items]="principleChips()" />
       }
     </section>
     }

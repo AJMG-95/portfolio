@@ -102,18 +102,18 @@ export const projects: Project[] = [
     longDescriptionKey: 'projects.todoapp.long',
     status: ProjectStatus.Testing,
     techRefs: {
-      frontFrameworkIds: [1, 4], // Angular, Tailwind
-      uiLibraryIds: [1], // PrimeNG
+      frontFrameworkIds: [1], // Angular
+      uiLibraryIds: [1, 3], // PrimeNG
       clientStorageIds: [1], // LocalStorage
       frontLanguageIds: [1], // TypeScript, JavaScript
     },
     technologyVersions: {
       frontFrameworks: {
         1: '18.2.13', // Angular (id 1 en frontFrameworks)
-        4: '3.4.17', // Tailwind (id 4 en frontFrameworks)
       },
       uiLibraries: {
         1: '18.0.2', // PrimeNG (id 1 en uiLibraries)
+        3: '3.4.17'
       },
     },
     images: {
@@ -145,18 +145,18 @@ export const projects: Project[] = [
     longDescriptionKey: 'projects.cineverse.long',
     status: ProjectStatus.InProgress, // aún en construcción
     techRefs: {
-      frontFrameworkIds: [1, 4], // Angular, Tailwind CSS
-      uiLibraryIds: [2], // daisyUI
+      frontFrameworkIds: [1], // Angular, Tailwind CSS
+      uiLibraryIds: [2, 3], // daisyUI
       frontLanguageIds: [1], // TypeScript
       clientStorageIds: [1], // LocalStorage
     },
     technologyVersions: {
       frontFrameworks: {
         1: '20', // Angular 20
-        4: '4.1', // Tailwind 4.1
       },
       uiLibraries: {
         2: '5.1', // daisyUI 5.1
+        3: '4.1', // Tailwind 4.1
       },
     },
     // Aún sin imágenes; se podrán añadir más tarde
@@ -194,14 +194,16 @@ export const projects: Project[] = [
     longDescriptionKey: 'projects.zoneless_calculator.long',
     status: ProjectStatus.Finished, // proyecto terminado
     techRefs: {
-      frontFrameworkIds: [1, 4], // Angular, Tailwind CSS
+      frontFrameworkIds: [1], // Angular
       frontLanguageIds: [1],     // TypeScript
-      // uiLibraryIds: []         // (no usa daisyUI)
+      uiLibraryIds: [3]         // (no usa daisyUI)
     },
     technologyVersions: {
       frontFrameworks: {
         1: '20',   // Angular 20
-        4: '4.1',  // Tailwind 4.1
+      },
+      uiLibraries: {
+        3: '4.1'
       }
     },
     images: {

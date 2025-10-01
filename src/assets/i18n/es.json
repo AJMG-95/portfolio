@@ -157,14 +157,14 @@
     },
     "cineverse": {
       "name": "Cineverse",
-      "short": "Explore information about movies and TV shows using The Movie Database (TMDB) API.",
-      "long": "Work-in-progress app to browse movies and TV shows with TMDB: lists for Popular, Now Playing, and Upcoming. Includes local lists (LocalStorage) for Favorites, Watched, and My List for both movies and series. Built with Angular 20, Tailwind 4.1, and daisyUI 5.1.",
+      "short": "Explora información de películas y series usando la API de TheMovieDB.",
+      "long": "Aplicación en construcción para consultar películas y series con TheMovieDB: listados de populares, en cartelera (now playing) y próximos estrenos (upcoming). Incluye listas locales (LocalStorage) para Favoritas, Vistas y Mi lista, tanto para películas como para series. Construida con Angular 20, Tailwind 4.1 y daisyUI 5.1.",
       "points": {
-        "tmdb_api": "Integration with The Movie Database (TMDB) API",
-        "sections_movies": "Movie sections: Popular, Upcoming, Now Playing",
-        "sections_series": "TV sections: Popular, On Air, Upcoming",
-        "local_lists": "Local lists: Favorites, Watched, and My List (LocalStorage)",
-        "responsive_a11y": "Responsive design and good accessibility (a11y) practices"
+        "tmdb_api": "Integración con la API de TheMovieDB",
+        "sections_movies": "Secciones de películas: populares, upcoming, now playing",
+        "sections_series": "Secciones de series análogas: populares, en emisión, próximas",
+        "local_lists": "Listas locales: Favoritas, Vistas y Mi lista (LocalStorage)",
+        "responsive_a11y": "Diseño responsive y buenas prácticas de a11y"
       }
     },
     "zoneless_calculator": {
@@ -316,6 +316,34 @@
     "pending": "Pendiente"
   },
   "labels": {
-    "duration": "Duración"
+    "duration": "Duración",
+    "languages": "Lenguajes",
+    "programming_principles": "Principios de programación"
+  },
+    "principles": {
+    "solid": "SOLID",
+    "solid_desc": "Conjunto de principios para diseñar software modular, extensible y mantenible.",
+    "dry": "DRY (Don’t Repeat Yourself)",
+    "dry_desc": "Evita duplicar lógica favoreciendo reutilización y abstracción.",
+    "clean_code": "Clean Code",
+    "clean_code_desc": "Código claro y simple: nombres expresivos, funciones pequeñas y cohesión alta.",
+    "ddd": "DDD (Domain-Driven Design)",
+    "ddd_desc": "Modelo y lenguaje centrados en el dominio con límites bien definidos.",
+    "soc": "Separación de responsabilidades",
+    "soc_desc": "Divide el sistema en componentes con responsabilidades únicas.",
+    "state_mgmt": "Gestión de estado predecible",
+    "state_mgmt_desc": "Flujos de datos claros y una única fuente de verdad.",
+    "ssr_ssg_seo": "SSR / SSG y SEO técnico",
+    "ssr_ssg_seo_desc": "Renderizado eficiente y metadatos correctos para rendimiento e indexación.",
+    "i18n": "Internacionalización (i18n)",
+    "i18n_desc": "Soporte multilenguaje mediante recursos y formatos locales.",
+    "testing": "Testing de unidad e integración",
+    "testing_desc": "Verifica el comportamiento en aislamiento y en conjunto.",
+    "authz": "Autenticación y autorización",
+    "authz_desc": "Protege identidad, permisos y acceso a recursos.",
+    "modularity": "Modularización y reutilización",
+    "modularity_desc": "Módulos y librerías con interfaces estables y bajo acoplamiento.",
+    "observability": "Observabilidad básica",
+    "observability_desc": "Logs útiles y métricas mínimas para detectar errores y cuellos de botella."
   }
 }

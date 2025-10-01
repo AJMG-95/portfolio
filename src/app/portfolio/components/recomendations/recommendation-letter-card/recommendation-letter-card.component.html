@@ -1,0 +1,73 @@
+<article class="card bg-base-100 border-0 rounded-2xl overflow-hidden shadow-sm shadow-neutral/50 dark:shadow-white/50">
+  <div class="card-body p-4">
+    <!-- Header -->
+    <header class="flex flex-wrap items-center gap-2 justify-between">
+      <h3 class="text-base font-semibold leading-tight">
+        {{ (letter().titleKey || 'references.letter.general') | transloco }}
+      </h3>
+
+      <div class="flex gap-2">
+        @if (letter().date) { <span class="badge badge-ghost badge-sm">{{ letter().date }}</span> }
+        <span class="badge badge-sm" [class]="letterLangBadge(letter().language)">
+          {{ letter().language?.toUpperCase() || '—' }}
+        </span>
+        <span class="badge badge-sm" [class]="letterTypeBadge(letter().fileType)">
+          {{ letter().fileType || 'image' }}
+        </span>
+      </div>
+    </header>
+
+    <p class="text-xs opacity-70 mt-1">
+      @if (letter().companyKey) { <span>{{ letter().companyKey | transloco }}</span> }
+    </p>
+
+    <!-- Miniatura + botón abrir modal -->
+    <div class="card-actions mt-3 flex items-center justify-between">
+      <!-- Miniatura (baja altura, contención) -->
+      <figure class="rounded-lg overflow-hidden border bg-base-200 grid place-items-center h-32 w-full max-w-[18rem]">
+        <img [src]="letter().imageUrl" [alt]="(letter().titleKey || 'references.letter.general') | transloco"
+          class="max-w-full max-h-full w-auto h-auto object-contain" loading="lazy" decoding="async" />
+      </figure>
+
+      <button type="button" class="btn btn-sm btn-primary" (click)="dlg.showModal()">
+        {{ 'buttons.see_more' | transloco : { defaultValue: 'Ver carta' } }}
+      </button>
+    </div>
+  </div>
+</article>
+
+<!-- Modal centrado y responsivo -->
+<dialog #dlg class="modal" (click)="$event.target === $event.currentTarget && dlg.close()">
+  <div class="modal-box rounded-2xl border bg-base-100 animate-fade-in space-y-4 w-[92vw] max-w-3xl">
+    <header class="flex items-start gap-3">
+      <div class="min-w-0">
+        <h3 class="text-lg font-bold leading-tight">
+          {{ (letter().titleKey || 'references.letter.general') | transloco }}
+        </h3>
+        <p class="text-xs opacity-70 flex flex-wrap items-center gap-2">
+          @if (letter().companyKey) { <span>{{ letter().companyKey | transloco }}</span> }
+          @if (letter().date) { <span>· {{ letter().date }}</span> }
+          <span class="badge badge-xs" [class]="letterLangBadge(letter().language)">
+            {{ letter().language?.toUpperCase() || '—' }}
+          </span>
+        </p>
+      </div>
+    </header>
+
+    <!-- Imagen adaptada al contenedor, altura estable -->
+    <figure class="relative rounded-lg border bg-base-200 h-[40vh] sm:h-[68vh]">
+      <img [src]="letter().imageUrl" [alt]="(letter().titleKey || 'references.letter.general') | transloco"
+        class="absolute inset-0 h-full w-full object-contain object-center" loading="lazy" decoding="async" />
+    </figure>
+
+    <div class="modal-action">
+      <button class="btn" (click)="dlg.close()">
+        {{ 'buttons.close' | transloco : { defaultValue: 'Cerrar' } }}
+      </button>
+    </div>
+  </div>
+
+  <form method="dialog" class="modal-backdrop">
+    <button aria-label="Close modal">close</button>
+  </form>
+</dialog>

@@ -36,7 +36,7 @@ export interface ReferenceItem {
 /** Carta(s) de recomendación */
 export interface RecommendationLetter {
   /** Enlace al recurso (Drive, PDF hosteado, imagen, etc.) */
-  url: string;
+  imageUrl: string;
 
   /** Tipo de recurso (informativo, por si renders cambian) */
   fileType?: 'link' | 'pdf' | 'image';
@@ -76,7 +76,7 @@ export const references: ReferenceItem[] = [
 /** Cartas de recomendación (puede haber más de una) */
 export const recommendationLetters: RecommendationLetter[] = [
   {
-    url: 'https://drive.google.com/file/d/1gZKFeNZZyPN-d-fDjA8DGZZuv0tqF76P/view',
+    imageUrl: 'assets/images/references/recommendation-thumbnail.png',
     fileType: 'link',
     language: 'es',
     companyKey: 'companies.controlnet',

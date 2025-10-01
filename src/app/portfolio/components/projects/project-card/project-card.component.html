@@ -1,6 +1,7 @@
 <!-- project-card.component.html -->
-<article class="card overflow-hidden w-[20rem] sm:w-[22rem] shadow-sm shadow-neutral/50 dark:shadow-white/50
-         border-0 rounded-2xl bg-white dark:bg-white/5">
+<article
+  class="card overflow-hidden w-[20rem] sm:w-[22rem] shadow-sm shadow-neutral/50 dark:shadow-white/50 border-0 rounded-2xl bg-white dark:bg-white/5"
+>
   @if (project().images?.headerImageUrl) {
   <figure class="h-40 overflow-hidden bg-primary/10">
     <img
@@ -41,7 +42,7 @@
     </div>
 
     @if (project().shortDescriptionKey) {
-    <div class="h-15 overflow-y-auto bg-scroll ">
+    <div class="h-15 overflow-y-auto bg-scroll">
       <p class="text-sm mt-2 line-clamp-3">
         {{ project().shortDescriptionKey! | transloco }}
       </p>
@@ -55,15 +56,16 @@
     }
 
     <div class="card-actions mt-3 justify-between">
-      <div class="flex flex-wrap gap-1 my-2" >
+      <div class="flex flex-wrap gap-1 my-2">
         @if (project().techRefs.frontFrameworkIds?.length) {
-        <span class="badge badge-outline badge-sm">Frontend</span> } @if
-        (project().techRefs.backFrameworkIds?.length) {
-        <span class="badge badge-outline badge-sm">Backend</span> } @if
-        (project().techRefs.uiLibraryIds?.length) {
-        <span class="badge badge-outline badge-sm">UI</span> } @if
-        (project().techRefs.clientStorageIds?.length) {
-        <span class="badge badge-outline badge-sm">Storage</span> }
+        <span class="badge badge-outline badge-sm">Frontend</span>
+        } @if (project().techRefs.backFrameworkIds?.length) {
+        <span class="badge badge-outline badge-sm">Backend</span>
+        } @if (project().techRefs.uiLibraryIds?.length) {
+        <span class="badge badge-outline badge-sm">UI</span>
+        } @if (project().techRefs.clientStorageIds?.length) {
+        <span class="badge badge-outline badge-sm">Storage</span>
+        }
       </div>
 
       <div class="w-full flex flex-row justify-between">
@@ -98,13 +100,10 @@
 </article>
 
 <!-- MODAL con galería + chips + descripción larga -->
-<dialog
-  #dlg
-  class="modal modal-bottom sm:modal-middle"
-  (click)="onBackdropClick($event)"
-  (close)="onNativeClose()"
->
-  <div class="modal-box rounded-2xl border bg-base-100 animate-fade-in space-y-4">
+<dialog #dlg class="modal modal-middle" (click)="onBackdropClick($event)" (close)="onNativeClose()">
+  <div
+    class="modal-box w-full max-w-[92vw] sm:max-w-2xl lg:max-w-3xl xl:max-w-4xl max-h-[85vh] overflow-y-auto rounded-2xl border bg-base-100 animate-fade-in space-y-4"
+  >
     <!-- Header -->
     <header class="flex items-start gap-3">
       @if (project().images?.cornerImageUrl) {
@@ -147,53 +146,53 @@
 
     <!-- Chips de tecnologías / metodologías -->
     @let t = techs(); @if (t) {
-    <section class="flex flex-col gap-6">
-      <!-- Frontend (frameworks + languages) -->
-      @if (t.frontFrameworks.length>0) {
-      <tech-chips
-        [titleKey]="'filters.frontend'"
-        [items]="t.frontFrameworks.concat(t.frontLanguages)"
-      />
-      }
+<section class="grid gap-6
+         grid-cols-[repeat(auto-fit,minmax(18rem,1fr))]
+         items-start content-start">
+  <!-- Frontend -->
+  @if (t.frontLanguages.length>0) {
+  <tech-chips [titleKey]="'labels.languages'" [items]="t.frontLanguages" />
+  }
+  @if (t.frontFrameworks.length>0) {
+  <tech-chips [titleKey]="'Frameworks'" [items]="t.frontFrameworks" />
+  }
 
-      <!-- Backend (frameworks + languages) -->
-      @if (t.backFrameworks.length>0) {
-      <tech-chips
-        [titleKey]="'filters.backend'"
-        [items]="t.backFrameworks.concat(t.backLanguages)"
-      />
-      }
+  <!-- Backend -->
+  @if (t.backFrameworks.length>0) {
+  <tech-chips [titleKey]="'filters.backend'" [items]="t.backFrameworks.concat(t.backLanguages)" />
+  }
 
-      <!-- UI Libraries -->
-      @if (t.uiLibraries.length>0) {
-      <tech-chips [titleKey]="'UI'" [items]="t.uiLibraries" />
-      }
+  <!-- UI -->
+  @if (t.uiLibraries.length>0) {
+  <tech-chips [titleKey]="'UI'" [items]="t.uiLibraries" />
+  }
 
-      <!-- Storage del cliente -->
-      @if (t.clientStorage.length>0) {
-      <tech-chips [titleKey]="'about.client_storage'" [items]="t.clientStorage" />
-      }
+  <!-- Client storage -->
+  @if (t.clientStorage.length>0) {
+  <tech-chips [titleKey]="'about.client_storage'" [items]="t.clientStorage" />
+  }
 
-      <!-- Bases de datos -->
-      @if (t.databases.length>0) {
-      <tech-chips [titleKey]="'labels.databases'" [items]="t.databases" />
-      }
+  <!-- Databases -->
+  @if (t.databases.length>0) {
+  <tech-chips [titleKey]="'labels.databases'" [items]="t.databases" />
+  }
 
-      <!-- Control de versiones -->
-      @if (t.versionControl.length>0) {
-      <tech-chips [titleKey]="'about.version_control'" [items]="t.versionControl" />
-      }
+  <!-- Version control -->
+  @if (t.versionControl.length>0) {
+  <tech-chips [titleKey]="'about.version_control'" [items]="t.versionControl" />
+  }
 
-      <!-- BaaS -->
-      @if (t.baasPlatforms.length>0) {
-      <tech-chips [titleKey]="'labels.baas_platforms'" [items]="t.baasPlatforms" />
-      }
+  <!-- BaaS -->
+  @if (t.baasPlatforms.length>0) {
+  <tech-chips [titleKey]="'labels.baas_platforms'" [items]="t.baasPlatforms" />
+  }
 
-      <!-- Cloud -->
-      @if (t.cloudPlatforms.length>0) {
-      <tech-chips [titleKey]="'labels.cloud_platforms'" [items]="t.cloudPlatforms" />
-      }
-    </section>
+  <!-- Cloud -->
+  @if (t.cloudPlatforms.length>0) {
+  <tech-chips [titleKey]="'labels.cloud_platforms'" [items]="t.cloudPlatforms" />
+  }
+</section>
+
     }
 
     <div class="modal-action">

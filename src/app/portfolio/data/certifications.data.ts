@@ -28,6 +28,7 @@ export interface Certification {
   courseUrl?: string // url al curos/plataforma
   techRefs?: TechRefs // array de id's de las tecnologias y metodologias trabajadas en el curso
   date?: string // año de obtenmcion
+  principles?: string[] // array de ids de los principio de la programacion
 }
 
 
@@ -72,7 +73,7 @@ export const techCertificationsFrontend: Certification[] = [
     type: 'it',
     track: 'mobile',
     institutionId: 2, // Udemy
-    titleKey: 'certs.tech.flutter.from_zero_to_expert', // opcional (i18n)
+    titleKey: 'certs.tech.flutter.from_zero_to_expert',
     logoUrl: 'assets/images/technologies/flutter_logo.webp',
     durationHours: '50:30',
     completionPercentage: 100,
@@ -81,10 +82,10 @@ export const techCertificationsFrontend: Certification[] = [
     certificationImage: 'assets/images/certifications/Flutter-Movi-lDeCeroAExperto_FernandoHerrera.webp',
     techRefs: {
       frontFrameworkIds: [3], // Flutter
-      frontLanguageIds: [3], // Dart
-
+      frontLanguageIds: [3],  // Dart
     },
     date: '2025',
+    principles: ['1', '2', '5', '6', '8', '10'], // SOLID, DRY, SoC, SRP, Clean Architecture, DDD
   },
   {
     id: 2,
@@ -101,9 +102,12 @@ export const techCertificationsFrontend: Certification[] = [
     courseUrl: 'https://www.udemy.com/course/angular-fernando-herrera/?couponCode=MT180825G1',
     techRefs: {
       frontFrameworkIds: [1], // Angular
-      frontLanguageIds: [1, 2], // TypeScript + JavaScript
+      frontLanguageIds: [1],  // TypeScript
+      uiLibraryIds: [2, 3],   // daisyUI, Tailwind
+      clientStorageIds: [1],
     },
     date: '2025',
+    principles: ['1', '2', '3', '5', '6'], // SOLID, DRY, KISS, SoC, SRP
   },
   {
     id: 3,
@@ -113,14 +117,16 @@ export const techCertificationsFrontend: Certification[] = [
     titleKey: 'certs.tech.angular.pro_next_level',
     logoUrl: 'assets/images/technologies/angular_logo.webp',
     durationHours: '16:15',
-    completionPercentage: 36.1 ,
+    completionPercentage: 36.1,
     certificationImage: 'assets/images/certifications/not_certificated_yet.webp',
     courseUrl: 'https://www.udemy.com/course/angular-pro-siguiente-nivel',
     techRefs: {
-      frontFrameworkIds: [1],
-      frontLanguageIds: [1, 2],
+      frontFrameworkIds: [1], // Angular
+      frontLanguageIds: [1],  // TypeScript
+      uiLibraryIds: [3],      // Tailwind
     },
-    date: '2025'
+    date: '2025',
+    principles: ['16', '18', '19', '5'], // Performance Awareness, i18n, SEO, SoC
   },
   {
     id: 4,
@@ -136,9 +142,10 @@ export const techCertificationsFrontend: Certification[] = [
       'assets/images/certifications/certificado_laboratorio_crud_en_laravel_9_con_test-driven_development_(tdd).webp',
     techRefs: {
       backFrameworkIds: [1], // Laravel
-      backLanguageIds: [4], // PHP
-      methodologyIds: [23], // Clean Architecture (ajusta si hay id específico para TDD)
+      backLanguageIds: [4],  // PHP
+      methodologyIds: [23],
     },
+    principles: ['9', '8', '2', '6', '5'], // TDD, Clean Architecture, DRY, SRP, SoC
   },
   {
     id: 5,
@@ -154,6 +161,7 @@ export const techCertificationsFrontend: Certification[] = [
     techRefs: {
       backLanguageIds: [4], // PHP
     },
+    principles: ['2', '3', '6'], // DRY, KISS, SRP
   },
   {
     id: 6,
@@ -169,9 +177,10 @@ export const techCertificationsFrontend: Certification[] = [
       'assets/images/certifications/certificado_test-driven_development_en_laravel.webp',
     techRefs: {
       backFrameworkIds: [1], // Laravel
-      backLanguageIds: [4], // PHP
-      methodologyIds: [23], // Clean Architecture
+      backLanguageIds: [4],  // PHP
+      methodologyIds: [23],
     },
+    principles: ['9', '8', '2', '6'], // TDD, Clean Architecture, DRY, SRP
   },
   {
     id: 7,
@@ -186,8 +195,9 @@ export const techCertificationsFrontend: Certification[] = [
       'assets/images/certifications/certificado_fundamentos_de_test-driven_development.webp',
     techRefs: {
       backLanguageIds: [4], // PHP
-      methodologyIds: [1], // Clean Architecture (o id de TDD si tienes uno)
+      methodologyIds: [1],
     },
+    principles: ['9', '2', '3', '6'], // TDD, DRY, KISS, SRP
   },
   {
     id: 8,
@@ -203,6 +213,7 @@ export const techCertificationsFrontend: Certification[] = [
     techRefs: {
       backLanguageIds: [4], // PHP
     },
+    principles: ['2', '3'], // DRY, KISS
   },
   {
     id: 9,
@@ -210,14 +221,15 @@ export const techCertificationsFrontend: Certification[] = [
     track: 'backend',
     institutionId: 3, // OpenWebinars
     titleKey: 'certs.tech.sql.from_zero',
-    logoUrl: 'assets/images/technologies/sql_logo.webp', // ajusta al asset real
+    logoUrl: 'assets/images/technologies/sql_logo.webp',
     durationHours: '7',
     completionPercentage: 100,
     certificationImage:
       'assets/images/certifications/certificado_curso_de_sql_desde_cero.webp',
     techRefs: {
-      dataTechIds: [26], // SQL (id de tu catálogo “data tech”)
+      dataTechIds: [26], // SQL
     },
+    principles: ['15'], // Consistency (consistencia de datos/modelado)
   },
   {
     id: 10,
@@ -231,18 +243,18 @@ export const techCertificationsFrontend: Certification[] = [
     certificationImage: 'assets/images/certifications/not_certificated_yet.webp',
     courseUrl: 'https://www.udemy.com/course/nodejs-de-cero-a-experto/?couponCode=MT180825G1',
     techRefs: {
-      backLanguageIds: [2], // NodeJs
-      methodologyIds: [23], // Clean Architecture (si aplica)
+      backLanguageIds: [2], // NodeJs (runtime)
+      methodologyIds: [23],
     },
+    principles: ['2', '6', '8', '12', '14'], // DRY, SRP, Clean Architecture, Defensive Prog., Error Handling
   },
   {
     id: 11,
     type: 'lng',
     institutionId: 1, // Cambridge
-    titleKey: 'certs.language.english.title', // "Certificado de Inglés (Cambridge)"
-    levelKey: 'certs.language.level.b1', // "Nivel B1"
+    titleKey: 'certs.language.english.title',
+    levelKey: 'certs.language.level.b1',
     logoUrl: 'assets/images/companies/university_of_cambridge_logo.webp',
- /*    courseUrl: 'https://www.cambridgeenglish.org/', */
     certificateId: '211ES0013059',
     certificationImage: 'assets/images/certifications/english-B1-cambridget.webp',
     date: '2014',
@@ -254,7 +266,6 @@ export const techCertificationsFrontend: Certification[] = [
     titleKey: 'certs.language.english.title',
     levelKey: 'certs.language.level.b2',
     logoUrl: 'assets/images/companies/university_of_cambridge_logo.webp',
-   /*  courseUrl: 'https://www.cambridgeenglish.org/', */
     certificateId: '211ES0015302',
     certificationImage: 'assets/images/certifications/english-B2-cambridget.webp',
     date: '2019',

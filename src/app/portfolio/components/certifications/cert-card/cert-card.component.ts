@@ -1,23 +1,24 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  ElementRef,
-  ViewChild,
+  computed,
   effect,
+  ElementRef,
   inject,
   input,
   signal,
-  computed,
+  ViewChild,
 } from '@angular/core';
-import { TranslocoPipe } from '@jsverse/transloco';
+import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 
 import type { Certification, CertInstitution } from '@data/certifications.data';
 
+import { TechChipsComponent } from '@component/skills/tech-chips/tech-chips.component';
 import { CertificationsService } from '@service/certifications.service';
 import { TechnologiesService } from '@service/technologies.service';
-import { TechChipsComponent } from '@component/skills/tech-chips/tech-chips.component';
-import { SoftSkillLevel } from '../../../data/soft-skills.data';
 import { HourPipePipe } from 'app/portfolio/shared/pipes/hour-pipe.pipe';
+import { ProgrammingPrinciplesService } from '@service/programming-principles.service';
+import type { ProgrammingPrinciple } from '@data/programming-principles.data';
 
 type ResolvedTechs = {
   frontFrameworks: any[];
@@ -40,28 +41,27 @@ type ResolvedTechs = {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CertCardComponent {
-  // Input requerido: no acceder hasta que Angular lo establezca
+  // Input requerido
   cert = input.required<Certification>();
 
   // modal
-  readonly show = signal(false);
-  readonly isReady = signal(false);
+  show = signal(false);
+  isReady = signal(false);
   @ViewChild('dlg', { static: false }) dialogRef?: ElementRef<HTMLDialogElement>;
 
   // servicios
-  private readonly certSvc = inject(CertificationsService);
-  private readonly techSvc = inject(TechnologiesService);
+  #certSvc = inject(CertificationsService);
+  #techSvc = inject(TechnologiesService);
+  #principlesSvc = inject(ProgrammingPrinciplesService);
+  #i18n = inject(TranslocoService);
 
-  // ====== Derivados seguros (lazy) ======
-
-  // Institución (resuelta por ID)
-  readonly institution = computed<CertInstitution | undefined>(() => {
+  // ====== Derivados ======
+  institution = computed<CertInstitution | undefined>(() => {
     const id = this.cert().institutionId;
-    return id ? this.certSvc.getInstitutionById(id) : undefined;
+    return id ? this.#certSvc.getInstitutionById(id) : undefined;
   });
 
-  // Techs (resuelve solo si existen techRefs)
-  readonly techs = computed<ResolvedTechs | null>(() => {
+  techs = computed<ResolvedTechs | null>(() => {
     const c = this.cert();
     if (!c.techRefs) return null;
 
@@ -72,15 +72,14 @@ export class CertCardComponent {
       return arr.filter(x => set.has(x.id));
     };
 
-    // fuentes síncronas del servicio (en memoria)
-    const allLangs = this.techSvc.getLanguages();
-    const allFws = this.techSvc.getFrameworks();
-    const allUi = this.techSvc.getUiLibrariesSync();
-    const allClientStor = this.techSvc.getClientStorageSync();
-    const allDBs = this.techSvc.getDatabases();
-    const allVcs = this.techSvc.getVersionControlToolsSync();
-    const allBaas = this.techSvc.getBaaSPlatformsSync();
-    const allCloud = this.techSvc.getCloudPlatformsSync();
+    const allLangs = this.#techSvc.getLanguages();
+    const allFws = this.#techSvc.getFrameworks();
+    const allUi = this.#techSvc.getUiLibrariesSync();
+    const allClientStor = this.#techSvc.getClientStorageSync();
+    const allDBs = this.#techSvc.getDatabases();
+    const allVcs = this.#techSvc.getVersionControlToolsSync();
+    const allBaas = this.#techSvc.getBaaSPlatformsSync();
+    const allCloud = this.#techSvc.getCloudPlatformsSync();
 
     return {
       frontFrameworks: byIds(allFws, refs.frontFrameworkIds),
@@ -96,10 +95,34 @@ export class CertCardComponent {
     };
   });
 
+  // Principios (IDs -> objetos)
+  principles = computed<ProgrammingPrinciple[]>(() => {
+    const raw = this.cert().principles ?? [];
+    const numericIds = raw
+      .map(id => (typeof id === 'string' ? Number(id) : id))
+      .filter((n): n is number => Number.isFinite(n));
+    const unique = Array.from(new Set(numericIds));
+    return unique
+      .map(id => this.#principlesSvc.getByIdSync(id))
+      .filter((p): p is ProgrammingPrinciple => !!p);
+  });
+
+  // Mapea a chips para `tech-chips`
+  principleChips = computed(() =>
+    this.principles().map(p => ({
+      id: p.id,
+      // traducimos la key aquí para que el chip muestre el texto final
+      name: this.#i18n.translate(p.nameKey),
+      // colores neutros suaves (light/dark) para distinguirlos de techs
+      color: 'bg-amber-100',
+      darkColor: 'bg-amber-900/30',
+      // sin logo
+    }))
+  );
+
   ngAfterViewInit() { this.isReady.set(true); }
 
-  // Sincroniza <dialog> con signal show (no toca cert())
-  private readonly syncDialog = effect(() => {
+  #syncDialog = effect(() => {
     if (!this.isReady()) return;
     const dlg = this.dialogRef?.nativeElement;
     if (!dlg) return;
@@ -115,13 +138,11 @@ export class CertCardComponent {
   }
   onNativeClose() { if (this.show()) this.show.set(false); }
 
-  // header image: certificado o placeholder
   headerImage(): string {
     const c = this.cert();
     return c.certificationImage ?? 'assets/images/courses/not_certificated_yet.webp';
   }
 
-  // estado derivado del completionPercentage
   status(): 'pending' | 'in_progress' | 'completed' {
     const v = this.cert().completionPercentage ?? 0;
     if (v >= 100) return 'completed';
@@ -138,20 +159,16 @@ export class CertCardComponent {
 
   levelBadgeClass(): string {
     const key = this.cert().levelKey?.toLowerCase() ?? '';
-
-    // Captura a1/a2/b1/b2/c1/c2 en claves tipo 'certs.language.level.b2' o similares
     const match = key.match(/(?:^|[._-])([abc][12])(?:$|[._-])/);
     const level = match ? match[1] : 'a0';
-
     const map: Record<string, string> = {
-      a1: 'badge-ghost',     // muy básico → gris claro
-      a2: 'badge-neutral',   // básico → gris
-      b1: 'badge-info',      // intermedio → azul
-      b2: 'badge-primary',   // intermedio alto → primario
-      c1: 'badge-secondary', // avanzado → secondary
-      c2: 'badge-success',   // dominio → verde
+      a1: 'badge-ghost',
+      a2: 'badge-neutral',
+      b1: 'badge-info',
+      b2: 'badge-primary',
+      c1: 'badge-secondary',
+      c2: 'badge-success',
     };
-
     return map[level] ?? 'badge-ghost';
   }
 

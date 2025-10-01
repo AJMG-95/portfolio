@@ -1,32 +1,28 @@
 <!-- photo-gallery.component.html -->
 <section class="space-y-3">
-  <!-- Viewer -->
-  <div class="relative rounded-xl border overflow-hidden bg-base-200">
-    <button
-      type="button"
-      class="btn btn-circle btn-sm absolute left-2 top-1/2 -translate-y-1/12 z-10 hidden sm:inline-flex items-center justify-center border-primary shadow-lg shadow-primary/50 text-xl leading-none"
-      aria-label="Previous"
-      (click)="prev()"
-    >
-      <span class="mb-1">‹</span>
-    </button>
+<!-- Viewer: altura fija + centrado -->
+<div class="relative rounded-xl border overflow-hidden bg-base-200
+         grid place-items-center p-2
+         min-h-[20vh] sm:h-[45vh] "
+  >
+  <button type="button"
+    class="btn btn-circle btn-sm absolute left-2 top-1/2 -translate-y-1/2 z-10 hidden sm:inline-flex items-center justify-center border-primary shadow-lg shadow-primary/50 text-xl leading-none"
+    aria-label="Previous" (click)="prev()">
+    <span class="mb-1">‹</span>
+  </button>
 
-    <img
-      [src]="images()[idx()]"
-      [alt]="title() || 'photo ' + (idx() + 1)"
-      class="w-full max-h-[60vh] object-contain bg-base-100"
-      loading="lazy"
-    />
+  <img [src]="images()[idx()]" [alt]="title() || 'photo ' + (idx() + 1)"
+    class="max-w-full max-h-full w-auto h-auto object-contain bg-base-100 " loading="lazy" decoding="async" />
 
-    <button
-      type="button"
-      class="btn btn-circle btn-sm absolute right-2 top-1/2 -translate-y-1/12 z-10 hidden sm:inline-flex items-center justify-center border-primary shadow-lg shadow-primary/50 text-xl leading-none"
-      aria-label="Next"
-      (click)="next()"
-    >
-      <span class="mb-1">›</span>
-    </button>
-  </div>
+  <button type="button"
+    class="btn btn-circle btn-sm absolute right-2 top-1/2 -translate-y-1/2 z-10 hidden sm:inline-flex items-center justify-center border-primary shadow-lg shadow-primary/50 text-xl leading-none"
+    aria-label="Next" (click)="next()">
+    <span class="mb-1">›</span>
+  </button>
+</div>
+
+
+
 
   <!-- Thumbs -->
   <div class="flex gap-2 overflow-x-auto pb-1">

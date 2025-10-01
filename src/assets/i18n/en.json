@@ -155,18 +155,19 @@
         "filters": "Real-time filtering and search"
       }
     },
-    "cineverse": {
+        "cineverse": {
       "name": "Cineverse",
-      "short": "Explora información de películas y series usando la API de TheMovieDB.",
-      "long": "Aplicación en construcción para consultar películas y series con TheMovieDB: listados de populares, en cartelera (now playing) y próximos estrenos (upcoming). Incluye listas locales (LocalStorage) para Favoritas, Vistas y Mi lista, tanto para películas como para series. Construida con Angular 20, Tailwind 4.1 y daisyUI 5.1.",
+      "short": "Explore information about movies and TV shows using The Movie Database (TMDB) API.",
+      "long": "Work-in-progress app to browse movies and TV shows with TMDB: lists for Popular, Now Playing, and Upcoming. Includes local lists (LocalStorage) for Favorites, Watched, and My List for both movies and series. Built with Angular 20, Tailwind 4.1, and daisyUI 5.1.",
       "points": {
-        "tmdb_api": "Integración con la API de TheMovieDB",
-        "sections_movies": "Secciones de películas: populares, upcoming, now playing",
-        "sections_series": "Secciones de series análogas: populares, en emisión, próximas",
-        "local_lists": "Listas locales: Favoritas, Vistas y Mi lista (LocalStorage)",
-        "responsive_a11y": "Diseño responsive y buenas prácticas de a11y"
+        "tmdb_api": "Integration with The Movie Database (TMDB) API",
+        "sections_movies": "Movie sections: Popular, Upcoming, Now Playing",
+        "sections_series": "TV sections: Popular, On Air, Upcoming",
+        "local_lists": "Local lists: Favorites, Watched, and My List (LocalStorage)",
+        "responsive_a11y": "Responsive design and good accessibility (a11y) practices"
       }
     },
+
     "zoneless_calculator": {
       "name": "ZonelessCalculator",
       "short": "Calculator built with Angular 20 (zoneless) and Tailwind 4.1.",
@@ -316,6 +317,35 @@
     "pending": "Pending"
   },
   "labels": {
-    "duration": "Duration"
+    "duration": "Duration",
+    "languages": "Languages",
+    "programming_principles": "Programming principles"
+  },
+    "principles": {
+    "solid": "SOLID",
+    "solid_desc": "Principles for modular, extensible and maintainable software.",
+    "dry": "DRY (Don’t Repeat Yourself)",
+    "dry_desc": "Avoid duplicated logic by favoring reuse and abstraction.",
+    "clean_code": "Clean Code",
+    "clean_code_desc": "Clear, simple code: expressive names, small functions, high cohesion.",
+    "ddd": "DDD (Domain-Driven Design)",
+    "ddd_desc": "Domain-centric model and ubiquitous language with clear boundaries.",
+    "soc": "Separation of Concerns",
+    "soc_desc": "Split the system into components with single, focused responsibilities.",
+    "state_mgmt": "Predictable state management",
+    "state_mgmt_desc": "Clear data flows and a single source of truth.",
+    "ssr_ssg_seo": "SSR / SSG & technical SEO",
+    "ssr_ssg_seo_desc": "Efficient rendering and correct metadata for performance and indexing.",
+    "i18n": "Internationalization (i18n)",
+    "i18n_desc": "Multi-language support via resource bundles and locale formatting.",
+    "testing": "Unit and integration testing",
+    "testing_desc": "Verify behavior in isolation and as a whole.",
+    "authz": "Authentication & authorization",
+    "authz_desc": "Protect identity, permissions and access to resources.",
+    "modularity": "Modularity & reuse",
+    "modularity_desc": "Modules/libraries with stable interfaces and low coupling.",
+    "observability": "Basic observability",
+    "observability_desc": "Useful logs and minimal metrics to detect errors and bottlenecks."
   }
+
 }

@@ -4,11 +4,12 @@ import { TranslocoPipe } from '@jsverse/transloco';
 
 import type { RecommendationLetter, ReferenceItem } from '@data/recommendations.data';
 import { RecommendationsService } from '@service/recommendations.service';
+import { RecommendationLetterCardComponent } from '@component/recomendations/recommendation-letter-card/recommendation-letter-card.component';
 
 @Component({
   selector: 'app-references-page',
   standalone: true,
-  imports: [TranslocoPipe],
+  imports: [TranslocoPipe, RecommendationLetterCardComponent],
   templateUrl: './references-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -24,7 +25,7 @@ export default class ReferencesPageComponent {
   readonly letters = computed<RecommendationLetter[]>(() => this.payload().letters);
 
   trackByRef = (_: number, r: ReferenceItem) => r.id;
-  trackByLetter = (_: number, l: RecommendationLetter) => l.url;
+
 
   // Helpers UI
   letterLangBadge(lang?: string): string {
