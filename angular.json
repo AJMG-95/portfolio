@@ -14,7 +14,7 @@
           "builder": "@angular/build:application",
           "options": {
             "outputPath": "dist/portfolio",
-             "index": "src/index.html",
+            "index": "src/index.html",
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
@@ -25,7 +25,10 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": ["src/styles.css"]
+            "styles": [
+              "src/styles.css"
+            ],
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -78,13 +81,23 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": ["src/styles.css"]
+            "styles": [
+              "src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "/portfolio/",
+            "branch": "gh-pages"
           }
         }
       }
     }
   },
   "cli": {
-    "analytics": "5225a65b-18cb-499a-adef-20558f1e7209"
+    "analytics": false
   }
 }
