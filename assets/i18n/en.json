@@ -1,0 +1,351 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Me",
+    "projects": "Projects",
+    "courses": "Courses",
+    "references": "References",
+    "contact": "Contact",
+    "aria": {
+      "open_menu": "Open navigation menu",
+      "close_menu": "Close navigation menu",
+      "go_home": "Go to home"
+    }
+  },
+  "institutions": {
+    "cambridge": "University of Cambridge",
+    "udemy": "Udemy",
+    "openwebinars": "OpenWebinars",
+    "uca": "University of Cádiz",
+    "iesDonana": "IES Doñana (Secondary & VET Institute)"
+  },
+  "hero": {
+    "title": "Frontend Developer",
+    "tagline": "I build clean, accessible, and robust interfaces with Angular, Tailwind, and best practices.",
+    "location": "Cádiz, Spain",
+    "status": {
+      "open_to_work": "Open to new opportunities"
+    },
+    "cta": {
+      "contact_me": "Contact me",
+      "download_cv": "Download CV"
+    },
+    "social": {
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "email": "Email",
+      "phone": "Phone"
+    },
+    "highlights": {
+      "0": "Experience with Angular, Tailwind and PrimeNG",
+      "1": "Best practices: Clean Architecture, SOLID & Testing",
+      "2": "Scrum and teamwork"
+    },
+    "stats": {
+      "experience": "Experience",
+      "experience_value": "1+ years",
+      "projects": "Projects",
+      "projects_value": "Several in production and personal"
+    },
+    "aria": {
+      "email_me": "Send an email to Antonio",
+      "call_me": "Call Antonio by phone"
+    }
+  },
+  "education": {
+    "labels": {
+      "study_with_field": "{{title}} · {{field}}"
+    },
+    "institutions": {
+      "uca": "University of Cádiz",
+      "iesDonana": "IES Doñana (Secondary & VET Institute)"
+    },
+    "studies": {
+      "programs": {
+        "hnd_web_app_development": "Higher VET: Web Application Development",
+        "msc_integrated_water_management": "Master's in Integrated Water Management",
+        "bsc_environmental_sciences": "Bachelor's in Environmental Sciences"
+      }
+    },
+    "fields": {
+      "software_development": "Software Development",
+      "water_management": "Water Management",
+      "environmental_sciences": "Environmental Sciences"
+    }
+  },
+  "certs": {
+    "language": {
+      "english": {
+        "title": "English Certificate (Cambridge)"
+      },
+      "level": {
+        "b1": "B1 Level",
+        "b2": "B2 Level"
+      }
+    },
+    "tech": {
+      "flutter": {
+        "from_zero_to_expert": "Flutter: From Zero to Expert"
+      },
+      "angular": {
+        "from_zero_to_expert": "Angular: From Zero to Expert",
+        "pro_next_level": "Angular Pro: Next Level"
+      },
+      "laravel": {
+        "crud_lab_tdd": "CRUD Lab in Laravel 9 with TDD",
+        "tdd": "Test-Driven Development in Laravel"
+      },
+      "php": {
+        "extending_concepts": "PHP: Extending Concepts",
+        "tdd_fundamentals": "Test-Driven Development Fundamentals",
+        "beginners": "PHP for Beginners"
+      },
+      "sql": {
+        "from_zero": "SQL From Scratch"
+      },
+      "node": {
+        "from_zero_to_expert": "Node.js: From Zero to Expert"
+      }
+    },
+    "entrepreneurship_program": "Entrepreneurship Program"
+  },
+  "companies": {
+    "controlnet": "Controlnet S.L."
+  },
+  "work": {
+    "titles": {
+      "frontend_developer": "Frontend Developer",
+      "intern_frontend_developer": "Frontend Developer Intern"
+    },
+    "dates": {
+      "controlnet": {
+        "frontend_developer": {
+          "1": "March 2024 - July 2025"
+        },
+        "intern_frontend_developer": {
+          "1": "October 2023 - January 2024"
+        }
+      }
+    },
+    "resp": {
+      "controlnet": {
+        "frontend_developer": {
+          "1": "Built mobile UIs with Flutter and web UIs with Angular (v16–18), reducing duplication and improving maintainability.",
+          "2": "Contributed to React projects: created reusable components, developed custom hooks, and integrated maps.",
+          "3": "Integrated REST APIs and implemented layouts using Tailwind CSS and Bootstrap.",
+          "4": "Applied SOLID principles and clean architecture to enable scalability.",
+          "5": "Mentored and provided technical guidance to internship students."
+        },
+        "intern_frontend_developer": {
+          "1": "Developed a client-facing web application using Angular 16, TypeScript, and Bootstrap.",
+          "2": "Implemented responsive interfaces from Figma designs, proposing usability and consistency improvements when feasible.",
+          "3": "Integrated REST APIs into the application.",
+          "4": "Collaborated on integration testing and quality assurance of delivered features."
+        }
+      }
+    }
+  },
+  "projects": {
+    "todoapp": {
+      "name": "TodoApp",
+      "short": "Task manager built with Angular, Tailwind, and PrimeNG.",
+      "long": "Task application featuring filters, local persistence (LocalStorage), PrimeNG components, and best practices. Includes views, real-time search, and responsive design.",
+      "points": {
+        "offline_storage": "Offline persistence via LocalStorage",
+        "filters": "Real-time filtering and search"
+      }
+    },
+        "cineverse": {
+      "name": "Cineverse",
+      "short": "Explore information about movies and TV shows using The Movie Database (TMDB) API.",
+      "long": "Work-in-progress app to browse movies and TV shows with TMDB: lists for Popular, Now Playing, and Upcoming. Includes local lists (LocalStorage) for Favorites, Watched, and My List for both movies and series. Built with Angular 20, Tailwind 4.1, and daisyUI 5.1.",
+      "points": {
+        "tmdb_api": "Integration with The Movie Database (TMDB) API",
+        "sections_movies": "Movie sections: Popular, Upcoming, Now Playing",
+        "sections_series": "TV sections: Popular, On Air, Upcoming",
+        "local_lists": "Local lists: Favorites, Watched, and My List (LocalStorage)",
+        "responsive_a11y": "Responsive design and good accessibility (a11y) practices"
+      }
+    },
+
+    "zoneless_calculator": {
+      "name": "ZonelessCalculator",
+      "short": "Calculator built with Angular 20 (zoneless) and Tailwind 4.1.",
+      "long": "Finished calculator built with Angular 20 in zoneless mode (no Zone.js) and styled with Tailwind CSS 4.1. Includes unit testing set up with Karma/Jasmine. The repository is available on GitHub.",
+      "points": {
+        "zoneless": "Angular 20 in zoneless mode (no Zone.js)",
+        "testing": "Testing with Karma/Jasmine",
+        "tailwind": "Styling with Tailwind CSS 4.1"
+      }
+    }
+  },
+  "references": {
+    "titles": {
+      "coo": "COO",
+      "finance_director": "Finance Director"
+    },
+    "contact": {
+      "on_request": "Available upon request"
+    },
+    "letter": {
+      "general": "Recommendation Letter"
+    }
+  },
+  "soft_skills": {
+    "communication": "Communication",
+    "teamwork": "Teamwork",
+    "problem_solving": "Problem solving",
+    "adaptability": "Adaptability",
+    "time_management": "Time management",
+    "proactivity": "Proactivity",
+    "critical_thinking": "Critical thinking",
+    "empathy": "Empathy",
+    "learning_mindset": "Continuous learning mindset",
+    "accountability": "Accountability",
+    "stress_management": "Stress management",
+    "presentation": "Presentation / Public speaking"
+  },
+  "methodologies": {
+    "scrum": "Scrum",
+    "agile": "Agile Methodology",
+    "kanban": "Kanban"
+  },
+  "titles": {
+    "portfolio": "Portfolio",
+    "experience": "Experience",
+    "education": "Education",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact",
+    "references": "References",
+    "certifications": "Certifications"
+  },
+  "buttons": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "close": "Close",
+    "edit": "Edit",
+    "delete": "Delete",
+    "download": "Download",
+    "see_more": "See more",
+    "see_less": "See less",
+    "view_project": "View project",
+    "view_code": "View code",
+    "contact_me": "Contact me",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "go_to_web": "Visit site",
+    "open_course": "Open course",
+    "have_a_look": "Have a look"
+  },
+  "ui": {
+    "loading": "Loading…",
+    "empty": "No data to display.",
+    "updated": "Updated",
+    "search": "Search",
+    "language": "Language",
+    "theme": "Theme",
+    "dark_mode": "Dark mode",
+    "light_mode": "Light mode"
+  },
+  "actions": {
+    "apply": "Apply",
+    "reset": "Reset",
+    "confirm": "Confirm",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "submit": "Submit"
+  },
+  "messages": {
+    "confirm_delete": "Are you sure you want to delete this item?",
+    "success_generic": "Operation completed successfully.",
+    "error_generic": "An error occurred. Please try again.",
+    "no_pictures": "No pictures yet"
+  },
+  "forms": {
+    "name": "Name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "send": "Send",
+    "required": "This field is required",
+    "invalid_email": "Invalid email address"
+  },
+  "pagination": {
+    "items_per_page": "Items per page",
+    "of": "of",
+    "page": "Page"
+  },
+  "filters": {
+    "all": "All",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "mobile": "Mobile",
+    "tools": "Tools",
+    "databases": "Databases"
+  },
+  "cta": {
+    "hire_me": "Hire me",
+    "download_cv": "Download CV",
+    "get_in_touch": "Get in touch"
+  },
+  "tabs": {
+    "experience": "Experience",
+    "education": "Education",
+    "skills": "Skills"
+  },
+  "about": {
+    "tech_skills": "Technical Skills",
+    "soft_skills": "Soft Skills",
+    "methodologies": "Methodologies",
+    "languages": "Languages",
+    "version_control": "Version Control",
+    "project_management": "Project Management",
+    "ui_libraries": "UI Libraries",
+    "client_storage": "LocalStorages"
+  },
+  "status": {
+    "draft": "Draft",
+    "in_progress": "In progress",
+    "testing": "Testing",
+    "finished": "Finished",
+    "released": "Released",
+    "archived": "Archived",
+    "fixing_bugs": "Fixing bugs",
+    "completed": "Completed",
+    "pending": "Pending"
+  },
+  "labels": {
+    "duration": "Duration",
+    "languages": "Languages",
+    "programming_principles": "Programming principles"
+  },
+    "principles": {
+    "solid": "SOLID",
+    "solid_desc": "Principles for modular, extensible and maintainable software.",
+    "dry": "DRY (Don’t Repeat Yourself)",
+    "dry_desc": "Avoid duplicated logic by favoring reuse and abstraction.",
+    "clean_code": "Clean Code",
+    "clean_code_desc": "Clear, simple code: expressive names, small functions, high cohesion.",
+    "ddd": "DDD (Domain-Driven Design)",
+    "ddd_desc": "Domain-centric model and ubiquitous language with clear boundaries.",
+    "soc": "Separation of Concerns",
+    "soc_desc": "Split the system into components with single, focused responsibilities.",
+    "state_mgmt": "Predictable state management",
+    "state_mgmt_desc": "Clear data flows and a single source of truth.",
+    "ssr_ssg_seo": "SSR / SSG & technical SEO",
+    "ssr_ssg_seo_desc": "Efficient rendering and correct metadata for performance and indexing.",
+    "i18n": "Internationalization (i18n)",
+    "i18n_desc": "Multi-language support via resource bundles and locale formatting.",
+    "testing": "Unit and integration testing",
+    "testing_desc": "Verify behavior in isolation and as a whole.",
+    "authz": "Authentication & authorization",
+    "authz_desc": "Protect identity, permissions and access to resources.",
+    "modularity": "Modularity & reuse",
+    "modularity_desc": "Modules/libraries with stable interfaces and low coupling.",
+    "observability": "Basic observability",
+    "observability_desc": "Useful logs and minimal metrics to detect errors and bottlenecks."
+  }
+
+}
