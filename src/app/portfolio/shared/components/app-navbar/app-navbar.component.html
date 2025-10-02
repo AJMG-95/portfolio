@@ -1,25 +1,22 @@
 <header class="relative z-[100] mx-auto w-full max-w-6xl px-3">
   <div class="navbar rounded-2xl border bg-base-100/80 backdrop-blur shadow-sm">
 
-    <!-- START -->
-    <div class="navbar-start">
-      <!-- Dropdown móvil -->
-      <div #mobileDropdown class="dropdown lg:hidden" [class.dropdown-open]="isOpen()">
-        <button #mobileTrigger type="button" tabindex="0" aria-label="Open menu" class="btn btn-ghost btn-square"
-          aria-haspopup="menu" [attr.aria-expanded]="isOpen()" (click)="toggleMenu()">
+    <div class="navbar-start ">
+      <div class="dropdown lg:hidden">
+        <button tabindex="0" aria-label="Open menu" class="btn btn-ghost btn-square">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h10M4 18h16" />
           </svg>
         </button>
 
-        <ul tabindex="0" role="menu"
-          class="menu menu-sm dropdown-content mt-3 w-56 rounded-2xl border bg-base-100 p-2 shadow-xl z-50"
-          (click)="$event.stopPropagation()">
+        <ul tabindex="0"
+          class="menu menu-sm dropdown-content mt-3 w-56 rounded-2xl border bg-base-100 p-2 shadow-xl z-50">
           @for (navLink of navLinks(); track $index) {
           <li>
-            <!-- Navegación programática para cerrar el menú al finalizar -->
-            <a role="menuitem" href="{{ navLink.url }}" (click)="navigate(navLink, $event)" class="rounded-xl px-3 py-2 transition duration-300 hover:bg-primary hover:text-white
-                     active:animate-bounce-scale active:scale-85">
+            <a [routerLink]="navLink.url" [routerLinkActiveOptions]="{ exact: navLink.exact }"
+              routerLinkActive="bg-primary/15 font-semibold ring-1 ring-primary rounded-xl"
+              class="rounded-xl px-3 py-2 transition duration-300 hover:bg-primary hover:text-white active:animate-bounce-scale active:scale-85"
+              (click)="closeMobileDropdown()">
               {{ navLink.titleKey | transloco }}
             </a>
           </li>
@@ -27,7 +24,6 @@
         </ul>
       </div>
 
-      <!-- Logo / Home -->
       <a [routerLink]="['./']" class="btn btn-ghost px-2 md:px-3 min-w-0 flex-shrink" aria-label="Go home">
         <span class="whitespace-nowrap leading-none font-semibold tracking-tight text-[clamp(0.9rem,3.6vw,1.125rem)]">
           AJMG.dev
@@ -35,7 +31,6 @@
       </a>
     </div>
 
-    <!-- CENTER (desktop) -->
     <nav class="navbar-center hidden lg:flex">
       <ul class="menu menu-horizontal gap-2 px-1">
         @for (navLink of navLinks(); track $index) {
@@ -51,7 +46,6 @@
       </ul>
     </nav>
 
-    <!-- END -->
     <div class="navbar-end">
       <div class="flex items-center gap-2 rounded-xl bg-base-200/60 p-1 flex-none">
         <lang-swicher />
