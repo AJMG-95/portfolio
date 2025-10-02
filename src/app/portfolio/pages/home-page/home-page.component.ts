@@ -22,7 +22,7 @@ export default class HomePageComponent {
 
   cvUrl = computed(() =>
     this.#langSvc.isEnglish()
-      ? 'assets/docs/Resume_AntonioJesusMarchena.pdf'     // EN
-      : 'assets/docs/CV_AntonioJesusMarchena.pdf'         // ES
+      ? 'assets/docs/Resume_AntonioJMarchenaGuerrero.pdf'     // EN
+      : 'assets/docs/CV_AntonioJMarchenaGuerrero.pdf'         // ES
   );
  }
