@@ -2,14 +2,20 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
-  HostListener,
   ViewChild,
   computed,
   inject,
   signal,
+  HostListener,
 } from '@angular/core';
-import { ActivatedRoute, Router, RouterLink, RouterLinkActive, NavigationEnd } from '@angular/router';
-import { filter } from 'rxjs/operators';
+import {
+  ActivatedRoute,
+  Router,
+  RouterLink,
+  RouterLinkActive,
+  NavigationEnd,
+} from '@angular/router';
+import { filter } from 'rxjs';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { ToggleThemeComponent } from '../toggle-theme/toggle-theme.component';
 import { LangSwicherComponent } from '../ lang-swicher/lang-swicher.component';
@@ -33,14 +39,15 @@ export class AppNavbarComponent {
   #router = inject(Router);
   #route = inject(ActivatedRoute);
 
-  // estado del desplegable móvil
+  // Estado del dropdown móvil
   isOpen = signal(false);
 
+  // Referencias al contenedor y al botón del dropdown
   @ViewChild('mobileDropdown', { static: false }) ddRef?: ElementRef<HTMLElement>;
   @ViewChild('mobileTrigger', { static: false }) triggerRef?: ElementRef<HTMLButtonElement>;
 
   constructor() {
-    // Cierra el menú en cada navegación
+    // Cerrar también si se navega desde cualquier otro punto de la app
     this.#router.events
       .pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd))
       .subscribe(() => this.closeMenu());
@@ -48,6 +55,7 @@ export class AppNavbarComponent {
 
   navLinks = computed<NavRoute[]>(() => {
     const children = this.#route.routeConfig?.children ?? [];
+
     return children
       .filter(r => r.path !== '**')
       .filter(r => !!r.loadComponent)
@@ -55,42 +63,49 @@ export class AppNavbarComponent {
         const path = r.path ?? '';
         const rawTitle = (r.title as string) ?? '';
         const titleKey = rawTitle ? `nav.${rawTitle}` : 'nav.home';
+
+        // Para home ('') usamos './' para que routerLinkActive funcione bien
         const commands = path === '' ? ['./'] : [path];
+
         const tree = this.#router.createUrlTree(commands, { relativeTo: this.#route });
         const url = this.#router.serializeUrl(tree);
+
         return { titleKey, path, url, commands, exact: true };
       });
   });
 
+  // Toggle del dropdown móvil
   toggleMenu() {
     this.isOpen.update(v => !v);
   }
 
+  // Cierra el dropdown
   closeMenu() {
     if (this.isOpen()) {
       this.isOpen.set(false);
-      // quita foco del botón para que daisyUI no reabra por focus
       this.triggerRef?.nativeElement?.blur();
     }
   }
 
-  onLinkClick() {
-    this.closeMenu();
+  // Navega programáticamente y cierra el menú al terminar
+  navigate(link: NavRoute, ev: MouseEvent) {
+    ev.preventDefault();
+    this.#router.navigate(link.commands, { relativeTo: this.#route })
+      .finally(() => this.closeMenu());
   }
 
-  // Cierra al hacer click fuera
+  // Click fuera → cerrar
   @HostListener('document:click', ['$event'])
   onDocClick(ev: MouseEvent) {
     if (!this.isOpen()) return;
     const root = this.ddRef?.nativeElement;
-    if (!root) return;
     const target = ev.target as Node | null;
-    if (target && !root.contains(target)) {
-      this.closeMenu();
-    }
+    if (root && target && !root.contains(target)) this.closeMenu();
   }
 
-  // Cierra con ESC
+  // Esc → cerrar
   @HostListener('document:keydown.escape')
-  onEsc() { this.closeMenu(); }
+  onEsc() {
+    this.closeMenu();
+  }
 }
