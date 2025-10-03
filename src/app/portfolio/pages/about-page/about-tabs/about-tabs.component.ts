@@ -5,7 +5,6 @@ import { TranslocoPipe } from '@jsverse/transloco';
   selector: 'about-tabs',
   imports: [TranslocoPipe],
   templateUrl: './about-tabs.component.html',
-  styleUrl: './about-tabs.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AboutTabsComponent {
