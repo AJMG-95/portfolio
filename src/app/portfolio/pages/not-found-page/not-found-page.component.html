@@ -1,1 +1,56 @@
-<p>not-found-page works!</p>,
+<section class="mx-auto w-full max-w-6xl px-6 pt-20 pb-14">
+  <div class="mx-auto max-w-3xl text-center space-y-6">
+    <!-- Card principal -->
+    <div class="relative overflow-hidden rounded-2xl border bg-white/60 dark:bg-white/5 backdrop-blur
+             border-black/10 dark:border-white/10 shadow-xs px-6 py-10">
+      <!-- Halo decorativo -->
+      <div class="pointer-events-none absolute inset-0 -z-10">
+        <div class="absolute -top-20 left-1/2 -translate-x-1/2 h-64 w-64 rounded-full
+                    bg-gradient-to-b from-primary/20 to-transparent blur-3xl"></div>
+      </div>
+
+      <!-- Código grande -->
+      <p class="text-[80px] leading-none font-extrabold tracking-tight
+                bg-gradient-to-b from-primary to-primary/60 dark:from-primary/80 dark:to-primary/40
+                bg-clip-text text-transparent select-none">
+        404
+      </p>
+
+      <h1 class="text-2xl md:text-3xl font-semibold tracking-tight">
+        {{ 'errors.not_found.title' | transloco : { defaultValue: 'Página no encontrada' } }}
+      </h1>
+
+      <p class="text-sm md:text-base opacity-70 max-w-prose mx-auto">
+        {{ 'errors.not_found.desc' | transloco : {
+        defaultValue: 'La ruta que has intentado abrir no existe o ha cambiado. Comprueba la URL o vuelve al inicio.'
+        } }}
+      </p>
+
+      <!-- Acciones -->
+      <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <button type="button" class="btn btn-outline" >
+          {{ 'buttons.go_back' | transloco : { defaultValue: 'Volver' } }}
+        </button>
+
+        <a class="btn btn-primary" [routerLink]="'/'">
+          {{ 'buttons.go_home' | transloco : { defaultValue: 'Ir al inicio' } }}
+        </a>
+      </div>
+
+      <!-- Enlaces rápidos opcionales -->
+      <div class="mt-5 flex flex-wrap justify-center gap-2 text-sm">
+        <a [routerLink]="'/projects'" class="link link-hover">
+          {{ 'nav.projects' | transloco : { defaultValue: 'Proyectos' } }}
+        </a>
+        <span class="opacity-40">·</span>
+        <a [routerLink]="'/certifications'" class="link link-hover">
+          {{ 'nav.certifications' | transloco : { defaultValue: 'Certificaciones' } }}
+        </a>
+        <span class="opacity-40">·</span>
+        <a [routerLink]="'/about'" class="link link-hover">
+          {{ 'nav.about' | transloco : { defaultValue: 'Sobre mí' } }}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
