@@ -5,7 +5,7 @@ import {
   provideZonelessChangeDetection,
   inject,
 } from '@angular/core';
-import { provideRouter, withViewTransitions } from '@angular/router';
+import { provideRouter, withInMemoryScrolling, withViewTransitions } from '@angular/router';
 import { provideTransloco } from '@jsverse/transloco';
 
 import { routes } from './app.routes';
@@ -21,7 +21,11 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     provideRouter(
       routes,
-      withViewTransitions({ skipInitialTransition: true })
+      withViewTransitions({ skipInitialTransition: true }),
+      withInMemoryScrolling({
+        scrollPositionRestoration: 'top',
+        anchorScrolling: 'enabled'
+      })
     ),
 
     provideTransloco({

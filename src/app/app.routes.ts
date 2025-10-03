@@ -1,13 +1,13 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'ajmg/portfolio', pathMatch: 'full' },
+  { path: '', redirectTo: 'ajmg', pathMatch: 'full' },
 
   {
     path: 'ajmg',
     children: [
       {
-        path: 'portfolio',
+        path: '',
         loadChildren: () =>
           import('./portfolio/portfolio.routes').then(m => m.default),
       },
