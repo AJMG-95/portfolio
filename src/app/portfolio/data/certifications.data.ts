@@ -41,7 +41,7 @@ export const certInstitutions: CertInstitution[] = [
     id: 1,
     key: 'institutions.cambridge',
     url: 'https://www.cambridgeenglish.org/',
-    logo: 'assets/images/companies/university_of_cambridge_logo.webp',
+    logo: 'assets/images/companies/logos/university_of_cambridge_logo.webp',
   },
   {
     id: 2,
@@ -254,7 +254,7 @@ export const techCertificationsFrontend: Certification[] = [
     institutionId: 1, // Cambridge
     titleKey: 'certs.language.english.title',
     levelKey: 'certs.language.level.b1',
-    logoUrl: 'assets/images/companies/university_of_cambridge_logo.webp',
+    logoUrl: 'assets/images/companies/logos/university_of_cambridge_logo.webp',
     certificateId: '211ES0013059',
     certificationImage: 'assets/images/certifications/english-B1-cambridget.webp',
     date: '2014',
@@ -265,7 +265,7 @@ export const techCertificationsFrontend: Certification[] = [
     institutionId: 1, // Cambridge
     titleKey: 'certs.language.english.title',
     levelKey: 'certs.language.level.b2',
-    logoUrl: 'assets/images/companies/university_of_cambridge_logo.webp',
+    logoUrl: 'assets/images/companies/logos/university_of_cambridge_logo.webp',
     certificateId: '211ES0015302',
     certificationImage: 'assets/images/certifications/english-B2-cambridget.webp',
     date: '2019',
@@ -275,7 +275,7 @@ export const techCertificationsFrontend: Certification[] = [
     type: 'other',
     institutionId: 4, // UCA
     titleKey: 'certs.entrepreneurship_program',
-    logoUrl: 'assets/images/companies/logo_uca_facutad_ccma_3.webp',
+    logoUrl: 'assets/images/companies/logos/logo_uca_facutad_ccma.webp',
     durationHours: '24',
     completionPercentage: 100,
     certificationImage: 'assets/images/certifications/curso-emprendimiento.webp',
