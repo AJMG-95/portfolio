@@ -100,7 +100,7 @@ export const projects: Project[] = [
     nameKey: 'projects.todoapp.name', // "TodoApp"
     shortDescriptionKey: 'projects.todoapp.short',
     longDescriptionKey: 'projects.todoapp.long',
-    status: ProjectStatus.Testing,
+    status: ProjectStatus.Released,
     techRefs: {
       frontFrameworkIds: [1], // Angular
       uiLibraryIds: [1, 3], // PrimeNG
